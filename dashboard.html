@@ -18,20 +18,17 @@ body{
   min-height:100vh;
   background:#050505;
   color:#fff;
+  padding-bottom:85px;
 }
 
-/* ================================
-   HEADER
-================================ */
-
-.header{
-  height:70px;
-  background:#0c0c0c;
+.topbar{
+  height:68px;
+  background:#0b0b0b;
   border-bottom:1px solid #242424;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 18px;
+  padding:0 17px;
   position:sticky;
   top:0;
   z-index:100;
@@ -40,182 +37,137 @@ body{
 .brand{
   display:flex;
   align-items:center;
-  gap:11px;
+  gap:10px;
 }
 
 .logo{
-  width:42px;
-  height:42px;
-  border-radius:13px;
-  background:linear-gradient(
-    145deg,
-    #ffe082,
-    #d4a72c,
-    #8f6b12
-  );
-  color:#080808;
+  width:41px;
+  height:41px;
+  border-radius:12px;
+  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+  color:#050505;
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:14px;
   font-weight:900;
-  font-size:15px;
 }
 
 .brand-name{
-  font-size:17px;
+  font-size:16px;
   font-weight:900;
   letter-spacing:1.5px;
 }
 
-.logout-btn{
-  border:1px solid #333;
+.top-actions{
+  display:flex;
+  gap:9px;
+}
+
+.icon-btn{
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  border:1px solid #292929;
   background:#151515;
-  color:#ddd;
-  border-radius:10px;
-  padding:9px 13px;
-  font-size:12px;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   cursor:pointer;
 }
 
-.logout-btn:hover{
-  border-color:#d4a72c;
-  color:#e0b83e;
-}
-
-
-/* ================================
-   MAIN
-================================ */
-
-.main{
+.container{
   width:100%;
-  max-width:1000px;
+  max-width:900px;
   margin:auto;
-  padding:22px 16px 100px;
+  padding:23px 16px 30px;
 }
-
-
-/* ================================
-   WELCOME
-================================ */
 
 .welcome{
-  margin-bottom:20px;
+  margin-bottom:19px;
+}
+
+.welcome small{
+  color:#777;
+  font-size:11px;
+  letter-spacing:1px;
 }
 
 .welcome h1{
   font-size:25px;
-  margin-bottom:7px;
+  margin-top:6px;
 }
 
 .welcome h1 span{
-  color:#e0b83e;
+  color:#d4a72c;
 }
 
 .welcome p{
+  margin-top:6px;
   color:#777;
-  font-size:13px;
+  font-size:12px;
 }
 
-
-/* ================================
-   STATUS
-================================ */
-
-.status-card{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-
-.status-left small{
-  color:#777;
-  font-size:10px;
-  display:block;
-  margin-bottom:6px;
-}
-
-.status-left strong{
-  font-size:15px;
-}
-
-.status-badge{
-  padding:8px 12px;
-  border-radius:20px;
-  background:rgba(212,167,44,.10);
-  border:1px solid rgba(212,167,44,.25);
-  color:#e0b83e;
-  font-size:11px;
-  font-weight:bold;
-}
-
-
-/* ================================
-   CARDS
-================================ */
-
-.cards{
-  display:grid;
-  grid-template-columns:
-    repeat(2,1fr);
-  gap:13px;
+.balance-card{
+  background:linear-gradient(145deg,#1a1a1a,#0b0b0b);
+  border:1px solid #3a3a3a;
+  border-radius:23px;
+  padding:22px;
   margin-bottom:20px;
 }
 
-.card{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:17px;
-  padding:18px;
+.balance-label{
+  color:#888;
+  font-size:12px;
 }
 
-.card-icon{
-  width:38px;
-  height:38px;
-  border-radius:11px;
-  background:#181818;
+.balance{
+  font-size:32px;
+  font-weight:900;
+  margin-top:7px;
+}
+
+.currency{
+  color:#d4a72c;
+  font-size:16px;
+}
+
+.balance-info{
+  color:#666;
+  font-size:11px;
+  margin-top:6px;
+}
+
+.balance-bottom{
   display:flex;
   align-items:center;
-  justify-content:center;
-  margin-bottom:13px;
-  font-size:17px;
+  justify-content:space-between;
+  margin-top:19px;
 }
 
-.card small{
-  display:block;
-  color:#777;
-  font-size:10px;
-  margin-bottom:5px;
+.earnings{
+  color:#58d88a;
+  font-size:12px;
+  font-weight:bold;
 }
 
-.card strong{
-  font-size:17px;
-}
-
-
-/* ================================
-   SECTION
-================================ */
-
-.section{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:20px;
-  padding:19px;
-  margin-bottom:18px;
+.withdraw-btn{
+  border:none;
+  border-radius:11px;
+  padding:11px 19px;
+  background:linear-gradient(135deg,#ffe082,#d4a72c);
+  color:#080808;
+  font-weight:900;
+  font-size:12px;
+  cursor:pointer;
 }
 
 .section-title{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:16px;
+  margin:23px 0 12px;
 }
 
 .section-title h2{
@@ -223,1180 +175,1860 @@ body{
 }
 
 .section-title span{
-  color:#666;
+  color:#d4a72c;
   font-size:11px;
 }
 
-
-/* ================================
-   PROFILE
-================================ */
-
-.profile-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:13px 0;
-  border-bottom:1px solid #202020;
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
 }
 
-.profile-row:last-child{
+.stat{
+  background:#101010;
+  border:1px solid #252525;
+  border-radius:16px;
+  padding:15px 10px;
+}
+
+.stat-icon{
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  background:#1b1b1b;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:11px;
+}
+
+.stat-value{
+  font-size:18px;
+  font-weight:900;
+}
+
+.stat-name{
+  color:#666;
+  font-size:10px;
+  margin-top:4px;
+}
+
+/* =========================
+   MY TEAM BOX
+========================= */
+
+.team-box{
+  background:linear-gradient(145deg,#151515,#0b0b0b);
+  border:1px solid #2c2c2c;
+  border-radius:20px;
+  padding:18px;
+  cursor:pointer;
+  transition:.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+.team-box:hover{
+  border-color:#d4a72c;
+  transform:translateY(-2px);
+}
+
+.team-box:active{
+  transform:scale(.98);
+}
+
+.team-box-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.team-box-left{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.team-box-icon{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  background:#1d1d1d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+
+.team-box-title{
+  font-size:15px;
+  font-weight:900;
+}
+
+.team-box-subtitle{
+  color:#666;
+  font-size:10px;
+  margin-top:5px;
+}
+
+.team-box-arrow{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#1c1c1c;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+}
+
+.team-box-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:17px;
+  padding-top:14px;
+  border-top:1px solid #242424;
+}
+
+.team-members-number{
+  color:#d4a72c;
+  font-size:22px;
+  font-weight:900;
+}
+
+.team-members-label{
+  color:#666;
+  font-size:9px;
+  margin-left:5px;
+}
+
+.team-level-label{
+  color:#777;
+  font-size:10px;
+}
+
+/* =========================
+   TEAM PAGE
+========================= */
+
+.team-page{
+  display:none;
+}
+
+.team-page.show{
+  display:block;
+}
+
+.home-page.hide{
+  display:none;
+}
+
+.back-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:none;
+  background:#151515;
+  border:1px solid #292929;
+  color:#ddd;
+  padding:10px 14px;
+  border-radius:11px;
+  font-size:11px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-bottom:17px;
+}
+
+.back-btn:hover{
+  border-color:#d4a72c;
+  color:#d4a72c;
+}
+
+.team-page-header{
+  margin-bottom:17px;
+}
+
+.team-page-header h2{
+  font-size:22px;
+}
+
+.team-page-header p{
+  color:#666;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.team-total-card{
+  background:linear-gradient(145deg,#1a1a1a,#0b0b0b);
+  border:1px solid #333;
+  border-radius:20px;
+  padding:19px;
+  margin-bottom:15px;
+}
+
+.team-total-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.team-total-number{
+  color:#d4a72c;
+  font-size:32px;
+  font-weight:900;
+}
+
+.team-total-label{
+  color:#777;
+  font-size:10px;
+  margin-top:4px;
+}
+
+.team-total-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  background:#1c1c1c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+}
+
+/* LEVELS */
+
+.levels{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.level-card{
+  background:#0d0d0d;
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:16px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.level-card:hover{
+  border-color:#d4a72c;
+}
+
+.level-card.active{
+  border-color:#d4a72c;
+  box-shadow:0 0 0 1px rgba(212,167,44,.12);
+}
+
+.level-number{
+  color:#d4a72c;
+  font-size:12px;
+  font-weight:900;
+}
+
+.level-name{
+  font-size:13px;
+  font-weight:bold;
+  margin-top:6px;
+}
+
+.level-count{
+  margin-top:12px;
+  font-size:23px;
+  font-weight:900;
+}
+
+/* MEMBERS */
+
+.team-list{
+  margin-top:14px;
+  background:#0a0a0a;
+  border:1px solid #222;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.team-list-title{
+  padding:15px;
+  border-bottom:1px solid #222;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.member{
+  padding:13px;
+  border-bottom:1px solid #1d1d1d;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.member:last-child{
   border-bottom:none;
 }
 
-.profile-row span:first-child{
-  color:#777;
-  font-size:12px;
+.member-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
 }
 
-.profile-row span:last-child{
-  color:#eee;
+.member-avatar{
+  width:39px;
+  height:39px;
+  border-radius:12px;
+  background:#1b1b1b;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.member-name{
   font-size:12px;
   font-weight:bold;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.member-username{
+  color:#666;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.member-date{
+  color:#666;
+  font-size:9px;
   text-align:right;
-  max-width:60%;
-  overflow-wrap:anywhere;
 }
 
+.empty-team{
+  text-align:center;
+  padding:27px 15px;
+  color:#666;
+  font-size:11px;
+  line-height:1.6;
+}
 
-/* ================================
-   TEAM
-================================ */
+/* =========================
+   LINK
+========================= */
 
-.team-box{
-  background:#080808;
+.link-card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:18px;
+  padding:17px;
+}
+
+.link-label{
+  color:#777;
+  font-size:11px;
+  margin-bottom:9px;
+}
+
+.link-box{
+  display:flex;
+  gap:8px;
+  background:#070707;
   border:1px solid #252525;
-  border-radius:15px;
-  padding:16px;
+  border-radius:11px;
+  padding:5px 5px 5px 12px;
 }
 
-.team-main{
+.link-text{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  color:#c9c9c9;
+  font-size:11px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
 }
 
-.team-main-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.copy-btn{
+  border:none;
+  background:#d4a72c;
+  color:#080808;
+  border-radius:8px;
+  padding:9px 12px;
+  font-weight:900;
+  font-size:10px;
 }
 
-.team-icon{
-  width:42px;
+.share-btn{
+  width:100%;
+  margin-top:10px;
   height:42px;
-  border-radius:12px;
-  background:rgba(212,167,44,.10);
-  color:#e0b83e;
+  border-radius:10px;
+  border:1px solid #3a3a3a;
+  background:transparent;
+  color:#d4a72c;
+  font-weight:bold;
+}
+
+/* SOCIAL */
+
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.social{
+  text-decoration:none;
+  color:white;
+  background:#101010;
+  border:1px solid #282828;
+  border-radius:17px;
+  padding:17px 9px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.social-icon{
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  background:#191919;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.social-name{
+  margin-top:9px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.social-text{
+  margin-top:4px;
+  color:#666;
+  font-size:9px;
+}
+
+/* ACTIVITY */
+
+.activity{
+  background:#101010;
+  border:1px solid #262626;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.activity-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px;
+  border-bottom:1px solid #202020;
+}
+
+.activity-item:last-child{
+  border-bottom:none;
+}
+
+.activity-left{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.activity-icon{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  background:#1a1a1a;
+  color:#d4a72c;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-.team-main h3{
-  font-size:14px;
-  margin-bottom:4px;
+.activity-name{
+  font-size:12px;
+  font-weight:bold;
 }
 
-.team-main p{
+.activity-date{
   color:#666;
-  font-size:10px;
+  font-size:9px;
+  margin-top:4px;
 }
 
-.team-arrow{
-  color:#777;
-  font-size:20px;
+.activity-amount{
+  color:#58d88a;
+  font-size:11px;
+  font-weight:bold;
 }
 
-
-/* ================================
-   NAVIGATION
-================================ */
+/* NAV */
 
 .bottom-nav{
   position:fixed;
   left:0;
   right:0;
   bottom:0;
-  height:70px;
-  background:rgba(10,10,10,.97);
+  height:72px;
+  background:rgba(10,10,10,.98);
   border-top:1px solid #252525;
-  display:flex;
-  justify-content:center;
-  z-index:200;
+  z-index:100;
 }
 
 .nav-inner{
   width:100%;
   max-width:600px;
-  display:grid;
-  grid-template-columns:
-    repeat(4,1fr);
+  height:100%;
+  margin:auto;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
 }
 
-.nav-btn{
-  border:none;
-  background:none;
+.nav-item{
   color:#666;
+  text-decoration:none;
+  text-align:center;
+  font-size:9px;
   cursor:pointer;
-  font-size:10px;
-  display:flex;
-  flex-direction:column;
+}
+
+.nav-icon{
+  font-size:19px;
+  margin-bottom:4px;
+}
+
+.nav-item.active{
+  color:#d4a72c;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  z-index:300;
   align-items:center;
   justify-content:center;
-  gap:5px;
+  padding:20px;
 }
 
-.nav-btn span{
+.modal-card{
+  width:100%;
+  max-width:420px;
+  max-height:85vh;
+  overflow:auto;
+  background:#111;
+  border:1px solid #333;
+  border-radius:21px;
+  padding:22px;
+}
+
+.modal-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.modal-title h2{
   font-size:19px;
 }
 
-.nav-btn.active{
-  color:#e0b83e;
-}
-
-
-/* ================================
-   TABS
-================================ */
-
-.tab{
-  display:none;
-}
-
-.tab.active{
-  display:block;
-}
-
-
-/* ================================
-   MY TEAM LEVELS
-================================ */
-
-.level{
-  background:#080808;
-  border:1px solid #252525;
-  border-radius:15px;
-  padding:15px;
-  margin-bottom:11px;
-}
-
-.level-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.level-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.level-number{
-  width:35px;
-  height:35px;
-  border-radius:10px;
-  background:#181818;
-  color:#e0b83e;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.level-title strong{
-  font-size:13px;
-}
-
-.level-count{
-  color:#777;
-  font-size:11px;
-}
-
-
-/* ================================
-   WALLET
-================================ */
-
-.balance{
-  text-align:center;
-  padding:25px 10px;
-}
-
-.balance small{
-  color:#777;
-  font-size:11px;
-}
-
-.balance h2{
-  font-size:32px;
-  margin-top:9px;
-  color:#e0b83e;
-}
-
-.wallet-buttons{
-  display:grid;
-  grid-template-columns:
-    repeat(2,1fr);
-  gap:10px;
-}
-
-.wallet-btn{
-  height:47px;
-  border-radius:12px;
-  border:1px solid #2b2b2b;
-  background:#151515;
-  color:#ddd;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.wallet-btn:hover{
-  border-color:#d4a72c;
-}
-
-
-/* ================================
-   PROFILE TAB
-================================ */
-
-.avatar{
-  width:75px;
-  height:75px;
-  margin:0 auto 14px;
+.close{
+  width:32px;
+  height:32px;
   border-radius:50%;
-  background:linear-gradient(
-    145deg,
-    #ffe082,
-    #d4a72c
-  );
-  color:#090909;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
+  border:1px solid #333;
+  background:#191919;
+  color:#aaa;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.profile-row{
+  padding:13px 0;
+  border-bottom:1px solid #222;
+}
+
+.profile-label{
+  color:#666;
+  font-size:10px;
+  margin-bottom:4px;
+}
+
+.profile-value{
+  color:#ddd;
+  font-size:13px;
+  word-break:break-word;
+}
+
+.modal-input{
+  width:100%;
+  height:45px;
+  margin-bottom:12px;
+  padding:0 12px;
+  border-radius:10px;
+  background:#070707;
+  border:1px solid #292929;
+  color:white;
+  outline:none;
+}
+
+.modal-submit{
+  width:100%;
+  height:45px;
+  border:none;
+  border-radius:10px;
+  background:#d4a72c;
+  color:#080808;
   font-weight:900;
 }
 
-.profile-center{
-  text-align:center;
-  margin-bottom:22px;
-}
+@media(max-width:360px){
 
-.profile-center h2{
-  font-size:18px;
-  margin-bottom:5px;
-}
-
-.profile-center p{
-  color:#777;
-  font-size:12px;
-}
-
-
-/* ================================
-   RESPONSIVE
-================================ */
-
-@media(max-width:500px){
-
-  .main{
-    padding-left:13px;
-    padding-right:13px;
+  .balance{
+    font-size:28px;
   }
 
-  .cards{
-    gap:10px;
+  .stats{
+    gap:6px;
   }
 
-  .card{
-    padding:15px;
+  .social-text{
+    display:none;
   }
-
-  .welcome h1{
-    font-size:22px;
-  }
-
 }
 </style>
 </head>
 
 <body>
 
-
-<!-- =================================
-     HEADER
-================================= -->
-
-<header class="header">
+<header class="topbar">
 
   <div class="brand">
-
-    <div class="logo">
-      LC
-    </div>
+    <div class="logo">LC</div>
 
     <div class="brand-name">
       LINKCASH
+    </div>
+  </div>
+
+  <div class="top-actions">
+
+    <button
+      class="icon-btn"
+      onclick="showNotification()"
+    >
+      🔔
+    </button>
+
+    <button
+      class="icon-btn"
+      onclick="openProfile()"
+    >
+      👤
+    </button>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+<!-- =========================
+     HOME PAGE
+========================= -->
+
+<div id="homePage" class="home-page">
+
+  <section class="welcome">
+
+    <small>WELCOME BACK</small>
+
+    <h1>
+      Hello,
+      <span id="username">User</span>
+    </h1>
+
+    <p>
+      Grow your team and earn through your affiliate network.
+    </p>
+
+  </section>
+
+
+  <section class="balance-card">
+
+    <div class="balance-label">
+      Available Commission
+    </div>
+
+    <div class="balance">
+
+      <span class="currency">
+        TZS
+      </span>
+
+      <span id="balance">
+        0.00
+      </span>
+
+    </div>
+
+    <div class="balance-info">
+      Your available affiliate earnings
+    </div>
+
+    <div class="balance-bottom">
+
+      <div class="earnings">
+        + TZS 0.00 this month
+      </div>
+
+      <button
+        class="withdraw-btn"
+        onclick="openWithdraw()"
+      >
+        WITHDRAW
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>Performance</h2>
+
+    <span>Affiliate</span>
+
+  </div>
+
+
+  <section class="stats">
+
+    <div class="stat">
+
+      <div class="stat-icon">👥</div>
+
+      <div
+        class="stat-value"
+        id="referrals"
+      >
+        0
+      </div>
+
+      <div class="stat-name">
+        REFERRALS
+      </div>
+
+    </div>
+
+
+    <div class="stat">
+
+      <div class="stat-icon">👨‍👩‍👧</div>
+
+      <div
+        class="stat-value"
+        id="myTeam"
+      >
+        0
+      </div>
+
+      <div class="stat-name">
+        MY TEAM
+      </div>
+
+    </div>
+
+
+    <div class="stat">
+
+      <div class="stat-icon">📈</div>
+
+      <div
+        class="stat-value"
+        id="conversion"
+      >
+        0%
+      </div>
+
+      <div class="stat-name">
+        CONVERSION
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MY TEAM BOX ONLY -->
+
+  <div class="section-title">
+
+    <h2>My Team</h2>
+
+    <span>Network</span>
+
+  </div>
+
+
+  <section
+    class="team-box"
+    onclick="openTeamPage()"
+  >
+
+    <div class="team-box-top">
+
+      <div class="team-box-left">
+
+        <div class="team-box-icon">
+          👥
+        </div>
+
+        <div>
+
+          <div class="team-box-title">
+            My Team
+          </div>
+
+          <div class="team-box-subtitle">
+            View your team network
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="team-box-arrow">
+        →
+      </div>
+
+    </div>
+
+
+    <div class="team-box-bottom">
+
+      <div>
+
+        <span
+          class="team-members-number"
+          id="homeTeamTotal"
+        >
+          0
+        </span>
+
+        <span class="team-members-label">
+          MEMBERS
+        </span>
+
+      </div>
+
+      <div class="team-level-label">
+        4 LEVELS
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- AFFILIATE LINK -->
+
+  <div class="section-title">
+
+    <h2>My Affiliate Link</h2>
+
+  </div>
+
+
+  <section class="link-card">
+
+    <div class="link-label">
+      Share this link to invite people to your team
+    </div>
+
+    <div class="link-box">
+
+      <div
+        class="link-text"
+        id="affiliateLink"
+      >
+        Loading...
+      </div>
+
+      <button
+        class="copy-btn"
+        onclick="copyLink()"
+      >
+        COPY
+      </button>
+
+    </div>
+
+    <button
+      class="share-btn"
+      onclick="shareLink()"
+    >
+      🔗 SHARE AFFILIATE LINK
+    </button>
+
+  </section>
+
+
+  <!-- SOCIAL -->
+
+  <div class="section-title">
+
+    <h2>Promote & Earn</h2>
+
+    <span>Social Media</span>
+
+  </div>
+
+
+  <section class="social-grid">
+
+    <a
+      href="#"
+      class="social"
+      onclick="promote('TikTok',event)"
+    >
+
+      <div class="social-icon">♪</div>
+
+      <div class="social-name">
+        TikTok
+      </div>
+
+      <div class="social-text">
+        Share your link
+      </div>
+
+    </a>
+
+
+    <a
+      href="#"
+      class="social"
+      onclick="promote('YouTube',event)"
+    >
+
+      <div class="social-icon">▶</div>
+
+      <div class="social-name">
+        YouTube
+      </div>
+
+      <div class="social-text">
+        Promote videos
+      </div>
+
+    </a>
+
+
+    <a
+      href="#"
+      class="social"
+      onclick="promote('Facebook',event)"
+    >
+
+      <div class="social-icon">f</div>
+
+      <div class="social-name">
+        Facebook
+      </div>
+
+      <div class="social-text">
+        Share with friends
+      </div>
+
+    </a>
+
+  </section>
+
+
+  <!-- ACTIVITY -->
+
+  <div class="section-title">
+
+    <h2>Recent Activity</h2>
+
+    <span>Activity</span>
+
+  </div>
+
+
+  <section class="activity">
+
+    <div class="activity-item">
+
+      <div class="activity-left">
+
+        <div class="activity-icon">
+          👥
+        </div>
+
+        <div>
+
+          <div class="activity-name">
+            My Team
+          </div>
+
+          <div class="activity-date">
+            Levels 1 - 4
+          </div>
+
+        </div>
+
+      </div>
+
+      <div
+        class="activity-amount"
+        id="activityTeam"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div class="activity-item">
+
+      <div class="activity-left">
+
+        <div class="activity-icon">
+          💰
+        </div>
+
+        <div>
+
+          <div class="activity-name">
+            Commission
+          </div>
+
+          <div class="activity-date">
+            Available balance
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="activity-amount">
+        TZS 0
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- =========================
+     MY TEAM PAGE
+========================= -->
+
+<div
+  id="teamPage"
+  class="team-page"
+>
+
+  <button
+    class="back-btn"
+    onclick="closeTeamPage()"
+  >
+    ← Back
+  </button>
+
+
+  <div class="team-page-header">
+
+    <h2>
+      My Team
+    </h2>
+
+    <p>
+      Manage and view your 4-level team network.
+    </p>
+
+  </div>
+
+
+  <section class="team-total-card">
+
+    <div class="team-total-row">
+
+      <div>
+
+        <div
+          class="team-total-number"
+          id="teamTotal"
+        >
+          0
+        </div>
+
+        <div class="team-total-label">
+          Total Team Members
+        </div>
+
+      </div>
+
+      <div class="team-total-icon">
+        👥
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ONLY LEVELS -->
+
+  <div class="levels">
+
+    <div
+      class="level-card active"
+      id="levelCard1"
+      onclick="showLevel(1)"
+    >
+
+      <div class="level-number">
+        LEVEL 1
+      </div>
+
+      <div class="level-name">
+        Level 1
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount1"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div
+      class="level-card"
+      id="levelCard2"
+      onclick="showLevel(2)"
+    >
+
+      <div class="level-number">
+        LEVEL 2
+      </div>
+
+      <div class="level-name">
+        Level 2
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount2"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div
+      class="level-card"
+      id="levelCard3"
+      onclick="showLevel(3)"
+    >
+
+      <div class="level-number">
+        LEVEL 3
+      </div>
+
+      <div class="level-name">
+        Level 3
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount3"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div
+      class="level-card"
+      id="levelCard4"
+      onclick="showLevel(4)"
+    >
+
+      <div class="level-number">
+        LEVEL 4
+      </div>
+
+      <div class="level-name">
+        Level 4
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount4"
+      >
+        0
+      </div>
+
     </div>
 
   </div>
 
 
-  <button
-    class="logout-btn"
-    id="logoutBtn"
-  >
-    Logout
-  </button>
+  <div class="team-list">
 
-</header>
-
-
-<!-- =================================
-     MAIN
-================================= -->
-
-<main class="main">
-
-
-  <!-- ===============================
-       HOME TAB
-  ================================ -->
-
-  <section
-    class="tab active"
-    id="homeTab"
-  >
-
-    <div class="welcome">
-
-      <h1>
-        Welcome,
-        <span id="welcomeName">
-          User
-        </span>
-        👋
-      </h1>
-
-      <p>
-        Welcome to your LINKCASH dashboard.
-      </p>
-
+    <div
+      class="team-list-title"
+      id="teamListTitle"
+    >
+      LEVEL 1
     </div>
 
+    <div id="teamMembers"></div>
 
-    <!-- STATUS -->
+  </div>
 
-    <div class="status-card">
-
-      <div class="status-left">
-
-        <small>
-          ACCOUNT STATUS
-        </small>
-
-        <strong id="accountUsername">
-          @username
-        </strong>
-
-      </div>
-
-      <div
-        class="status-badge"
-        id="statusBadge"
-      >
-        ACTIVE
-      </div>
-
-    </div>
-
-
-    <!-- CARDS -->
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-icon">
-          💰
-        </div>
-
-        <small>
-          BALANCE
-        </small>
-
-        <strong>
-          TZS 0
-        </strong>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">
-          👥
-        </div>
-
-        <small>
-          MY TEAM
-        </small>
-
-        <strong>
-          0
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- PROFILE -->
-
-    <div class="section">
-
-      <div class="section-title">
-
-        <h2>
-          Account Information
-        </h2>
-
-        <span>
-          Your details
-        </span>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Full Name
-        </span>
-
-        <span id="fullName">
-          —
-        </span>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Username
-        </span>
-
-        <span id="username">
-          —
-        </span>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Phone
-        </span>
-
-        <span id="phone">
-          —
-        </span>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Email
-        </span>
-
-        <span id="email">
-          —
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <!-- TEAM -->
-
-    <div class="section">
-
-      <div class="section-title">
-
-        <h2>
-          My Team
-        </h2>
-
-        <span>
-          Network
-        </span>
-
-      </div>
-
-
-      <div
-        class="team-box"
-        onclick="openTab('teamTab')"
-        style="cursor:pointer;"
-      >
-
-        <div class="team-main">
-
-          <div class="team-main-left">
-
-            <div class="team-icon">
-              👥
-            </div>
-
-            <div>
-
-              <h3>
-                My Team
-              </h3>
-
-              <p>
-                View your network levels
-              </p>
-
-            </div>
-
-          </div>
-
-          <div class="team-arrow">
-            ›
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===============================
-       TEAM TAB
-  ================================ -->
-
-  <section
-    class="tab"
-    id="teamTab"
-  >
-
-    <div class="section">
-
-      <div class="section-title">
-
-        <h2>
-          My Team
-        </h2>
-
-        <span>
-          Network levels
-        </span>
-
-      </div>
-
-
-      <div class="level">
-
-        <div class="level-head">
-
-          <div class="level-title">
-
-            <div class="level-number">
-              L1
-            </div>
-
-            <strong>
-              Level 1
-            </strong>
-
-          </div>
-
-          <div class="level-count">
-            0 Members
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="level">
-
-        <div class="level-head">
-
-          <div class="level-title">
-
-            <div class="level-number">
-              L2
-            </div>
-
-            <strong>
-              Level 2
-            </strong>
-
-          </div>
-
-          <div class="level-count">
-            0 Members
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="level">
-
-        <div class="level-head">
-
-          <div class="level-title">
-
-            <div class="level-number">
-              L3
-            </div>
-
-            <strong>
-              Level 3
-            </strong>
-
-          </div>
-
-          <div class="level-count">
-            0 Members
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="level">
-
-        <div class="level-head">
-
-          <div class="level-title">
-
-            <div class="level-number">
-              L4
-            </div>
-
-            <strong>
-              Level 4
-            </strong>
-
-          </div>
-
-          <div class="level-count">
-            0 Members
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===============================
-       WALLET TAB
-  ================================ -->
-
-  <section
-    class="tab"
-    id="walletTab"
-  >
-
-    <div class="section">
-
-      <div class="section-title">
-
-        <h2>
-          Wallet
-        </h2>
-
-        <span>
-          LINKCASH
-        </span>
-
-      </div>
-
-
-      <div class="balance">
-
-        <small>
-          AVAILABLE BALANCE
-        </small>
-
-        <h2>
-          TZS 0
-        </h2>
-
-      </div>
-
-
-      <div class="wallet-buttons">
-
-        <button
-          class="wallet-btn"
-          onclick="alert('Deposit feature coming soon.')"
-        >
-          + Deposit
-        </button>
-
-        <button
-          class="wallet-btn"
-          onclick="alert('Withdraw feature coming soon.')"
-        >
-          Withdraw
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===============================
-       PROFILE TAB
-  ================================ -->
-
-  <section
-    class="tab"
-    id="profileTab"
-  >
-
-    <div class="section">
-
-      <div class="profile-center">
-
-        <div
-          class="avatar"
-          id="avatar"
-        >
-          U
-        </div>
-
-        <h2 id="profileName">
-          User
-        </h2>
-
-        <p id="profileUsername">
-          @username
-        </p>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Full Name
-        </span>
-
-        <span id="profileFullName">
-          —
-        </span>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Username
-        </span>
-
-        <span id="profileUserName2">
-          —
-        </span>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Phone
-        </span>
-
-        <span id="profilePhone">
-          —
-        </span>
-
-      </div>
-
-
-      <div class="profile-row">
-
-        <span>
-          Email
-        </span>
-
-        <span id="profileEmail">
-          —
-        </span>
-
-      </div>
-
-    </div>
-
-  </section>
-
+</div>
 
 </main>
 
 
-<!-- =================================
-     BOTTOM NAV
-================================= -->
+<!-- BOTTOM NAV -->
 
 <nav class="bottom-nav">
 
   <div class="nav-inner">
 
-    <button
-      class="nav-btn active"
+    <a
+      href="#"
+      class="nav-item active"
       id="homeNav"
-      onclick="openTab('homeTab')"
+      onclick="goHome(event)"
     >
 
-      <span>
-        🏠
-      </span>
+      <div class="nav-icon">
+        ⌂
+      </div>
 
       Home
 
-    </button>
+    </a>
 
 
-    <button
-      class="nav-btn"
-      id="teamNav"
-      onclick="openTab('teamTab')"
+    <a
+      href="#"
+      class="nav-item"
+      onclick="scrollToLink(event)"
     >
 
-      <span>
+      <div class="nav-icon">
+        🔗
+      </div>
+
+      Link
+
+    </a>
+
+
+    <a
+      href="#"
+      class="nav-item"
+      onclick="openTeamFromNav(event)"
+    >
+
+      <div class="nav-icon">
         👥
-      </span>
+      </div>
 
-      My Team
+      Team
 
-    </button>
+    </a>
 
 
-    <button
-      class="nav-btn"
-      id="walletNav"
-      onclick="openTab('walletTab')"
+    <a
+      href="#"
+      class="nav-item"
+      onclick="openProfile()"
     >
 
-      <span>
-        💰
-      </span>
-
-      Wallet
-
-    </button>
-
-
-    <button
-      class="nav-btn"
-      id="profileNav"
-      onclick="openTab('profileTab')"
-    >
-
-      <span>
+      <div class="nav-icon">
         👤
-      </span>
+      </div>
 
       Profile
 
-    </button>
+    </a>
 
   </div>
 
 </nav>
 
 
+<!-- PROFILE MODAL -->
+
+<div
+  class="modal"
+  id="profileModal"
+>
+
+  <div class="modal-card">
+
+    <div class="modal-title">
+
+      <h2>My Profile</h2>
+
+      <button
+        class="close"
+        onclick="closeModal('profileModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="profile-row">
+
+      <div class="profile-label">
+        FULL NAME
+      </div>
+
+      <div
+        class="profile-value"
+        id="profileName"
+      >
+        —
+      </div>
+
+    </div>
+
+
+    <div class="profile-row">
+
+      <div class="profile-label">
+        USERNAME
+      </div>
+
+      <div
+        class="profile-value"
+        id="profileUsername"
+      >
+        —
+      </div>
+
+    </div>
+
+
+    <div class="profile-row">
+
+      <div class="profile-label">
+        PHONE
+      </div>
+
+      <div
+        class="profile-value"
+        id="profilePhone"
+      >
+        —
+      </div>
+
+    </div>
+
+
+    <div class="profile-row">
+
+      <div class="profile-label">
+        EMAIL
+      </div>
+
+      <div
+        class="profile-value"
+        id="profileEmail"
+      >
+        —
+      </div>
+
+    </div>
+
+
+    <button
+      class="modal-submit"
+      style="margin-top:18px"
+      onclick="logout()"
+    >
+      LOGOUT
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- WITHDRAW MODAL -->
+
+<div
+  class="modal"
+  id="withdrawModal"
+>
+
+  <div class="modal-card">
+
+    <div class="modal-title">
+
+      <h2>Withdraw Commission</h2>
+
+      <button
+        class="close"
+        onclick="closeModal('withdrawModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <p
+      style="
+      color:#777;
+      font-size:12px;
+      line-height:1.6;
+      margin-bottom:16px;
+      "
+    >
+      Enter the amount you want to withdraw.
+    </p>
+
+
+    <input
+      class="modal-input"
+      type="number"
+      id="withdrawAmount"
+      placeholder="Amount in TZS"
+    >
+
+
+    <button
+      class="modal-submit"
+      onclick="submitWithdraw()"
+    >
+      REQUEST WITHDRAWAL
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
 
-/* =========================================
-   LOAD CURRENT USER
-========================================= */
+/* ================================
+   LOGIN PROTECTION
+================================ */
 
-const storedUser =
-  localStorage.getItem(
-    "linkcashUser"
-  );
-
-
-/*
-  IMPORTANT:
-  Do not redirect to login here.
-  This dashboard is using localStorage.
-*/
-
-let user = null;
-
-
-try{
-
-  user =
-    storedUser
-      ? JSON.parse(storedUser)
-      : null;
-
-}catch{
-
-  user = null;
-
-}
-
-
-/* =========================================
-   DISPLAY USER
-========================================= */
-
-if(user){
-
-  const fullname =
-    user.fullname ||
-    "User";
-
-  const username =
-    user.username ||
-    "username";
-
-  const phone =
-    user.phone ||
-    "—";
-
-  const email =
-    user.email ||
-    "—";
-
-  const status =
-    user.status ||
-    "active";
-
-
-  /* HOME */
-
-  document.getElementById(
-    "welcomeName"
-  ).textContent =
-    fullname;
-
-
-  document.getElementById(
-    "accountUsername"
-  ).textContent =
-    "@" + username;
-
-
-  document.getElementById(
-    "fullName"
-  ).textContent =
-    fullname;
-
-
-  document.getElementById(
-    "username"
-  ).textContent =
-    "@" + username;
-
-
-  document.getElementById(
-    "phone"
-  ).textContent =
-    phone;
-
-
-  document.getElementById(
-    "email"
-  ).textContent =
-    email;
-
-
-  document.getElementById(
-    "statusBadge"
-  ).textContent =
-    String(status).toUpperCase();
-
-
-  /* PROFILE */
-
-  document.getElementById(
-    "profileName"
-  ).textContent =
-    fullname;
-
-
-  document.getElementById(
-    "profileUsername"
-  ).textContent =
-    "@" + username;
-
-
-  document.getElementById(
-    "profileFullName"
-  ).textContent =
-    fullname;
-
-
-  document.getElementById(
-    "profileUserName2"
-  ).textContent =
-    "@" + username;
-
-
-  document.getElementById(
-    "profilePhone"
-  ).textContent =
-    phone;
-
-
-  document.getElementById(
-    "profileEmail"
-  ).textContent =
-    email;
-
-
-  /* AVATAR */
-
-  document.getElementById(
-    "avatar"
-  ).textContent =
-    fullname
-      .charAt(0)
-      .toUpperCase();
-
-}
-
-
-/* =========================================
-   OPEN TAB
-========================================= */
-
-function openTab(
-  tabId
+if(
+  localStorage.getItem("linkcashLoggedIn") !== "true"
 ){
+  window.location.href="login.html";
+}
 
-  const tabs =
-    document.querySelectorAll(
-      ".tab"
-    );
 
-  tabs.forEach(
-    function(tab){
+/* ================================
+   CURRENT USER
+================================ */
 
-      tab.classList.remove(
-        "active"
+let currentUser=null;
+
+const savedUser=
+  localStorage.getItem("linkcashUser");
+
+if(savedUser){
+
+  try{
+    currentUser=JSON.parse(savedUser);
+  }catch{
+    currentUser=null;
+  }
+
+}
+
+if(!currentUser){
+  window.location.href="login.html";
+}
+
+
+/* ================================
+   USERS DATABASE
+================================ */
+
+let users=[];
+
+const savedUsers=
+  localStorage.getItem("linkcashUsers");
+
+if(savedUsers){
+
+  try{
+
+    users=JSON.parse(savedUsers);
+
+    if(!Array.isArray(users)){
+      users=[];
+    }
+
+  }catch{
+    users=[];
+  }
+
+}
+
+
+/* ================================
+   CURRENT USERNAME
+================================ */
+
+const currentUsername=
+  String(
+    currentUser.username || ""
+  ).toLowerCase();
+
+
+/* ================================
+   WELCOME
+================================ */
+
+document.getElementById(
+  "username"
+).textContent=
+  currentUser.fullname
+  ? currentUser.fullname.split(" ")[0]
+  : currentUsername;
+
+
+/* ================================
+   PROFILE
+================================ */
+
+document.getElementById(
+  "profileName"
+).textContent=
+  currentUser.fullname || "—";
+
+document.getElementById(
+  "profileUsername"
+).textContent=
+  currentUser.username || "—";
+
+document.getElementById(
+  "profilePhone"
+).textContent=
+  currentUser.phone || "—";
+
+document.getElementById(
+  "profileEmail"
+).textContent=
+  currentUser.email || "—";
+
+
+/* ================================
+   BALANCE
+================================ */
+
+const balance=
+  Number(
+    currentUser.balance || 0
+  );
+
+document.getElementById(
+  "balance"
+).textContent=
+  balance.toLocaleString(
+    undefined,
+    {
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }
+  );
+
+
+/* ================================
+   DIRECT MEMBERS
+================================ */
+
+function getDirectMembers(parentUsername){
+
+  return users.filter(
+    user =>
+      String(
+        user.referrer || ""
+      ).toLowerCase()
+      ===
+      String(
+        parentUsername || ""
+      ).toLowerCase()
+  );
+
+}
+
+
+/* ================================
+   BUILD 4 LEVELS
+================================ */
+
+function buildLevels(username){
+
+  const levels={
+    1:[],
+    2:[],
+    3:[],
+    4:[]
+  };
+
+
+  /* LEVEL 1 */
+
+  levels[1]=
+    getDirectMembers(username);
+
+
+  /* LEVEL 2 */
+
+  levels[1].forEach(
+    person => {
+
+      levels[2].push(
+        ...getDirectMembers(
+          person.username
+        )
       );
 
     }
   );
 
 
-  const selected =
-    document.getElementById(
-      tabId
-    );
+  /* LEVEL 3 */
 
+  levels[2].forEach(
+    person => {
 
-  if(selected){
-
-    selected.classList.add(
-      "active"
-    );
-
-  }
-
-
-  /* NAV ACTIVE */
-
-  const navButtons =
-    document.querySelectorAll(
-      ".nav-btn"
-    );
-
-  navButtons.forEach(
-    function(btn){
-
-      btn.classList.remove(
-        "active"
+      levels[3].push(
+        ...getDirectMembers(
+          person.username
+        )
       );
 
     }
   );
 
 
-  if(tabId === "homeTab"){
+  /* LEVEL 4 */
 
-    document
-      .getElementById(
-        "homeNav"
-      )
-      .classList.add(
-        "active"
+  levels[3].forEach(
+    person => {
+
+      levels[4].push(
+        ...getDirectMembers(
+          person.username
+        )
       );
 
-  }
+    }
+  );
 
 
-  if(tabId === "teamTab"){
+  return levels;
 
-    document
-      .getElementById(
-        "teamNav"
-      )
-      .classList.add(
-        "active"
-      );
-
-  }
+}
 
 
-  if(tabId === "walletTab"){
-
-    document
-      .getElementById(
-        "walletNav"
-      )
-      .classList.add(
-        "active"
-      );
-
-  }
+const levels=
+  buildLevels(
+    currentUsername
+  );
 
 
-  if(tabId === "profileTab"){
+/* ================================
+   TOTALS
+================================ */
 
-    document
-      .getElementById(
-        "profileNav"
-      )
-      .classList.add(
-        "active"
-      );
+const totalTeam=
+  levels[1].length+
+  levels[2].length+
+  levels[3].length+
+  levels[4].length;
 
-  }
 
+document.getElementById(
+  "teamTotal"
+).textContent=
+  totalTeam;
+
+
+document.getElementById(
+  "homeTeamTotal"
+).textContent=
+  totalTeam;
+
+
+document.getElementById(
+  "myTeam"
+).textContent=
+  totalTeam;
+
+
+document.getElementById(
+  "referrals"
+).textContent=
+  levels[1].length;
+
+
+document.getElementById(
+  "activityTeam"
+).textContent=
+  totalTeam;
+
+
+/* ================================
+   LEVEL COUNTS
+================================ */
+
+document.getElementById(
+  "levelCount1"
+).textContent=
+  levels[1].length;
+
+document.getElementById(
+  "levelCount2"
+).textContent=
+  levels[2].length;
+
+document.getElementById(
+  "levelCount3"
+).textContent=
+  levels[3].length;
+
+document.getElementById(
+  "levelCount4"
+).textContent=
+  levels[4].length;
+
+
+/* ================================
+   CONVERSION
+================================ */
+
+const conversion=
+  levels[1].length > 0
+  ? "100%"
+  : "0%";
+
+document.getElementById(
+  "conversion"
+).textContent=
+  conversion;
+
+
+/* ================================
+   AFFILIATE LINK
+================================ */
+
+const baseURL=
+  window.location.origin+
+  window.location.pathname.replace(
+    "dashboard.html",
+    ""
+  );
+
+const affiliateLink=
+  baseURL+
+  "register.html?ref="+
+  encodeURIComponent(
+    currentUsername
+  );
+
+document.getElementById(
+  "affiliateLink"
+).textContent=
+  affiliateLink;
+
+
+/* ================================
+   OPEN MY TEAM
+================================ */
+
+function openTeamPage(){
+
+  document
+    .getElementById("homePage")
+    .classList.add("hide");
+
+  document
+    .getElementById("teamPage")
+    .classList.add("show");
+
+  document
+    .getElementById("homeNav")
+    .classList.remove("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  showLevel(1);
+
+}
+
+
+/* ================================
+   CLOSE MY TEAM
+================================ */
+
+function closeTeamPage(){
+
+  document
+    .getElementById("teamPage")
+    .classList.remove("show");
+
+  document
+    .getElementById("homePage")
+    .classList.remove("hide");
+
+  document
+    .getElementById("homeNav")
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
@@ -1406,39 +2038,490 @@ function openTab(
 }
 
 
-/* =========================================
-   LOGOUT
-========================================= */
+/* ================================
+   LEVEL SELECT
+================================ */
 
-document
-  .getElementById(
-    "logoutBtn"
-  )
-  .addEventListener(
-    "click",
-    function(){
+let selectedLevel=1;
 
-      const confirmLogout =
-        confirm(
-          "Are you sure you want to logout?"
-        );
+function showLevel(level){
+
+  selectedLevel=level;
 
 
-      if(!confirmLogout){
-        return;
+  for(
+    let i=1;
+    i<=4;
+    i++
+  ){
+
+    document
+      .getElementById(
+        "levelCard"+i
+      )
+      .classList.remove(
+        "active"
+      );
+
+  }
+
+
+  document
+    .getElementById(
+      "levelCard"+level
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  document.getElementById(
+    "teamListTitle"
+  ).textContent=
+    "LEVEL "+level;
+
+
+  renderMembers(
+    levels[level]
+  );
+
+}
+
+
+/* ================================
+   RENDER MEMBERS
+================================ */
+
+function renderMembers(members){
+
+  const container=
+    document.getElementById(
+      "teamMembers"
+    );
+
+
+  container.innerHTML="";
+
+
+  if(members.length===0){
+
+    container.innerHTML=`
+
+      <div class="empty-team">
+
+        No members in this level yet.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  members.forEach(
+    member => {
+
+      const name=
+        member.fullname ||
+        member.username ||
+        "User";
+
+
+      const firstLetter=
+        name
+          .charAt(0)
+          .toUpperCase();
+
+
+      let date="";
+
+
+      if(member.joinedAt){
+
+        const d=
+          new Date(
+            member.joinedAt
+          );
+
+        if(!isNaN(d)){
+          date=
+            d.toLocaleDateString();
+        }
+
       }
 
 
-      localStorage.removeItem(
-        "linkcashUser"
+      const item=
+        document.createElement(
+          "div"
+        );
+
+
+      item.className="member";
+
+
+      item.innerHTML=`
+
+        <div class="member-left">
+
+          <div class="member-avatar">
+            ${firstLetter}
+          </div>
+
+          <div>
+
+            <div class="member-name">
+              ${escapeHTML(name)}
+            </div>
+
+            <div class="member-username">
+              @${escapeHTML(
+                member.username || ""
+              )}
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="member-date">
+
+          Joined
+
+          <br>
+
+          ${escapeHTML(
+            date || "—"
+          )}
+
+        </div>
+
+      `;
+
+
+      container.appendChild(
+        item
       );
-
-
-      window.location.href =
-        "login.html";
 
     }
   );
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* ================================
+   HOME
+================================ */
+
+function goHome(event){
+
+  event.preventDefault();
+
+  closeTeamPage();
+
+}
+
+
+/* ================================
+   TEAM NAV
+================================ */
+
+function openTeamFromNav(event){
+
+  event.preventDefault();
+
+  openTeamPage();
+
+}
+
+
+/* ================================
+   LINK NAV
+================================ */
+
+function scrollToLink(event){
+
+  event.preventDefault();
+
+
+  if(
+    document
+      .getElementById("teamPage")
+      .classList.contains("show")
+  ){
+
+    closeTeamPage();
+
+  }
+
+
+  setTimeout(() => {
+
+    document
+      .querySelector(".link-card")
+      .scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+  },100);
+
+}
+
+
+/* ================================
+   COPY LINK
+================================ */
+
+function copyLink(){
+
+  const link=
+    document.getElementById(
+      "affiliateLink"
+    ).textContent;
+
+
+  if(navigator.clipboard){
+
+    navigator.clipboard
+      .writeText(link)
+      .then(
+        () =>
+          alert(
+            "Affiliate link copied!"
+          )
+      );
+
+  }else{
+
+    alert(link);
+
+  }
+
+}
+
+
+/* ================================
+   SHARE
+================================ */
+
+function shareLink(){
+
+  const link=
+    document.getElementById(
+      "affiliateLink"
+    ).textContent;
+
+
+  if(navigator.share){
+
+    navigator.share({
+
+      title:"Join LINKCASH",
+
+      text:
+        "Join LINKCASH using my affiliate link.",
+
+      url:link
+
+    });
+
+  }else{
+
+    copyLink();
+
+  }
+
+}
+
+
+/* ================================
+   SOCIAL
+================================ */
+
+function promote(platform,event){
+
+  event.preventDefault();
+
+
+  const link=
+    document.getElementById(
+      "affiliateLink"
+    ).textContent;
+
+
+  if(platform==="Facebook"){
+
+    if(navigator.share){
+
+      navigator.share({
+
+        title:"Join LINKCASH",
+
+        text:
+          "Join LINKCASH using my affiliate link.",
+
+        url:link
+
+      });
+
+    }else{
+
+      copyLink();
+
+    }
+
+    return;
+
+  }
+
+
+  alert(
+    "Copy your LINKCASH affiliate link and share it on "+
+    platform+
+    ":\n\n"+
+    link
+  );
+
+}
+
+
+/* ================================
+   WITHDRAW
+================================ */
+
+function openWithdraw(){
+
+  document.getElementById(
+    "withdrawModal"
+  ).style.display="flex";
+
+}
+
+
+function submitWithdraw(){
+
+  const amount=
+    Number(
+      document.getElementById(
+        "withdrawAmount"
+      ).value
+    );
+
+
+  if(!amount || amount<=0){
+
+    alert(
+      "Enter a valid withdrawal amount."
+    );
+
+    return;
+
+  }
+
+
+  if(amount>balance){
+
+    alert(
+      "Insufficient balance."
+    );
+
+    return;
+
+  }
+
+
+  alert(
+    "Withdrawal request received.\n\n"+
+    "Amount: TZS "+
+    amount.toLocaleString()
+  );
+
+
+  document.getElementById(
+    "withdrawAmount"
+  ).value="";
+
+
+  closeModal(
+    "withdrawModal"
+  );
+
+}
+
+
+/* ================================
+   PROFILE
+================================ */
+
+function openProfile(){
+
+  document.getElementById(
+    "profileModal"
+  ).style.display="flex";
+
+}
+
+
+/* ================================
+   CLOSE MODAL
+================================ */
+
+function closeModal(id){
+
+  document.getElementById(
+    id
+  ).style.display="none";
+
+}
+
+
+/* ================================
+   NOTIFICATION
+================================ */
+
+function showNotification(){
+
+  alert(
+    "No new notifications."
+  );
+
+}
+
+
+/* ================================
+   LOGOUT
+================================ */
+
+function logout(){
+
+  localStorage.removeItem(
+    "linkcashLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "linkcashUser"
+  );
+
+  window.location.href=
+    "login.html";
+
+}
 
 </script>
 
