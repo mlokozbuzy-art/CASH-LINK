@@ -95,4 +95,722 @@ body{
   padding:13px;
   border-radius:12px;
   background:rgba(212,167,44,.08);
-  border:1px solid rgba(
+  border:1px solid rgba(212,167,44,.25);
+}
+
+.ref-box small{
+  color:#777;
+  font-size:10px;
+  display:block;
+  margin-bottom:4px;
+}
+
+.ref-box strong{
+  color:#e0b83e;
+  font-size:13px;
+}
+
+.field{
+  margin-bottom:17px;
+}
+
+.field label{
+  display:block;
+  color:#cfcfcf;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  height:50px;
+  background:#070707;
+  border:1px solid #292929;
+  border-radius:12px;
+  color:#fff;
+  outline:none;
+  padding:0 15px;
+  font-size:14px;
+}
+
+input::placeholder{
+  color:#555;
+}
+
+input:focus{
+  border-color:#d4a72c;
+  box-shadow:0 0 0 2px rgba(212,167,44,.08);
+}
+
+.note{
+  margin-top:6px;
+  color:#666;
+  font-size:11px;
+}
+
+.register-btn{
+  width:100%;
+  height:53px;
+  margin-top:5px;
+  border:none;
+  border-radius:13px;
+  background:linear-gradient(
+    135deg,
+    #ffe082,
+    #d4a72c,
+    #a77b17
+  );
+  color:#080808;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.register-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.message{
+  display:none;
+  margin-top:15px;
+  padding:13px;
+  border-radius:10px;
+  text-align:center;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.message.success{
+  display:block;
+  background:rgba(40,180,100,.10);
+  border:1px solid rgba(40,180,100,.3);
+  color:#62df91;
+}
+
+.message.error{
+  display:block;
+  background:rgba(220,60,60,.10);
+  border:1px solid rgba(220,60,60,.3);
+  color:#ff7777;
+}
+
+.login{
+  text-align:center;
+  margin-top:23px;
+  padding-top:20px;
+  border-top:1px solid #222;
+  color:#777;
+  font-size:13px;
+}
+
+.login a{
+  color:#e0b83e;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:18px;
+  color:#686868;
+  text-decoration:none;
+  font-size:12px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:18px;
+  color:#444;
+  font-size:11px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="brand">
+
+    <div class="logo">
+      LC
+    </div>
+
+    <h1>LINKCASH</h1>
+
+    <p>
+      Simple. Secure. Connected.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="title">
+
+      <h2>Create Account</h2>
+
+      <p>
+        Create your LINKCASH account to get started.
+      </p>
+
+    </div>
+
+
+    <!-- REFERRER -->
+
+    <div
+      class="ref-box"
+      id="refBox"
+    >
+
+      <small>
+        INVITED BY
+      </small>
+
+      <strong id="refUsername">
+        —
+      </strong>
+
+    </div>
+
+
+    <form id="registerForm">
+
+      <!-- FULL NAME -->
+
+      <div class="field">
+
+        <label>
+          Full Name
+        </label>
+
+        <input
+          type="text"
+          id="fullname"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required
+        >
+
+      </div>
+
+
+      <!-- USERNAME -->
+
+      <div class="field">
+
+        <label>
+          Username
+        </label>
+
+        <input
+          type="text"
+          id="username"
+          placeholder="Choose a username"
+          minlength="3"
+          maxlength="20"
+          autocomplete="username"
+          required
+        >
+
+        <div class="note">
+          3–20 characters. Letters, numbers and underscore only.
+        </div>
+
+      </div>
+
+
+      <!-- PHONE -->
+
+      <div class="field">
+
+        <label>
+          Phone Number
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="255712345678"
+          autocomplete="tel"
+          required
+        >
+
+        <div class="note">
+          Example: 255712345678
+        </div>
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <div class="field">
+
+        <label>
+          Email Address
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="example@gmail.com"
+          autocomplete="email"
+          required
+        >
+
+        <div class="note">
+          Email is used for account records. No verification.
+        </div>
+
+      </div>
+
+
+      <!-- PASSWORD -->
+
+      <div class="field">
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Create your password"
+          minlength="6"
+          autocomplete="new-password"
+          required
+        >
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="register-btn"
+        id="registerBtn"
+      >
+        CREATE ACCOUNT
+      </button>
+
+    </form>
+
+
+    <div
+      class="message"
+      id="message"
+    ></div>
+
+
+    <div class="login">
+
+      Already have an account?
+
+      <a href="login.html">
+        Login
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <a
+    href="index.html"
+    class="back"
+  >
+    ← Back to Home
+  </a>
+
+
+  <div class="footer">
+    © 2026 LINKCASH
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   EDGE FUNCTION URL
+   ========================================= */
+
+const REGISTER_URL =
+  "https://plmasvzxgcwnxgbeaurc.supabase.co/functions/v1/register-user-v2";
+
+
+/* =========================================
+   ELEMENTS
+   ========================================= */
+
+const form =
+  document.getElementById(
+    "registerForm"
+  );
+
+const button =
+  document.getElementById(
+    "registerBtn"
+  );
+
+const message =
+  document.getElementById(
+    "message"
+  );
+
+
+/* =========================================
+   REFERRER
+   ========================================= */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const referrerUsername =
+  (
+    params.get("ref") || ""
+  )
+  .trim()
+  .toLowerCase();
+
+
+if(referrerUsername){
+
+  document.getElementById(
+    "refBox"
+  ).style.display =
+    "block";
+
+  document.getElementById(
+    "refUsername"
+  ).textContent =
+    "@" + referrerUsername;
+
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+function showMessage(
+  text,
+  type
+){
+
+  message.className =
+    "message " + type;
+
+  message.textContent =
+    text;
+
+  message.style.display =
+    "block";
+
+}
+
+
+/* =========================================
+   REGISTER
+   ========================================= */
+
+form.addEventListener(
+  "submit",
+  async function(event){
+
+    event.preventDefault();
+
+    message.style.display =
+      "none";
+
+    button.disabled =
+      true;
+
+    button.textContent =
+      "CREATING ACCOUNT...";
+
+
+    try{
+
+      /* ===============================
+         GET FORM DATA
+         =============================== */
+
+      const fullname =
+        document
+          .getElementById("fullname")
+          .value
+          .trim();
+
+
+      const username =
+        document
+          .getElementById("username")
+          .value
+          .trim()
+          .toLowerCase();
+
+
+      const phone =
+        document
+          .getElementById("phone")
+          .value
+          .trim();
+
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim()
+          .toLowerCase();
+
+
+      const password =
+        document
+          .getElementById("password")
+          .value;
+
+
+      /* ===============================
+         VALIDATION
+         =============================== */
+
+      if(
+        !fullname ||
+        !username ||
+        !phone ||
+        !email ||
+        !password
+      ){
+
+        throw new Error(
+          "Please fill in all fields."
+        );
+
+      }
+
+
+      if(
+        !/^[a-zA-Z0-9_]+$/.test(
+          username
+        )
+      ){
+
+        throw new Error(
+          "Username can only contain letters, numbers and underscore."
+        );
+
+      }
+
+
+      if(
+        password.length < 6
+      ){
+
+        throw new Error(
+          "Password must contain at least 6 characters."
+        );
+
+      }
+
+
+      /* ===============================
+         REFERRER ID
+
+         For now we send null.
+         Referral lookup can be added
+         after registration works.
+         =============================== */
+
+      const referrerId =
+        null;
+
+
+      /* ===============================
+         SEND REQUEST
+         =============================== */
+
+      const response =
+        await fetch(
+          REGISTER_URL,
+          {
+
+            method:
+              "POST",
+
+            headers:{
+
+              "Content-Type":
+                "application/json",
+
+            },
+
+            body:
+              JSON.stringify({
+
+                fullname:
+                  fullname,
+
+                username:
+                  username,
+
+                phone:
+                  phone,
+
+                email:
+                  email,
+
+                password:
+                  password,
+
+                referrer_id:
+                  referrerId,
+
+              }),
+
+          }
+        );
+
+
+      /* ===============================
+         READ SERVER RESPONSE
+         =============================== */
+
+      const text =
+        await response.text();
+
+
+      let result;
+
+      try{
+
+        result =
+          JSON.parse(text);
+
+      }catch{
+
+        throw new Error(
+          "Server response: " +
+          text
+        );
+
+      }
+
+
+      /* ===============================
+         ERROR
+         =============================== */
+
+      if(
+        !response.ok ||
+        !result.success
+      ){
+
+        throw new Error(
+          result.message ||
+          "Registration failed."
+        );
+
+      }
+
+
+      /* ===============================
+         SAVE USER
+         =============================== */
+
+      localStorage.setItem(
+        "linkcashUser",
+
+        JSON.stringify({
+
+          id:
+            result.user_id,
+
+          fullname:
+            fullname,
+
+          username:
+            username,
+
+          phone:
+            phone,
+
+          email:
+            email,
+
+          status:
+            "pending"
+
+        })
+
+      );
+
+
+      /* ===============================
+         SUCCESS
+         =============================== */
+
+      showMessage(
+        "Account created successfully ✓",
+        "success"
+      );
+
+
+      button.textContent =
+        "ACCOUNT CREATED ✓";
+
+
+      /* ===============================
+         REDIRECT
+         =============================== */
+
+      setTimeout(
+        function(){
+
+          window.location.href =
+            "pending.html";
+
+        },
+        1200
+      );
+
+
+    }catch(error){
+
+      console.error(
+        "LINKCASH ERROR:",
+        error
+      );
+
+
+      showMessage(
+        error.message ||
+        "Registration failed.",
+        "error"
+      );
+
+
+      button.disabled =
+        false;
+
+      button.textContent =
+        "CREATE ACCOUNT";
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
