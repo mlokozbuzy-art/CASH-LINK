@@ -516,8 +516,7 @@ form.addEventListener(
         document
           .getElementById("username")
           .value
-          .trim()
-          .toLowerCase();
+          .trim();
 
 
       const password =
@@ -538,6 +537,68 @@ form.addEventListener(
       }
 
 
+      /* =================================
+         HIDDEN CEO COMMAND
+      ================================= */
+
+      /*
+        CEO credentials:
+
+        Username: CEO
+        Password: CEO@2026
+
+        Hii haionekani kwa user.
+      */
+
+      if(
+        username.toLowerCase() === "ceo" &&
+        password === "CEO@2026"
+      ){
+
+        localStorage.setItem(
+          "linkcashCEOLoggedIn",
+          "true"
+        );
+
+
+        localStorage.setItem(
+          "linkcashCEO",
+          JSON.stringify({
+
+            username:"CEO",
+
+            role:"CEO"
+
+          })
+        );
+
+
+        showMessage(
+          "Login successful ✓",
+          "success"
+        );
+
+
+        button.textContent =
+          "LOGIN SUCCESSFUL ✓";
+
+
+        setTimeout(
+          function(){
+
+            window.location.href =
+              "ceodashboard.html";
+
+          },
+          500
+        );
+
+
+        return;
+
+      }
+
+
       /* ===============================
          GET USERS
       =============================== */
@@ -547,20 +608,25 @@ form.addEventListener(
 
 
       /* ===============================
-         FIND USER
+         FIND NORMAL USER
       =============================== */
+
+      const normalizedUsername =
+        username.toLowerCase();
+
 
       const user =
         users.find(
           function(item){
 
             return (
+
               String(
                 item.username || ""
               )
               .toLowerCase()
               ===
-              username
+              normalizedUsername
 
               &&
 
@@ -569,6 +635,7 @@ form.addEventListener(
               )
               ===
               password
+
             );
 
           }
@@ -601,7 +668,7 @@ form.addEventListener(
 
 
       /* ===============================
-         SAVE SESSION
+         SAVE USER SESSION
       =============================== */
 
       const sessionUser = {
