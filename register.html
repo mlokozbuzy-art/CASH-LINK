@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LINKCASH | Create Account</title>
+  <title>LINKCASH - Register</title>
 
   <style>
     * {
@@ -16,77 +16,90 @@
 
     body {
       min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, #123d69 0%, transparent 35%),
-        radial-gradient(circle at bottom right, #075b68 0%, transparent 35%),
-        #050b14;
-      color: #fff;
+      background: #050505;
+      color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 18px;
+      padding: 20px;
     }
 
-    .page {
+    .wrapper {
       width: 100%;
       max-width: 430px;
     }
 
-    .top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
+    /* BRAND */
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .brand-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
-      background: linear-gradient(135deg, #00e5ff, #087cff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #00111b;
-      font-size: 16px;
-    }
-
-    .home {
-      color: #91a4b8;
-      text-decoration: none;
-      font-size: 13px;
-    }
-
-    .card {
-      background: rgba(12, 23, 38, .88);
-      border: 1px solid rgba(255,255,255,.09);
-      border-radius: 26px;
-      padding: 28px 22px;
-      box-shadow: 0 25px 70px rgba(0,0,0,.35);
-    }
-
-    .welcome {
+      text-align: center;
       margin-bottom: 25px;
     }
 
-    .welcome h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
+    .logo {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      border-radius: 20px;
+
+      background: linear-gradient(
+        145deg,
+        #ffe082,
+        #d4a72c,
+        #8f6b12
+      );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #090909;
+      font-size: 24px;
+      font-weight: 900;
+
+      box-shadow:
+        0 0 25px rgba(212,167,44,.25);
     }
 
-    .welcome p {
-      color: #8fa2b7;
-      font-size: 14px;
-      line-height: 1.6;
+    .brand h1 {
+      margin-top: 13px;
+      font-size: 28px;
+      letter-spacing: 3px;
     }
+
+    .brand p {
+      margin-top: 7px;
+      color: #8d8d8d;
+      font-size: 13px;
+    }
+
+    /* CARD */
+
+    .card {
+      background: #101010;
+      border: 1px solid #292929;
+      border-radius: 24px;
+      padding: 27px 22px;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.6);
+    }
+
+    .title {
+      margin-bottom: 23px;
+    }
+
+    .title h2 {
+      font-size: 23px;
+      margin-bottom: 7px;
+    }
+
+    .title p {
+      color: #858585;
+      font-size: 13px;
+    }
+
+    /* INPUT */
 
     .field {
       margin-bottom: 17px;
@@ -94,221 +107,288 @@
 
     .field label {
       display: block;
+      color: #cfcfcf;
       font-size: 13px;
-      color: #b9c7d6;
       margin-bottom: 8px;
-    }
-
-    .input-box {
-      position: relative;
-    }
-
-    .input-box span {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #647b91;
-      font-size: 15px;
     }
 
     input {
       width: 100%;
       height: 50px;
-      padding: 0 14px 0 42px;
-      background: #081321;
-      border: 1px solid #1b2b3e;
-      border-radius: 13px;
-      outline: none;
+
+      background: #070707;
+      border: 1px solid #292929;
+      border-radius: 12px;
+
       color: white;
+      outline: none;
+
+      padding: 0 15px;
       font-size: 14px;
+
       transition: .2s;
     }
 
-    input:focus {
-      border-color: #00c6ff;
-      box-shadow: 0 0 0 3px rgba(0,198,255,.08);
-    }
-
     input::placeholder {
-      color: #53677c;
+      color: #555;
     }
 
-    .password-note {
-      margin-top: 7px;
-      color: #60758a;
-      font-size: 11px;
+    input:focus {
+      border-color: #d4a72c;
+
+      box-shadow:
+        0 0 0 2px rgba(212,167,44,.08);
     }
 
-    button {
+    /* BUTTON */
+
+    .register-btn {
       width: 100%;
-      height: 52px;
+      height: 53px;
+
+      margin-top: 5px;
+
       border: none;
       border-radius: 13px;
-      background: linear-gradient(135deg, #00d9ff, #087cff);
-      color: #00111b;
+
+      background: linear-gradient(
+        135deg,
+        #ffe082,
+        #d4a72c,
+        #a77b17
+      );
+
+      color: #080808;
+
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 900;
+      letter-spacing: .5px;
+
       cursor: pointer;
-      margin-top: 6px;
-      box-shadow: 0 12px 25px rgba(0,150,255,.18);
+
+      box-shadow:
+        0 10px 25px rgba(212,167,44,.16);
     }
 
-    button:active {
+    .register-btn:active {
       transform: scale(.98);
     }
 
-    .terms {
-      margin-top: 15px;
-      color: #65798e;
-      text-align: center;
-      font-size: 11px;
-      line-height: 1.5;
-    }
+    /* LOGIN */
 
     .login {
       text-align: center;
-      margin-top: 22px;
+
+      margin-top: 23px;
       padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.07);
-      color: #7e91a5;
+
+      border-top: 1px solid #222;
+
+      color: #777;
       font-size: 13px;
     }
 
     .login a {
-      color: #00c6ff;
+      color: #e0b83e;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: bold;
     }
+
+    /* MESSAGE */
 
     .message {
       display: none;
+
       margin-top: 15px;
       padding: 12px;
-      border-radius: 12px;
+
+      border-radius: 10px;
+
       text-align: center;
-      background: rgba(0, 210, 150, .1);
-      border: 1px solid rgba(0, 210, 150, .2);
-      color: #63e6be;
+
+      background: rgba(212,167,44,.08);
+      border: 1px solid rgba(212,167,44,.25);
+
+      color: #e6c65c;
       font-size: 13px;
+    }
+
+    .back {
+      display: block;
+
+      text-align: center;
+
+      margin-top: 18px;
+
+      color: #686868;
+      text-decoration: none;
+
+      font-size: 12px;
+    }
+
+    .back:hover {
+      color: #d4a72c;
     }
 
     .footer {
       text-align: center;
-      color: #405267;
-      font-size: 11px;
+
       margin-top: 18px;
+
+      color: #444;
+
+      font-size: 11px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="page">
+  <div class="wrapper">
 
-    <div class="top">
+    <!-- BRAND -->
 
-      <div class="brand">
-        <div class="brand-icon">LC</div>
-        <span>LINKCASH</span>
+    <div class="brand">
+
+      <div class="logo">
+        LC
       </div>
 
-      <a href="index.html" class="home">Home</a>
+      <h1>LINKCASH</h1>
+
+      <p>Simple. Secure. Connected.</p>
 
     </div>
 
+
+    <!-- REGISTER CARD -->
+
     <div class="card">
 
-      <div class="welcome">
-        <h1>Create account</h1>
+      <div class="title">
+
+        <h2>Create your account</h2>
+
         <p>
-          Join LINKCASH and create your personal account.
+          Enter your details to get started.
         </p>
+
       </div>
+
 
       <form id="registerForm">
 
-        <div class="field">
-          <label>Full name</label>
+        <!-- NAME -->
 
-          <div class="input-box">
-            <span>👤</span>
-            <input
-              type="text"
-              id="fullname"
-              placeholder="Your full name"
-              required
-            >
-          </div>
+        <div class="field">
+
+          <label>Full Name</label>
+
+          <input
+            type="text"
+            id="fullname"
+            placeholder="Enter your full name"
+            required
+          >
+
         </div>
 
-        <div class="field">
-          <label>Phone number</label>
 
-          <div class="input-box">
-            <span>📱</span>
-            <input
-              type="tel"
-              id="phone"
-              placeholder="07XXXXXXXX"
-              required
-            >
-          </div>
+        <!-- PHONE -->
+
+        <div class="field">
+
+          <label>Phone Number</label>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="07XXXXXXXX"
+            required
+          >
+
         </div>
 
-        <div class="field">
-          <label>Email address</label>
 
-          <div class="input-box">
-            <span>✉</span>
-            <input
-              type="email"
-              id="email"
-              placeholder="example@email.com"
-              required
-            >
-          </div>
+        <!-- EMAIL -->
+
+        <div class="field">
+
+          <label>Email Address</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          >
+
         </div>
 
+
+        <!-- PASSWORD -->
+
         <div class="field">
+
           <label>Password</label>
 
-          <div class="input-box">
-            <span>🔒</span>
-            <input
-              type="password"
-              id="password"
-              placeholder="Create a password"
-              minlength="6"
-              required
-            >
-          </div>
+          <input
+            type="password"
+            id="password"
+            placeholder="Create a password"
+            minlength="6"
+            required
+          >
 
-          <div class="password-note">
-            Use at least 6 characters.
-          </div>
         </div>
 
-        <button type="submit">
-          CREATE ACCOUNT →
+
+        <!-- BUTTON -->
+
+        <button
+          type="submit"
+          class="register-btn"
+        >
+          CREATE ACCOUNT
         </button>
 
       </form>
 
-      <div class="message" id="message">
+
+      <!-- MESSAGE -->
+
+      <div
+        class="message"
+        id="message"
+      >
         Account created successfully ✓
       </div>
 
-      <div class="terms">
-        By creating an account, you agree to use LINKCASH responsibly.
-      </div>
+
+      <!-- LOGIN -->
 
       <div class="login">
+
         Already have an account?
-        <a href="login.html">Login</a>
+
+        <a href="login.html">
+          Login
+        </a>
+
       </div>
 
     </div>
+
+
+    <!-- BACK -->
+
+    <a
+      href="index.html"
+      class="back"
+    >
+      ← Back to Home
+    </a>
+
 
     <div class="footer">
       © 2026 LINKCASH
@@ -316,34 +396,72 @@
 
   </div>
 
+
   <script>
 
-    const form = document.getElementById("registerForm");
-    const message = document.getElementById("message");
+    const form =
+      document.getElementById("registerForm");
 
-    form.addEventListener("submit", function(event) {
+    const message =
+      document.getElementById("message");
 
-      event.preventDefault();
 
-      const user = {
-        fullname: document.getElementById("fullname").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        password: document.getElementById("password").value
-      };
+    form.addEventListener(
+      "submit",
+      function(event) {
 
-      localStorage.setItem(
-        "linkcashUser",
-        JSON.stringify(user)
-      );
+        event.preventDefault();
 
-      message.style.display = "block";
 
-      setTimeout(() => {
-        window.location.href = "login.html";
-      }, 1200);
+        const user = {
 
-    });
+          fullname:
+            document
+              .getElementById("fullname")
+              .value
+              .trim(),
+
+          phone:
+            document
+              .getElementById("phone")
+              .value
+              .trim(),
+
+          email:
+            document
+              .getElementById("email")
+              .value
+              .trim(),
+
+          password:
+            document
+              .getElementById("password")
+              .value
+
+        };
+
+
+        localStorage.setItem(
+          "linkcashUser",
+          JSON.stringify(user)
+        );
+
+
+        message.style.display = "block";
+
+
+        setTimeout(
+          function() {
+
+            window.location.href =
+              "login.html";
+
+          },
+          1200
+        );
+
+      }
+    );
 
   </script>
 
