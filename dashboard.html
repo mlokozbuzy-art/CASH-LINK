@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>LINKCASH - Dashboard</title>
 
-
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -21,1030 +14,606 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-
     body {
       min-height: 100vh;
       background: #050505;
-      color: #ffffff;
+      color: #fff;
       padding-bottom: 85px;
     }
 
-
-    /* =========================
-       TOP BAR
-    ========================= */
-
+    /* TOP BAR */
     .topbar {
-
       height: 68px;
-
       background: #0b0b0b;
-
       border-bottom: 1px solid #242424;
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       padding: 0 17px;
-
       position: sticky;
-
       top: 0;
-
       z-index: 100;
     }
 
-
     .brand {
-
       display: flex;
-
       align-items: center;
-
       gap: 10px;
     }
 
-
     .logo {
-
       width: 41px;
-
       height: 41px;
-
       border-radius: 12px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #ffe082,
-          #d4a72c,
-          #8f6b12
-        );
-
+      background: linear-gradient(145deg, #ffe082, #d4a72c, #8f6b12);
       color: #050505;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       font-size: 14px;
-
       font-weight: 900;
-
-      box-shadow:
-        0 0 20px
-        rgba(212,167,44,.15);
+      box-shadow: 0 0 20px rgba(212,167,44,.15);
     }
 
-
     .brand-name {
-
       font-size: 16px;
-
       font-weight: 900;
-
       letter-spacing: 1.5px;
     }
 
-
     .top-actions {
-
       display: flex;
-
       align-items: center;
-
       gap: 9px;
     }
 
-
     .icon-btn {
-
       width: 39px;
-
       height: 39px;
-
       border-radius: 50%;
-
       border: 1px solid #292929;
-
       background: #151515;
-
       color: #d4a72c;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       cursor: pointer;
-
       font-size: 16px;
     }
 
-
-    /* =========================
-       MAIN
-    ========================= */
-
+    /* MAIN */
     .container {
-
       width: 100%;
-
       max-width: 900px;
-
       margin: auto;
-
       padding: 23px 16px 30px;
     }
 
-
-    /* =========================
-       WELCOME
-    ========================= */
-
+    /* WELCOME */
     .welcome {
-
       margin-bottom: 19px;
     }
 
-
     .welcome small {
-
       color: #777;
-
       font-size: 11px;
-
       letter-spacing: 1px;
     }
 
-
     .welcome h1 {
-
       font-size: 25px;
-
       margin-top: 6px;
     }
-
 
     .welcome h1 span {
-
       color: #d4a72c;
     }
-
 
     .welcome p {
-
       margin-top: 6px;
-
       color: #777;
-
       font-size: 12px;
+      line-height: 1.5;
     }
 
-
-    /* =========================
-       BALANCE CARD
-    ========================= */
-
+    /* BALANCE */
     .balance-card {
-
       position: relative;
-
       overflow: hidden;
-
-      background:
-        linear-gradient(
-          145deg,
-          #1a1a1a,
-          #0b0b0b
-        );
-
+      background: linear-gradient(145deg, #1a1a1a, #0b0b0b);
       border: 1px solid #3a3a3a;
-
       border-radius: 23px;
-
       padding: 22px;
-
       margin-bottom: 20px;
-
-      box-shadow:
-        0 18px 45px
-        rgba(0,0,0,.35);
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
     }
-
 
     .balance-card::before {
-
       content: "";
-
       position: absolute;
-
       width: 190px;
-
       height: 190px;
-
       border-radius: 50%;
-
       right: -85px;
-
       top: -90px;
-
-      background:
-        rgba(212,167,44,.09);
+      background: rgba(212,167,44,.09);
     }
-
 
     .balance-label {
-
       color: #888;
-
       font-size: 12px;
-
       position: relative;
-
       z-index: 2;
     }
-
 
     .balance {
-
       font-size: 32px;
-
       font-weight: 900;
-
       margin-top: 7px;
-
       position: relative;
-
       z-index: 2;
     }
 
-
     .currency {
-
       color: #d4a72c;
-
       font-size: 16px;
-
       margin-right: 4px;
     }
 
-
     .balance-info {
-
       color: #666;
-
       font-size: 11px;
-
       margin-top: 6px;
-
       position: relative;
-
       z-index: 2;
     }
-
 
     .balance-bottom {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 10px;
-
       margin-top: 19px;
-
       position: relative;
-
       z-index: 2;
     }
 
-
     .earnings {
-
       color: #58d88a;
-
       font-size: 12px;
-
       font-weight: bold;
     }
 
-
     .withdraw-btn {
-
       border: none;
-
       border-radius: 11px;
-
       padding: 11px 19px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffe082,
-          #d4a72c
-        );
-
+      background: linear-gradient(135deg, #ffe082, #d4a72c);
       color: #080808;
-
       font-weight: 900;
-
       font-size: 12px;
-
       cursor: pointer;
     }
 
-
-    /* =========================
-       SECTION TITLE
-    ========================= */
-
+    /* SECTION TITLE */
     .section-title {
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       margin: 23px 0 12px;
     }
 
-
     .section-title h2 {
-
       font-size: 16px;
     }
 
-
     .section-title span {
-
       color: #d4a72c;
-
       font-size: 11px;
     }
 
-
-    /* =========================
-       STATISTICS
-    ========================= */
-
+    /* PERFORMANCE */
     .stats {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 9px;
     }
 
-
     .stat {
-
       background: #101010;
-
       border: 1px solid #252525;
-
       border-radius: 16px;
-
       padding: 15px 10px;
     }
 
-
     .stat-icon {
-
       width: 32px;
-
       height: 32px;
-
       border-radius: 10px;
-
       background: #1b1b1b;
-
       color: #d4a72c;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       font-size: 15px;
-
       margin-bottom: 11px;
     }
 
-
     .stat-value {
-
       font-size: 18px;
-
       font-weight: 900;
     }
 
-
     .stat-name {
-
       color: #666;
-
       font-size: 10px;
-
       margin-top: 4px;
     }
 
-
-    /* =========================
-       AFFILIATE LINK
-    ========================= */
-
+    /* AFFILIATE LINK */
     .link-card {
-
       background: #101010;
-
       border: 1px solid #292929;
-
       border-radius: 18px;
-
       padding: 17px;
     }
 
-
     .link-label {
-
       color: #777;
-
       font-size: 11px;
-
       margin-bottom: 9px;
     }
 
-
     .link-box {
-
       display: flex;
-
       align-items: center;
-
       gap: 8px;
-
       background: #070707;
-
       border: 1px solid #252525;
-
       border-radius: 11px;
-
       padding: 5px 5px 5px 12px;
     }
 
-
     .link-text {
-
       flex: 1;
-
       min-width: 0;
-
       overflow: hidden;
-
       white-space: nowrap;
-
       text-overflow: ellipsis;
-
       color: #c9c9c9;
-
       font-size: 11px;
     }
 
-
     .copy-btn {
-
       border: none;
-
       background: #d4a72c;
-
       color: #080808;
-
       border-radius: 8px;
-
       padding: 9px 12px;
-
       font-weight: 900;
-
       font-size: 10px;
-
       cursor: pointer;
     }
-
 
     .share-btn {
-
       width: 100%;
-
       margin-top: 10px;
-
       height: 42px;
-
       border-radius: 10px;
-
       border: 1px solid #3a3a3a;
-
       background: transparent;
-
       color: #d4a72c;
-
       font-weight: bold;
-
       cursor: pointer;
     }
 
-
-    /* =========================
-       PROMOTE
-    ========================= */
-
+    /* SOCIAL */
     .social-grid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
 
-
     .social {
-
       text-decoration: none;
-
       color: white;
-
       background: #101010;
-
       border: 1px solid #282828;
-
       border-radius: 17px;
-
       padding: 17px 9px;
-
       text-align: center;
-
       transition: .2s;
+      cursor: pointer;
     }
 
-
     .social:hover {
-
       border-color: #d4a72c;
-
       transform: translateY(-2px);
     }
 
-
     .social-icon {
-
       width: 43px;
-
       height: 43px;
-
       border-radius: 13px;
-
       background: #191919;
-
       margin: auto;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       font-size: 20px;
-    }
-
-
-    .social-name {
-
-      margin-top: 9px;
-
-      font-size: 12px;
-
       font-weight: bold;
     }
 
+    .social-name {
+      margin-top: 9px;
+      font-size: 12px;
+      font-weight: bold;
+    }
 
     .social-text {
-
       margin-top: 4px;
-
       color: #666;
-
       font-size: 9px;
     }
 
-
-    /* =========================
-       RECENT ACTIVITY
-    ========================= */
-
-    .activity {
-
+    /* TEAM */
+    .team-card {
       background: #101010;
-
-      border: 1px solid #262626;
-
+      border: 1px solid #292929;
       border-radius: 18px;
+      padding: 18px;
+    }
 
+    .team-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .team-number {
+      font-size: 28px;
+      font-weight: 900;
+      color: #d4a72c;
+    }
+
+    .team-label {
+      color: #777;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .team-button {
+      border: 1px solid #3b3b3b;
+      background: #181818;
+      color: #d4a72c;
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .team-info {
+      padding-top: 14px;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* ACTIVITY */
+    .activity {
+      background: #101010;
+      border: 1px solid #262626;
+      border-radius: 18px;
       overflow: hidden;
     }
 
-
     .activity-item {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       padding: 14px;
-
       border-bottom: 1px solid #202020;
     }
 
-
     .activity-item:last-child {
-
       border-bottom: none;
     }
 
-
     .activity-left {
-
       display: flex;
-
       align-items: center;
-
       gap: 11px;
     }
 
-
     .activity-icon {
-
       width: 38px;
-
       height: 38px;
-
       border-radius: 11px;
-
       background: #1a1a1a;
-
       color: #d4a72c;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
     }
 
-
     .activity-name {
-
       font-size: 12px;
-
       font-weight: bold;
     }
 
-
     .activity-date {
-
       color: #666;
-
       font-size: 9px;
-
       margin-top: 4px;
     }
 
-
     .activity-amount {
-
       color: #58d88a;
-
       font-size: 11px;
-
       font-weight: bold;
     }
 
-
-    /* =========================
-       BOTTOM NAV
-    ========================= */
-
+    /* BOTTOM NAV */
     .bottom-nav {
-
       position: fixed;
-
       left: 0;
-
       right: 0;
-
       bottom: 0;
-
       height: 72px;
-
-      background:
-        rgba(10,10,10,.98);
-
+      background: rgba(10,10,10,.98);
       border-top: 1px solid #252525;
-
       z-index: 100;
     }
 
-
     .nav-inner {
-
       width: 100%;
-
       max-width: 600px;
-
       height: 100%;
-
       margin: auto;
-
       display: flex;
-
-      justify-content:
-        space-around;
-
+      justify-content: space-around;
       align-items: center;
     }
 
-
     .nav-item {
-
       color: #666;
-
       text-decoration: none;
-
       text-align: center;
-
       font-size: 9px;
-
       cursor: pointer;
     }
 
-
     .nav-icon {
-
       font-size: 19px;
-
       margin-bottom: 4px;
     }
 
-
     .nav-item.active {
-
       color: #d4a72c;
     }
 
-
-    /* =========================
-       MODAL
-    ========================= */
-
+    /* MODAL */
     .modal {
-
       display: none;
-
       position: fixed;
-
       inset: 0;
-
-      background:
-        rgba(0,0,0,.78);
-
+      background: rgba(0,0,0,.78);
       z-index: 300;
-
       align-items: center;
-
       justify-content: center;
-
       padding: 20px;
     }
 
-
     .modal-card {
-
       width: 100%;
-
       max-width: 390px;
-
       background: #111;
-
       border: 1px solid #333;
-
       border-radius: 21px;
-
       padding: 23px;
     }
 
-
     .modal-title {
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       margin-bottom: 20px;
     }
 
-
     .modal-title h2 {
-
       font-size: 19px;
     }
 
-
     .close {
-
       width: 32px;
-
       height: 32px;
-
       border-radius: 50%;
-
       border: 1px solid #333;
-
       background: #191919;
-
       color: #aaa;
-
       cursor: pointer;
+      font-size: 18px;
     }
 
-
     .profile-row {
-
       padding: 13px 0;
-
       border-bottom: 1px solid #222;
     }
 
-
     .profile-row:last-child {
-
       border-bottom: none;
     }
 
-
     .profile-label {
-
       color: #666;
-
       font-size: 10px;
-
       margin-bottom: 4px;
     }
 
-
     .profile-value {
-
       color: #ddd;
-
       font-size: 13px;
-
       word-break: break-word;
     }
 
-
     .modal-input {
-
       width: 100%;
-
       height: 45px;
-
       margin-bottom: 12px;
-
       padding: 0 12px;
-
       border-radius: 10px;
-
       background: #070707;
-
       border: 1px solid #292929;
-
       color: white;
-
       outline: none;
     }
 
-
     .modal-submit {
-
       width: 100%;
-
       height: 45px;
-
       border: none;
-
       border-radius: 10px;
-
       background: #d4a72c;
-
       color: #080808;
-
       font-weight: 900;
-
       cursor: pointer;
     }
 
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (min-width: 700px) {
-
-      .container {
-
-        padding-left: 25px;
-
-        padding-right: 25px;
-      }
-
-
-      .stats {
-
-        gap: 13px;
-      }
-
-
-      .social-grid {
-
-        gap: 13px;
-      }
-
-    }
-
-
     @media (max-width: 360px) {
-
       .balance {
-
         font-size: 28px;
       }
 
-
       .stat-value {
-
         font-size: 16px;
       }
 
-
       .social-text {
-
         display: none;
       }
 
+      .withdraw-btn {
+        padding: 10px 13px;
+      }
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
-  <!-- =========================
-       TOP BAR
-  ========================= -->
-
+  <!-- TOP BAR -->
   <header class="topbar">
 
     <div class="brand">
-
-      <div class="logo">
-        LC
-      </div>
+      <div class="logo">LC</div>
 
       <div class="brand-name">
         LINKCASH
       </div>
-
     </div>
-
 
     <div class="top-actions">
 
@@ -1054,7 +623,6 @@
       >
         🔔
       </button>
-
 
       <button
         class="icon-btn"
@@ -1068,74 +636,49 @@
   </header>
 
 
-
-  <!-- =========================
-       MAIN
-  ========================= -->
-
+  <!-- MAIN -->
   <main class="container">
 
-
     <!-- WELCOME -->
-
     <section class="welcome">
 
       <small>
         WELCOME BACK
       </small>
 
-
       <h1>
         Hello,
-        <span id="username">
-          User
-        </span>
+        <span id="username">User</span>
       </h1>
 
-
       <p>
-        Grow your network and earn through your affiliate links.
+        Grow your team and earn through your affiliate network.
       </p>
 
     </section>
 
 
-
-    <!-- =========================
-         BALANCE
-    ========================= -->
-
+    <!-- BALANCE -->
     <section class="balance-card">
 
       <div class="balance-label">
         Available Commission
       </div>
 
-
       <div class="balance">
-
-        <span class="currency">
-          TZS
-        </span>
-
-        <span id="balance">
-          0.00
-        </span>
-
+        <span class="currency">TZS</span>
+        <span id="balance">0.00</span>
       </div>
-
 
       <div class="balance-info">
         Your available affiliate earnings
       </div>
-
 
       <div class="balance-bottom">
 
         <div class="earnings">
           + TZS 0.00 this month
         </div>
-
 
         <button
           class="withdraw-btn"
@@ -1149,27 +692,19 @@
     </section>
 
 
-
-    <!-- =========================
-         PERFORMANCE
-    ========================= -->
-
+    <!-- PERFORMANCE -->
     <div class="section-title">
 
-      <h2>
-        Performance
-      </h2>
+      <h2>Performance</h2>
 
-      <span>
-        Affiliate
-      </span>
+      <span>Affiliate</span>
 
     </div>
 
 
     <section class="stats">
 
-
+      <!-- REFERRALS -->
       <div class="stat">
 
         <div class="stat-icon">
@@ -1190,26 +725,32 @@
       </div>
 
 
-      <div class="stat">
+      <!-- MY TEAM -->
+      <div
+        class="stat"
+        onclick="openTeam()"
+        style="cursor:pointer"
+      >
 
         <div class="stat-icon">
-          🔗
+          👨‍👩‍👧
         </div>
 
         <div
           class="stat-value"
-          id="clicks"
+          id="myTeam"
         >
           0
         </div>
 
         <div class="stat-name">
-          LINK CLICKS
+          MY TEAM
         </div>
 
       </div>
 
 
+      <!-- CONVERSION -->
       <div class="stat">
 
         <div class="stat-icon">
@@ -1229,20 +770,59 @@
 
       </div>
 
+    </section>
+
+
+    <!-- MY TEAM -->
+    <div class="section-title">
+
+      <h2>My Team</h2>
+
+      <span>Network</span>
+
+    </div>
+
+
+    <section class="team-card">
+
+      <div class="team-header">
+
+        <div>
+
+          <div
+            class="team-number"
+            id="teamCount"
+          >
+            0
+          </div>
+
+          <div class="team-label">
+            People in your team
+          </div>
+
+        </div>
+
+        <button
+          class="team-button"
+          onclick="openTeam()"
+        >
+          VIEW TEAM
+        </button>
+
+      </div>
+
+      <div class="team-info">
+        Share your affiliate link and invite
+        people to join your team.
+      </div>
 
     </section>
 
 
-
-    <!-- =========================
-         AFFILIATE LINK
-    ========================= -->
-
+    <!-- AFFILIATE LINK -->
     <div class="section-title">
 
-      <h2>
-        My Affiliate Link
-      </h2>
+      <h2>My Affiliate Link</h2>
 
     </div>
 
@@ -1250,9 +830,8 @@
     <section class="link-card">
 
       <div class="link-label">
-        Share this link to start earning referrals
+        Share this link to invite people to your team
       </div>
-
 
       <div class="link-box">
 
@@ -1263,7 +842,6 @@
           Loading...
         </div>
 
-
         <button
           class="copy-btn"
           onclick="copyLink()"
@@ -1272,7 +850,6 @@
         </button>
 
       </div>
-
 
       <button
         class="share-btn"
@@ -1284,31 +861,22 @@
     </section>
 
 
-
-    <!-- =========================
-         PROMOTE
-    ========================= -->
-
+    <!-- PROMOTE -->
     <div class="section-title">
 
-      <h2>
-        Promote & Earn
-      </h2>
+      <h2>Promote & Earn</h2>
 
-      <span>
-        Social Media
-      </span>
+      <span>Social Media</span>
 
     </div>
 
 
     <section class="social-grid">
 
-
       <a
         href="#"
         class="social"
-        onclick="promote('TikTok')"
+        onclick="promote('TikTok', event)"
       >
 
         <div class="social-icon">
@@ -1329,7 +897,7 @@
       <a
         href="#"
         class="social"
-        onclick="promote('YouTube')"
+        onclick="promote('YouTube', event)"
       >
 
         <div class="social-icon">
@@ -1350,7 +918,7 @@
       <a
         href="#"
         class="social"
-        onclick="promote('Facebook')"
+        onclick="promote('Facebook', event)"
       >
 
         <div class="social-icon">
@@ -1367,30 +935,20 @@
 
       </a>
 
-
     </section>
 
 
-
-    <!-- =========================
-         RECENT ACTIVITY
-    ========================= -->
-
+    <!-- RECENT ACTIVITY -->
     <div class="section-title">
 
-      <h2>
-        Recent Activity
-      </h2>
+      <h2>Recent Activity</h2>
 
-      <span>
-        View All
-      </span>
+      <span>Activity</span>
 
     </div>
 
 
     <section class="activity">
-
 
       <div class="activity-item">
 
@@ -1414,7 +972,6 @@
 
         </div>
 
-
         <div class="activity-amount">
           TZS 0.00
         </div>
@@ -1427,23 +984,22 @@
         <div class="activity-left">
 
           <div class="activity-icon">
-            👤
+            👥
           </div>
 
           <div>
 
             <div class="activity-name">
-              No referrals yet
+              No team members yet
             </div>
 
             <div class="activity-date">
-              Start sharing your link
+              Start inviting people
             </div>
 
           </div>
 
         </div>
-
 
         <div class="activity-amount">
           —
@@ -1451,32 +1007,22 @@
 
       </div>
 
-
     </section>
-
 
   </main>
 
 
-
-  <!-- =========================
-       BOTTOM NAV
-  ========================= -->
-
+  <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
 
     <div class="nav-inner">
-
 
       <a
         href="dashboard.html"
         class="nav-item active"
       >
 
-        <div class="nav-icon">
-          ⌂
-        </div>
-
+        <div class="nav-icon">⌂</div>
         Home
 
       </a>
@@ -1485,13 +1031,10 @@
       <a
         href="#"
         class="nav-item"
-        onclick="scrollToLink()"
+        onclick="scrollToLink(event)"
       >
 
-        <div class="nav-icon">
-          🔗
-        </div>
-
+        <div class="nav-icon">🔗</div>
         Link
 
       </a>
@@ -1500,14 +1043,11 @@
       <a
         href="#"
         class="nav-item"
-        onclick="scrollToStats()"
+        onclick="scrollToTeam(event)"
       >
 
-        <div class="nav-icon">
-          📊
-        </div>
-
-        Stats
+        <div class="nav-icon">👥</div>
+        Team
 
       </a>
 
@@ -1518,25 +1058,17 @@
         onclick="openProfile()"
       >
 
-        <div class="nav-icon">
-          👤
-        </div>
-
+        <div class="nav-icon">👤</div>
         Profile
 
       </a>
-
 
     </div>
 
   </nav>
 
 
-
-  <!-- =========================
-       PROFILE MODAL
-  ========================= -->
-
+  <!-- PROFILE MODAL -->
   <div
     class="modal"
     id="profileModal"
@@ -1546,9 +1078,7 @@
 
       <div class="modal-title">
 
-        <h2>
-          My Profile
-        </h2>
+        <h2>My Profile</h2>
 
         <button
           class="close"
@@ -1637,11 +1167,7 @@
   </div>
 
 
-
-  <!-- =========================
-       WITHDRAW MODAL
-  ========================= -->
-
+  <!-- WITHDRAW MODAL -->
   <div
     class="modal"
     id="withdrawModal"
@@ -1651,9 +1177,7 @@
 
       <div class="modal-title">
 
-        <h2>
-          Withdraw Commission
-        </h2>
+        <h2>Withdraw Commission</h2>
 
         <button
           class="close"
@@ -1699,40 +1223,102 @@
   </div>
 
 
+  <!-- TEAM MODAL -->
+  <div
+    class="modal"
+    id="teamModal"
+  >
+
+    <div class="modal-card">
+
+      <div class="modal-title">
+
+        <h2>My Team</h2>
+
+        <button
+          class="close"
+          onclick="closeModal('teamModal')"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div
+        style="
+          text-align:center;
+          padding:20px 0;
+        "
+      >
+
+        <div
+          id="modalTeamCount"
+          style="
+            font-size:40px;
+            font-weight:900;
+            color:#d4a72c;
+          "
+        >
+          0
+        </div>
+
+        <div
+          style="
+            color:#777;
+            font-size:12px;
+            margin-top:6px;
+          "
+        >
+          Team Members
+        </div>
+
+      </div>
+
+
+      <div
+        style="
+          color:#777;
+          font-size:11px;
+          line-height:1.7;
+          text-align:center;
+          border-top:1px solid #222;
+          padding-top:15px;
+        "
+      >
+        People who register through your
+        affiliate link will appear in your team.
+      </div>
+
+    </div>
+
+  </div>
+
 
   <script>
 
-
     /* =========================
-       ACCOUNT
+       LOGIN PROTECTION
     ========================= */
 
-    const savedUser =
-      localStorage.getItem(
-        "linkcashUser"
-      );
-
-
-    /* LOGIN PROTECTION */
-
     if (
-      localStorage.getItem(
-        "linkcashLoggedIn"
-      ) !== "true"
+      localStorage.getItem("linkcashLoggedIn") !== "true"
     ) {
-
-      window.location.href =
-        "login.html";
-
+      window.location.href = "login.html";
     }
 
 
-    /* USER DATA */
+    /* =========================
+       USER ACCOUNT
+    ========================= */
+
+    const savedUser =
+      localStorage.getItem("linkcashUser");
+
 
     if (savedUser) {
 
-      const user =
-        JSON.parse(savedUser);
+      const user = JSON.parse(savedUser);
 
 
       const firstName =
@@ -1741,33 +1327,23 @@
           : user.username;
 
 
-      document.getElementById(
-        "username"
-      ).textContent =
+      document.getElementById("username").textContent =
         firstName;
 
 
-      document.getElementById(
-        "profileName"
-      ).textContent =
+      document.getElementById("profileName").textContent =
         user.fullname || "—";
 
 
-      document.getElementById(
-        "profileUsername"
-      ).textContent =
+      document.getElementById("profileUsername").textContent =
         user.username || "—";
 
 
-      document.getElementById(
-        "profilePhone"
-      ).textContent =
+      document.getElementById("profilePhone").textContent =
         user.phone || "—";
 
 
-      document.getElementById(
-        "profileEmail"
-      ).textContent =
+      document.getElementById("profileEmail").textContent =
         user.email || "—";
 
 
@@ -1775,88 +1351,75 @@
 
       const baseURL =
         window.location.origin +
-        window.location.pathname
-          .replace(
-            "dashboard.html",
-            ""
-          );
+        window.location.pathname.replace(
+          "dashboard.html",
+          ""
+        );
 
 
       const affiliateLink =
         baseURL +
         "register.html?ref=" +
-        encodeURIComponent(
-          user.username
-        );
+        encodeURIComponent(user.username);
 
 
-      document.getElementById(
-        "affiliateLink"
-      ).textContent =
+      document.getElementById("affiliateLink").textContent =
         affiliateLink;
 
     }
 
 
-
     /* =========================
-       COPY LINK
+       COPY
     ========================= */
 
     function copyLink() {
 
       const link =
-        document.getElementById(
-          "affiliateLink"
-        ).textContent;
+        document.getElementById("affiliateLink").textContent;
 
 
-      navigator.clipboard
-        .writeText(link)
-        .then(function() {
+      if (navigator.clipboard) {
 
-          alert(
-            "Affiliate link copied!"
-          );
+        navigator.clipboard.writeText(link).then(() => {
+
+          alert("Affiliate link copied!");
 
         });
+
+      } else {
+
+        alert(link);
+
+      }
 
     }
 
 
-
     /* =========================
-       SHARE LINK
+       SHARE
     ========================= */
 
     function shareLink() {
 
       const link =
-        document.getElementById(
-          "affiliateLink"
-        ).textContent;
+        document.getElementById("affiliateLink").textContent;
 
 
-      if (
-        navigator.share
-      ) {
+      if (navigator.share) {
 
         navigator.share({
 
-          title:
-            "Join LINKCASH",
+          title: "Join LINKCASH",
 
           text:
             "Join LINKCASH using my affiliate link.",
 
-          url:
-            link
+          url: link
 
         });
 
-      }
-
-      else {
+      } else {
 
         copyLink();
 
@@ -1865,26 +1428,23 @@
     }
 
 
-
     /* =========================
-       SOCIAL
+       SOCIAL PROMOTION
     ========================= */
 
-    function promote(platform) {
+    function promote(platform, event) {
 
       event.preventDefault();
 
 
       const link =
-        document.getElementById(
-          "affiliateLink"
-        ).textContent;
+        document.getElementById("affiliateLink").textContent;
 
 
       if (platform === "TikTok") {
 
         alert(
-          "Copy your affiliate link and share it on TikTok:\n\n" +
+          "Copy your LINKCASH affiliate link and share it on TikTok:\n\n" +
           link
         );
 
@@ -1894,7 +1454,7 @@
       if (platform === "YouTube") {
 
         alert(
-          "Add your affiliate link to your YouTube description:\n\n" +
+          "You can add your affiliate link to your YouTube video description:\n\n" +
           link
         );
 
@@ -1903,26 +1463,20 @@
 
       if (platform === "Facebook") {
 
-        if (
-          navigator.share
-        ) {
+        if (navigator.share) {
 
           navigator.share({
 
-            title:
-              "Join LINKCASH",
+            title: "Join LINKCASH",
 
             text:
-              "Join LINKCASH using my link.",
+              "Join LINKCASH using my affiliate link.",
 
-            url:
-              link
+            url: link
 
           });
 
-        }
-
-        else {
+        } else {
 
           copyLink();
 
@@ -1933,16 +1487,13 @@
     }
 
 
-
     /* =========================
        WITHDRAW
     ========================= */
 
     function openWithdraw() {
 
-      document.getElementById(
-        "withdrawModal"
-      ).style.display =
+      document.getElementById("withdrawModal").style.display =
         "flex";
 
     }
@@ -1951,16 +1502,12 @@
     function submitWithdraw() {
 
       const amount =
-        document.getElementById(
-          "withdrawAmount"
-        ).value;
+        document.getElementById("withdrawAmount").value;
 
 
-      if (!amount || amount <= 0) {
+      if (!amount || Number(amount) <= 0) {
 
-        alert(
-          "Enter a valid withdrawal amount."
-        );
+        alert("Enter a valid withdrawal amount.");
 
         return;
 
@@ -1974,12 +1521,32 @@
       );
 
 
-      closeModal(
-        "withdrawModal"
-      );
+      document.getElementById("withdrawAmount").value = "";
+
+
+      closeModal("withdrawModal");
 
     }
 
+
+    /* =========================
+       TEAM
+    ========================= */
+
+    function openTeam() {
+
+      const teamCount =
+        document.getElementById("myTeam").textContent;
+
+
+      document.getElementById("modalTeamCount").textContent =
+        teamCount;
+
+
+      document.getElementById("teamModal").style.display =
+        "flex";
+
+    }
 
 
     /* =========================
@@ -1988,28 +1555,22 @@
 
     function openProfile() {
 
-      document.getElementById(
-        "profileModal"
-      ).style.display =
+      document.getElementById("profileModal").style.display =
         "flex";
 
     }
 
 
-
     /* =========================
-       CLOSE MODAL
+       CLOSE MODALS
     ========================= */
 
     function closeModal(id) {
 
-      document.getElementById(
-        id
-      ).style.display =
+      document.getElementById(id).style.display =
         "none";
 
     }
-
 
 
     /* =========================
@@ -2018,12 +1579,9 @@
 
     function showNotification() {
 
-      alert(
-        "No new notifications."
-      );
+      alert("No new notifications.");
 
     }
-
 
 
     /* =========================
@@ -2032,54 +1590,76 @@
 
     function logout() {
 
-      localStorage.removeItem(
-        "linkcashLoggedIn"
-      );
+      localStorage.removeItem("linkcashLoggedIn");
 
-
-      window.location.href =
-        "login.html";
+      window.location.href = "login.html";
 
     }
-
 
 
     /* =========================
-       SCROLL
+       NAVIGATION
     ========================= */
 
-    function scrollToLink() {
+    function scrollToLink(event) {
 
-      document.getElementById(
-        "affiliateLink"
-      ).scrollIntoView({
+      event.preventDefault();
 
-        behavior: "smooth",
-
-        block: "center"
-
-      });
+      document.getElementById("affiliateLink")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
 
     }
 
 
-    function scrollToStats() {
+    function scrollToTeam(event) {
 
-      document.getElementById(
-        "referrals"
-      ).scrollIntoView({
+      event.preventDefault();
 
-        behavior: "smooth",
-
-        block: "center"
-
-      });
+      document.getElementById("teamCount")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
 
     }
 
+
+    /* =========================
+       DEMO TEAM DATA
+       Currently zero until
+       database is connected.
+    ========================= */
+
+    const teamMembers = [];
+
+
+    document.getElementById("myTeam").textContent =
+      teamMembers.length;
+
+
+    document.getElementById("teamCount").textContent =
+      teamMembers.length;
+
+
+    document.getElementById("referrals").textContent =
+      teamMembers.length;
+
+
+    document.getElementById("modalTeamCount").textContent =
+      teamMembers.length;
+
+
+    /* =========================
+       DEMO CONVERSION
+    ========================= */
+
+    document.getElementById("conversion").textContent =
+      teamMembers.length > 0 ? "100%" : "0%";
 
   </script>
 
-
 </body>
-</html>
+  </html>
