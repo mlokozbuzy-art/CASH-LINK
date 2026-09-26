@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Register | LINKCASH</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #eef6ff, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 800;
+      color: #1167d8;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 24px;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      color: #172033;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #344054;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d0d5dd;
+      border-radius: 10px;
+      outline: none;
+      margin-bottom: 17px;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #1167d8;
+    }
+
+    .ref-box {
+      background: #f2f7ff;
+      border: 1px solid #d9e8ff;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+
+    .ref-box small {
+      color: #667085;
+    }
+
+    .ref-box strong {
+      display: block;
+      color: #1167d8;
+      margin-top: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 11px;
+      background: #1167d8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .login {
+      text-align: center;
+      margin-top: 20px;
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .login a {
+      color: #1167d8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #667085;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo">
+      LINKCASH
+    </div>
+
+    <div class="card">
+
+      <h1>Create Account</h1>
+
+      <p class="subtitle">
+        Join LINKCASH and build your network.
+      </p>
+
+      <form id="registerForm">
+
+        <label>Full Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your full name"
+          required
+        >
+
+        <label>Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="07XXXXXXXX"
+          required
+        >
+
+        <label>Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        >
+
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Create a password"
+          required
+        >
+
+        <div class="ref-box">
+
+          <small>Referral Code</small>
+
+          <strong id="referralDisplay">
+            No referral code
+          </strong>
+
+        </div>
+
+        <button type="submit">
+          Create Account
+        </button>
+
+      </form>
+
+      <div class="login">
+        Already have an account?
+        <a href="login.html">Login</a>
+      </div>
+
+      <a href="index.html" class="back">
+        ← Back to Home
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    // Get referral code from URL
+    const params = new URLSearchParams(window.location.search);
+
+    const referralCode = params.get("ref");
+
+    const referralDisplay =
+      document.getElementById("referralDisplay");
+
+    if (referralCode) {
+
+      referralDisplay.textContent =
+        referralCode;
+
+      // Save referral temporarily
+      localStorage.setItem(
+        "referralCode",
+        referralCode
+      );
+
+    }
+
+
+    // Registration form
+    document
+      .getElementById("registerForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name =
+          document.getElementById("name").value.trim();
+
+        const phone =
+          document.getElementById("phone").value.trim();
+
+        const email =
+          document.getElementById("email").value.trim();
+
+        const password =
+          document.getElementById("password").value;
+
+        const ref =
+          localStorage.getItem("referralCode") || "";
+
+        if (!name || !phone || !email || !password) {
+
+          alert("Please fill in all fields.");
+
+          return;
+        }
+
+        /*
+          Temporary registration test.
+
+          Later we will replace this with
+          Supabase Authentication + Database.
+        */
+
+        const member = {
+
+          name: name,
+
+          phone: phone,
+
+          email: email,
+
+          referralCode: ref,
+
+          status: "Pending Activation"
+
+        };
+
+        localStorage.setItem(
+          "pendingMember",
+          JSON.stringify(member)
+        );
+
+        alert(
+          "Registration information saved. Next we will connect your account to the LINKCASH database."
+        );
+
+      });
+
+  </script>
+
+</body>
+</html>
