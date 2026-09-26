@@ -236,7 +236,6 @@ body{
     #151515,
     #0a0a0a
   );
-
   border:1px solid #2b2b2b;
   border-radius:19px;
   padding:17px;
@@ -246,7 +245,7 @@ body{
   border-color:#393329;
 }
 
-.request.active{
+.request.approved{
   border-color:rgba(88,216,138,.25);
 }
 
@@ -310,7 +309,7 @@ body{
   border:1px solid rgba(212,167,44,.2);
 }
 
-.status.active{
+.status.approved{
   color:#58d88a;
   background:rgba(88,216,138,.08);
   border:1px solid rgba(88,216,138,.2);
@@ -358,7 +357,7 @@ body{
 }
 
 /* =========================
-   REQUEST ACTIONS
+   ACTIONS
 ========================= */
 
 .request-actions{
@@ -384,18 +383,10 @@ body{
   color:#58d88a;
 }
 
-.activate-btn:hover{
-  background:rgba(88,216,138,.15);
-}
-
 .reject-btn{
   border:1px solid rgba(255,80,80,.25);
   background:rgba(255,80,80,.07);
   color:#ff7777;
-}
-
-.reject-btn:hover{
-  background:rgba(255,80,80,.13);
 }
 
 .delete-btn{
@@ -438,7 +429,7 @@ body{
 }
 
 /* =========================
-   ALL USERS
+   USERS
 ========================= */
 
 .users-section{
@@ -457,6 +448,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:10px;
 }
 
 .user-card-name{
@@ -590,13 +582,7 @@ body{
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     TOPBAR
-========================= -->
 
 <header class="topbar">
 
@@ -619,13 +605,7 @@ body{
 </header>
 
 
-
 <main class="container">
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <section class="header">
 
@@ -645,11 +625,6 @@ body{
 
 </section>
 
-
-
-<!-- =========================
-     STATS
-========================= -->
 
 <section class="stats">
 
@@ -715,11 +690,6 @@ body{
 </section>
 
 
-
-<!-- =========================
-     ACTION BAR
-========================= -->
-
 <div class="action-bar">
 
   <button
@@ -745,11 +715,6 @@ body{
 
 </div>
 
-
-
-<!-- =========================
-     PAYMENT REQUESTS
-========================= -->
 
 <section>
 
@@ -795,11 +760,6 @@ body{
 </section>
 
 
-
-<!-- =========================
-     USERS
-========================= -->
-
 <section class="users-section">
 
   <div class="section-title">
@@ -824,17 +784,10 @@ body{
   >
 
 
-  <div
-    id="usersList"
-  ></div>
+  <div id="usersList"></div>
 
 </section>
 
-
-
-<!-- =========================
-     LOGOUT
-========================= -->
 
 <button
   class="logout"
@@ -844,14 +797,11 @@ body{
 </button>
 
 
-
 <div class="footer">
   © 2026 LINKCASH • CEO ADMINISTRATION
 </div>
 
-
 </main>
-
 
 
 <script>
@@ -860,18 +810,15 @@ body{
    CEO SECURITY CHECK
 ========================================= */
 
-const ceoLoggedIn =
+if(
   localStorage.getItem(
     "linkcashCEOLoggedIn"
-  );
-
-
-if(
-  ceoLoggedIn !== "true"
+  ) !== "true"
 ){
 
-  window.location.href =
-    "ceologin.html";
+  window.location.replace(
+    "ceologin.html"
+  );
 
 }
 
@@ -1001,7 +948,7 @@ function updateStats(){
     ).length;
 
 
-  const pendingPayments =
+  const pending =
     payments.filter(
       function(payment){
 
@@ -1023,7 +970,7 @@ function updateStats(){
   document.getElementById(
     "pendingCount"
   ).textContent =
-    pendingPayments;
+    pending;
 
 
   document.getElementById(
@@ -1066,7 +1013,23 @@ function getInitials(name){
 
 
 /* =========================================
-   LOAD PAYMENT REQUESTS
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================
+   LOAD REQUESTS
 ========================================= */
 
 function loadRequests(
@@ -1109,7 +1072,7 @@ function loadRequests(
 
 
   payments =
-    payments.reverse();
+    [...payments].reverse();
 
 
   if(payments.length === 0){
@@ -1143,8 +1106,7 @@ function loadRequests(
 
 
       card.className =
-        "request " +
-        status;
+        "request " + status;
 
 
       const fullname =
@@ -1333,9 +1295,7 @@ function loadRequests(
       `;
 
 
-      requests.appendChild(
-        card
-      );
+      requests.appendChild(card);
 
     }
   );
@@ -1349,13 +1309,11 @@ function loadRequests(
 
 function activatePayment(id){
 
-  const confirmAction =
-    confirm(
+  if(
+    !confirm(
       "Activate this user's account?"
-    );
-
-
-  if(!confirmAction){
+    )
+  ){
     return;
   }
 
@@ -1368,9 +1326,8 @@ function activatePayment(id){
     payments.find(
       function(item){
 
-        return String(
-          item.id
-        ) === String(id);
+        return String(item.id) ===
+               String(id);
 
       }
     );
@@ -1390,14 +1347,11 @@ function activatePayment(id){
   payment.status =
     "approved";
 
-
   payment.verifiedAt =
     new Date().toISOString();
 
 
-  savePayments(
-    payments
-  );
+  savePayments(payments);
 
 
   let users =
@@ -1448,9 +1402,7 @@ function activatePayment(id){
     );
 
 
-  saveUsers(
-    users
-  );
+  saveUsers(users);
 
 
   alert(
@@ -1469,13 +1421,11 @@ function activatePayment(id){
 
 function rejectPayment(id){
 
-  const confirmAction =
-    confirm(
+  if(
+    !confirm(
       "Reject this payment request?"
-    );
-
-
-  if(!confirmAction){
+    )
+  ){
     return;
   }
 
@@ -1488,9 +1438,8 @@ function rejectPayment(id){
     payments.find(
       function(item){
 
-        return String(
-          item.id
-        ) === String(id);
+        return String(item.id) ===
+               String(id);
 
       }
     );
@@ -1510,14 +1459,11 @@ function rejectPayment(id){
   payment.status =
     "rejected";
 
-
   payment.rejectedAt =
     new Date().toISOString();
 
 
-  savePayments(
-    payments
-  );
+  savePayments(payments);
 
 
   let users =
@@ -1565,9 +1511,7 @@ function rejectPayment(id){
     );
 
 
-  saveUsers(
-    users
-  );
+  saveUsers(users);
 
 
   alert(
@@ -1586,13 +1530,11 @@ function rejectPayment(id){
 
 function deletePayment(id){
 
-  const confirmAction =
-    confirm(
+  if(
+    !confirm(
       "Delete this payment request?"
-    );
-
-
-  if(!confirmAction){
+    )
+  ){
     return;
   }
 
@@ -1605,17 +1547,14 @@ function deletePayment(id){
     payments.filter(
       function(payment){
 
-        return String(
-          payment.id
-        ) !== String(id);
+        return String(payment.id) !==
+               String(id);
 
       }
     );
 
 
-  savePayments(
-    payments
-  );
+  savePayments(payments);
 
 
   loadDashboard();
@@ -1635,9 +1574,7 @@ function showPending(){
     "PENDING ONLY";
 
 
-  loadRequests(
-    true
-  );
+  loadRequests(true);
 
 }
 
@@ -1654,9 +1591,7 @@ function showAllUsers(){
     "LATEST REQUESTS";
 
 
-  loadRequests(
-    false
-  );
+  loadRequests(false);
 
   renderUsers();
 
@@ -1667,9 +1602,7 @@ function showAllUsers(){
    RENDER USERS
 ========================================= */
 
-function renderUsers(
-  search = ""
-){
+function renderUsers(search = ""){
 
   const container =
     document.getElementById(
@@ -1801,9 +1734,7 @@ function renderUsers(
       `;
 
 
-      container.appendChild(
-        card
-      );
+      container.appendChild(card);
 
     }
   );
@@ -1823,25 +1754,7 @@ function searchUsers(){
     ).value;
 
 
-  renderUsers(
-    value
-  );
-
-}
-
-
-/* =========================================
-   ESCAPE HTML
-========================================= */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+  renderUsers(value);
 
 }
 
@@ -1854,9 +1767,7 @@ function loadDashboard(){
 
   updateStats();
 
-  loadRequests(
-    false
-  );
+  loadRequests(false);
 
   renderUsers();
 
@@ -1864,34 +1775,42 @@ function loadDashboard(){
 
 
 /* =========================================
-   LOGOUT CEO
+   CEO LOGOUT
+   SAME AS NORMAL USER
 ========================================= */
 
 function logoutCEO(){
 
-  const confirmAction =
-    confirm(
-      "Logout from CEO dashboard?"
-    );
-
-
-  if(!confirmAction){
+  if(
+    !confirm(
+      "Are you sure you want to logout?"
+    )
+  ){
     return;
   }
 
 
+  /*
+    Remove CEO session
+  */
+
   localStorage.removeItem(
     "linkcashCEOLoggedIn"
   );
-
 
   localStorage.removeItem(
     "linkcashCEO"
   );
 
 
-  window.location.href =
-    "ceologin.html";
+  /*
+    Go to NORMAL USER LOGIN
+    exactly like normal user logout
+  */
+
+  window.location.replace(
+    "login.html"
+  );
 
 }
 
