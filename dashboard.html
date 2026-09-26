@@ -215,6 +215,315 @@ body{
   margin-top:4px;
 }
 
+/* =========================
+   MY TEAM BOX
+========================= */
+
+.team-box{
+  background:linear-gradient(145deg,#151515,#0b0b0b);
+  border:1px solid #2c2c2c;
+  border-radius:20px;
+  padding:18px;
+  cursor:pointer;
+  transition:.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+.team-box:hover{
+  border-color:#d4a72c;
+  transform:translateY(-2px);
+}
+
+.team-box:active{
+  transform:scale(.98);
+}
+
+.team-box-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.team-box-left{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.team-box-icon{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  background:#1d1d1d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+
+.team-box-title{
+  font-size:15px;
+  font-weight:900;
+}
+
+.team-box-subtitle{
+  color:#666;
+  font-size:10px;
+  margin-top:5px;
+}
+
+.team-box-arrow{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#1c1c1c;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+}
+
+.team-box-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:17px;
+  padding-top:14px;
+  border-top:1px solid #242424;
+}
+
+.team-members-number{
+  color:#d4a72c;
+  font-size:22px;
+  font-weight:900;
+}
+
+.team-members-label{
+  color:#666;
+  font-size:9px;
+  margin-left:5px;
+}
+
+.team-level-label{
+  color:#777;
+  font-size:10px;
+}
+
+/* =========================
+   TEAM PAGE
+========================= */
+
+.team-page{
+  display:none;
+}
+
+.team-page.show{
+  display:block;
+}
+
+.home-page.hide{
+  display:none;
+}
+
+.back-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:none;
+  background:#151515;
+  border:1px solid #292929;
+  color:#ddd;
+  padding:10px 14px;
+  border-radius:11px;
+  font-size:11px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-bottom:17px;
+}
+
+.back-btn:hover{
+  border-color:#d4a72c;
+  color:#d4a72c;
+}
+
+.team-page-header{
+  margin-bottom:17px;
+}
+
+.team-page-header h2{
+  font-size:22px;
+}
+
+.team-page-header p{
+  color:#666;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.team-total-card{
+  background:linear-gradient(145deg,#1a1a1a,#0b0b0b);
+  border:1px solid #333;
+  border-radius:20px;
+  padding:19px;
+  margin-bottom:15px;
+}
+
+.team-total-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.team-total-number{
+  color:#d4a72c;
+  font-size:32px;
+  font-weight:900;
+}
+
+.team-total-label{
+  color:#777;
+  font-size:10px;
+  margin-top:4px;
+}
+
+.team-total-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  background:#1c1c1c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+}
+
+/* LEVELS */
+
+.levels{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.level-card{
+  background:#0d0d0d;
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:16px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.level-card:hover{
+  border-color:#d4a72c;
+}
+
+.level-card.active{
+  border-color:#d4a72c;
+  box-shadow:0 0 0 1px rgba(212,167,44,.12);
+}
+
+.level-number{
+  color:#d4a72c;
+  font-size:12px;
+  font-weight:900;
+}
+
+.level-name{
+  font-size:13px;
+  font-weight:bold;
+  margin-top:6px;
+}
+
+.level-count{
+  margin-top:12px;
+  font-size:23px;
+  font-weight:900;
+}
+
+/* MEMBERS */
+
+.team-list{
+  margin-top:14px;
+  background:#0a0a0a;
+  border:1px solid #222;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.team-list-title{
+  padding:15px;
+  border-bottom:1px solid #222;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.member{
+  padding:13px;
+  border-bottom:1px solid #1d1d1d;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.member:last-child{
+  border-bottom:none;
+}
+
+.member-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+
+.member-avatar{
+  width:39px;
+  height:39px;
+  border-radius:12px;
+  background:#1b1b1b;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.member-name{
+  font-size:12px;
+  font-weight:bold;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.member-username{
+  color:#666;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.member-date{
+  color:#666;
+  font-size:9px;
+  text-align:right;
+}
+
+.empty-team{
+  text-align:center;
+  padding:27px 15px;
+  color:#666;
+  font-size:11px;
+  line-height:1.6;
+}
+
+/* =========================
+   LINK
+========================= */
+
 .link-card{
   background:#101010;
   border:1px solid #292929;
@@ -268,169 +577,6 @@ body{
   background:transparent;
   color:#d4a72c;
   font-weight:bold;
-}
-
-/* MY TEAM */
-
-.team-summary{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:20px;
-  padding:18px;
-}
-
-.team-total{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:17px;
-}
-
-.team-total-number{
-  color:#d4a72c;
-  font-size:31px;
-  font-weight:900;
-}
-
-.team-total-label{
-  color:#777;
-  font-size:11px;
-  margin-top:3px;
-}
-
-.team-icon{
-  width:50px;
-  height:50px;
-  border-radius:15px;
-  background:#1a1a1a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
-}
-
-.levels{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-
-.level-card{
-  background:#080808;
-  border:1px solid #272727;
-  border-radius:15px;
-  padding:15px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.level-card:hover{
-  border-color:#d4a72c;
-  transform:translateY(-2px);
-}
-
-.level-card.active{
-  border-color:#d4a72c;
-  box-shadow:0 0 0 1px rgba(212,167,44,.15);
-}
-
-.level-number{
-  color:#d4a72c;
-  font-size:12px;
-  font-weight:900;
-}
-
-.level-name{
-  font-size:13px;
-  font-weight:bold;
-  margin-top:5px;
-}
-
-.level-description{
-  color:#666;
-  font-size:9px;
-  margin-top:5px;
-}
-
-.level-count{
-  margin-top:12px;
-  font-size:21px;
-  font-weight:900;
-}
-
-.team-list{
-  margin-top:13px;
-  background:#0a0a0a;
-  border:1px solid #222;
-  border-radius:15px;
-  overflow:hidden;
-}
-
-.team-list-title{
-  padding:14px;
-  border-bottom:1px solid #222;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.member{
-  padding:13px;
-  border-bottom:1px solid #1d1d1d;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.member:last-child{
-  border-bottom:none;
-}
-
-.member-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-}
-
-.member-avatar{
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  background:#1b1b1b;
-  color:#d4a72c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-}
-
-.member-name{
-  font-size:12px;
-  font-weight:bold;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.member-username{
-  color:#666;
-  font-size:9px;
-  margin-top:4px;
-}
-
-.member-date{
-  color:#666;
-  font-size:9px;
-  text-align:right;
-}
-
-.empty-team{
-  text-align:center;
-  padding:25px 15px;
-  color:#666;
-  font-size:11px;
-  line-height:1.6;
 }
 
 /* SOCIAL */
@@ -676,20 +822,14 @@ body{
 
 <body>
 
-<!-- TOP BAR -->
-
 <header class="topbar">
 
   <div class="brand">
-
-    <div class="logo">
-      LC
-    </div>
+    <div class="logo">LC</div>
 
     <div class="brand-name">
       LINKCASH
     </div>
-
   </div>
 
   <div class="top-actions">
@@ -715,7 +855,11 @@ body{
 
 <main class="container">
 
-  <!-- WELCOME -->
+<!-- =========================
+     HOME PAGE
+========================= -->
+
+<div id="homePage" class="home-page">
 
   <section class="welcome">
 
@@ -732,8 +876,6 @@ body{
 
   </section>
 
-
-  <!-- BALANCE -->
 
   <section class="balance-card">
 
@@ -775,8 +917,6 @@ body{
   </section>
 
 
-  <!-- PERFORMANCE -->
-
   <div class="section-title">
 
     <h2>Performance</h2>
@@ -790,9 +930,7 @@ body{
 
     <div class="stat">
 
-      <div class="stat-icon">
-        👥
-      </div>
+      <div class="stat-icon">👥</div>
 
       <div
         class="stat-value"
@@ -810,9 +948,7 @@ body{
 
     <div class="stat">
 
-      <div class="stat-icon">
-        👨‍👩‍👧
-      </div>
+      <div class="stat-icon">👨‍👩‍👧</div>
 
       <div
         class="stat-value"
@@ -830,9 +966,7 @@ body{
 
     <div class="stat">
 
-      <div class="stat-icon">
-        📈
-      </div>
+      <div class="stat-icon">📈</div>
 
       <div
         class="stat-value"
@@ -850,175 +984,71 @@ body{
   </section>
 
 
-  <!-- MY TEAM -->
+  <!-- MY TEAM BOX ONLY -->
 
   <div class="section-title">
 
     <h2>My Team</h2>
 
-    <span>4 Levels</span>
+    <span>Network</span>
 
   </div>
 
 
-  <section class="team-summary">
+  <section
+    class="team-box"
+    onclick="openTeamPage()"
+  >
 
-    <div class="team-total">
+    <div class="team-box-top">
+
+      <div class="team-box-left">
+
+        <div class="team-box-icon">
+          👥
+        </div>
+
+        <div>
+
+          <div class="team-box-title">
+            My Team
+          </div>
+
+          <div class="team-box-subtitle">
+            View your team network
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="team-box-arrow">
+        →
+      </div>
+
+    </div>
+
+
+    <div class="team-box-bottom">
 
       <div>
 
-        <div
-          class="team-total-number"
-          id="teamTotal"
+        <span
+          class="team-members-number"
+          id="homeTeamTotal"
         >
           0
-        </div>
+        </span>
 
-        <div class="team-total-label">
-          Total Team Members
-        </div>
-
-      </div>
-
-      <div class="team-icon">
-        👥
-      </div>
-
-    </div>
-
-
-    <!-- LEVEL CARDS -->
-
-    <div class="levels">
-
-      <div
-        class="level-card active"
-        id="levelCard1"
-        onclick="showLevel(1)"
-      >
-
-        <div class="level-number">
-          LEVEL 1
-        </div>
-
-        <div class="level-name">
-          Direct Referrals
-        </div>
-
-        <div class="level-description">
-          Uliowa-invite
-        </div>
-
-        <div
-          class="level-count"
-          id="levelCount1"
-        >
-          0
-        </div>
+        <span class="team-members-label">
+          MEMBERS
+        </span>
 
       </div>
 
-
-      <div
-        class="level-card"
-        id="levelCard2"
-        onclick="showLevel(2)"
-      >
-
-        <div class="level-number">
-          LEVEL 2
-        </div>
-
-        <div class="level-name">
-          Second Level
-        </div>
-
-        <div class="level-description">
-          Watoto wa Level 1
-        </div>
-
-        <div
-          class="level-count"
-          id="levelCount2"
-        >
-          0
-        </div>
-
+      <div class="team-level-label">
+        4 LEVELS
       </div>
-
-
-      <div
-        class="level-card"
-        id="levelCard3"
-        onclick="showLevel(3)"
-      >
-
-        <div class="level-number">
-          LEVEL 3
-        </div>
-
-        <div class="level-name">
-          Third Level
-        </div>
-
-        <div class="level-description">
-          Wajukuu
-        </div>
-
-        <div
-          class="level-count"
-          id="levelCount3"
-        >
-          0
-        </div>
-
-      </div>
-
-
-      <div
-        class="level-card"
-        id="levelCard4"
-        onclick="showLevel(4)"
-      >
-
-        <div class="level-number">
-          LEVEL 4
-        </div>
-
-        <div class="level-name">
-          Fourth Level
-        </div>
-
-        <div class="level-description">
-          Vitukuu
-        </div>
-
-        <div
-          class="level-count"
-          id="levelCount4"
-        >
-          0
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- MEMBERS -->
-
-    <div class="team-list">
-
-      <div
-        class="team-list-title"
-        id="teamListTitle"
-      >
-        LEVEL 1 — Direct Referrals
-      </div>
-
-      <div
-        id="teamMembers"
-      ></div>
 
     </div>
 
@@ -1087,9 +1117,7 @@ body{
       onclick="promote('TikTok',event)"
     >
 
-      <div class="social-icon">
-        ♪
-      </div>
+      <div class="social-icon">♪</div>
 
       <div class="social-name">
         TikTok
@@ -1108,9 +1136,7 @@ body{
       onclick="promote('YouTube',event)"
     >
 
-      <div class="social-icon">
-        ▶
-      </div>
+      <div class="social-icon">▶</div>
 
       <div class="social-name">
         YouTube
@@ -1129,9 +1155,7 @@ body{
       onclick="promote('Facebook',event)"
     >
 
-      <div class="social-icon">
-        f
-      </div>
+      <div class="social-icon">f</div>
 
       <div class="social-name">
         Facebook
@@ -1221,6 +1245,184 @@ body{
 
   </section>
 
+</div>
+
+
+<!-- =========================
+     MY TEAM PAGE
+========================= -->
+
+<div
+  id="teamPage"
+  class="team-page"
+>
+
+  <button
+    class="back-btn"
+    onclick="closeTeamPage()"
+  >
+    ← Back
+  </button>
+
+
+  <div class="team-page-header">
+
+    <h2>
+      My Team
+    </h2>
+
+    <p>
+      Manage and view your 4-level team network.
+    </p>
+
+  </div>
+
+
+  <section class="team-total-card">
+
+    <div class="team-total-row">
+
+      <div>
+
+        <div
+          class="team-total-number"
+          id="teamTotal"
+        >
+          0
+        </div>
+
+        <div class="team-total-label">
+          Total Team Members
+        </div>
+
+      </div>
+
+      <div class="team-total-icon">
+        👥
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ONLY LEVELS -->
+
+  <div class="levels">
+
+    <div
+      class="level-card active"
+      id="levelCard1"
+      onclick="showLevel(1)"
+    >
+
+      <div class="level-number">
+        LEVEL 1
+      </div>
+
+      <div class="level-name">
+        Level 1
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount1"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div
+      class="level-card"
+      id="levelCard2"
+      onclick="showLevel(2)"
+    >
+
+      <div class="level-number">
+        LEVEL 2
+      </div>
+
+      <div class="level-name">
+        Level 2
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount2"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div
+      class="level-card"
+      id="levelCard3"
+      onclick="showLevel(3)"
+    >
+
+      <div class="level-number">
+        LEVEL 3
+      </div>
+
+      <div class="level-name">
+        Level 3
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount3"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div
+      class="level-card"
+      id="levelCard4"
+      onclick="showLevel(4)"
+    >
+
+      <div class="level-number">
+        LEVEL 4
+      </div>
+
+      <div class="level-name">
+        Level 4
+      </div>
+
+      <div
+        class="level-count"
+        id="levelCount4"
+      >
+        0
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="team-list">
+
+    <div
+      class="team-list-title"
+      id="teamListTitle"
+    >
+      LEVEL 1
+    </div>
+
+    <div id="teamMembers"></div>
+
+  </div>
+
+</div>
+
 </main>
 
 
@@ -1231,8 +1433,10 @@ body{
   <div class="nav-inner">
 
     <a
-      href="dashboard.html"
+      href="#"
       class="nav-item active"
+      id="homeNav"
+      onclick="goHome(event)"
     >
 
       <div class="nav-icon">
@@ -1262,7 +1466,7 @@ body{
     <a
       href="#"
       class="nav-item"
-      onclick="scrollToTeam(event)"
+      onclick="openTeamFromNav(event)"
     >
 
       <div class="nav-icon">
@@ -1457,9 +1661,7 @@ body{
 if(
   localStorage.getItem("linkcashLoggedIn") !== "true"
 ){
-
   window.location.href="login.html";
-
 }
 
 
@@ -1475,23 +1677,15 @@ const savedUser=
 if(savedUser){
 
   try{
-
-    currentUser=
-      JSON.parse(savedUser);
-
+    currentUser=JSON.parse(savedUser);
   }catch{
-
     currentUser=null;
-
   }
 
 }
 
-
 if(!currentUser){
-
   window.location.href="login.html";
-
 }
 
 
@@ -1504,47 +1698,31 @@ let users=[];
 const savedUsers=
   localStorage.getItem("linkcashUsers");
 
-
 if(savedUsers){
 
   try{
 
-    users=
-      JSON.parse(savedUsers);
+    users=JSON.parse(savedUsers);
 
     if(!Array.isArray(users)){
-
       users=[];
-
     }
 
   }catch{
-
     users=[];
-
   }
 
 }
 
 
 /* ================================
-   FIND CURRENT USER
+   CURRENT USERNAME
 ================================ */
 
 const currentUsername=
   String(
     currentUser.username || ""
   ).toLowerCase();
-
-
-const realCurrentUser=
-  users.find(
-    user =>
-      String(
-        user.username || ""
-      ).toLowerCase()
-      === currentUsername
-  );
 
 
 /* ================================
@@ -1606,7 +1784,7 @@ document.getElementById(
 
 
 /* ================================
-   BUILD LEVELS
+   DIRECT MEMBERS
 ================================ */
 
 function getDirectMembers(parentUsername){
@@ -1624,6 +1802,10 @@ function getDirectMembers(parentUsername){
 
 }
 
+
+/* ================================
+   BUILD 4 LEVELS
+================================ */
 
 function buildLevels(username){
 
@@ -1698,32 +1880,8 @@ const levels=
 
 
 /* ================================
-   COUNTS
+   TOTALS
 ================================ */
-
-document.getElementById(
-  "levelCount1"
-).textContent=
-  levels[1].length;
-
-
-document.getElementById(
-  "levelCount2"
-).textContent=
-  levels[2].length;
-
-
-document.getElementById(
-  "levelCount3"
-).textContent=
-  levels[3].length;
-
-
-document.getElementById(
-  "levelCount4"
-).textContent=
-  levels[4].length;
-
 
 const totalTeam=
   levels[1].length+
@@ -1734,6 +1892,12 @@ const totalTeam=
 
 document.getElementById(
   "teamTotal"
+).textContent=
+  totalTeam;
+
+
+document.getElementById(
+  "homeTeamTotal"
 ).textContent=
   totalTeam;
 
@@ -1757,6 +1921,31 @@ document.getElementById(
 
 
 /* ================================
+   LEVEL COUNTS
+================================ */
+
+document.getElementById(
+  "levelCount1"
+).textContent=
+  levels[1].length;
+
+document.getElementById(
+  "levelCount2"
+).textContent=
+  levels[2].length;
+
+document.getElementById(
+  "levelCount3"
+).textContent=
+  levels[3].length;
+
+document.getElementById(
+  "levelCount4"
+).textContent=
+  levels[4].length;
+
+
+/* ================================
    CONVERSION
 ================================ */
 
@@ -1764,7 +1953,6 @@ const conversion=
   levels[1].length > 0
   ? "100%"
   : "0%";
-
 
 document.getElementById(
   "conversion"
@@ -1783,14 +1971,12 @@ const baseURL=
     ""
   );
 
-
 const affiliateLink=
   baseURL+
   "register.html?ref="+
   encodeURIComponent(
     currentUsername
   );
-
 
 document.getElementById(
   "affiliateLink"
@@ -1799,11 +1985,64 @@ document.getElementById(
 
 
 /* ================================
-   SHOW LEVEL
+   OPEN MY TEAM
+================================ */
+
+function openTeamPage(){
+
+  document
+    .getElementById("homePage")
+    .classList.add("hide");
+
+  document
+    .getElementById("teamPage")
+    .classList.add("show");
+
+  document
+    .getElementById("homeNav")
+    .classList.remove("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  showLevel(1);
+
+}
+
+
+/* ================================
+   CLOSE MY TEAM
+================================ */
+
+function closeTeamPage(){
+
+  document
+    .getElementById("teamPage")
+    .classList.remove("show");
+
+  document
+    .getElementById("homePage")
+    .classList.remove("hide");
+
+  document
+    .getElementById("homeNav")
+    .classList.add("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ================================
+   LEVEL SELECT
 ================================ */
 
 let selectedLevel=1;
-
 
 function showLevel(level){
 
@@ -1836,18 +2075,10 @@ function showLevel(level){
     );
 
 
-  const titles={
-    1:"LEVEL 1 — Direct Referrals",
-    2:"LEVEL 2 — Second Level",
-    3:"LEVEL 3 — Third Level",
-    4:"LEVEL 4 — Fourth Level"
-  };
-
-
   document.getElementById(
     "teamListTitle"
   ).textContent=
-    titles[level];
+    "LEVEL "+level;
 
 
   renderMembers(
@@ -1856,6 +2087,10 @@ function showLevel(level){
 
 }
 
+
+/* ================================
+   RENDER MEMBERS
+================================ */
 
 function renderMembers(members){
 
@@ -1875,11 +2110,6 @@ function renderMembers(members){
       <div class="empty-team">
 
         No members in this level yet.
-
-        <br>
-
-        Share your affiliate link
-        to grow your team.
 
       </div>
 
@@ -1907,6 +2137,7 @@ function renderMembers(members){
 
       let date="";
 
+
       if(member.joinedAt){
 
         const d=
@@ -1915,10 +2146,8 @@ function renderMembers(members){
           );
 
         if(!isNaN(d)){
-
           date=
             d.toLocaleDateString();
-
         }
 
       }
@@ -1964,7 +2193,9 @@ function renderMembers(members){
 
           <br>
 
-          ${escapeHTML(date || "—")}
+          ${escapeHTML(
+            date || "—"
+          )}
 
         </div>
 
@@ -1993,9 +2224,64 @@ function escapeHTML(value){
 }
 
 
-/* SHOW LEVEL 1 FIRST */
+/* ================================
+   HOME
+================================ */
 
-showLevel(1);
+function goHome(event){
+
+  event.preventDefault();
+
+  closeTeamPage();
+
+}
+
+
+/* ================================
+   TEAM NAV
+================================ */
+
+function openTeamFromNav(event){
+
+  event.preventDefault();
+
+  openTeamPage();
+
+}
+
+
+/* ================================
+   LINK NAV
+================================ */
+
+function scrollToLink(event){
+
+  event.preventDefault();
+
+
+  if(
+    document
+      .getElementById("teamPage")
+      .classList.contains("show")
+  ){
+
+    closeTeamPage();
+
+  }
+
+
+  setTimeout(() => {
+
+    document
+      .querySelector(".link-card")
+      .scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+  },100);
+
+}
 
 
 /* ================================
@@ -2031,7 +2317,7 @@ function copyLink(){
 
 
 /* ================================
-   SHARE LINK
+   SHARE
 ================================ */
 
 function shareLink(){
@@ -2193,7 +2479,7 @@ function openProfile(){
 
 
 /* ================================
-   CLOSE
+   CLOSE MODAL
 ================================ */
 
 function closeModal(id){
@@ -2228,40 +2514,12 @@ function logout(){
     "linkcashLoggedIn"
   );
 
+  localStorage.removeItem(
+    "linkcashUser"
+  );
+
   window.location.href=
     "login.html";
-
-}
-
-
-/* ================================
-   NAVIGATION
-================================ */
-
-function scrollToTeam(event){
-
-  event.preventDefault();
-
-  document
-    .querySelector(".team-summary")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    });
-
-}
-
-
-function scrollToLink(event){
-
-  event.preventDefault();
-
-  document
-    .querySelector(".link-card")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    });
 
 }
 
