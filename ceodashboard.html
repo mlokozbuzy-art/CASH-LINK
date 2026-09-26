@@ -6,9 +6,6 @@
 
 <title>LINKCASH - CEO Dashboard</title>
 
-<!-- SUPABASE -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
 *{
   box-sizing:border-box;
@@ -105,13 +102,31 @@ body{
   line-height:1.5;
 }
 
-/* STATS */
+.connection{
+  padding:12px;
+  border-radius:12px;
+  background:#101010;
+  border:1px solid #292929;
+  margin-bottom:16px;
+  font-size:10px;
+  color:#888;
+}
+
+.connection.ok{
+  border-color:rgba(88,216,138,.3);
+  color:#58d88a;
+}
+
+.connection.error{
+  border-color:rgba(255,80,80,.3);
+  color:#ff7777;
+}
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:10px;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .stat{
@@ -143,41 +158,32 @@ body{
   margin-top:4px;
 }
 
-/* TABS */
-
-.tabs{
+.action-bar{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:8px;
-  margin-bottom:18px;
+  gap:9px;
+  margin-bottom:22px;
 }
 
-.tab{
-  min-height:42px;
-  border-radius:11px;
+.action-btn{
+  min-height:43px;
+  border-radius:10px;
   border:1px solid #292929;
   background:#101010;
-  color:#888;
-  font-size:9px;
-  font-weight:900;
+  color:#aaa;
+  font-size:10px;
+  font-weight:bold;
   cursor:pointer;
 }
 
-.tab:hover,
-.tab.active{
-  color:#d4a72c;
+.action-btn:hover,
+.action-btn.active{
   border-color:#d4a72c;
-  background:#151208;
+  color:#d4a72c;
 }
 
-/* SECTIONS */
-
-.panel{
-  display:none;
-}
-
-.panel.active{
-  display:block;
+.section{
+  margin-top:24px;
 }
 
 .section-title{
@@ -196,8 +202,6 @@ body{
   font-size:9px;
 }
 
-/* SEARCH */
-
 .search{
   width:100%;
   height:44px;
@@ -215,35 +219,25 @@ body{
   border-color:#d4a72c;
 }
 
-/* CARDS */
-
 .card{
   background:linear-gradient(145deg,#151515,#0a0a0a);
-  border:1px solid #292929;
+  border:1px solid #2b2b2b;
   border-radius:17px;
-  padding:16px;
+  padding:15px;
   margin-bottom:10px;
 }
 
 .card-top{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:10px;
 }
 
-.user-info{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  min-width:0;
-}
-
 .avatar{
-  width:44px;
-  height:44px;
-  min-width:44px;
-  border-radius:13px;
+  width:42px;
+  height:42px;
+  border-radius:12px;
   background:#1d1d1d;
   color:#d4a72c;
   display:flex;
@@ -252,8 +246,15 @@ body{
   font-weight:900;
 }
 
+.user-info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+
 .name{
-  font-size:13px;
+  font-size:12px;
   font-weight:bold;
 }
 
@@ -264,13 +265,14 @@ body{
 }
 
 .status{
-  padding:7px 9px;
+  padding:6px 9px;
   border-radius:15px;
   font-size:8px;
   font-weight:900;
 }
 
-.status.active{
+.status.active,
+.status.approved{
   color:#58d88a;
   background:rgba(88,216,138,.08);
   border:1px solid rgba(88,216,138,.2);
@@ -289,20 +291,18 @@ body{
   border:1px solid rgba(255,80,80,.18);
 }
 
-/* DETAILS */
-
 .details{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:8px;
-  margin-top:14px;
+  margin-top:13px;
 }
 
 .detail{
   background:#090909;
   border:1px solid #202020;
   border-radius:11px;
-  padding:11px;
+  padding:10px;
 }
 
 .label{
@@ -313,7 +313,7 @@ body{
 
 .value{
   color:#ddd;
-  font-size:11px;
+  font-size:10px;
   font-weight:bold;
   word-break:break-word;
 }
@@ -322,98 +322,95 @@ body{
   color:#d4a72c;
 }
 
-/* BUTTONS */
-
 .actions{
   display:flex;
   gap:8px;
-  margin-top:13px;
+  margin-top:12px;
 }
 
-.btn{
+.small-btn{
   flex:1;
-  height:40px;
-  border-radius:10px;
-  font-size:9px;
-  font-weight:900;
-  cursor:pointer;
+  height:38px;
+  border-radius:9px;
   border:1px solid #292929;
   background:#101010;
-  color:#888;
+  color:#aaa;
+  font-size:9px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.btn.gold{
-  color:#d4a72c;
-  border-color:rgba(212,167,44,.3);
-}
-
-.btn.green{
+.small-btn.green{
   color:#58d88a;
-  border-color:rgba(88,216,138,.3);
+  border-color:rgba(88,216,138,.25);
 }
 
-.btn.red{
+.small-btn.red{
   color:#ff7777;
-  border-color:rgba(255,80,80,.3);
+  border-color:rgba(255,80,80,.25);
 }
 
-.btn:hover{
-  filter:brightness(1.25);
+.tasks{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
 }
 
-/* PLATFORM */
+.task-card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:14px;
+}
 
 .platform{
-  display:inline-block;
-  padding:6px 9px;
-  border-radius:10px;
-  background:#181818;
   color:#d4a72c;
-  font-size:8px;
+  font-size:9px;
   font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:7px;
 }
 
-/* EMPTY */
+.task-title{
+  font-size:12px;
+  font-weight:bold;
+}
+
+.task-description{
+  color:#666;
+  font-size:9px;
+  line-height:1.5;
+  margin-top:6px;
+}
+
+.task-reward{
+  color:#58d88a;
+  font-size:11px;
+  font-weight:bold;
+  margin-top:10px;
+}
 
 .empty{
-  padding:35px 20px;
+  padding:30px 20px;
   text-align:center;
   background:#101010;
   border:1px solid #292929;
-  border-radius:18px;
+  border-radius:17px;
   color:#666;
-}
-
-.empty-icon{
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-.empty h3{
-  color:#ddd;
-  font-size:14px;
-}
-
-.empty p{
-  margin-top:6px;
   font-size:10px;
 }
 
-/* LOADING */
-
-.loading{
-  padding:30px;
+.loader{
+  padding:25px;
   text-align:center;
   color:#666;
-  font-size:11px;
+  font-size:10px;
 }
-
-/* LOGOUT */
 
 .logout{
   width:100%;
   height:46px;
-  margin-top:24px;
+  margin-top:28px;
   border-radius:11px;
   border:1px solid #292929;
   background:#101010;
@@ -424,11 +421,9 @@ body{
 }
 
 .logout:hover{
-  color:#ff7777;
-  border-color:#ff7777;
+  color:#fff;
+  border-color:#555;
 }
-
-/* FOOTER */
 
 .footer{
   text-align:center;
@@ -437,36 +432,26 @@ body{
   font-size:9px;
 }
 
-/* MOBILE */
-
-@media(max-width:600px){
+@media(max-width:700px){
 
   .stats{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .tabs{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .details{
-    grid-template-columns:1fr 1fr;
+  .action-bar{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tasks{
+    grid-template-columns:1fr;
   }
 
 }
 
-@media(max-width:380px){
+@media(max-width:420px){
 
   .details{
     grid-template-columns:1fr;
-  }
-
-  .stats{
-    gap:6px;
-  }
-
-  .stat-value{
-    font-size:17px;
   }
 
 }
@@ -500,111 +485,72 @@ body{
   </h1>
 
   <p>
-    Manage LINKCASH users, payments, tasks,
-    ads, quizzes and games.
+    Manage LINKCASH users, payments, tasks and referrals.
   </p>
 
 </section>
 
 
-<!-- STATS -->
+<div id="connection" class="connection">
+  Connecting to Supabase...
+</div>
+
 
 <section class="stats">
 
   <div class="stat">
     <div class="stat-icon">👥</div>
-
-    <div
-      class="stat-value"
-      id="totalUsers"
-    >0</div>
-
-    <div class="stat-name">
-      TOTAL USERS
-    </div>
+    <div id="totalUsers" class="stat-value">0</div>
+    <div class="stat-name">TOTAL USERS</div>
   </div>
-
 
   <div class="stat">
     <div class="stat-icon">⏳</div>
-
-    <div
-      class="stat-value"
-      id="pendingUsers"
-    >0</div>
-
-    <div class="stat-name">
-      PENDING
-    </div>
+    <div id="pendingUsers" class="stat-value">0</div>
+    <div class="stat-name">PENDING</div>
   </div>
-
 
   <div class="stat">
     <div class="stat-icon">✓</div>
+    <div id="activeUsers" class="stat-value">0</div>
+    <div class="stat-name">ACTIVE</div>
+  </div>
 
-    <div
-      class="stat-value"
-      id="activeUsers"
-    >0</div>
-
-    <div class="stat-name">
-      ACTIVE
-    </div>
+  <div class="stat">
+    <div class="stat-icon">💰</div>
+    <div id="totalBalance" class="stat-value">0</div>
+    <div class="stat-name">BALANCE</div>
   </div>
 
 </section>
 
 
-<!-- TABS -->
-
-<div class="tabs">
+<div class="action-bar">
 
   <button
-    class="tab active"
-    onclick="openTab('users',this)"
-  >
+    id="usersBtn"
+    class="action-btn active"
+    onclick="showUsers()">
     👥 USERS
   </button>
 
   <button
-    class="tab"
-    onclick="openTab('payments',this)"
-  >
+    id="paymentsBtn"
+    class="action-btn"
+    onclick="showPayments()">
     💳 PAYMENTS
   </button>
 
   <button
-    class="tab"
-    onclick="openTab('social',this)"
-  >
-    📱 SOCIAL
+    id="tasksBtn"
+    class="action-btn"
+    onclick="showTasks()">
+    🎯 TASKS
   </button>
 
   <button
-    class="tab"
-    onclick="openTab('ads',this)"
-  >
-    📢 ADS
-  </button>
-
-  <button
-    class="tab"
-    onclick="openTab('quiz',this)"
-  >
-    🧠 QUIZ
-  </button>
-
-  <button
-    class="tab"
-    onclick="openTab('games',this)"
-  >
-    🎮 GAMES
-  </button>
-
-  <button
-    class="tab"
-    onclick="refreshAll()"
-  >
+    class="action-btn"
+    onclick="loadDashboard()">
     ↻ REFRESH
   </button>
 
@@ -614,30 +560,37 @@ body{
 <!-- USERS -->
 
 <section
-  id="users"
-  class="panel active"
->
+  id="usersSection"
+  class="section">
 
   <div class="section-title">
 
-    <h2>Registered Users</h2>
+    <h2>
+      Registered Users
+    </h2>
 
-    <span>SUPABASE</span>
+    <span id="usersCountLabel">
+      ALL USERS
+    </span>
 
   </div>
+
 
   <input
     id="userSearch"
     class="search"
     type="text"
-    placeholder="Search name, username or phone..."
-    oninput="renderUsers()"
+    placeholder="Search username, name or phone..."
+    oninput="filterUsers()"
   >
 
+
   <div id="usersList">
-    <div class="loading">
+
+    <div class="loader">
       Loading users...
     </div>
+
   </div>
 
 </section>
@@ -646,134 +599,73 @@ body{
 <!-- PAYMENTS -->
 
 <section
-  id="payments"
-  class="panel"
->
+  id="paymentsSection"
+  class="section"
+  style="display:none">
 
   <div class="section-title">
 
-    <h2>Payment Requests</h2>
-
-    <span id="paymentCount">
-      0 REQUESTS
-    </span>
-
-  </div>
-
-  <div id="paymentsList">
-    <div class="loading">
-      Loading payments...
-    </div>
-  </div>
-
-</section>
-
-
-<!-- SOCIAL -->
-
-<section
-  id="social"
-  class="panel"
->
-
-  <div class="section-title">
-
-    <h2>Social Tasks</h2>
+    <h2>
+      Payment Requests
+    </h2>
 
     <span>
-      TIKTOK • YOUTUBE • FACEBOOK • INSTAGRAM
+      PAYMENTS
     </span>
 
   </div>
 
-  <div id="socialList">
-    <div class="loading">
-      Loading social tasks...
+
+  <div id="paymentsList">
+
+    <div class="loader">
+      Loading payments...
     </div>
+
   </div>
 
 </section>
 
 
-<!-- ADS -->
+<!-- TASKS -->
 
 <section
-  id="ads"
-  class="panel"
->
+  id="tasksSection"
+  class="section"
+  style="display:none">
 
   <div class="section-title">
 
-    <h2>Advertisements</h2>
+    <h2>
+      Content Tasks
+    </h2>
 
-    <span>ADS</span>
+    <span>
+      TASKS
+    </span>
 
   </div>
 
-  <div id="adsList">
-    <div class="loading">
-      Loading ads...
+
+  <div
+    id="tasksList"
+    class="tasks">
+
+    <div class="loader">
+      Loading tasks...
     </div>
+
   </div>
 
 </section>
 
-
-<!-- QUIZ -->
-
-<section
-  id="quiz"
-  class="panel"
->
-
-  <div class="section-title">
-
-    <h2>Quiz Management</h2>
-
-    <span>QUIZZES</span>
-
-  </div>
-
-  <div id="quizList">
-    <div class="loading">
-      Loading quizzes...
-    </div>
-  </div>
-
-</section>
-
-
-<!-- GAMES -->
-
-<section
-  id="games"
-  class="panel"
->
-
-  <div class="section-title">
-
-    <h2>Games</h2>
-
-    <span>eFOOTBALL • CAR GAMES</span>
-
-  </div>
-
-  <div id="gamesList">
-    <div class="loading">
-      Loading games...
-    </div>
-  </div>
-
-</section>
-
-
-<!-- LOGOUT -->
 
 <button
   class="logout"
-  onclick="logoutCEO()"
->
-  🚪 LOG OUT CEO
+  onclick="logoutCEO()">
+
+  LOG OUT CEO
+
 </button>
 
 
@@ -787,7 +679,7 @@ body{
 <script>
 
 /* =====================================================
-   SUPABASE CONFIG
+   SUPABASE CONFIGURATION
 ===================================================== */
 
 const SUPABASE_URL =
@@ -796,249 +688,351 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
   "sb_publishable_o3xHXS74TUvzrJkLCpvF1Q_Af4Xtidl";
 
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
 
 /* =====================================================
-   SECURITY
-===================================================== */
-
-async function checkCEO(){
-
-  const {
-    data:{
-      session
-    }
-  } =
-  await supabaseClient
-    .auth
-    .getSession();
-
-
-  if(!session){
-
-    window.location.replace(
-      "ceologin.html"
-    );
-
-    return false;
-
-  }
-
-
-  const {
-    data:profile,
-    error
-  } =
-  await supabaseClient
-    .from("profiles")
-    .select("role,status")
-    .eq("id",session.user.id)
-    .single();
-
-
-  if(error || !profile){
-
-    alert(
-      "CEO profile was not found."
-    );
-
-    await supabaseClient
-      .auth
-      .signOut();
-
-    window.location.replace(
-      "ceologin.html"
-    );
-
-    return false;
-
-  }
-
-
-  if(profile.role !== "ceo"){
-
-    alert(
-      "CEO access required."
-    );
-
-    await supabaseClient
-      .auth
-      .signOut();
-
-    window.location.replace(
-      "login.html"
-    );
-
-    return false;
-
-  }
-
-
-  return true;
-
-}
-
-
-/* =====================================================
-   HELPERS
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-
-function initials(name){
-
-  if(!name) return "U";
-
-  const p =
-    String(name)
-      .trim()
-      .split(/\s+/);
-
-  if(p.length === 1){
-
-    return p[0]
-      .substring(0,2)
-      .toUpperCase();
-
-  }
-
-  return (
-    p[0][0] +
-    p[1][0]
-  ).toUpperCase();
-
-}
-
-
-function money(amount){
-
-  return Number(
-    amount || 0
-  ).toLocaleString();
-
-}
-
-
-/* =====================================================
-   TAB SYSTEM
-===================================================== */
-
-function openTab(id,button){
-
-  document
-    .querySelectorAll(".panel")
-    .forEach(
-      panel =>
-        panel.classList.remove("active")
-    );
-
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(
-      tab =>
-        tab.classList.remove("active")
-    );
-
-
-  document
-    .getElementById(id)
-    .classList.add("active");
-
-
-  if(button){
-    button.classList.add("active");
-  }
-
-
-  if(id === "users"){
-    renderUsers();
-  }
-
-  if(id === "payments"){
-    loadPayments();
-  }
-
-  if(id === "social"){
-    loadSocialTasks();
-  }
-
-  if(id === "ads"){
-    loadAds();
-  }
-
-  if(id === "quiz"){
-    loadQuizzes();
-  }
-
-  if(id === "games"){
-    loadGames();
-  }
-
-}
-
-
-/* =====================================================
-   USERS
+   GLOBAL DATA
 ===================================================== */
 
 let allUsers = [];
 
 
-async function loadUsers(){
+/* =====================================================
+   SUPABASE REQUEST
+===================================================== */
 
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("profiles")
-    .select(`
-      id,
-      username,
-      full_name,
-      phone,
-      status,
-      role,
-      balance,
-      total_earned,
-      created_at
-    `)
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
+async function supabaseRequest(
+  endpoint,
+  options = {}
+){
+
+  const url =
+    SUPABASE_URL +
+    "/rest/v1/" +
+    endpoint;
+
+  const headers = {
+
+    "apikey":
+      SUPABASE_KEY,
+
+    "Authorization":
+      "Bearer " + SUPABASE_KEY,
+
+    "Content-Type":
+      "application/json",
+
+    "Accept":
+      "application/json",
+
+    "Prefer":
+      options.prefer ||
+      "return=representation"
+
+  };
+
+
+  const response =
+    await fetch(url,{
+
+      method:
+        options.method ||
+        "GET",
+
+      headers:
+
+        headers,
+
+      body:
+
+        options.body
+          ? JSON.stringify(
+              options.body
+            )
+          : undefined
+
+    });
+
+
+  const text =
+    await response.text();
+
+
+  let data = null;
+
+
+  try{
+
+    data =
+      text
+        ? JSON.parse(text)
+        : [];
+
+  }catch{
+
+    data = text;
+
+  }
+
+
+  if(!response.ok){
+
+    throw new Error(
+
+      data?.message ||
+      data?.hint ||
+      data?.details ||
+      text ||
+      "Supabase request failed"
+
+    );
+
+  }
+
+
+  return data;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+  return String(
+    value ?? ""
+  )
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
+
+}
+
+
+/* =====================================================
+   INITIALS
+===================================================== */
+
+function initials(name){
+
+  const parts =
+    String(
+      name ||
+      "User"
+    )
+    .trim()
+    .split(/\s+/);
+
+
+  if(parts.length === 1){
+
+    return parts[0]
+      .substring(0,2)
+      .toUpperCase();
+
+  }
+
+
+  return (
+    parts[0][0] +
+    parts[1][0]
+  ).toUpperCase();
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function formatDate(date){
+
+  if(!date){
+
+    return "-";
+
+  }
+
+
+  try{
+
+    return new Date(date)
+      .toLocaleString();
+
+  }catch{
+
+    return String(date);
+
+  }
+
+}
+
+
+/* =====================================================
+   CONNECTION
+===================================================== */
+
+async function testConnection(){
+
+  const box =
+    document.getElementById(
+      "connection"
     );
 
 
-  if(error){
+  box.textContent =
+    "Connecting to Supabase...";
+
+
+  box.className =
+    "connection";
+
+
+  try{
+
+    await supabaseRequest(
+      "profiles?select=id&limit=1"
+    );
+
+
+    box.textContent =
+      "● SUPABASE CONNECTED";
+
+
+    box.className =
+      "connection ok";
+
+
+    return true;
+
+  }catch(error){
+
+    box.textContent =
+      "● SUPABASE ERROR: " +
+      error.message;
+
+
+    box.className =
+      "connection error";
+
+
+    console.error(
+      "Supabase:",
+      error
+    );
+
+
+    return false;
+
+  }
+
+}
+
+
+/* =====================================================
+   LOAD USERS
+===================================================== */
+
+async function loadUsers(){
+
+  const container =
+    document.getElementById(
+      "usersList"
+    );
+
+
+  container.innerHTML =
+    '<div class="loader">Loading users...</div>';
+
+
+  try{
+
+    allUsers =
+      await supabaseRequest(
+        "profiles?select=*&order=created_at.desc"
+      );
+
+
+    if(!Array.isArray(allUsers)){
+
+      allUsers = [];
+
+    }
+
+
+    renderUsers(allUsers);
+
+    updateStats();
+
+
+    document.getElementById(
+      "usersCountLabel"
+    ).textContent =
+      allUsers.length +
+      " USERS";
+
+
+  }catch(error){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        Unable to load users.
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
 
     console.error(error);
 
+  }
+
+}
+
+
+/* =====================================================
+   RENDER USERS
+===================================================== */
+
+function renderUsers(users){
+
+  const container =
     document.getElementById(
       "usersList"
-    ).innerHTML = `
+    );
+
+
+  container.innerHTML = "";
+
+
+  if(
+    !users ||
+    users.length === 0
+  ){
+
+    container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load Users</h3>
-        <p>${escapeHTML(error.message)}</p>
+
+        👥
+
+        <br><br>
+
+        No registered users found.
+
       </div>
+
     `;
 
     return;
@@ -1046,16 +1040,277 @@ async function loadUsers(){
   }
 
 
-  allUsers =
-    data || [];
+  users.forEach(
+    user => {
+
+      const status =
+        String(
+          user.status ||
+          "pending"
+        )
+        .toLowerCase();
 
 
-  updateStats();
+      const card =
+        document.createElement(
+          "div"
+        );
 
-  renderUsers();
+
+      card.className =
+        "card";
+
+
+      card.innerHTML = `
+
+        <div class="card-top">
+
+          <div class="user-info">
+
+            <div class="avatar">
+
+              ${initials(
+                user.full_name
+              )}
+
+            </div>
+
+
+            <div>
+
+              <div class="name">
+
+                ${escapeHTML(
+                  user.full_name ||
+                  "Unnamed User"
+                )}
+
+              </div>
+
+
+              <div class="username">
+
+                @${escapeHTML(
+                  user.username ||
+                  "-"
+                )}
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="status ${escapeHTML(
+              status
+            )}">
+
+            ${escapeHTML(
+              status.toUpperCase()
+            )}
+
+          </div>
+
+        </div>
+
+
+        <div class="details">
+
+          <div class="detail">
+
+            <div class="label">
+              PHONE
+            </div>
+
+            <div class="value">
+              ${escapeHTML(
+                user.phone ||
+                "-"
+              )}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <div class="label">
+              ROLE
+            </div>
+
+            <div class="value">
+              ${escapeHTML(
+                user.role ||
+                "user"
+              )}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <div class="label">
+              BALANCE
+            </div>
+
+            <div class="value gold">
+
+              TZS ${Number(
+                user.balance ||
+                0
+              ).toLocaleString()}
+
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <div class="label">
+              REGISTERED
+            </div>
+
+            <div class="value">
+
+              ${formatDate(
+                user.created_at
+              )}
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        ${
+          user.role !== "ceo"
+          ?
+
+          `
+
+          <div class="actions">
+
+            <button
+              class="small-btn green"
+              onclick="changeUserStatus(
+                '${user.id}',
+                'active'
+              )">
+
+              ✓ ACTIVATE
+
+            </button>
+
+
+            <button
+              class="small-btn red"
+              onclick="changeUserStatus(
+                '${user.id}',
+                'suspended'
+              )">
+
+              SUSPEND
+
+            </button>
+
+          </div>
+
+          `
+
+          :
+
+          ""
+
+        }
+
+      `;
+
+
+      container.appendChild(
+        card
+      );
+
+    }
+  );
 
 }
 
+
+/* =====================================================
+   CHANGE USER STATUS
+===================================================== */
+
+async function changeUserStatus(
+  userId,
+  status
+){
+
+  const answer =
+    confirm(
+      "Change this user's status to " +
+      status +
+      "?"
+    );
+
+
+  if(!answer){
+
+    return;
+
+  }
+
+
+  try{
+
+    await supabaseRequest(
+
+      "profiles?id=eq." +
+      encodeURIComponent(
+        userId
+      ),
+
+      {
+
+        method:
+          "PATCH",
+
+        body:{
+          status:
+            status
+        }
+
+      }
+
+    );
+
+
+    alert(
+      "User status updated."
+    );
+
+
+    await loadUsers();
+
+  }catch(error){
+
+    alert(
+      "Failed: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
 
 function updateStats(){
 
@@ -1065,20 +1320,44 @@ function updateStats(){
 
   const pending =
     allUsers.filter(
-      u =>
-        String(u.status)
-          .toLowerCase()
-        === "pending"
+      user =>
+
+        String(
+          user.status ||
+          ""
+        ).toLowerCase() ===
+        "pending"
+
     ).length;
 
 
   const active =
     allUsers.filter(
-      u =>
-        String(u.status)
-          .toLowerCase()
-        === "active"
+      user =>
+
+        String(
+          user.status ||
+          ""
+        ).toLowerCase() ===
+        "active"
+
     ).length;
+
+
+  const balance =
+    allUsers.reduce(
+
+      (sum,user) =>
+
+        sum +
+        Number(
+          user.balance ||
+          0
+        ),
+
+      0
+
+    );
 
 
   document.getElementById(
@@ -1098,198 +1377,86 @@ function updateStats(){
   ).textContent =
     active;
 
+
+  document.getElementById(
+    "totalBalance"
+  ).textContent =
+    Number(
+      balance
+    ).toLocaleString();
+
 }
 
 
-function renderUsers(){
+/* =====================================================
+   SEARCH
+===================================================== */
 
-  const container =
+function filterUsers(){
+
+  const keyword =
     document.getElementById(
-      "usersList"
-    );
-
-
-  const search =
-    String(
-      document.getElementById(
-        "userSearch"
-      ).value || ""
+      "userSearch"
     )
+    .value
     .trim()
     .toLowerCase();
 
 
-  const users =
+  const filtered =
     allUsers.filter(
       user => {
 
         const name =
           String(
-            user.full_name || ""
+            user.full_name ||
+            ""
           ).toLowerCase();
+
 
         const username =
           String(
-            user.username || ""
+            user.username ||
+            ""
           ).toLowerCase();
+
 
         const phone =
           String(
-            user.phone || ""
+            user.phone ||
+            ""
           ).toLowerCase();
 
 
         return (
-          !search ||
-          name.includes(search) ||
-          username.includes(search) ||
-          phone.includes(search)
+
+          name.includes(
+            keyword
+          ) ||
+
+          username.includes(
+            keyword
+          ) ||
+
+          phone.includes(
+            keyword
+          )
+
         );
 
       }
     );
 
 
-  if(users.length === 0){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">👥</div>
-        <h3>No Users Found</h3>
-        <p>Registered users will appear here.</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  container.innerHTML = "";
-
-
-  users.forEach(user => {
-
-    const status =
-      String(
-        user.status || "pending"
-      ).toLowerCase();
-
-
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "card";
-
-
-    card.innerHTML = `
-
-      <div class="card-top">
-
-        <div class="user-info">
-
-          <div class="avatar">
-            ${initials(user.full_name)}
-          </div>
-
-          <div>
-
-            <div class="name">
-              ${escapeHTML(
-                user.full_name ||
-                "Unnamed User"
-              )}
-            </div>
-
-            <div class="username">
-              @${escapeHTML(
-                user.username || "-"
-              )}
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="status ${status}">
-          ${status.toUpperCase()}
-        </div>
-
-      </div>
-
-
-      <div class="details">
-
-        <div class="detail">
-
-          <div class="label">
-            PHONE
-          </div>
-
-          <div class="value">
-            ${escapeHTML(
-              user.phone || "-"
-            )}
-          </div>
-
-        </div>
-
-
-        <div class="detail">
-
-          <div class="label">
-            ROLE
-          </div>
-
-          <div class="value">
-            ${escapeHTML(
-              user.role || "user"
-            ).toUpperCase()}
-          </div>
-
-        </div>
-
-
-        <div class="detail">
-
-          <div class="label">
-            BALANCE
-          </div>
-
-          <div class="value gold">
-            TZS ${money(user.balance)}
-          </div>
-
-        </div>
-
-
-        <div class="detail">
-
-          <div class="label">
-            TOTAL EARNED
-          </div>
-
-          <div class="value gold">
-            TZS ${money(user.total_earned)}
-          </div>
-
-        </div>
-
-      </div>
-
-    `;
-
-
-    container.appendChild(card);
-
-  });
+  renderUsers(
+    filtered
+  );
 
 }
 
 
 /* =====================================================
-   PAYMENTS
+   LOAD PAYMENTS
 ===================================================== */
 
 async function loadPayments(){
@@ -1301,622 +1468,748 @@ async function loadPayments(){
 
 
   container.innerHTML =
-    `<div class="loading">Loading payments...</div>`;
+    '<div class="loader">Loading payments...</div>';
 
 
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("payment_requests")
-    .select(`
-      id,
-      user_id,
-      amount,
-      method,
-      transaction_reference,
-      status,
-      submitted_at,
-      reviewed_at,
-      profiles(
-        username,
-        full_name,
-        phone
-      )
-    `)
-    .order(
-      "submitted_at",
-      {
-        ascending:false
+  try{
+
+    const payments =
+      await supabaseRequest(
+        "payment_requests?select=*&order=created_at.desc"
+      );
+
+
+    container.innerHTML =
+      "";
+
+
+    if(
+      !payments ||
+      payments.length === 0
+    ){
+
+      container.innerHTML = `
+
+        <div class="empty">
+
+          💳
+
+          <br><br>
+
+          No payment requests found.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    payments.forEach(
+      payment => {
+
+        const status =
+          String(
+            payment.status ||
+            "pending"
+          ).toLowerCase();
+
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+
+        card.className =
+          "card";
+
+
+        card.innerHTML = `
+
+          <div class="card-top">
+
+            <div class="user-info">
+
+              <div class="avatar">
+                💳
+              </div>
+
+              <div>
+
+                <div class="name">
+                  Payment Request
+                </div>
+
+                <div class="username">
+
+                  User ID:
+                  ${escapeHTML(
+                    payment.user_id ||
+                    "-"
+                  )}
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="status ${escapeHTML(
+                status
+              )}">
+
+              ${escapeHTML(
+                status.toUpperCase()
+              )}
+
+            </div>
+
+          </div>
+
+
+          <div class="details">
+
+            <div class="detail">
+
+              <div class="label">
+                AMOUNT
+              </div>
+
+              <div class="value gold">
+
+                TZS ${Number(
+                  payment.amount ||
+                  0
+                ).toLocaleString()}
+
+              </div>
+
+            </div>
+
+
+            <div class="detail">
+
+              <div class="label">
+                METHOD
+              </div>
+
+              <div class="value">
+
+                ${escapeHTML(
+                  payment.method ||
+                  "-"
+                )}
+
+              </div>
+
+            </div>
+
+
+            <div class="detail">
+
+              <div class="label">
+                TRANSACTION
+              </div>
+
+              <div class="value">
+
+                ${escapeHTML(
+                  payment.transaction_reference ||
+                  "-"
+                )}
+
+              </div>
+
+            </div>
+
+
+            <div class="detail">
+
+              <div class="label">
+                DATE
+              </div>
+
+              <div class="value">
+
+                ${formatDate(
+                  payment.created_at
+                )}
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          ${
+            status === "pending"
+
+            ?
+
+            `
+
+            <div class="actions">
+
+              <button
+                class="small-btn green"
+                onclick="updatePayment(
+                  '${payment.id}',
+                  'approved',
+                  '${payment.user_id}'
+                )">
+
+                ✓ APPROVE
+
+              </button>
+
+
+              <button
+                class="small-btn red"
+                onclick="updatePayment(
+                  '${payment.id}',
+                  'rejected',
+                  '${payment.user_id}'
+                )">
+
+                ✕ REJECT
+
+              </button>
+
+            </div>
+
+            `
+
+            :
+
+            ""
+
+          }
+
+        `;
+
+
+        container.appendChild(
+          card
+        );
+
       }
     );
 
 
-  if(error){
+  }catch(error){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Payment Error</h3>
-        <p>${escapeHTML(error.message)}</p>
+
+        Unable to load payments.
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
       </div>
+
     `;
+
+  }
+
+}
+
+
+/* =====================================================
+   UPDATE PAYMENT
+===================================================== */
+
+async function updatePayment(
+  paymentId,
+  status,
+  userId
+){
+
+  const answer =
+    confirm(
+      "Are you sure you want to " +
+      status +
+      " this payment?"
+    );
+
+
+  if(!answer){
 
     return;
 
   }
+
+
+  try{
+
+    await supabaseRequest(
+
+      "payment_requests?id=eq." +
+      encodeURIComponent(
+        paymentId
+      ),
+
+      {
+
+        method:
+          "PATCH",
+
+        body:{
+          status:
+            status
+        }
+
+      }
+
+    );
+
+
+    /*
+      When payment is approved,
+      activate the user.
+    */
+
+    if(
+      status === "approved" &&
+      userId
+    ){
+
+      await supabaseRequest(
+
+        "profiles?id=eq." +
+        encodeURIComponent(
+          userId
+        ),
+
+        {
+
+          method:
+            "PATCH",
+
+          body:{
+            status:
+              "active"
+          }
+
+        }
+
+      );
+
+    }
+
+
+    alert(
+      "Payment " +
+      status +
+      " successfully."
+    );
+
+
+    await loadPayments();
+
+    await loadUsers();
+
+
+  }catch(error){
+
+    alert(
+      "Failed: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   LOAD TASKS
+===================================================== */
+
+async function loadTasks(){
+
+  const container =
+    document.getElementById(
+      "tasksList"
+    );
+
+
+  container.innerHTML =
+    '<div class="loader">Loading tasks...</div>';
+
+
+  try{
+
+    const tasks =
+      await supabaseRequest(
+        "content_tasks?select=*&order=created_at.desc"
+      );
+
+
+    container.innerHTML =
+      "";
+
+
+    if(
+      !tasks ||
+      tasks.length === 0
+    ){
+
+      container.innerHTML = `
+
+        <div class="empty">
+
+          🎯
+
+          <br><br>
+
+          No content tasks found.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    tasks.forEach(
+      task => {
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+
+        card.className =
+          "task-card";
+
+
+        card.innerHTML = `
+
+          <div class="platform">
+
+            ${escapeHTML(
+              task.platform ||
+              "TASK"
+            )}
+
+          </div>
+
+
+          <div class="task-title">
+
+            ${escapeHTML(
+              task.title ||
+              "Untitled"
+            )}
+
+          </div>
+
+
+          <div class="task-description">
+
+            ${escapeHTML(
+              task.description ||
+              ""
+            )}
+
+          </div>
+
+
+          <div class="task-reward">
+
+            REWARD:
+
+            TZS ${Number(
+              task.reward ||
+              0
+            ).toLocaleString()}
+
+          </div>
+
+
+          <div class="details">
+
+            <div class="detail">
+
+              <div class="label">
+                WATCH
+              </div>
+
+              <div class="value">
+
+                ${Number(
+                  task.watch_seconds ||
+                  0
+                )}
+                sec
+
+              </div>
+
+            </div>
+
+
+            <div class="detail">
+
+              <div class="label">
+                STATUS
+              </div>
+
+              <div class="value">
+
+                ${
+                  task.active
+                  ? "ACTIVE"
+                  : "OFF"
+                }
+
+              </div>
+
+            </div>
+
+          </div>
+
+        `;
+
+
+        container.appendChild(
+          card
+        );
+
+      }
+    );
+
+
+  }catch(error){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        Unable to load tasks.
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+function setActiveButton(
+  buttonId
+){
+
+  document
+    .querySelectorAll(
+      ".action-btn"
+    )
+    .forEach(
+      button => {
+
+        button.classList
+          .remove(
+            "active"
+          );
+
+      }
+    );
+
+
+  if(buttonId){
+
+    document
+      .getElementById(
+        buttonId
+      )
+      ?.classList
+      .add(
+        "active"
+      );
+
+  }
+
+}
+
+
+function hideSections(){
+
+  document.getElementById(
+    "usersSection"
+  ).style.display =
+    "none";
 
 
   document.getElementById(
-    "paymentCount"
-  ).textContent =
-    `${data.length} REQUESTS`;
+    "paymentsSection"
+  ).style.display =
+    "none";
 
 
-  if(!data.length){
+  document.getElementById(
+    "tasksSection"
+  ).style.display =
+    "none";
 
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">✓</div>
-        <h3>No Payment Requests</h3>
-        <p>Payment requests will appear here.</p>
-      </div>
-    `;
-
-    return;
-
-  }
+}
 
 
-  container.innerHTML = "";
+function showUsers(){
+
+  hideSections();
+
+  setActiveButton(
+    "usersBtn"
+  );
 
 
-  data.forEach(payment => {
-
-    const status =
-      String(
-        payment.status || "pending"
-      ).toLowerCase();
+  document.getElementById(
+    "usersSection"
+  ).style.display =
+    "block";
 
 
-    const profile =
-      payment.profiles || {};
+  loadUsers();
+
+}
 
 
-    const card =
-      document.createElement("div");
+function showPayments(){
+
+  hideSections();
+
+  setActiveButton(
+    "paymentsBtn"
+  );
 
 
-    card.className =
-      "card";
+  document.getElementById(
+    "paymentsSection"
+  ).style.display =
+    "block";
 
 
-    card.innerHTML = `
+  loadPayments();
 
-      <div class="card-top">
-
-        <div class="user-info">
-
-          <div class="avatar">
-            ${initials(
-              profile.full_name
-            )}
-          </div>
-
-          <div>
-
-            <div class="name">
-              ${escapeHTML(
-                profile.full_name ||
-                "Unknown User"
-              )}
-            </div>
-
-            <div class="username">
-              @${escapeHTML(
-                profile.username || "-"
-              )}
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="status ${status}">
-          ${status.toUpperCase()}
-        </div>
-
-      </div>
+}
 
 
-      <div class="details">
+function showTasks(){
 
-        <div class="detail">
-          <div class="label">AMOUNT</div>
-          <div class="value gold">
-            TZS ${money(payment.amount)}
-          </div>
-        </div>
+  hideSections();
 
-        <div class="detail">
-          <div class="label">METHOD</div>
-          <div class="value">
-            ${escapeHTML(payment.method)}
-          </div>
-        </div>
-
-        <div class="detail">
-          <div class="label">TRANSACTION</div>
-          <div class="value">
-            ${escapeHTML(
-              payment.transaction_reference
-            )}
-          </div>
-        </div>
-
-        <div class="detail">
-          <div class="label">PHONE</div>
-          <div class="value">
-            ${escapeHTML(
-              profile.phone || "-"
-            )}
-          </div>
-        </div>
-
-      </div>
+  setActiveButton(
+    "tasksBtn"
+  );
 
 
-      ${
-        status === "pending"
-
-        ? `
-
-        <div class="actions">
-
-          <button
-            class="btn green"
-            onclick="approvePayment('${payment.id}','${payment.user_id}')"
-          >
-            ✓ ACTIVATE
-          </button>
-
-          <button
-            class="btn red"
-            onclick="rejectPayment('${payment.id}','${payment.user_id}')"
-          >
-            ✕ REJECT
-          </button>
-
-        </div>
-
-        `
-
-        : ""
-
-      }
-
-    `;
+  document.getElementById(
+    "tasksSection"
+  ).style.display =
+    "block";
 
 
-    container.appendChild(card);
-
-  });
+  loadTasks();
 
 }
 
 
 /* =====================================================
-   APPROVE PAYMENT
+   REFRESH DASHBOARD
 ===================================================== */
 
-async function approvePayment(
-  paymentId,
-  userId
-){
+async function loadDashboard(){
 
-  if(
-    !confirm(
-      "Activate this user's account?"
-    )
-  ){
-    return;
-  }
+  const connected =
+    await testConnection();
 
 
-  const {
-    error:paymentError
-  } =
-  await supabaseClient
-    .from("payment_requests")
-    .update({
-      status:"approved",
-      reviewed_at:new Date().toISOString()
-    })
-    .eq("id",paymentId);
-
-
-  if(paymentError){
-
-    alert(
-      paymentError.message
-    );
+  if(!connected){
 
     return;
 
   }
 
 
-  const {
-    error:userError
-  } =
-  await supabaseClient
-    .from("profiles")
-    .update({
-      status:"active"
-    })
-    .eq("id",userId);
-
-
-  if(userError){
-
-    alert(
-      userError.message
-    );
-
-    return;
-
-  }
-
-
-  alert(
-    "Account activated successfully."
-  );
-
-
-  await refreshAll();
-
-  openTab(
-    "payments",
-    document.querySelectorAll(".tab")[1]
-  );
+  await Promise.all([
+    loadUsers(),
+    loadPayments(),
+    loadTasks()
+  ]);
 
 }
 
 
 /* =====================================================
-   REJECT PAYMENT
+   LOGOUT
 ===================================================== */
 
-async function rejectPayment(
-  paymentId,
-  userId
-){
+function logoutCEO(){
 
-  if(
-    !confirm(
-      "Reject this payment?"
-    )
-  ){
-    return;
-  }
-
-
-  const {
-    error:paymentError
-  } =
-  await supabaseClient
-    .from("payment_requests")
-    .update({
-      status:"rejected",
-      reviewed_at:new Date().toISOString()
-    })
-    .eq("id",paymentId);
-
-
-  if(paymentError){
-
-    alert(
-      paymentError.message
+  const answer =
+    confirm(
+      "Are you sure you want to logout?"
     );
 
-    return;
 
-  }
-
-
-  const {
-    error:userError
-  } =
-  await supabaseClient
-    .from("profiles")
-    .update({
-      status:"rejected"
-    })
-    .eq("id",userId);
-
-
-  if(userError){
-
-    alert(
-      userError.message
-    );
+  if(!answer){
 
     return;
 
   }
 
 
-  alert(
-    "Payment rejected."
+  localStorage.removeItem(
+    "linkcashCEOLoggedIn"
   );
 
 
-  await refreshAll();
-
-  openTab(
-    "payments",
-    document.querySelectorAll(".tab")[1]
+  localStorage.removeItem(
+    "linkcashCEO"
   );
+
+
+  /*
+    Return to CEO login.
+  */
+
+  window.location.href =
+    "ceologin.html";
 
 }
 
 
 /* =====================================================
-   SOCIAL TASKS
+   START
 ===================================================== */
 
-async function loadSocialTasks(){
+loadDashboard();
 
-  const container =
-    document.getElementById(
-      "socialList"
-    );
+</script>
 
-
-  container.innerHTML =
-    `<div class="loading">Loading social tasks...</div>`;
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("social_tasks")
-    .select("*")
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load</h3>
-        <p>${escapeHTML(error.message)}</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  if(!data.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">📱</div>
-        <h3>No Social Tasks</h3>
-        <p>Create tasks from Supabase.</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  container.innerHTML = "";
-
-
-  data.forEach(task => {
-
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "card";
-
-
-    card.innerHTML = `
-
-      <div class="card-top">
-
-        <div>
-
-          <div class="platform">
-            ${escapeHTML(
-              String(task.platform)
-                .toUpperCase()
-            )}
-          </div>
-
-          <div class="name"
-               style="margin-top:9px">
-            ${escapeHTML(task.title)}
-          </div>
-
-        </div>
-
-        <div class="gold">
-          TZS ${money(task.reward)}
-        </div>
-
-      </div>
-
-
-      <div class="details">
-
-        <div class="detail">
-
-          <div class="label">
-            WATCH
-          </div>
-
-          <div class="value">
-            ${task.watch_seconds}s
-          </div>
-
-        </div>
-
-        <div class="detail">
-
-          <div class="label">
-            STATUS
-          </div>
-
-          <div class="value">
-            ${task.active ? "ACTIVE" : "OFF"}
-          </div>
-
-        </div>
-
-      </div>
-
-    `;
-
-
-    container.appendChild(card);
-
-  });
-
-}
-
-
-/* =====================================================
-   ADS
-===================================================== */
-
-async function loadAds(){
-
-  const container =
-    document.getElementById(
-      "adsList"
-    );
-
-
-  container.innerHTML =
-    `<div class="loading">Loading ads...</div>`;
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("ads")
-    .select("*")
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load Ads</h3>
-        <p>${escapeHTML(error.message)}</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  if(!data.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">📢</div>
-        <h3>No Ads</h3>
-        <p>Advertisements will appear here.</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  container.innerHTML = "";
-
-
-  data.forEach(ad => {
-
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "card";
-
-
-    card.innerHTML = `
-
-      <div class="card-top">
-
-        <div>
-
-          <div class="name">
-            ${escapeHTML(ad.title)}
-          </div>
-
-          <div class="username">
-            ${escapeHTML(
-              ad.description || ""
-            )}
-          </div>
-
-        </div>
-
-        <div class="gold">
-          TZS ${money(ad.reward)}
-        </div>
-
-      </div>
-
-
-      <div class="details">
-
-        <div class="detail">
-
-          <div class="label">
-            WATCH TIME
-          </div>
-
-          <div class="value">
-            ${ad.watch_seconds}s
-          </div>
-
-        </div>
-
-        <div class="detail">
-
-          <div class="label">
-            STATUS
-          </div>
-
-          <div class="value">
-            ${ad
+</body>
+</html>
