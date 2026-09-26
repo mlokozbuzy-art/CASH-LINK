@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>LINKCASH - Dashboard</title>
+
 
   <style>
 
@@ -15,41 +21,58 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+
     body {
-      background: #050505;
-      color: white;
       min-height: 100vh;
+      background: #050505;
+      color: #ffffff;
+      padding-bottom: 85px;
     }
 
-    /* TOP BAR */
+
+    /* =========================
+       TOP BAR
+    ========================= */
 
     .topbar {
-      height: 70px;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      height: 68px;
 
-      padding: 0 18px;
-
-      background: #0d0d0d;
+      background: #0b0b0b;
 
       border-bottom: 1px solid #242424;
 
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 0 17px;
+
       position: sticky;
+
       top: 0;
-      z-index: 10;
+
+      z-index: 100;
     }
 
+
     .brand {
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
     }
 
+
     .logo {
-      width: 42px;
-      height: 42px;
+
+      width: 41px;
+
+      height: 41px;
 
       border-radius: 12px;
 
@@ -61,150 +84,267 @@
           #8f6b12
         );
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       color: #050505;
 
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 14px;
+
       font-weight: 900;
-      font-size: 15px;
+
+      box-shadow:
+        0 0 20px
+        rgba(212,167,44,.15);
     }
 
+
     .brand-name {
-      font-size: 17px;
+
+      font-size: 16px;
+
       font-weight: 900;
+
       letter-spacing: 1.5px;
     }
 
-    .profile-btn {
-      width: 40px;
-      height: 40px;
+
+    .top-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+    }
+
+
+    .icon-btn {
+
+      width: 39px;
+
+      height: 39px;
 
       border-radius: 50%;
 
-      border: 1px solid #3a3a3a;
+      border: 1px solid #292929;
 
-      background: #171717;
+      background: #151515;
 
       color: #d4a72c;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
 
       cursor: pointer;
 
-      font-size: 18px;
+      font-size: 16px;
     }
 
-    /* MAIN */
+
+    /* =========================
+       MAIN
+    ========================= */
 
     .container {
+
       width: 100%;
-      max-width: 850px;
+
+      max-width: 900px;
 
       margin: auto;
 
-      padding: 25px 18px 100px;
+      padding: 23px 16px 30px;
     }
 
-    /* WELCOME */
+
+    /* =========================
+       WELCOME
+    ========================= */
 
     .welcome {
-      margin-bottom: 22px;
+
+      margin-bottom: 19px;
     }
+
 
     .welcome small {
+
       color: #777;
-      font-size: 12px;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
     }
+
 
     .welcome h1 {
-      margin-top: 6px;
+
       font-size: 25px;
+
+      margin-top: 6px;
     }
 
+
     .welcome h1 span {
+
       color: #d4a72c;
     }
 
-    /* BALANCE */
+
+    .welcome p {
+
+      margin-top: 6px;
+
+      color: #777;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       BALANCE CARD
+    ========================= */
 
     .balance-card {
-
-      background:
-        linear-gradient(
-          145deg,
-          #171717,
-          #0b0b0b
-        );
-
-      border: 1px solid #343434;
-
-      border-radius: 22px;
-
-      padding: 23px;
 
       position: relative;
 
       overflow: hidden;
 
+      background:
+        linear-gradient(
+          145deg,
+          #1a1a1a,
+          #0b0b0b
+        );
+
+      border: 1px solid #3a3a3a;
+
+      border-radius: 23px;
+
+      padding: 22px;
+
       margin-bottom: 20px;
+
+      box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.35);
     }
 
-    .balance-card::after {
+
+    .balance-card::before {
 
       content: "";
 
       position: absolute;
 
-      width: 150px;
-      height: 150px;
+      width: 190px;
+
+      height: 190px;
 
       border-radius: 50%;
 
-      background: rgba(212,167,44,.08);
+      right: -85px;
 
-      right: -60px;
-      top: -60px;
+      top: -90px;
+
+      background:
+        rgba(212,167,44,.09);
     }
+
 
     .balance-label {
+
       color: #888;
+
       font-size: 12px;
+
+      position: relative;
+
+      z-index: 2;
     }
+
 
     .balance {
-      font-size: 34px;
+
+      font-size: 32px;
+
       font-weight: 900;
 
-      margin: 8px 0 18px;
+      margin-top: 7px;
 
-      color: #fff;
+      position: relative;
+
+      z-index: 2;
     }
 
-    .balance span {
+
+    .currency {
+
       color: #d4a72c;
-      font-size: 19px;
+
+      font-size: 16px;
+
+      margin-right: 4px;
     }
 
-    .balance-actions {
+
+    .balance-info {
+
+      color: #666;
+
+      font-size: 11px;
+
+      margin-top: 6px;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+
+    .balance-bottom {
+
       display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
       gap: 10px;
+
+      margin-top: 19px;
+
+      position: relative;
+
+      z-index: 2;
     }
 
-    .balance-actions button {
 
-      flex: 1;
+    .earnings {
 
-      height: 43px;
+      color: #58d88a;
+
+      font-size: 12px;
+
+      font-weight: bold;
+    }
+
+
+    .withdraw-btn {
+
+      border: none;
 
       border-radius: 11px;
 
-      cursor: pointer;
-
-      font-weight: 700;
-    }
-
-    .deposit {
-      border: none;
+      padding: 11px 19px;
 
       background:
         linear-gradient(
@@ -214,101 +354,308 @@
         );
 
       color: #080808;
+
+      font-weight: 900;
+
+      font-size: 12px;
+
+      cursor: pointer;
     }
 
-    .withdraw {
-      background: transparent;
 
-      border: 1px solid #3b3b3b;
-
-      color: #ddd;
-    }
-
-    /* QUICK ACTIONS */
+    /* =========================
+       SECTION TITLE
+    ========================= */
 
     .section-title {
 
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
 
-      margin: 25px 0 13px;
+      margin: 23px 0 12px;
     }
+
 
     .section-title h2 {
-      font-size: 17px;
+
+      font-size: 16px;
     }
 
-    .section-title a {
+
+    .section-title span {
+
       color: #d4a72c;
-      text-decoration: none;
-      font-size: 12px;
+
+      font-size: 11px;
     }
 
-    .actions {
+
+    /* =========================
+       STATISTICS
+    ========================= */
+
+    .stats {
 
       display: grid;
 
       grid-template-columns:
-        repeat(4, 1fr);
+        repeat(3, 1fr);
 
-      gap: 10px;
+      gap: 9px;
     }
 
-    .action {
+
+    .stat {
 
       background: #101010;
 
-      border: 1px solid #262626;
+      border: 1px solid #252525;
 
       border-radius: 16px;
 
-      padding: 15px 8px;
-
-      text-align: center;
-
-      color: white;
-
-      text-decoration: none;
-
-      transition: .2s;
+      padding: 15px 10px;
     }
 
-    .action:hover {
-      border-color: #d4a72c;
-    }
 
-    .action-icon {
+    .stat-icon {
 
-      width: 42px;
-      height: 42px;
+      width: 32px;
 
-      margin: auto;
+      height: 32px;
 
-      border-radius: 13px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 10px;
 
       background: #1b1b1b;
 
       color: #d4a72c;
 
-      font-size: 19px;
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 15px;
+
+      margin-bottom: 11px;
     }
 
-    .action p {
-      margin-top: 8px;
 
-      color: #aaa;
+    .stat-value {
+
+      font-size: 18px;
+
+      font-weight: 900;
+    }
+
+
+    .stat-name {
+
+      color: #666;
+
+      font-size: 10px;
+
+      margin-top: 4px;
+    }
+
+
+    /* =========================
+       AFFILIATE LINK
+    ========================= */
+
+    .link-card {
+
+      background: #101010;
+
+      border: 1px solid #292929;
+
+      border-radius: 18px;
+
+      padding: 17px;
+    }
+
+
+    .link-label {
+
+      color: #777;
+
+      font-size: 11px;
+
+      margin-bottom: 9px;
+    }
+
+
+    .link-box {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      background: #070707;
+
+      border: 1px solid #252525;
+
+      border-radius: 11px;
+
+      padding: 5px 5px 5px 12px;
+    }
+
+
+    .link-text {
+
+      flex: 1;
+
+      min-width: 0;
+
+      overflow: hidden;
+
+      white-space: nowrap;
+
+      text-overflow: ellipsis;
+
+      color: #c9c9c9;
 
       font-size: 11px;
     }
 
-    /* TRANSACTIONS */
 
-    .transactions {
+    .copy-btn {
+
+      border: none;
+
+      background: #d4a72c;
+
+      color: #080808;
+
+      border-radius: 8px;
+
+      padding: 9px 12px;
+
+      font-weight: 900;
+
+      font-size: 10px;
+
+      cursor: pointer;
+    }
+
+
+    .share-btn {
+
+      width: 100%;
+
+      margin-top: 10px;
+
+      height: 42px;
+
+      border-radius: 10px;
+
+      border: 1px solid #3a3a3a;
+
+      background: transparent;
+
+      color: #d4a72c;
+
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       PROMOTE
+    ========================= */
+
+    .social-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+    }
+
+
+    .social {
+
+      text-decoration: none;
+
+      color: white;
+
+      background: #101010;
+
+      border: 1px solid #282828;
+
+      border-radius: 17px;
+
+      padding: 17px 9px;
+
+      text-align: center;
+
+      transition: .2s;
+    }
+
+
+    .social:hover {
+
+      border-color: #d4a72c;
+
+      transform: translateY(-2px);
+    }
+
+
+    .social-icon {
+
+      width: 43px;
+
+      height: 43px;
+
+      border-radius: 13px;
+
+      background: #191919;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+
+    .social-name {
+
+      margin-top: 9px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+    }
+
+
+    .social-text {
+
+      margin-top: 4px;
+
+      color: #666;
+
+      font-size: 9px;
+    }
+
+
+    /* =========================
+       RECENT ACTIVITY
+    ========================= */
+
+    .activity {
 
       background: #101010;
 
@@ -319,7 +666,8 @@
       overflow: hidden;
     }
 
-    .transaction {
+
+    .activity-item {
 
       display: flex;
 
@@ -327,132 +675,346 @@
 
       justify-content: space-between;
 
-      padding: 15px;
+      padding: 14px;
 
       border-bottom: 1px solid #202020;
     }
 
-    .transaction:last-child {
+
+    .activity-item:last-child {
+
       border-bottom: none;
     }
 
-    .transaction-left {
+
+    .activity-left {
 
       display: flex;
 
       align-items: center;
 
-      gap: 12px;
+      gap: 11px;
     }
 
-    .transaction-icon {
 
-      width: 39px;
-      height: 39px;
+    .activity-icon {
 
-      border-radius: 12px;
+      width: 38px;
 
-      background: #191919;
+      height: 38px;
 
-      display: flex;
+      border-radius: 11px;
 
-      align-items: center;
-      justify-content: center;
+      background: #1a1a1a;
 
       color: #d4a72c;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
     }
 
-    .transaction-name {
-      font-size: 13px;
-      font-weight: 700;
+
+    .activity-name {
+
+      font-size: 12px;
+
+      font-weight: bold;
     }
 
-    .transaction-date {
+
+    .activity-date {
+
       color: #666;
-      font-size: 10px;
+
+      font-size: 9px;
+
       margin-top: 4px;
     }
 
-    .amount {
-      font-size: 13px;
-      font-weight: 700;
+
+    .activity-amount {
+
+      color: #58d88a;
+
+      font-size: 11px;
+
+      font-weight: bold;
     }
 
-    .positive {
-      color: #54d88a;
-    }
 
-    .negative {
-      color: #e96b6b;
-    }
-
-    /* BOTTOM NAV */
+    /* =========================
+       BOTTOM NAV
+    ========================= */
 
     .bottom-nav {
 
       position: fixed;
 
-      bottom: 0;
       left: 0;
+
       right: 0;
+
+      bottom: 0;
 
       height: 72px;
 
-      background: rgba(10,10,10,.97);
+      background:
+        rgba(10,10,10,.98);
 
       border-top: 1px solid #252525;
 
-      display: flex;
-
-      justify-content: center;
-
-      z-index: 20;
+      z-index: 100;
     }
+
 
     .nav-inner {
 
       width: 100%;
+
       max-width: 600px;
+
+      height: 100%;
+
+      margin: auto;
 
       display: flex;
 
-      justify-content: space-around;
+      justify-content:
+        space-around;
+
       align-items: center;
     }
 
-    .nav-item {
 
-      text-decoration: none;
+    .nav-item {
 
       color: #666;
 
+      text-decoration: none;
+
       text-align: center;
 
-      font-size: 10px;
+      font-size: 9px;
 
       cursor: pointer;
     }
 
-    .nav-item div {
+
+    .nav-icon {
+
       font-size: 19px;
+
       margin-bottom: 4px;
     }
 
+
     .nav-item.active {
+
       color: #d4a72c;
     }
 
-    /* MOBILE */
 
-    @media (max-width: 380px) {
+    /* =========================
+       MODAL
+    ========================= */
 
-      .actions {
-        grid-template-columns:
-          repeat(2, 1fr);
+    .modal {
+
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(0,0,0,.78);
+
+      z-index: 300;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+    }
+
+
+    .modal-card {
+
+      width: 100%;
+
+      max-width: 390px;
+
+      background: #111;
+
+      border: 1px solid #333;
+
+      border-radius: 21px;
+
+      padding: 23px;
+    }
+
+
+    .modal-title {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 20px;
+    }
+
+
+    .modal-title h2 {
+
+      font-size: 19px;
+    }
+
+
+    .close {
+
+      width: 32px;
+
+      height: 32px;
+
+      border-radius: 50%;
+
+      border: 1px solid #333;
+
+      background: #191919;
+
+      color: #aaa;
+
+      cursor: pointer;
+    }
+
+
+    .profile-row {
+
+      padding: 13px 0;
+
+      border-bottom: 1px solid #222;
+    }
+
+
+    .profile-row:last-child {
+
+      border-bottom: none;
+    }
+
+
+    .profile-label {
+
+      color: #666;
+
+      font-size: 10px;
+
+      margin-bottom: 4px;
+    }
+
+
+    .profile-value {
+
+      color: #ddd;
+
+      font-size: 13px;
+
+      word-break: break-word;
+    }
+
+
+    .modal-input {
+
+      width: 100%;
+
+      height: 45px;
+
+      margin-bottom: 12px;
+
+      padding: 0 12px;
+
+      border-radius: 10px;
+
+      background: #070707;
+
+      border: 1px solid #292929;
+
+      color: white;
+
+      outline: none;
+    }
+
+
+    .modal-submit {
+
+      width: 100%;
+
+      height: 45px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #d4a72c;
+
+      color: #080808;
+
+      font-weight: 900;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (min-width: 700px) {
+
+      .container {
+
+        padding-left: 25px;
+
+        padding-right: 25px;
       }
 
+
+      .stats {
+
+        gap: 13px;
+      }
+
+
+      .social-grid {
+
+        gap: 13px;
+      }
+
+    }
+
+
+    @media (max-width: 360px) {
+
       .balance {
-        font-size: 29px;
+
+        font-size: 28px;
+      }
+
+
+      .stat-value {
+
+        font-size: 16px;
+      }
+
+
+      .social-text {
+
+        display: none;
       }
 
     }
@@ -461,10 +1023,13 @@
 
 </head>
 
+
 <body>
 
 
-  <!-- TOP BAR -->
+  <!-- =========================
+       TOP BAR
+  ========================= -->
 
   <header class="topbar">
 
@@ -481,174 +1046,367 @@
     </div>
 
 
-    <button
-      class="profile-btn"
-      onclick="showProfile()"
-    >
-      👤
-    </button>
+    <div class="top-actions">
+
+      <button
+        class="icon-btn"
+        onclick="showNotification()"
+      >
+        🔔
+      </button>
+
+
+      <button
+        class="icon-btn"
+        onclick="openProfile()"
+      >
+        👤
+      </button>
+
+    </div>
 
   </header>
 
 
 
-  <!-- MAIN -->
+  <!-- =========================
+       MAIN
+  ========================= -->
 
   <main class="container">
 
 
     <!-- WELCOME -->
 
-    <div class="welcome">
+    <section class="welcome">
 
-      <small>WELCOME BACK</small>
+      <small>
+        WELCOME BACK
+      </small>
+
 
       <h1>
-        Hello, <span id="username">User</span>
+        Hello,
+        <span id="username">
+          User
+        </span>
       </h1>
 
-    </div>
+
+      <p>
+        Grow your network and earn through your affiliate links.
+      </p>
+
+    </section>
 
 
 
-    <!-- BALANCE -->
+    <!-- =========================
+         BALANCE
+    ========================= -->
 
-    <div class="balance-card">
+    <section class="balance-card">
 
       <div class="balance-label">
-        Available Balance
+        Available Commission
       </div>
+
 
       <div class="balance">
-        TZS 0.00
-      </div>
 
-      <div class="balance-actions">
+        <span class="currency">
+          TZS
+        </span>
 
-        <button
-          class="deposit"
-          onclick="deposit()"
-        >
-          + Deposit
-        </button>
-
-        <button
-          class="withdraw"
-          onclick="withdraw()"
-        >
-          Withdraw
-        </button>
+        <span id="balance">
+          0.00
+        </span>
 
       </div>
 
-    </div>
+
+      <div class="balance-info">
+        Your available affiliate earnings
+      </div>
+
+
+      <div class="balance-bottom">
+
+        <div class="earnings">
+          + TZS 0.00 this month
+        </div>
+
+
+        <button
+          class="withdraw-btn"
+          onclick="openWithdraw()"
+        >
+          WITHDRAW
+        </button>
+
+      </div>
+
+    </section>
 
 
 
-    <!-- QUICK ACTIONS -->
+    <!-- =========================
+         PERFORMANCE
+    ========================= -->
 
     <div class="section-title">
 
-      <h2>Quick Actions</h2>
+      <h2>
+        Performance
+      </h2>
+
+      <span>
+        Affiliate
+      </span>
 
     </div>
 
 
-    <div class="actions">
+    <section class="stats">
 
-      <a
-        href="#"
-        class="action"
-        onclick="sendMoney()"
-      >
 
-        <div class="action-icon">
-          ↑
+      <div class="stat">
+
+        <div class="stat-icon">
+          👥
         </div>
 
-        <p>Send</p>
-
-      </a>
-
-
-      <a
-        href="#"
-        class="action"
-        onclick="deposit()"
-      >
-
-        <div class="action-icon">
-          +
+        <div
+          class="stat-value"
+          id="referrals"
+        >
+          0
         </div>
 
-        <p>Deposit</p>
-
-      </a>
-
-
-      <a
-        href="#"
-        class="action"
-        onclick="withdraw()"
-      >
-
-        <div class="action-icon">
-          ↓
+        <div class="stat-name">
+          REFERRALS
         </div>
 
-        <p>Withdraw</p>
-
-      </a>
+      </div>
 
 
-      <a
-        href="#"
-        class="action"
-        onclick="showLinks()"
-      >
+      <div class="stat">
 
-        <div class="action-icon">
+        <div class="stat-icon">
           🔗
         </div>
 
-        <p>My Links</p>
+        <div
+          class="stat-value"
+          id="clicks"
+        >
+          0
+        </div>
 
-      </a>
+        <div class="stat-name">
+          LINK CLICKS
+        </div>
 
-    </div>
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-icon">
+          📈
+        </div>
+
+        <div
+          class="stat-value"
+          id="conversion"
+        >
+          0%
+        </div>
+
+        <div class="stat-name">
+          CONVERSION
+        </div>
+
+      </div>
+
+
+    </section>
 
 
 
-    <!-- TRANSACTIONS -->
+    <!-- =========================
+         AFFILIATE LINK
+    ========================= -->
 
     <div class="section-title">
 
-      <h2>Recent Activity</h2>
-
-      <a href="#">
-        View All
-      </a>
+      <h2>
+        My Affiliate Link
+      </h2>
 
     </div>
 
 
-    <div class="transactions">
+    <section class="link-card">
 
-      <div class="transaction">
+      <div class="link-label">
+        Share this link to start earning referrals
+      </div>
 
-        <div class="transaction-left">
 
-          <div class="transaction-icon">
-            +
+      <div class="link-box">
+
+        <div
+          class="link-text"
+          id="affiliateLink"
+        >
+          Loading...
+        </div>
+
+
+        <button
+          class="copy-btn"
+          onclick="copyLink()"
+        >
+          COPY
+        </button>
+
+      </div>
+
+
+      <button
+        class="share-btn"
+        onclick="shareLink()"
+      >
+        🔗 SHARE AFFILIATE LINK
+      </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROMOTE
+    ========================= -->
+
+    <div class="section-title">
+
+      <h2>
+        Promote & Earn
+      </h2>
+
+      <span>
+        Social Media
+      </span>
+
+    </div>
+
+
+    <section class="social-grid">
+
+
+      <a
+        href="#"
+        class="social"
+        onclick="promote('TikTok')"
+      >
+
+        <div class="social-icon">
+          ♪
+        </div>
+
+        <div class="social-name">
+          TikTok
+        </div>
+
+        <div class="social-text">
+          Share your link
+        </div>
+
+      </a>
+
+
+      <a
+        href="#"
+        class="social"
+        onclick="promote('YouTube')"
+      >
+
+        <div class="social-icon">
+          ▶
+        </div>
+
+        <div class="social-name">
+          YouTube
+        </div>
+
+        <div class="social-text">
+          Promote videos
+        </div>
+
+      </a>
+
+
+      <a
+        href="#"
+        class="social"
+        onclick="promote('Facebook')"
+      >
+
+        <div class="social-icon">
+          f
+        </div>
+
+        <div class="social-name">
+          Facebook
+        </div>
+
+        <div class="social-text">
+          Share with friends
+        </div>
+
+      </a>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         RECENT ACTIVITY
+    ========================= -->
+
+    <div class="section-title">
+
+      <h2>
+        Recent Activity
+      </h2>
+
+      <span>
+        View All
+      </span>
+
+    </div>
+
+
+    <section class="activity">
+
+
+      <div class="activity-item">
+
+        <div class="activity-left">
+
+          <div class="activity-icon">
+            🔗
           </div>
 
           <div>
 
-            <div class="transaction-name">
-              Account Created
+            <div class="activity-name">
+              Affiliate account created
             </div>
 
-            <div class="transaction-date">
+            <div class="activity-date">
               Today
             </div>
 
@@ -657,29 +1415,29 @@
         </div>
 
 
-        <div class="amount positive">
+        <div class="activity-amount">
           TZS 0.00
         </div>
 
       </div>
 
 
-      <div class="transaction">
+      <div class="activity-item">
 
-        <div class="transaction-left">
+        <div class="activity-left">
 
-          <div class="transaction-icon">
-            🔗
+          <div class="activity-icon">
+            👤
           </div>
 
           <div>
 
-            <div class="transaction-name">
-              LINKCASH Account
+            <div class="activity-name">
+              No referrals yet
             </div>
 
-            <div class="transaction-date">
-              Welcome
+            <div class="activity-date">
+              Start sharing your link
             </div>
 
           </div>
@@ -687,31 +1445,37 @@
         </div>
 
 
-        <div class="amount">
+        <div class="activity-amount">
           —
         </div>
 
       </div>
 
-    </div>
+
+    </section>
 
 
   </main>
 
 
 
-  <!-- BOTTOM NAV -->
+  <!-- =========================
+       BOTTOM NAV
+  ========================= -->
 
   <nav class="bottom-nav">
 
     <div class="nav-inner">
 
+
       <a
-        class="nav-item active"
         href="dashboard.html"
+        class="nav-item active"
       >
 
-        <div>⌂</div>
+        <div class="nav-icon">
+          ⌂
+        </div>
 
         Home
 
@@ -719,42 +1483,49 @@
 
 
       <a
-        class="nav-item"
         href="#"
-        onclick="showLinks()"
+        class="nav-item"
+        onclick="scrollToLink()"
       >
 
-        <div>🔗</div>
+        <div class="nav-icon">
+          🔗
+        </div>
 
-        Links
+        Link
 
       </a>
 
 
       <a
-        class="nav-item"
         href="#"
-        onclick="showProfile()"
+        class="nav-item"
+        onclick="scrollToStats()"
       >
 
-        <div>👤</div>
+        <div class="nav-icon">
+          📊
+        </div>
+
+        Stats
+
+      </a>
+
+
+      <a
+        href="#"
+        class="nav-item"
+        onclick="openProfile()"
+      >
+
+        <div class="nav-icon">
+          👤
+        </div>
 
         Profile
 
       </a>
 
-
-      <a
-        class="nav-item"
-        href="#"
-        onclick="logout()"
-      >
-
-        <div>↪</div>
-
-        Logout
-
-      </a>
 
     </div>
 
@@ -762,30 +1533,187 @@
 
 
 
+  <!-- =========================
+       PROFILE MODAL
+  ========================= -->
+
+  <div
+    class="modal"
+    id="profileModal"
+  >
+
+    <div class="modal-card">
+
+      <div class="modal-title">
+
+        <h2>
+          My Profile
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal('profileModal')"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="profile-row">
+
+        <div class="profile-label">
+          FULL NAME
+        </div>
+
+        <div
+          class="profile-value"
+          id="profileName"
+        >
+          —
+        </div>
+
+      </div>
+
+
+      <div class="profile-row">
+
+        <div class="profile-label">
+          USERNAME
+        </div>
+
+        <div
+          class="profile-value"
+          id="profileUsername"
+        >
+          —
+        </div>
+
+      </div>
+
+
+      <div class="profile-row">
+
+        <div class="profile-label">
+          PHONE
+        </div>
+
+        <div
+          class="profile-value"
+          id="profilePhone"
+        >
+          —
+        </div>
+
+      </div>
+
+
+      <div class="profile-row">
+
+        <div class="profile-label">
+          EMAIL
+        </div>
+
+        <div
+          class="profile-value"
+          id="profileEmail"
+        >
+          —
+        </div>
+
+      </div>
+
+
+      <button
+        class="modal-submit"
+        style="margin-top:18px"
+        onclick="logout()"
+      >
+        LOGOUT
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       WITHDRAW MODAL
+  ========================= -->
+
+  <div
+    class="modal"
+    id="withdrawModal"
+  >
+
+    <div class="modal-card">
+
+      <div class="modal-title">
+
+        <h2>
+          Withdraw Commission
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal('withdrawModal')"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <p
+        style="
+          color:#777;
+          font-size:12px;
+          line-height:1.6;
+          margin-bottom:16px;
+        "
+      >
+        Enter the amount you want to withdraw.
+        Withdrawal processing will be connected
+        to the payment system.
+      </p>
+
+
+      <input
+        class="modal-input"
+        type="number"
+        id="withdrawAmount"
+        placeholder="Amount in TZS"
+      >
+
+
+      <button
+        class="modal-submit"
+        onclick="submitWithdraw()"
+      >
+        REQUEST WITHDRAWAL
+      </button>
+
+    </div>
+
+  </div>
+
+
+
   <script>
 
 
-    /* GET USER */
+    /* =========================
+       ACCOUNT
+    ========================= */
 
     const savedUser =
-      localStorage.getItem("linkcashUser");
+      localStorage.getItem(
+        "linkcashUser"
+      );
 
 
-    if (savedUser) {
-
-      const user =
-        JSON.parse(savedUser);
-
-      document.getElementById(
-        "username"
-      ).textContent =
-        user.fullname.split(" ")[0];
-
-    }
-
-
-
-    /* LOGIN CHECK */
+    /* LOGIN PROTECTION */
 
     if (
       localStorage.getItem(
@@ -799,65 +1727,308 @@
     }
 
 
+    /* USER DATA */
 
-    /* ACTIONS */
-
-    function deposit() {
-
-      alert(
-        "Deposit feature will be connected to your payment system."
-      );
-
-    }
-
-
-    function withdraw() {
-
-      alert(
-        "Withdrawal feature will be connected soon."
-      );
-
-    }
-
-
-    function sendMoney() {
-
-      alert(
-        "Send Money feature will be available soon."
-      );
-
-    }
-
-
-    function showLinks() {
-
-      alert(
-        "Your LINKCASH links will appear here."
-      );
-
-    }
-
-
-    function showProfile() {
-
-      if (!savedUser) return;
+    if (savedUser) {
 
       const user =
         JSON.parse(savedUser);
 
+
+      const firstName =
+        user.fullname
+          ? user.fullname.split(" ")[0]
+          : user.username;
+
+
+      document.getElementById(
+        "username"
+      ).textContent =
+        firstName;
+
+
+      document.getElementById(
+        "profileName"
+      ).textContent =
+        user.fullname || "—";
+
+
+      document.getElementById(
+        "profileUsername"
+      ).textContent =
+        user.username || "—";
+
+
+      document.getElementById(
+        "profilePhone"
+      ).textContent =
+        user.phone || "—";
+
+
+      document.getElementById(
+        "profileEmail"
+      ).textContent =
+        user.email || "—";
+
+
+      /* AFFILIATE LINK */
+
+      const baseURL =
+        window.location.origin +
+        window.location.pathname
+          .replace(
+            "dashboard.html",
+            ""
+          );
+
+
+      const affiliateLink =
+        baseURL +
+        "register.html?ref=" +
+        encodeURIComponent(
+          user.username
+        );
+
+
+      document.getElementById(
+        "affiliateLink"
+      ).textContent =
+        affiliateLink;
+
+    }
+
+
+
+    /* =========================
+       COPY LINK
+    ========================= */
+
+    function copyLink() {
+
+      const link =
+        document.getElementById(
+          "affiliateLink"
+        ).textContent;
+
+
+      navigator.clipboard
+        .writeText(link)
+        .then(function() {
+
+          alert(
+            "Affiliate link copied!"
+          );
+
+        });
+
+    }
+
+
+
+    /* =========================
+       SHARE LINK
+    ========================= */
+
+    function shareLink() {
+
+      const link =
+        document.getElementById(
+          "affiliateLink"
+        ).textContent;
+
+
+      if (
+        navigator.share
+      ) {
+
+        navigator.share({
+
+          title:
+            "Join LINKCASH",
+
+          text:
+            "Join LINKCASH using my affiliate link.",
+
+          url:
+            link
+
+        });
+
+      }
+
+      else {
+
+        copyLink();
+
+      }
+
+    }
+
+
+
+    /* =========================
+       SOCIAL
+    ========================= */
+
+    function promote(platform) {
+
+      event.preventDefault();
+
+
+      const link =
+        document.getElementById(
+          "affiliateLink"
+        ).textContent;
+
+
+      if (platform === "TikTok") {
+
+        alert(
+          "Copy your affiliate link and share it on TikTok:\n\n" +
+          link
+        );
+
+      }
+
+
+      if (platform === "YouTube") {
+
+        alert(
+          "Add your affiliate link to your YouTube description:\n\n" +
+          link
+        );
+
+      }
+
+
+      if (platform === "Facebook") {
+
+        if (
+          navigator.share
+        ) {
+
+          navigator.share({
+
+            title:
+              "Join LINKCASH",
+
+            text:
+              "Join LINKCASH using my link.",
+
+            url:
+              link
+
+          });
+
+        }
+
+        else {
+
+          copyLink();
+
+        }
+
+      }
+
+    }
+
+
+
+    /* =========================
+       WITHDRAW
+    ========================= */
+
+    function openWithdraw() {
+
+      document.getElementById(
+        "withdrawModal"
+      ).style.display =
+        "flex";
+
+    }
+
+
+    function submitWithdraw() {
+
+      const amount =
+        document.getElementById(
+          "withdrawAmount"
+        ).value;
+
+
+      if (!amount || amount <= 0) {
+
+        alert(
+          "Enter a valid withdrawal amount."
+        );
+
+        return;
+
+      }
+
+
       alert(
-        "Name: " +
-        user.fullname +
-        "\nPhone: " +
-        user.phone +
-        "\nEmail: " +
-        user.email
+        "Withdrawal request received.\n\n" +
+        "Amount: TZS " +
+        Number(amount).toLocaleString()
+      );
+
+
+      closeModal(
+        "withdrawModal"
       );
 
     }
 
 
-    /* LOGOUT */
+
+    /* =========================
+       PROFILE
+    ========================= */
+
+    function openProfile() {
+
+      document.getElementById(
+        "profileModal"
+      ).style.display =
+        "flex";
+
+    }
+
+
+
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    function closeModal(id) {
+
+      document.getElementById(
+        id
+      ).style.display =
+        "none";
+
+    }
+
+
+
+    /* =========================
+       NOTIFICATION
+    ========================= */
+
+    function showNotification() {
+
+      alert(
+        "No new notifications."
+      );
+
+    }
+
+
+
+    /* =========================
+       LOGOUT
+    ========================= */
 
     function logout() {
 
@@ -865,10 +2036,47 @@
         "linkcashLoggedIn"
       );
 
+
       window.location.href =
         "login.html";
 
     }
+
+
+
+    /* =========================
+       SCROLL
+    ========================= */
+
+    function scrollToLink() {
+
+      document.getElementById(
+        "affiliateLink"
+      ).scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+      });
+
+    }
+
+
+    function scrollToStats() {
+
+      document.getElementById(
+        "referrals"
+      ).scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+      });
+
+    }
+
 
   </script>
 
