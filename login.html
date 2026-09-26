@@ -263,8 +263,6 @@ input:focus{
       novalidate
     >
 
-      <!-- USERNAME -->
-
       <div class="field">
 
         <label>
@@ -281,8 +279,6 @@ input:focus{
 
       </div>
 
-
-      <!-- PASSWORD -->
 
       <div class="field">
 
@@ -362,7 +358,7 @@ input:focus{
 
 /* =========================================
    ELEMENTS
-   ========================================= */
+========================================= */
 
 const form =
   document.getElementById(
@@ -392,7 +388,7 @@ const showPassword =
 
 /* =========================================
    SHOW / HIDE PASSWORD
-   ========================================= */
+========================================= */
 
 showPassword.addEventListener(
   "click",
@@ -425,7 +421,7 @@ showPassword.addEventListener(
 
 /* =========================================
    MESSAGE
-   ========================================= */
+========================================= */
 
 function showMessage(
   text,
@@ -446,19 +442,38 @@ function showMessage(
 
 /* =========================================
    GET USERS
-   ========================================= */
+========================================= */
 
 function getUsers(){
 
   try{
 
-    return JSON.parse(
+    const saved =
       localStorage.getItem(
         "linkcashUsers"
-      )
-    ) || [];
+      );
 
-  }catch{
+    if(!saved){
+
+      return [];
+
+    }
+
+    const users =
+      JSON.parse(
+        saved
+      );
+
+    return Array.isArray(users)
+      ? users
+      : [];
+
+  }catch(error){
+
+    console.error(
+      "GET USERS ERROR:",
+      error
+    );
 
     return [];
 
@@ -469,7 +484,7 @@ function getUsers(){
 
 /* =========================================
    LOGIN
-   ========================================= */
+========================================= */
 
 form.addEventListener(
   "submit",
@@ -477,11 +492,14 @@ form.addEventListener(
 
     event.preventDefault();
 
+
     message.style.display =
       "none";
 
+
     button.disabled =
       true;
+
 
     button.textContent =
       "LOGGING IN...";
@@ -489,9 +507,10 @@ form.addEventListener(
 
     try{
 
+
       /* ===============================
          GET INPUT
-         =============================== */
+      =============================== */
 
       const username =
         document
@@ -521,7 +540,7 @@ form.addEventListener(
 
       /* ===============================
          GET USERS
-         =============================== */
+      =============================== */
 
       const users =
         getUsers();
@@ -529,16 +548,26 @@ form.addEventListener(
 
       /* ===============================
          FIND USER
-         =============================== */
+      =============================== */
 
       const user =
         users.find(
           function(item){
 
             return (
-              item.username ===
-              username &&
-              item.password ===
+              String(
+                item.username || ""
+              )
+              .toLowerCase()
+              ===
+              username
+
+              &&
+
+              String(
+                item.password || ""
+              )
+              ===
               password
             );
 
@@ -548,7 +577,7 @@ form.addEventListener(
 
       /* ===============================
          INVALID LOGIN
-         =============================== */
+      =============================== */
 
       if(!user){
 
@@ -560,42 +589,64 @@ form.addEventListener(
 
 
       /* ===============================
+         NORMALIZE STATUS
+      =============================== */
+
+      const status =
+        String(
+          user.status || "pending"
+        )
+        .trim()
+        .toLowerCase();
+
+
+      /* ===============================
          SAVE SESSION
-         =============================== */
+      =============================== */
+
+      const sessionUser = {
+
+        id:
+          user.id || "",
+
+        fullname:
+          user.fullname || "",
+
+        username:
+          user.username || "",
+
+        phone:
+          user.phone || "",
+
+        email:
+          user.email || "",
+
+        status:
+          status,
+
+        referrer:
+          user.referrer || null
+
+      };
+
 
       localStorage.setItem(
         "linkcashUser",
-        JSON.stringify({
+        JSON.stringify(
+          sessionUser
+        )
+      );
 
-          id:
-            user.id,
 
-          fullname:
-            user.fullname,
-
-          username:
-            user.username,
-
-          phone:
-            user.phone,
-
-          email:
-            user.email,
-
-          status:
-            user.status,
-
-          referrer:
-            user.referrer ||
-            null
-
-        })
+      localStorage.setItem(
+        "linkcashLoggedIn",
+        "true"
       );
 
 
       /* ===============================
          SUCCESS
-         =============================== */
+      =============================== */
 
       showMessage(
         "Login successful ✓",
@@ -608,26 +659,68 @@ form.addEventListener(
 
 
       /* ===============================
-         REDIRECT
-         =============================== */
+         DASHBOARD ROUTING
+      =============================== */
 
       setTimeout(
         function(){
 
+          /*
+             PENDING / NON-ACTIVATED
+             → pending-dashboard.html
+          */
+
           if(
-            user.status ===
-            "pending"
+            status === "pending" ||
+
+            status ===
+            "payment_pending" ||
+
+            status ===
+            "non-active" ||
+
+            status ===
+            "inactive" ||
+
+            status ===
+            "not_activated"
           ){
 
             window.location.href =
-              "pending.html";
+              "pending-dashboard.html";
 
-          }else{
+            return;
+
+          }
+
+
+          /*
+             ACTIVATED
+             → dashboard.html
+          */
+
+          if(
+            status === "active" ||
+
+            status === "activated"
+          ){
 
             window.location.href =
               "dashboard.html";
 
+            return;
+
           }
+
+
+          /*
+             UNKNOWN STATUS
+             → SAFETY DEFAULT
+             → pending dashboard
+          */
+
+          window.location.href =
+            "pending-dashboard.html";
 
         },
         800
@@ -651,6 +744,7 @@ form.addEventListener(
 
       button.disabled =
         false;
+
 
       button.textContent =
         "LOGIN";
