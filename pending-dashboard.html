@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>LINKCASH - Pending Account</title>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+  min-height:100vh;
+
+  background:#050505;
+
+  color:#fff;
+
+  padding-bottom:30px;
+
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+
+  height:68px;
+
+  background:#0b0b0b;
+
+  border-bottom:1px solid #242424;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:0 17px;
+
+  position:sticky;
+
+  top:0;
+
+  z-index:100;
+
+}
+
+
+.brand{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+}
+
+
+.logo{
+
+  width:41px;
+
+  height:41px;
+
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe082,
+      #d4a72c,
+      #8f6b12
+    );
+
+  color:#050505;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:14px;
+
+  font-weight:900;
+
+}
+
+
+.brand-name{
+
+  font-size:16px;
+
+  font-weight:900;
+
+  letter-spacing:1.5px;
+
+}
+
+
+.status{
+
+  padding:8px 11px;
+
+  border-radius:20px;
+
+  background:rgba(255,193,7,.08);
+
+  border:1px solid rgba(255,193,7,.25);
+
+  color:#e0b83e;
+
+  font-size:10px;
+
+  font-weight:bold;
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+  width:100%;
+
+  max-width:700px;
+
+  margin:auto;
+
+  padding:25px 16px 40px;
+
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+
+  margin-bottom:20px;
+
+}
+
+
+.welcome small{
+
+  color:#777;
+
+  font-size:11px;
+
+  letter-spacing:1px;
+
+}
+
+
+.welcome h1{
+
+  font-size:25px;
+
+  margin-top:7px;
+
+}
+
+
+.welcome h1 span{
+
+  color:#d4a72c;
+
+}
+
+
+.welcome p{
+
+  margin-top:7px;
+
+  color:#777;
+
+  font-size:12px;
+
+  line-height:1.5;
+
+}
+
+
+/* =========================
+   PENDING CARD
+========================= */
+
+.pending-card{
+
+  background:
+    linear-gradient(
+      145deg,
+      #1a1a1a,
+      #0b0b0b
+    );
+
+  border:1px solid #3a3a3a;
+
+  border-radius:23px;
+
+  padding:23px;
+
+  margin-bottom:18px;
+
+  text-align:center;
+
+}
+
+
+.lock-icon{
+
+  width:62px;
+
+  height:62px;
+
+  margin:0 auto 14px;
+
+  border-radius:18px;
+
+  background:#1b1b1b;
+
+  border:1px solid #343434;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:27px;
+
+}
+
+
+.pending-card h2{
+
+  font-size:21px;
+
+}
+
+
+.pending-card p{
+
+  margin-top:7px;
+
+  color:#777;
+
+  font-size:12px;
+
+  line-height:1.6;
+
+}
+
+
+/* =========================
+   FEE
+========================= */
+
+.fee-card{
+
+  margin-top:19px;
+
+  padding:17px;
+
+  border-radius:16px;
+
+  background:#080808;
+
+  border:1px solid #292929;
+
+}
+
+
+.fee-label{
+
+  color:#777;
+
+  font-size:10px;
+
+}
+
+
+.fee{
+
+  margin-top:5px;
+
+  font-size:30px;
+
+  font-weight:900;
+
+}
+
+
+.currency{
+
+  color:#d4a72c;
+
+  font-size:14px;
+
+}
+
+
+/* =========================
+   PAYMENT METHODS
+========================= */
+
+.section-title{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin:23px 0 12px;
+
+}
+
+
+.section-title h2{
+
+  font-size:17px;
+
+}
+
+
+.section-title span{
+
+  color:#d4a72c;
+
+  font-size:10px;
+
+}
+
+
+.payment-list{
+
+  display:grid;
+
+  gap:10px;
+
+}
+
+
+.payment{
+
+  background:#101010;
+
+  border:1px solid #292929;
+
+  border-radius:17px;
+
+  padding:16px;
+
+  cursor:pointer;
+
+  transition:.2s;
+
+}
+
+
+.payment:hover{
+
+  border-color:#d4a72c;
+
+}
+
+
+.payment.selected{
+
+  border-color:#d4a72c;
+
+  box-shadow:
+    0 0 0 1px
+    rgba(212,167,44,.15);
+
+}
+
+
+.payment-top{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+}
+
+
+.payment-left{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+
+.payment-icon{
+
+  width:43px;
+
+  height:43px;
+
+  border-radius:13px;
+
+  background:#1a1a1a;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:19px;
+
+}
+
+
+.payment-name{
+
+  font-size:13px;
+
+  font-weight:bold;
+
+}
+
+
+.payment-number{
+
+  margin-top:4px;
+
+  color:#777;
+
+  font-size:10px;
+
+}
+
+
+.radio{
+
+  width:20px;
+
+  height:20px;
+
+  border-radius:50%;
+
+  border:1px solid #555;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+
+.payment.selected .radio{
+
+  border-color:#d4a72c;
+
+}
+
+
+.payment.selected .radio::after{
+
+  content:"";
+
+  width:9px;
+
+  height:9px;
+
+  border-radius:50%;
+
+  background:#d4a72c;
+
+}
+
+
+/* =========================
+   INSTRUCTIONS
+========================= */
+
+.instructions{
+
+  background:#101010;
+
+  border:1px solid #292929;
+
+  border-radius:18px;
+
+  padding:18px;
+
+  margin-top:18px;
+
+}
+
+
+.instructions h3{
+
+  font-size:14px;
+
+  margin-bottom:12px;
+
+}
+
+
+.step{
+
+  display:flex;
+
+  gap:10px;
+
+  margin-bottom:12px;
+
+}
+
+
+.step:last-child{
+
+  margin-bottom:0;
+
+}
+
+
+.step-number{
+
+  width:25px;
+
+  height:25px;
+
+  min-width:25px;
+
+  border-radius:8px;
+
+  background:#1b1b1b;
+
+  color:#d4a72c;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:10px;
+
+  font-weight:bold;
+
+}
+
+
+.step-text{
+
+  color:#999;
+
+  font-size:11px;
+
+  line-height:1.5;
+
+}
+
+
+/* =========================
+   PAYMENT FORM
+========================= */
+
+.form-card{
+
+  background:#101010;
+
+  border:1px solid #292929;
+
+  border-radius:18px;
+
+  padding:18px;
+
+  margin-top:18px;
+
+}
+
+
+.form-card h3{
+
+  font-size:15px;
+
+  margin-bottom:15px;
+
+}
+
+
+.field{
+
+  margin-bottom:14px;
+
+}
+
+
+.field label{
+
+  display:block;
+
+  color:#bbb;
+
+  font-size:11px;
+
+  margin-bottom:7px;
+
+}
+
+
+input,
+select{
+
+  width:100%;
+
+  height:47px;
+
+  background:#070707;
+
+  border:1px solid #292929;
+
+  border-radius:11px;
+
+  color:white;
+
+  outline:none;
+
+  padding:0 13px;
+
+  font-size:12px;
+
+}
+
+
+input:focus,
+select:focus{
+
+  border-color:#d4a72c;
+
+}
+
+
+select option{
+
+  background:#111;
+
+}
+
+
+.submit-btn{
+
+  width:100%;
+
+  height:48px;
+
+  border:none;
+
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #d4a72c
+    );
+
+  color:#080808;
+
+  font-weight:900;
+
+  font-size:12px;
+
+  cursor:pointer;
+
+}
+
+
+/* =========================
+   WARNING
+========================= */
+
+.warning{
+
+  margin-top:17px;
+
+  padding:13px;
+
+  border-radius:12px;
+
+  background:rgba(255,193,7,.06);
+
+  border:1px solid rgba(255,193,7,.18);
+
+  color:#999;
+
+  font-size:10px;
+
+  line-height:1.6;
+
+}
+
+
+/* =========================
+   SUCCESS
+========================= */
+
+.success{
+
+  display:none;
+
+  margin-top:15px;
+
+  padding:13px;
+
+  border-radius:11px;
+
+  text-align:center;
+
+  background:rgba(88,216,138,.07);
+
+  border:1px solid rgba(88,216,138,.2);
+
+  color:#58d88a;
+
+  font-size:11px;
+
+  line-height:1.5;
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout{
+
+  width:100%;
+
+  height:43px;
+
+  margin-top:18px;
+
+  border-radius:10px;
+
+  border:1px solid #292929;
+
+  background:#101010;
+
+  color:#888;
+
+  font-size:11px;
+
+  cursor:pointer;
+
+}
+
+
+.logout:hover{
+
+  color:#fff;
+
+  border-color:#444;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+  text-align:center;
+
+  margin-top:22px;
+
+  color:#444;
+
+  font-size:10px;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:360px){
+
+  .fee{
+
+    font-size:27px;
+
+  }
+
+  .container{
+
+    padding-left:13px;
+
+    padding-right:13px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<header class="topbar">
+
+  <div class="brand">
+
+    <div class="logo">
+      LC
+    </div>
+
+    <div class="brand-name">
+      LINKCASH
+    </div>
+
+  </div>
+
+
+  <div class="status">
+    PENDING
+  </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     WELCOME
+========================= -->
+
+<section class="welcome">
+
+  <small>
+    ACCOUNT STATUS
+  </small>
+
+  <h1>
+    Hello,
+    <span id="userName">
+      User
+    </span>
+  </h1>
+
+  <p>
+    Your LINKCASH account has been created successfully.
+    Complete activation to unlock your full dashboard.
+  </p>
+
+</section>
+
+
+
+<!-- =========================
+     PENDING CARD
+========================= -->
+
+<section class="pending-card">
+
+  <div class="lock-icon">
+    🔒
+  </div>
+
+  <h2>
+    Account Pending Activation
+  </h2>
+
+  <p>
+    Your account is currently pending.
+    Pay the activation fee and submit your payment
+    reference for verification.
+  </p>
+
+
+  <div class="fee-card">
+
+    <div class="fee-label">
+      ACCOUNT ACTIVATION FEE
+    </div>
+
+    <div class="fee">
+
+      <span class="currency">
+        TZS
+      </span>
+
+      14,500
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PAYMENT METHODS
+========================= -->
+
+<div class="section-title">
+
+  <h2>
+    Payment Methods
+  </h2>
+
+  <span>
+    SELECT ONE
+  </span>
+
+</div>
+
+
+<section class="payment-list">
+
+
+<!-- MPESA -->
+
+<div
+  class="payment"
+  onclick="selectPayment('M-Pesa',this)"
+>
+
+  <div class="payment-top">
+
+    <div class="payment-left">
+
+      <div class="payment-icon">
+        📱
+      </div>
+
+      <div>
+
+        <div class="payment-name">
+          M-Pesa
+        </div>
+
+        <div class="payment-number">
+          PAYMENT NUMBER
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="radio"></div>
+
+  </div>
+
+</div>
+
+
+
+<!-- AIRTEL -->
+
+<div
+  class="payment"
+  onclick="selectPayment('Airtel Money',this)"
+>
+
+  <div class="payment-top">
+
+    <div class="payment-left">
+
+      <div class="payment-icon">
+        📲
+      </div>
+
+      <div>
+
+        <div class="payment-name">
+          Airtel Money
+        </div>
+
+        <div class="payment-number">
+          PAYMENT NUMBER
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="radio"></div>
+
+  </div>
+
+</div>
+
+
+
+<!-- YAS -->
+
+<div
+  class="payment"
+  onclick="selectPayment('Yas',this)"
+>
+
+  <div class="payment-top">
+
+    <div class="payment-left">
+
+      <div class="payment-icon">
+        📡
+      </div>
+
+      <div>
+
+        <div class="payment-name">
+          Yas
+        </div>
+
+        <div class="payment-number">
+          PAYMENT NUMBER
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="radio"></div>
+
+  </div>
+
+</div>
+
+
+
+<!-- HALOPESA -->
+
+<div
+  class="payment"
+  onclick="selectPayment('HaloPesa',this)"
+>
+
+  <div class="payment-top">
+
+    <div class="payment-left">
+
+      <div class="payment-icon">
+        💳
+      </div>
+
+      <div>
+
+        <div class="payment-name">
+          HaloPesa
+        </div>
+
+        <div class="payment-number">
+          PAYMENT NUMBER
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="radio"></div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     INSTRUCTIONS
+========================= -->
+
+<section class="instructions">
+
+  <h3>
+    How to Activate
+  </h3>
+
+
+  <div class="step">
+
+    <div class="step-number">
+      1
+    </div>
+
+    <div class="step-text">
+      Select your preferred payment method above.
+    </div>
+
+  </div>
+
+
+  <div class="step">
+
+    <div class="step-number">
+      2
+    </div>
+
+    <div class="step-text">
+      Send exactly TZS 14,500 using the payment details provided.
+    </div>
+
+  </div>
+
+
+  <div class="step">
+
+    <div class="step-number">
+      3
+    </div>
+
+    <div class="step-text">
+      Enter your transaction/reference number below.
+    </div>
+
+  </div>
+
+
+  <div class="step">
+
+    <div class="step-number">
+      4
+    </div>
+
+    <div class="step-text">
+      Submit your payment for verification.
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PAYMENT FORM
+========================= -->
+
+<section class="form-card">
+
+  <h3>
+    Submit Payment
+  </h3>
+
+
+  <div class="field">
+
+    <label>
+      PAYMENT METHOD
+    </label>
+
+    <select id="paymentMethod">
+
+      <option value="">
+        Select payment method
+      </option>
+
+      <option value="M-Pesa">
+        M-Pesa
+      </option>
+
+      <option value="Airtel Money">
+        Airtel Money
+      </option>
+
+      <option value="Yas">
+        Yas
+      </option>
+
+      <option value="HaloPesa">
+        HaloPesa
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div class="field">
+
+    <label>
+      TRANSACTION / REFERENCE NUMBER
+    </label>
+
+    <input
+      type="text"
+      id="transactionId"
+      placeholder="Enter transaction number"
+    >
+
+  </div>
+
+
+  <button
+    class="submit-btn"
+    onclick="submitPayment()"
+  >
+    SUBMIT PAYMENT FOR VERIFICATION
+  </button>
+
+
+  <div
+    class="success"
+    id="successMessage"
+  >
+    Payment details submitted successfully.
+    <br>
+    Your account is waiting for verification.
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     WARNING
+========================= -->
+
+<div class="warning">
+
+  <strong>Important:</strong>
+
+  Make sure the transaction/reference number
+  you enter matches the payment you made.
+
+  Your account should only become active after
+  the payment has been successfully verified.
+
+</div>
+
+
+
+<!-- LOGOUT -->
+
+<button
+  class="logout"
+  onclick="logout()"
+>
+  LOG OUT
+</button>
+
+
+<div class="footer">
+  © 2026 LINKCASH
+</div>
+
+
+</main>
+
+
+
+<script>
+
+/* =========================================
+   LOGIN / USER CHECK
+========================================= */
+
+const savedUser =
+  localStorage.getItem(
+    "linkcashUser"
+  );
+
+
+let currentUser = null;
+
+
+if(savedUser){
+
+  try{
+
+    currentUser =
+      JSON.parse(
+        savedUser
+      );
+
+  }catch{
+
+    currentUser = null;
+
+  }
+
+}
+
+
+/* =========================================
+   DISPLAY USER
+========================================= */
+
+if(currentUser){
+
+  const fullName =
+    currentUser.fullname ||
+    currentUser.username ||
+    "User";
+
+
+  document.getElementById(
+    "userName"
+  ).textContent =
+    fullName.split(" ")[0];
+
+}
+
+
+
+/* =========================================
+   SELECTED PAYMENT
+========================================= */
+
+let selectedPayment = "";
+
+
+function selectPayment(
+  paymentName,
+  element
+){
+
+  selectedPayment =
+    paymentName;
+
+
+  document
+    .querySelectorAll(".payment")
+    .forEach(
+      function(payment){
+
+        payment.classList.remove(
+          "selected"
+        );
+
+      }
+    );
+
+
+  element.classList.add(
+    "selected"
+  );
+
+
+  document.getElementById(
+    "paymentMethod"
+  ).value =
+    paymentName;
+
+}
+
+
+
+/* =========================================
+   SUBMIT PAYMENT
+========================================= */
+
+function submitPayment(){
+
+  const method =
+    document.getElementById(
+      "paymentMethod"
+    ).value;
+
+
+  const transaction =
+    document.getElementById(
+      "transactionId"
+    ).value
+    .trim();
+
+
+  if(!method){
+
+    alert(
+      "Please select a payment method."
+    );
+
+    return;
+
+  }
+
+
+  if(!transaction){
+
+    alert(
+      "Please enter your transaction/reference number."
+    );
+
+    return;
+
+  }
+
+
+  /* =======================================
+     SAVE PAYMENT REQUEST
+  ======================================= */
+
+  let payments=[];
+
+
+  const savedPayments =
+    localStorage.getItem(
+      "linkcashPayments"
+    );
+
+
+  if(savedPayments){
+
+    try{
+
+      payments =
+        JSON.parse(
+          savedPayments
+        );
+
+
+      if(!Array.isArray(payments)){
+
+        payments=[];
+
+      }
+
+    }catch{
+
+      payments=[];
+
+    }
+
+  }
+
+
+  const paymentRequest = {
+
+    id:
+      "PAY-"+Date.now(),
+
+    username:
+      currentUser
+      ? currentUser.username
+      : "",
+
+    fullname:
+      currentUser
+      ? currentUser.fullname
+      : "",
+
+    amount:
+      14500,
+
+    method:
+      method,
+
+    transaction:
+      transaction,
+
+    status:
+      "pending",
+
+    submittedAt:
+      new Date().toISOString()
+
+  };
+
+
+  payments.push(
+    paymentRequest
+  );
+
+
+  localStorage.setItem(
+    "linkcashPayments",
+    JSON.stringify(
+      payments
+    )
+  );
+
+
+  /* =======================================
+     UPDATE USER STATUS
+  ======================================= */
+
+  let users=[];
+
+
+  const savedUsers =
+    localStorage.getItem(
+      "linkcashUsers"
+    );
+
+
+  if(savedUsers){
+
+    try{
+
+      users =
+        JSON.parse(
+          savedUsers
+        );
+
+    }catch{
+
+      users=[];
+
+    }
+
+  }
+
+
+  if(
+    currentUser &&
+    Array.isArray(users)
+  ){
+
+    users =
+      users.map(
+        function(user){
+
+          if(
+            String(
+              user.username || ""
+            ).toLowerCase()
+            ===
+            String(
+              currentUser.username || ""
+            ).toLowerCase()
+          ){
+
+            return {
+
+              ...user,
+
+              status:
+                "payment_pending",
+
+              paymentMethod:
+                method,
+
+              paymentReference:
+                transaction
+
+            };
+
+          }
+
+
+          return user;
+
+        }
+      );
+
+
+    localStorage.setItem(
+      "linkcashUsers",
+      JSON.stringify(
+        users
+      )
+    );
+
+  }
+
+
+  /* =======================================
+     SUCCESS
+  ======================================= */
+
+  document.getElementById(
+    "successMessage"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "transactionId"
+  ).value =
+    "";
+
+
+  alert(
+    "Payment submitted successfully. Your account is pending verification."
+  );
+
+}
+
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logout(){
+
+  localStorage.removeItem(
+    "linkcashLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "linkcashUser"
+  );
+
+
+  window.location.href =
+    "login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
