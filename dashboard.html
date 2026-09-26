@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | LINKCASH</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background: #ffffff;
+      border-right: 1px solid #e8edf5;
+      padding: 25px 15px;
+      z-index: 1000;
+    }
+
+    .logo {
+      color: #1167d8;
+      font-size: 25px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 35px;
+      letter-spacing: 1px;
+    }
+
+    .menu-title {
+      color: #98a2b3;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 0 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .menu a {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: #667085;
+      padding: 13px 14px;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      background: #edf5ff;
+      color: #1167d8;
+    }
+
+    .logout {
+      position: absolute;
+      bottom: 25px;
+      left: 15px;
+      right: 15px;
+    }
+
+    .logout a {
+      color: #d92d20 !important;
+    }
+
+    /* MAIN */
+    .main {
+      margin-left: 250px;
+      padding: 25px;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+    }
+
+    .mobile-menu {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .welcome small {
+      color: #667085;
+      font-size: 13px;
+    }
+
+    .welcome h2 {
+      font-size: 21px;
+      margin-top: 3px;
+    }
+
+    .profile-mini {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      background: #1167d8;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* STATISTICS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .stat {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+    }
+
+    .stat-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 12px;
+      background: #edf5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+
+    .stat p {
+      color: #667085;
+     
