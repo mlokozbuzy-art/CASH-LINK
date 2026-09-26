@@ -1,853 +1,666 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>LINKCASH - Login</title>
-
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-
-      margin: 0;
-
-      padding: 0;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-    }
-
-
-    body {
-
-      min-height: 100vh;
-
-      background: #050505;
-
-      color: white;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      padding: 20px;
-
-    }
-
-
-    .wrapper {
-
-      width: 100%;
-
-      max-width: 430px;
-
-    }
-
-
-    /* BRAND */
-
-    .brand {
-
-      text-align: center;
-
-      margin-bottom: 25px;
-
-    }
-
-
-    .logo {
-
-      width: 70px;
-
-      height: 70px;
-
-      margin: auto;
-
-      border-radius: 20px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #ffe082,
-          #d4a72c,
-          #8f6b12
-        );
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      color: #090909;
-
-      font-size: 24px;
-
-      font-weight: 900;
-
-      box-shadow:
-        0 0 25px
-        rgba(212,167,44,.25);
-
-    }
-
-
-    .brand h1 {
-
-      margin-top: 13px;
-
-      font-size: 28px;
-
-      letter-spacing: 3px;
-
-    }
-
-
-    .brand p {
-
-      margin-top: 7px;
-
-      color: #8d8d8d;
-
-      font-size: 13px;
-
-    }
-
-
-    /* CARD */
-
-    .card {
-
-      background: #101010;
-
-      border: 1px solid #292929;
-
-      border-radius: 24px;
-
-      padding: 29px 22px;
-
-      box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.6);
-
-    }
-
-
-    .title {
-
-      margin-bottom: 24px;
-
-    }
-
-
-    .title h2 {
-
-      font-size: 23px;
-
-      margin-bottom: 7px;
-
-    }
-
-
-    .title p {
-
-      color: #858585;
-
-      font-size: 13px;
-
-    }
-
-
-    /* FIELD */
-
-    .field {
-
-      margin-bottom: 18px;
-
-    }
-
-
-    .field label {
-
-      display: block;
-
-      color: #cfcfcf;
-
-      font-size: 13px;
-
-      margin-bottom: 8px;
-
-    }
-
-
-    input {
-
-      width: 100%;
-
-      height: 51px;
-
-      background: #070707;
-
-      border: 1px solid #292929;
-
-      border-radius: 12px;
-
-      color: white;
-
-      outline: none;
-
-      padding: 0 15px;
-
-      font-size: 14px;
-
-      transition: .2s;
-
-    }
-
-
-    input::placeholder {
-
-      color: #555;
-
-    }
-
-
-    input:focus {
-
-      border-color: #d4a72c;
-
-      box-shadow:
-        0 0 0 2px
-        rgba(212,167,44,.08);
-
-    }
-
-
-    /* PASSWORD */
-
-    .password-row {
-
-      display: flex;
-
-      justify-content:
-        space-between;
-
-      align-items: center;
-
-      margin-bottom: 8px;
-
-    }
-
-
-    .password-row label {
-
-      margin-bottom: 0;
-
-    }
-
-
-    .forgot {
-
-      color: #d4a72c;
-
-      text-decoration: none;
-
-      font-size: 12px;
-
-    }
-
-
-    /* BUTTON */
-
-    .login-btn {
-
-      width: 100%;
-
-      height: 53px;
-
-      margin-top: 5px;
-
-      border: none;
-
-      border-radius: 13px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffe082,
-          #d4a72c,
-          #a77b17
-        );
-
-      color: #080808;
-
-      font-size: 15px;
-
-      font-weight: 900;
-
-      letter-spacing: .5px;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 10px 25px
-        rgba(212,167,44,.16);
-
-    }
-
-
-    .login-btn:active {
-
-      transform: scale(.98);
-
-    }
-
-
-    /* MESSAGE */
-
-    .message {
-
-      display: none;
-
-      margin-top: 15px;
-
-      padding: 12px;
-
-      border-radius: 10px;
-
-      text-align: center;
-
-      font-size: 13px;
-
-      background:
-        rgba(255,70,70,.08);
-
-      border:
-        1px solid
-        rgba(255,70,70,.2);
-
-      color: #ff8585;
-
-    }
-
-
-    /* REGISTER */
-
-    .register {
-
-      text-align: center;
-
-      margin-top: 23px;
-
-      padding-top: 20px;
-
-      border-top:
-        1px solid #222;
-
-      color: #777;
-
-      font-size: 13px;
-
-    }
-
-
-    .register a {
-
-      color: #e0b83e;
-
-      text-decoration: none;
-
-      font-weight: bold;
-
-    }
-
-
-    /* BACK */
-
-    .back {
-
-      display: block;
-
-      text-align: center;
-
-      margin-top: 18px;
-
-      color: #686868;
-
-      text-decoration: none;
-
-      font-size: 12px;
-
-    }
-
-
-    .back:hover {
-
-      color: #d4a72c;
-
-    }
-
-
-    .footer {
-
-      text-align: center;
-
-      margin-top: 18px;
-
-      color: #444;
-
-      font-size: 11px;
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LINKCASH - Login</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:#050505;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.wrapper{
+  width:100%;
+  max-width:430px;
+}
+
+.brand{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.logo{
+  width:70px;
+  height:70px;
+  margin:auto;
+  border-radius:20px;
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#090909;
+  font-size:24px;
+  font-weight:900;
+  box-shadow:0 0 25px rgba(212,167,44,.25);
+}
+
+.brand h1{
+  margin-top:13px;
+  font-size:28px;
+  letter-spacing:3px;
+}
+
+.brand p{
+  margin-top:7px;
+  color:#8d8d8d;
+  font-size:13px;
+}
+
+.card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:24px;
+  padding:28px 22px;
+  box-shadow:0 25px 70px rgba(0,0,0,.6);
+}
+
+.title{
+  margin-bottom:23px;
+}
+
+.title h2{
+  font-size:23px;
+  margin-bottom:7px;
+}
+
+.title p{
+  color:#858585;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.field{
+  margin-bottom:17px;
+}
+
+.field label{
+  display:block;
+  color:#cfcfcf;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  height:50px;
+  background:#070707;
+  border:1px solid #292929;
+  border-radius:12px;
+  color:#fff;
+  outline:none;
+  padding:0 15px;
+  font-size:14px;
+}
+
+input::placeholder{
+  color:#555;
+}
+
+input:focus{
+  border-color:#d4a72c;
+  box-shadow:0 0 0 2px rgba(212,167,44,.08);
+}
+
+.password-wrap{
+  position:relative;
+}
+
+.password-wrap input{
+  padding-right:65px;
+}
+
+.show-password{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  color:#d4a72c;
+  font-size:12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.login-btn{
+  width:100%;
+  height:53px;
+  margin-top:5px;
+  border:none;
+  border-radius:13px;
+  background:linear-gradient(
+    135deg,
+    #ffe082,
+    #d4a72c,
+    #a77b17
+  );
+  color:#080808;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.login-btn:active{
+  transform:scale(.98);
+}
+
+.login-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.message{
+  display:none;
+  margin-top:15px;
+  padding:13px;
+  border-radius:10px;
+  text-align:center;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.message.success{
+  display:block;
+  background:rgba(40,180,100,.10);
+  border:1px solid rgba(40,180,100,.3);
+  color:#62df91;
+}
+
+.message.error{
+  display:block;
+  background:rgba(220,60,60,.10);
+  border:1px solid rgba(220,60,60,.3);
+  color:#ff7777;
+}
+
+.register{
+  text-align:center;
+  margin-top:23px;
+  padding-top:20px;
+  border-top:1px solid #222;
+  color:#777;
+  font-size:13px;
+}
+
+.register a{
+  color:#e0b83e;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:18px;
+  color:#686868;
+  text-decoration:none;
+  font-size:12px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:18px;
+  color:#444;
+  font-size:11px;
+}
+</style>
 </head>
-
 
 <body>
 
+<div class="wrapper">
 
-  <div class="wrapper">
+  <div class="brand">
+
+    <div class="logo">
+      LC
+    </div>
+
+    <h1>LINKCASH</h1>
+
+    <p>
+      Simple. Secure. Connected.
+    </p>
+
+  </div>
 
 
-    <!-- BRAND -->
+  <div class="card">
 
-    <div class="brand">
+    <div class="title">
 
-      <div class="logo">
-
-        LC
-
-      </div>
-
-
-      <h1>
-
-        LINKCASH
-
-      </h1>
-
+      <h2>Welcome Back</h2>
 
       <p>
-
-        Simple. Secure. Connected.
-
+        Login to your LINKCASH account.
       </p>
 
     </div>
 
 
-
-    <!-- LOGIN CARD -->
-
-    <div class="card">
-
-
-      <div class="title">
-
-        <h2>
-
-          Welcome back
-
-        </h2>
-
-
-        <p>
-
-          Login using your username and password.
-
-        </p>
-
-      </div>
-
-
-
-      <form id="loginForm">
-
-
-        <!-- USERNAME -->
-
-        <div class="field">
-
-          <label>
-
-            Username
-
-          </label>
-
-
-          <input
-
-            type="text"
-
-            id="username"
-
-            placeholder="Enter your username"
-
-            required
-
-          >
-
-        </div>
-
-
-
-        <!-- PASSWORD -->
-
-        <div class="field">
-
-
-          <div class="password-row">
-
-            <label>
-
-              Password
-
-            </label>
-
-
-            <a
-
-              href="#"
-
-              class="forgot"
-
-              onclick="forgotPassword(event)"
-
-            >
-
-              Forgot?
-
-            </a>
-
-          </div>
-
-
-          <input
-
-            type="password"
-
-            id="password"
-
-            placeholder="Enter your password"
-
-            required
-
-          >
-
-        </div>
-
-
-
-        <!-- BUTTON -->
-
-        <button
-
-          type="submit"
-
-          class="login-btn"
-
-        >
-
-          LOGIN
-
-        </button>
-
-
-      </form>
-
-
-
-      <!-- MESSAGE -->
-
-      <div
-
-        class="message"
-
-        id="message"
-
-      ></div>
-
-
-
-      <!-- REGISTER -->
-
-      <div class="register">
-
-        Don't have an account?
-
-
-        <a href="register.html">
-
-          Create Account
-
-        </a>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- BACK -->
-
-    <a
-
-      href="index.html"
-
-      class="back"
-
+    <form
+      id="loginForm"
+      novalidate
     >
 
-      ← Back to Home
+      <!-- USERNAME -->
 
-    </a>
+      <div class="field">
+
+        <label>
+          Username
+        </label>
+
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter your username"
+          autocomplete="username"
+          required
+        >
+
+      </div>
 
 
-    <div class="footer">
+      <!-- PASSWORD -->
 
-      © 2026 LINKCASH
+      <div class="field">
+
+        <label>
+          Password
+        </label>
+
+        <div class="password-wrap">
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            id="showPassword"
+          >
+            SHOW
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="login-btn"
+        id="loginBtn"
+      >
+        LOGIN
+      </button>
+
+    </form>
+
+
+    <div
+      class="message"
+      id="message"
+    ></div>
+
+
+    <div class="register">
+
+      Don't have an account?
+
+      <a href="register.html">
+        Create Account
+      </a>
 
     </div>
-
 
   </div>
 
 
+  <a
+    href="index.html"
+    class="back"
+  >
+    ← Back to Home
+  </a>
 
-  <script>
 
+  <div class="footer">
+    © 2026 LINKCASH
+  </div>
 
-    const form =
+</div>
 
-      document.getElementById(
-        "loginForm"
-      );
 
+<script>
 
-    const message =
+/* =========================================
+   ELEMENTS
+   ========================================= */
 
-      document.getElementById(
-        "message"
-      );
+const form =
+  document.getElementById(
+    "loginForm"
+  );
 
+const button =
+  document.getElementById(
+    "loginBtn"
+  );
 
+const message =
+  document.getElementById(
+    "message"
+  );
 
-    form.addEventListener(
+const passwordInput =
+  document.getElementById(
+    "password"
+  );
 
-      "submit",
+const showPassword =
+  document.getElementById(
+    "showPassword"
+  );
 
-      function(event) {
 
+/* =========================================
+   SHOW / HIDE PASSWORD
+   ========================================= */
 
-        event.preventDefault();
+showPassword.addEventListener(
+  "click",
+  function(){
 
+    if(
+      passwordInput.type ===
+      "password"
+    ){
 
+      passwordInput.type =
+        "text";
 
-        const username =
+      showPassword.textContent =
+        "HIDE";
 
-          document
-            .getElementById(
-              "username"
-            )
-            .value
-            .trim()
-            .toLowerCase();
+    }else{
 
+      passwordInput.type =
+        "password";
 
+      showPassword.textContent =
+        "SHOW";
 
-        const password =
+    }
 
-          document
-            .getElementById(
-              "password"
-            )
-            .value;
+  }
+);
 
 
+/* =========================================
+   MESSAGE
+   ========================================= */
 
-        /* GET ACCOUNT */
+function showMessage(
+  text,
+  type
+){
 
+  message.className =
+    "message " + type;
 
-        const savedUser =
+  message.textContent =
+    text;
 
-          localStorage.getItem(
-            "linkcashUser"
-          );
+  message.style.display =
+    "block";
 
+}
 
 
-        if (!savedUser) {
+/* =========================================
+   GET USERS
+   ========================================= */
 
+function getUsers(){
 
-          showError(
+  try{
 
-            "No account found. Please create an account first."
+    return JSON.parse(
+      localStorage.getItem(
+        "linkcashUsers"
+      )
+    ) || [];
 
-          );
+  }catch{
 
+    return [];
 
-          return;
+  }
 
-        }
+}
 
 
+/* =========================================
+   LOGIN
+   ========================================= */
 
-        const user =
+form.addEventListener(
+  "submit",
+  function(event){
 
-          JSON.parse(
-            savedUser
-          );
+    event.preventDefault();
 
+    message.style.display =
+      "none";
 
+    button.disabled =
+      true;
 
-        /* CHECK LOGIN */
+    button.textContent =
+      "LOGGING IN...";
 
 
-        if (
+    try{
 
-          username ===
-            user.username &&
+      /* ===============================
+         GET INPUT
+         =============================== */
 
-          password ===
-            user.password
+      const username =
+        document
+          .getElementById("username")
+          .value
+          .trim()
+          .toLowerCase();
 
-        ) {
 
+      const password =
+        document
+          .getElementById("password")
+          .value;
 
-          localStorage.setItem(
 
-            "linkcashLoggedIn",
+      if(
+        !username ||
+        !password
+      ){
 
-            "true"
-
-          );
-
-
-
-          message.style.display =
-            "block";
-
-
-          message.style.color =
-            "#e6c65c";
-
-
-          message.style.background =
-            "rgba(212,167,44,.08)";
-
-
-          message.style.borderColor =
-            "rgba(212,167,44,.25)";
-
-
-          message.textContent =
-
-            "Login successful ✓";
-
-
-
-          setTimeout(
-
-            function() {
-
-
-              window.location.href =
-
-                "dashboard.html";
-
-
-            },
-
-            700
-
-          );
-
-
-        }
-
-        else {
-
-
-          showError(
-
-            "Incorrect username or password."
-
-          );
-
-        }
-
+        throw new Error(
+          "Please enter your username and password."
+        );
 
       }
 
-    );
+
+      /* ===============================
+         GET USERS
+         =============================== */
+
+      const users =
+        getUsers();
 
 
+      /* ===============================
+         FIND USER
+         =============================== */
 
-    /* ERROR */
+      const user =
+        users.find(
+          function(item){
 
+            return (
+              item.username ===
+              username &&
+              item.password ===
+              password
+            );
 
-    function showError(text) {
-
-
-      message.style.display =
-        "block";
-
-
-      message.style.color =
-        "#ff8585";
-
-
-      message.style.background =
-        "rgba(255,70,70,.08)";
-
-
-      message.style.borderColor =
-        "rgba(255,70,70,.2)";
+          }
+        );
 
 
-      message.textContent =
-        text;
+      /* ===============================
+         INVALID LOGIN
+         =============================== */
 
-    }
+      if(!user){
 
+        throw new Error(
+          "Incorrect username or password."
+        );
 
-
-    /* FORGOT */
-
-
-    function forgotPassword(event) {
-
-
-      event.preventDefault();
+      }
 
 
-      alert(
+      /* ===============================
+         SAVE SESSION
+         =============================== */
 
-        "Password recovery will be added when we connect the LINKCASH database."
+      localStorage.setItem(
+        "linkcashUser",
+        JSON.stringify({
 
+          id:
+            user.id,
+
+          fullname:
+            user.fullname,
+
+          username:
+            user.username,
+
+          phone:
+            user.phone,
+
+          email:
+            user.email,
+
+          status:
+            user.status,
+
+          referrer:
+            user.referrer ||
+            null
+
+        })
       );
 
+
+      /* ===============================
+         SUCCESS
+         =============================== */
+
+      showMessage(
+        "Login successful ✓",
+        "success"
+      );
+
+
+      button.textContent =
+        "LOGIN SUCCESSFUL ✓";
+
+
+      /* ===============================
+         REDIRECT
+         =============================== */
+
+      setTimeout(
+        function(){
+
+          if(
+            user.status ===
+            "pending"
+          ){
+
+            window.location.href =
+              "pending.html";
+
+          }else{
+
+            window.location.href =
+              "dashboard.html";
+
+          }
+
+        },
+        800
+      );
+
+
+    }catch(error){
+
+      console.error(
+        "LINKCASH LOGIN ERROR:",
+        error
+      );
+
+
+      showMessage(
+        error.message ||
+        "Login failed.",
+        "error"
+      );
+
+
+      button.disabled =
+        false;
+
+      button.textContent =
+        "LOGIN";
+
     }
 
+  }
+);
 
-  </script>
-
+</script>
 
 </body>
-
 </html>
