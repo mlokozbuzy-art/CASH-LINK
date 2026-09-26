@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LINKCASH - Register</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -268,7 +267,6 @@ input:focus{
 
       <div class="field">
         <label>Full Name</label>
-
         <input
           type="text"
           id="fullname"
@@ -280,7 +278,6 @@ input:focus{
 
       <div class="field">
         <label>Username</label>
-
         <input
           type="text"
           id="username"
@@ -298,7 +295,6 @@ input:focus{
 
       <div class="field">
         <label>Phone Number</label>
-
         <input
           type="tel"
           id="phone"
@@ -310,7 +306,6 @@ input:focus{
 
       <div class="field">
         <label>Email Address</label>
-
         <input
           type="email"
           id="email"
@@ -322,7 +317,6 @@ input:focus{
 
       <div class="field">
         <label>Password</label>
-
         <input
           type="password"
           id="password"
@@ -366,24 +360,14 @@ input:focus{
 <script>
 
 /* ==================================================
-   SUPABASE CONFIGURATION
+   SUPABASE
    ================================================== */
 
 const SUPABASE_URL =
   "https://plmasvzxgcwnxgbeaurc.supabase.co";
 
-/*
-   WEKA PUBLISHABLE KEY YAKO HAPA
-   Usitumie service_role key.
-*/
-
 const SUPABASE_KEY =
-  "WEKA_PUBLISHABLE_KEY_YAKO_HAPA";
-
-
-/* ==================================================
-   SUPABASE CLIENT
-   ================================================== */
+  "sb_publishable_QUoRhZ-o_TqxKEveIXERDQ_IRIvWQWG";
 
 const supabaseClient =
   window.supabase.createClient(
@@ -407,9 +391,7 @@ const button =
 
 
 /* ==================================================
-   REFERRER
-   Example:
-   register.html?ref=mussa
+   REFERRAL
    ================================================== */
 
 const params =
@@ -427,15 +409,12 @@ const referrerUsername =
 
 if(referrerUsername){
 
-  document.getElementById(
-    "refBox"
-  ).style.display = "block";
+  document.getElementById("refBox")
+    .style.display = "block";
 
-  document.getElementById(
-    "refUsername"
-  ).textContent =
+  document.getElementById("refUsername")
+    .textContent =
     "@" + referrerUsername;
-
 }
 
 
@@ -453,51 +432,31 @@ function showMessage(text,type){
 
   message.style.display =
     "block";
-
-}
-
-
-function clearMessage(){
-
-  message.className =
-    "message";
-
-  message.textContent =
-    "";
-
-  message.style.display =
-    "none";
-
 }
 
 
 /* ==================================================
-   BUTTON LOADING
+   LOADING
    ================================================== */
 
-function setLoading(loading){
+function setLoading(value){
 
-  if(loading){
+  button.disabled = value;
 
-    button.disabled = true;
+  if(value){
 
     button.innerHTML =
-      `
-      <span class="loading">
+      `<span class="loading">
         <span class="spinner"></span>
         CREATING ACCOUNT...
-      </span>
-      `;
+      </span>`;
 
   }else{
-
-    button.disabled = false;
 
     button.textContent =
       "CREATE ACCOUNT";
 
   }
-
 }
 
 
@@ -505,117 +464,22 @@ function setLoading(loading){
    TIMEOUT
    ================================================== */
 
-function withTimeout(
-  promise,
-  milliseconds = 20000
-){
+function timeout(ms){
 
-  return Promise.race([
+  return new Promise(
+    (_,reject) => {
 
-    promise,
+      setTimeout(
+        () => reject(
+          new Error(
+            "Connection timed out. Check your internet connection and Supabase settings."
+          )
+        ),
+        ms
+      );
 
-    new Promise(
-      (_,reject) => {
-
-        setTimeout(
-          () => {
-
-            reject(
-              new Error(
-                "Request timed out. Check your internet connection and Supabase configuration."
-              )
-            );
-
-          },
-          milliseconds
-        );
-
-      }
-    )
-
-  ]);
-
-}
-
-
-/* ==================================================
-   GET REFERRER ID
-   ================================================== */
-
-async function findReferrer(){
-
-  if(!referrerUsername){
-
-    return null;
-
-  }
-
-
-  const {
-    data,
-    error
-  } =
-    await withTimeout(
-
-      supabaseClient
-        .from("profiles")
-        .select(
-          "id,username"
-        )
-        .ilike(
-          "username",
-          referrerUsername
-        )
-        .maybeSingle()
-
-    );
-
-
-  if(error){
-
-    throw error;
-
-  }
-
-
-  return data || null;
-
-}
-
-
-/* ==================================================
-   CHECK USERNAME
-   ================================================== */
-
-async function usernameExists(username){
-
-  const {
-    data,
-    error
-  } =
-    await withTimeout(
-
-      supabaseClient
-        .from("profiles")
-        .select("id")
-        .ilike(
-          "username",
-          username
-        )
-        .limit(1)
-
-    );
-
-
-  if(error){
-
-    throw error;
-
-  }
-
-
-  return Array.isArray(data)
-    && data.length > 0;
+    }
+  );
 
 }
 
@@ -630,56 +494,36 @@ form.addEventListener(
 
     event.preventDefault();
 
-    clearMessage();
+    message.style.display = "none";
 
     setLoading(true);
 
-
     try{
 
-      /* ------------------------------------------
-         GET VALUES
-         ------------------------------------------ */
-
       const fullname =
-        document
-          .getElementById("fullname")
-          .value
-          .trim();
-
+        document.getElementById("fullname")
+        .value.trim();
 
       const username =
-        document
-          .getElementById("username")
-          .value
-          .trim()
-          .toLowerCase();
-
+        document.getElementById("username")
+        .value.trim()
+        .toLowerCase();
 
       const phone =
-        document
-          .getElementById("phone")
-          .value
-          .trim();
-
+        document.getElementById("phone")
+        .value.trim();
 
       const email =
-        document
-          .getElementById("email")
-          .value
-          .trim()
-          .toLowerCase();
-
+        document.getElementById("email")
+        .value.trim()
+        .toLowerCase();
 
       const password =
-        document
-          .getElementById("password")
-          .value;
+        document.getElementById("password")
+        .value;
 
 
-      /* ------------------------------------------
-         VALIDATION
-         ------------------------------------------ */
+      /* VALIDATION */
 
       if(
         !fullname ||
@@ -697,23 +541,7 @@ form.addEventListener(
 
 
       if(
-        username.length < 3 ||
-        username.length > 20
-      ){
-
-        throw new Error(
-          "Username must be 3–20 characters."
-        );
-
-      }
-
-
-      const usernamePattern =
-        /^[a-zA-Z0-9_]+$/;
-
-
-      if(
-        !usernamePattern.test(username)
+        !/^[a-zA-Z0-9_]+$/.test(username)
       ){
 
         throw new Error(
@@ -736,16 +564,35 @@ form.addEventListener(
          CHECK USERNAME
          ------------------------------------------ */
 
-      const exists =
-        await usernameExists(
-          username
-        );
+      const usernameRequest =
+        supabaseClient
+          .from("profiles")
+          .select("id")
+          .eq("username",username)
+          .limit(1);
 
 
-      if(exists){
+      const usernameResult =
+        await Promise.race([
+          usernameRequest,
+          timeout(15000)
+        ]);
+
+
+      if(usernameResult.error){
+
+        throw usernameResult.error;
+
+      }
+
+
+      if(
+        usernameResult.data &&
+        usernameResult.data.length > 0
+      ){
 
         throw new Error(
-          "This username already exists. Please choose another."
+          "This username already exists."
         );
 
       }
@@ -755,158 +602,150 @@ form.addEventListener(
          FIND REFERRER
          ------------------------------------------ */
 
-      let referrer = null;
+      let referrerId = null;
+      let referrerName = null;
 
 
       if(referrerUsername){
 
-        referrer =
-          await findReferrer();
+        const refRequest =
+          supabaseClient
+            .from("profiles")
+            .select("id,username")
+            .eq(
+              "username",
+              referrerUsername
+            )
+            .maybeSingle();
+
+
+        const refResult =
+          await Promise.race([
+            refRequest,
+            timeout(15000)
+          ]);
+
+
+        if(refResult.error){
+
+          throw refResult.error;
+
+        }
+
+
+        if(refResult.data){
+
+          referrerId =
+            refResult.data.id;
+
+          referrerName =
+            refResult.data.username;
+
+        }
 
       }
 
 
       /* ------------------------------------------
-         CREATE AUTH USER
+         CREATE AUTH ACCOUNT
          ------------------------------------------ */
 
-      const {
-        data: authData,
-        error: authError
-      } =
-        await withTimeout(
+      const authRequest =
+        supabaseClient.auth.signUp({
 
-          supabaseClient.auth.signUp({
+          email:email,
 
-            email: email,
+          password:password,
 
-            password: password,
-
-            options:{
-
-              data:{
-
-                fullname:fullname,
-
-                username:username,
-
-                phone:phone
-
-              }
-
+          options:{
+            data:{
+              fullname:fullname,
+              username:username,
+              phone:phone
             }
+          }
 
-          })
-
-        );
+        });
 
 
-      if(authError){
+      const authResult =
+        await Promise.race([
+          authRequest,
+          timeout(20000)
+        ]);
 
-        throw authError;
+
+      if(authResult.error){
+
+        throw authResult.error;
 
       }
 
 
       if(
-        !authData ||
-        !authData.user
+        !authResult.data ||
+        !authResult.data.user
       ){
 
         throw new Error(
-          "Supabase did not return a user account."
+          "Supabase did not return the new user."
         );
 
       }
 
 
       const userId =
-        authData.user.id;
+        authResult.data.user.id;
 
 
       /* ------------------------------------------
          CREATE PROFILE
          ------------------------------------------ */
 
-      const profile = {
+      const profileRequest =
+        supabaseClient
+          .from("profiles")
+          .insert({
 
-        id:userId,
+            id:userId,
 
-        fullname:fullname,
+            fullname:fullname,
 
-        username:username,
+            username:username,
 
-        phone:phone,
+            phone:phone,
 
-        email:email,
+            email:email,
 
-        referrer_id:
-          referrer
-            ? referrer.id
-            : null,
+            referrer_id:referrerId,
 
-        status:"pending",
+            status:"pending",
 
-        balance:0,
+            balance:0,
 
-        commission:0,
+            commission:0,
 
-        activation_fee:14500
+            activation_fee:14500
 
-      };
-
-
-      const {
-        error:profileError
-      } =
-        await withTimeout(
-
-          supabaseClient
-            .from("profiles")
-            .insert(profile)
-
-        );
+          });
 
 
-      if(profileError){
+      const profileResult =
+        await Promise.race([
+          profileRequest,
+          timeout(20000)
+        ]);
 
-        /*
-          If profile creation fails,
-          show the actual Supabase error.
-        */
 
-        throw new Error(
-          "Account was created in Authentication, but profile creation failed: " +
-          profileError.message
-        );
+      if(profileResult.error){
+
+        throw profileResult.error;
 
       }
 
 
       /* ------------------------------------------
-         SUCCESS
-         ------------------------------------------ */
-
-      showMessage(
-        "Account created successfully ✓ Your account is PENDING activation.",
-        "success"
-      );
-
-
-      form
-        .querySelectorAll("input")
-        .forEach(
-          input => {
-            input.disabled = true;
-          }
-        );
-
-
-      button.disabled = true;
-
-
-      /* ------------------------------------------
-         SAVE LOCAL USER INFO
+         SAVE LOCAL DATA
          ------------------------------------------ */
 
       localStorage.setItem(
@@ -928,20 +767,34 @@ form.addEventListener(
           activation_fee:14500,
 
           referrer:
-            referrer
-              ? referrer.username
-              : null
+            referrerName
 
         })
       );
 
 
       /* ------------------------------------------
-         REDIRECT
+         SUCCESS
          ------------------------------------------ */
 
+      showMessage(
+        "Account created successfully ✓ Your account is pending activation.",
+        "success"
+      );
+
+
+      form
+        .querySelectorAll("input")
+        .forEach(
+          input => input.disabled = true
+        );
+
+
+      button.disabled = true;
+
+
       setTimeout(
-        function(){
+        () => {
 
           window.location.href =
             "pending.html";
@@ -954,59 +807,51 @@ form.addEventListener(
     }catch(error){
 
       console.error(
-        "LINKCASH REGISTER ERROR:",
+        "LINKCASH ERROR:",
         error
       );
 
 
-      let errorMessage =
+      let msg =
         error?.message ||
         "Registration failed.";
 
 
-      /*
-        Make common Supabase errors
-        easier to understand.
-      */
-
       if(
-        errorMessage
-          .toLowerCase()
+        msg.toLowerCase()
           .includes("row-level security")
       ){
 
-        errorMessage =
-          "Supabase RLS is blocking profile creation. Check the profiles INSERT policy.";
+        msg =
+          "RLS is blocking profile creation. Check the profiles INSERT policy.";
 
       }
 
 
       if(
-        errorMessage
-          .toLowerCase()
+        msg.toLowerCase()
           .includes("invalid api key")
       ){
 
-        errorMessage =
-          "Invalid Supabase API key. Check your Publishable key.";
+        msg =
+          "Invalid Supabase Publishable key. Check that this key belongs to this Supabase project.";
 
       }
 
 
       if(
-        errorMessage
-          .toLowerCase()
+        msg.toLowerCase()
           .includes("user already registered")
       ){
 
-        errorMessage =
-          "This email is already registered. Please login instead.";
+        msg =
+          "This email is already registered. Please use another email or login.";
 
       }
 
 
       showMessage(
-        errorMessage,
+        msg,
         "error"
       );
 
