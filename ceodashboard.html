@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>LINKCASH - CEO Dashboard</title>
 
@@ -21,6 +27,17 @@ body{
   color:#fff;
   padding-bottom:30px;
 }
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+/* =========================
+   TOPBAR
+========================= */
 
 .topbar{
   height:68px;
@@ -45,7 +62,12 @@ body{
   width:41px;
   height:41px;
   border-radius:12px;
-  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
   color:#050505;
   display:flex;
   align-items:center;
@@ -70,12 +92,20 @@ body{
   font-weight:900;
 }
 
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
   width:100%;
   max-width:900px;
   margin:auto;
   padding:24px 16px 40px;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
   margin-bottom:20px;
@@ -102,6 +132,10 @@ body{
   margin-top:6px;
   line-height:1.5;
 }
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
   display:grid;
@@ -139,17 +173,19 @@ body{
   margin-top:4px;
 }
 
+/* =========================
+   ACTION BAR
+========================= */
+
 .action-bar{
-  display:flex;
-  gap:9px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
   margin-bottom:17px;
-  flex-wrap:wrap;
 }
 
 .action-btn{
-  flex:1;
-  min-width:110px;
-  height:43px;
+  min-height:43px;
   border-radius:10px;
   border:1px solid #292929;
   background:#101010;
@@ -168,11 +204,15 @@ body{
   color:#d4a72c;
 }
 
+/* =========================
+   SECTION
+========================= */
+
 .section-title{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin:24px 0 11px;
+  margin:20px 0 11px;
 }
 
 .section-title h2{
@@ -185,145 +225,7 @@ body{
 }
 
 /* =========================
-   VIDEO ADMIN
-========================= */
-
-.video-admin{
-  background:linear-gradient(145deg,#151515,#0a0a0a);
-  border:1px solid #292929;
-  border-radius:19px;
-  padding:17px;
-}
-
-.video-form{
-  display:grid;
-  gap:10px;
-}
-
-.input,
-.select{
-  width:100%;
-  height:44px;
-  border-radius:10px;
-  border:1px solid #292929;
-  background:#080808;
-  color:#fff;
-  padding:0 12px;
-  outline:none;
-  font-size:11px;
-}
-
-.input:focus,
-.select:focus{
-  border-color:#d4a72c;
-}
-
-.textarea{
-  width:100%;
-  min-height:80px;
-  resize:vertical;
-  border-radius:10px;
-  border:1px solid #292929;
-  background:#080808;
-  color:#fff;
-  padding:12px;
-  outline:none;
-  font-size:11px;
-}
-
-.textarea:focus{
-  border-color:#d4a72c;
-}
-
-.gold-btn{
-  width:100%;
-  height:44px;
-  border:none;
-  border-radius:10px;
-  background:linear-gradient(135deg,#ffe082,#d4a72c);
-  color:#080808;
-  font-size:11px;
-  font-weight:900;
-  cursor:pointer;
-}
-
-.video-list{
-  display:grid;
-  gap:10px;
-  margin-top:13px;
-}
-
-.video-card{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:15px;
-  padding:14px;
-}
-
-.video-card-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:10px;
-}
-
-.video-platform{
-  font-size:9px;
-  font-weight:900;
-  color:#d4a72c;
-  text-transform:uppercase;
-}
-
-.video-title{
-  font-size:13px;
-  font-weight:bold;
-  margin-top:5px;
-}
-
-.video-description{
-  color:#666;
-  font-size:10px;
-  margin-top:5px;
-  line-height:1.5;
-}
-
-.video-url{
-  color:#777;
-  font-size:9px;
-  margin-top:10px;
-  word-break:break-all;
-}
-
-.video-actions{
-  display:flex;
-  gap:8px;
-  margin-top:12px;
-}
-
-.video-delete{
-  flex:1;
-  height:38px;
-  border-radius:9px;
-  border:1px solid rgba(255,80,80,.25);
-  background:rgba(255,80,80,.07);
-  color:#ff7777;
-  font-size:9px;
-  font-weight:900;
-}
-
-.video-toggle{
-  flex:1;
-  height:38px;
-  border-radius:9px;
-  border:1px solid rgba(88,216,138,.25);
-  background:rgba(88,216,138,.07);
-  color:#58d88a;
-  font-size:9px;
-  font-weight:900;
-}
-
-/* =========================
-   REQUESTS
+   REQUEST LIST
 ========================= */
 
 .requests{
@@ -332,7 +234,11 @@ body{
 }
 
 .request{
-  background:linear-gradient(145deg,#151515,#0a0a0a);
+  background:linear-gradient(
+    145deg,
+    #151515,
+    #0a0a0a
+  );
   border:1px solid #2b2b2b;
   border-radius:19px;
   padding:17px;
@@ -381,6 +287,9 @@ body{
 .user-name{
   font-size:13px;
   font-weight:bold;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .user-username{
@@ -394,22 +303,30 @@ body{
   border-radius:15px;
   font-size:8px;
   font-weight:900;
+  white-space:nowrap;
 }
 
 .status.pending{
   color:#d4a72c;
   background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.2);
 }
 
 .status.approved{
   color:#58d88a;
   background:rgba(88,216,138,.08);
+  border:1px solid rgba(88,216,138,.2);
 }
 
 .status.rejected{
   color:#ff7777;
   background:rgba(255,80,80,.07);
+  border:1px solid rgba(255,80,80,.18);
 }
+
+/* =========================
+   DETAILS
+========================= */
 
 .details{
   display:grid;
@@ -422,6 +339,7 @@ body{
   border:1px solid #202020;
   border-radius:11px;
   padding:11px;
+  min-width:0;
 }
 
 .detail-label{
@@ -441,6 +359,10 @@ body{
   color:#d4a72c;
 }
 
+/* =========================
+   REQUEST ACTIONS
+========================= */
+
 .request-actions{
   display:flex;
   gap:8px;
@@ -451,7 +373,7 @@ body{
 .reject-btn,
 .delete-btn{
   flex:1;
-  height:40px;
+  min-height:40px;
   border-radius:10px;
   font-size:10px;
   font-weight:900;
@@ -474,6 +396,34 @@ body{
   border:1px solid #292929;
   background:#101010;
   color:#777;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  display:none;
+  padding:35px 20px;
+  text-align:center;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:18px;
+}
+
+.empty-icon{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.empty h3{
+  font-size:14px;
+}
+
+.empty p{
+  margin-top:6px;
+  color:#666;
+  font-size:10px;
 }
 
 /* =========================
@@ -540,29 +490,264 @@ body{
   font-size:11px;
 }
 
-.empty{
-  display:none;
-  padding:35px 20px;
-  text-align:center;
+/* =========================
+   CONTENT MANAGER
+========================= */
+
+.content-manager{
+  margin-top:30px;
+}
+
+.content-form{
+  background:linear-gradient(
+    145deg,
+    #151515,
+    #0a0a0a
+  );
+  border:1px solid #2b2b2b;
+  border-radius:20px;
+  padding:18px;
+}
+
+.form-label{
+  display:block;
+  color:#777;
+  font-size:9px;
+  font-weight:bold;
+  margin-bottom:6px;
+  margin-top:12px;
+}
+
+.form-label:first-child{
+  margin-top:0;
+}
+
+.form-input,
+.form-select,
+.form-textarea{
+  width:100%;
+  border:1px solid #292929;
+  background:#080808;
+  color:#fff;
+  border-radius:11px;
+  outline:none;
+  font-size:11px;
+}
+
+.form-input,
+.form-select{
+  height:44px;
+  padding:0 12px;
+}
+
+.form-textarea{
+  min-height:80px;
+  padding:12px;
+  resize:vertical;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+  border-color:#d4a72c;
+}
+
+.add-content-btn{
+  width:100%;
+  height:46px;
+  margin-top:15px;
+  border:none;
+  border-radius:11px;
+  background:linear-gradient(
+    135deg,
+    #ffe082,
+    #d4a72c
+  );
+  color:#080808;
+  font-size:11px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* =========================
+   CONTENT CARDS
+========================= */
+
+.content-list{
+  display:grid;
+  gap:12px;
+  margin-top:13px;
+}
+
+.content-card{
   background:#101010;
   border:1px solid #292929;
   border-radius:18px;
+  padding:15px;
 }
 
-.empty-icon{
-  font-size:30px;
-  margin-bottom:10px;
+.content-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
 }
 
-.empty h3{
-  font-size:14px;
-}
-
-.empty p{
-  margin-top:6px;
-  color:#666;
+.content-platform{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#d4a72c;
   font-size:10px;
+  font-weight:900;
 }
+
+.content-status{
+  color:#58d88a;
+  font-size:8px;
+  font-weight:900;
+}
+
+.content-title{
+  font-size:14px;
+  font-weight:900;
+  margin-top:11px;
+}
+
+.content-description{
+  color:#777;
+  font-size:10px;
+  line-height:1.5;
+  margin-top:6px;
+}
+
+.content-url{
+  margin-top:10px;
+  padding:9px;
+  border-radius:9px;
+  background:#080808;
+  border:1px solid #202020;
+  color:#777;
+  font-size:9px;
+  word-break:break-all;
+}
+
+.content-actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+.preview-content-btn,
+.remove-content-btn{
+  flex:1;
+  height:39px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:9px;
+  font-weight:900;
+}
+
+.preview-content-btn{
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
+  color:#d4a72c;
+}
+
+.remove-content-btn{
+  background:rgba(255,80,80,.07);
+  border:1px solid rgba(255,80,80,.2);
+  color:#ff7777;
+}
+
+/* =========================
+   VIDEO PREVIEW
+========================= */
+
+.preview-box{
+  margin-top:13px;
+  background:#050505;
+  border:1px solid #242424;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.preview-frame{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  display:block;
+}
+
+.tiktok-frame{
+  width:100%;
+  height:600px;
+  border:0;
+  display:block;
+}
+
+.facebook-frame{
+  width:100%;
+  height:450px;
+  border:0;
+  display:block;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.86);
+  z-index:500;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-card{
+  width:100%;
+  max-width:500px;
+  max-height:92vh;
+  overflow:auto;
+  background:#111;
+  border:1px solid #333;
+  border-radius:20px;
+  padding:18px;
+}
+
+.modal-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+
+.modal-title h2{
+  font-size:17px;
+}
+
+.close{
+  width:33px;
+  height:33px;
+  border-radius:50%;
+  background:#1b1b1b;
+  border:1px solid #333;
+  color:#aaa;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* =========================
+   LOGOUT
+========================= */
 
 .logout{
   width:100%;
@@ -574,7 +759,12 @@ body{
   color:#999;
   font-size:10px;
   font-weight:bold;
+  cursor:pointer;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
   text-align:center;
@@ -583,7 +773,15 @@ body{
   font-size:9px;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:600px){
+
+  .action-bar{
+    grid-template-columns:repeat(2,1fr);
+  }
 
   .stats{
     grid-template-columns:repeat(3,1fr);
@@ -598,7 +796,7 @@ body{
   }
 
   .stat{
-    padding:13px 8px;
+    padding:13px 7px;
   }
 
   .stat-value{
@@ -613,12 +811,19 @@ body{
     flex-direction:column;
   }
 
+  .tiktok-frame{
+    height:520px;
+  }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <header class="topbar">
 
@@ -643,9 +848,12 @@ body{
 
 <main class="container">
 
+
 <section class="header">
 
-  <small>ADMINISTRATION</small>
+  <small>
+    ADMINISTRATION
+  </small>
 
   <h1>
     Welcome,
@@ -653,11 +861,16 @@ body{
   </h1>
 
   <p>
-    Manage LINKCASH users, payments and social media tasks.
+    Manage LINKCASH users, payments and promotional
+    content from this dashboard.
   </p>
 
 </section>
 
+
+<!-- =========================
+     STATS
+========================= -->
 
 <section class="stats">
 
@@ -704,24 +917,28 @@ body{
   <div class="stat">
 
     <div class="stat-icon">
-      🎬
+      ✓
     </div>
 
     <div
       class="stat-value"
-      id="videoCount"
+      id="activeUsers"
     >
       0
     </div>
 
     <div class="stat-name">
-      SOCIAL TASKS
+      ACTIVE
     </div>
 
   </div>
 
 </section>
 
+
+<!-- =========================
+     ACTIONS
+========================= -->
 
 <div class="action-bar">
 
@@ -746,57 +963,1654 @@ body{
     USERS
   </button>
 
+  <button
+    class="action-btn"
+    onclick="scrollToContent()"
+  >
+    🎬 CONTENT
+  </button>
+
 </div>
 
 
 <!-- =========================
-     SOCIAL MEDIA TASKS
+     PAYMENT REQUESTS
 ========================= -->
 
-<div class="section-title">
+<section>
 
-  <h2>
-    Social Media Tasks
-  </h2>
+  <div class="section-title">
 
-  <span>
-    CEO CONTROL
-  </span>
+    <h2>
+      Payment Requests
+    </h2>
 
-</div>
+    <span id="requestLabel">
+      LATEST REQUESTS
+    </span>
+
+  </div>
 
 
-<section class="video-admin">
+  <div
+    class="requests"
+    id="requests"
+  ></div>
 
-  <div class="video-form">
+
+  <div
+    class="empty"
+    id="emptyRequests"
+  >
+
+    <div class="empty-icon">
+      ✓
+    </div>
+
+    <h3>
+      No Payment Requests
+    </h3>
+
+    <p>
+      Payment requests submitted by users
+      will appear here.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     REGISTERED USERS
+========================= -->
+
+<section class="users-section">
+
+  <div class="section-title">
+
+    <h2>
+      Registered Users
+    </h2>
+
+    <span>
+      ALL USERS
+    </span>
+
+  </div>
+
+
+  <input
+    class="search"
+    id="userSearch"
+    type="text"
+    placeholder="Search user..."
+    oninput="searchUsers()"
+  >
+
+
+  <div id="usersList"></div>
+
+</section>
+
+
+<!-- =========================
+     CONTENT MANAGER
+========================= -->
+
+<section
+  class="content-manager"
+  id="contentManager"
+>
+
+  <div class="section-title">
+
+    <h2>
+      🎬 Content Manager
+    </h2>
+
+    <span>
+      CEO ONLY
+    </span>
+
+  </div>
+
+
+  <div class="content-form">
+
+    <label class="form-label">
+      PLATFORM
+    </label>
 
     <select
-      class="select"
-      id="videoPlatform"
+      class="form-select"
+      id="contentPlatform"
+      onchange="updatePlatformHints()"
     >
 
-      <option value="TikTok">
+      <option value="tiktok">
         TikTok
       </option>
 
-      <option value="YouTube">
+      <option value="youtube">
         YouTube
       </option>
 
-      <option value="Facebook">
+      <option value="facebook">
         Facebook
       </option>
 
     </select>
 
 
+    <label class="form-label">
+      VIDEO TITLE
+    </label>
+
     <input
-      class="input"
-      id="videoTitle"
+      class="form-input"
+      id="contentTitle"
       type="text"
-      placeholder="Video title"
+      placeholder="Example: Watch our new TikTok"
     >
 
 
+    <label class="form-label">
+      VIDEO URL
+    </label>
+
     <input
-      class="input"
+      class="form-input"
+      id="contentVideoUrl"
+      type="url"
+      placeholder="Paste video link here"
+    >
+
+
+    <label class="form-label">
+      ACCOUNT / CHANNEL FOLLOW URL
+    </label>
+
+    <input
+      class="form-input"
+      id="contentFollowUrl"
+      type="url"
+      placeholder="Paste TikTok / YouTube / Facebook profile link"
+    >
+
+
+    <label class="form-label">
+      DESCRIPTION
+    </label>
+
+    <textarea
+      class="form-textarea"
+      id="contentDescription"
+      placeholder="Write a short message for users..."
+    ></textarea>
+
+
+    <button
+      class="add-content-btn"
+      onclick="addContent()"
+    >
+      + PUBLISH CONTENT
+    </button>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>
+      Published Content
+    </h2>
+
+    <span id="contentCount">
+      0 POSTS
+    </span>
+
+  </div>
+
+
+  <div
+    class="content-list"
+    id="contentList"
+  ></div>
+
+
+  <div
+    class="empty"
+    id="emptyContent"
+    style="display:none"
+  >
+
+    <div class="empty-icon">
+      🎬
+    </div>
+
+    <h3>
+      No Content Yet
+    </h3>
+
+    <p>
+      Add TikTok, YouTube or Facebook videos above.
+    </p>
+
+  </div>
+
+</section>
+
+
+<button
+  class="logout"
+  onclick="logoutCEO()"
+>
+  LOG OUT CEO
+</button>
+
+
+<div class="footer">
+  © 2026 LINKCASH • CEO ADMINISTRATION
+</div>
+
+</main>
+
+
+<!-- =========================
+     PREVIEW MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="previewModal"
+>
+
+  <div class="modal-card">
+
+    <div class="modal-title">
+
+      <h2 id="previewTitle">
+        Video Preview
+      </h2>
+
+      <button
+        class="close"
+        onclick="closePreview()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div id="previewBody"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   CEO SECURITY
+========================================= */
+
+if(
+  localStorage.getItem(
+    "linkcashCEOLoggedIn"
+  ) !== "true"
+){
+
+  window.location.replace(
+    "ceologin.html"
+  );
+
+}
+
+
+/* =========================================
+   USERS
+========================================= */
+
+function getUsers(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "linkcashUsers"
+      );
+
+    if(!saved){
+      return [];
+    }
+
+    const users =
+      JSON.parse(saved);
+
+    return Array.isArray(users)
+      ? users
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function saveUsers(users){
+
+  localStorage.setItem(
+    "linkcashUsers",
+    JSON.stringify(users)
+  );
+
+}
+
+
+/* =========================================
+   PAYMENTS
+========================================= */
+
+function getPayments(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "linkcashPayments"
+      );
+
+    if(!saved){
+      return [];
+    }
+
+    const payments =
+      JSON.parse(saved);
+
+    return Array.isArray(payments)
+      ? payments
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function savePayments(payments){
+
+  localStorage.setItem(
+    "linkcashPayments",
+    JSON.stringify(payments)
+  );
+
+}
+
+
+/* =========================================
+   CONTENT DATABASE
+========================================= */
+
+function getContent(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "linkcashCEOContent"
+      );
+
+    if(!saved){
+      return [];
+    }
+
+    const content =
+      JSON.parse(saved);
+
+    return Array.isArray(content)
+      ? content
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function saveContent(content){
+
+  localStorage.setItem(
+    "linkcashCEOContent",
+    JSON.stringify(content)
+  );
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+function updateStats(){
+
+  const users =
+    getUsers();
+
+  const payments =
+    getPayments();
+
+
+  const active =
+    users.filter(
+      function(user){
+
+        const status =
+          String(
+            user.status || ""
+          ).toLowerCase();
+
+        return (
+          status === "active" ||
+          status === "activated"
+        );
+
+      }
+    ).length;
+
+
+  const pending =
+    payments.filter(
+      function(payment){
+
+        return String(
+          payment.status || ""
+        ).toLowerCase()
+        === "pending";
+
+      }
+    ).length;
+
+
+  document.getElementById(
+    "totalUsers"
+  ).textContent =
+    users.length;
+
+
+  document.getElementById(
+    "pendingCount"
+  ).textContent =
+    pending;
+
+
+  document.getElementById(
+    "activeUsers"
+  ).textContent =
+    active;
+
+}
+
+
+/* =========================================
+   INITIALS
+========================================= */
+
+function getInitials(name){
+
+  if(!name){
+    return "U";
+  }
+
+  const parts =
+    String(name)
+      .trim()
+      .split(/\s+/);
+
+
+  if(parts.length === 1){
+
+    return parts[0]
+      .substring(0,2)
+      .toUpperCase();
+
+  }
+
+
+  return (
+    parts[0][0] +
+    parts[1][0]
+  ).toUpperCase();
+
+}
+
+
+/* =========================================
+   ESCAPE
+========================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================
+   REQUESTS
+========================================= */
+
+function loadRequests(
+  onlyPending = false
+){
+
+  const requests =
+    document.getElementById(
+      "requests"
+    );
+
+  const empty =
+    document.getElementById(
+      "emptyRequests"
+    );
+
+
+  requests.innerHTML = "";
+
+
+  let payments =
+    getPayments();
+
+
+  if(onlyPending){
+
+    payments =
+      payments.filter(
+        function(payment){
+
+          return String(
+            payment.status || ""
+          ).toLowerCase()
+          === "pending";
+
+        }
+      );
+
+  }
+
+
+  payments =
+    [...payments].reverse();
+
+
+  if(payments.length === 0){
+
+    empty.style.display =
+      "block";
+
+    return;
+
+  }
+
+
+  empty.style.display =
+    "none";
+
+
+  payments.forEach(
+    function(payment){
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      const status =
+        String(
+          payment.status ||
+          "pending"
+        ).toLowerCase();
+
+
+      card.className =
+        "request " + status;
+
+
+      const fullname =
+        payment.fullname ||
+        payment.username ||
+        "Unknown User";
+
+
+      const username =
+        payment.username ||
+        "-";
+
+
+      const method =
+        payment.method ||
+        "-";
+
+
+      const transaction =
+        payment.transaction ||
+        payment.paymentReference ||
+        "-";
+
+
+      let submitted =
+        "-";
+
+
+      if(payment.submittedAt){
+
+        try{
+
+          submitted =
+            new Date(
+              payment.submittedAt
+            ).toLocaleString();
+
+        }catch{
+
+          submitted =
+            payment.submittedAt;
+
+        }
+
+      }
+
+
+      card.innerHTML = `
+
+        <div class="request-top">
+
+          <div class="user-info">
+
+            <div class="avatar">
+              ${getInitials(fullname)}
+            </div>
+
+            <div>
+
+              <div class="user-name">
+                ${escapeHTML(fullname)}
+              </div>
+
+              <div class="user-username">
+                @${escapeHTML(username)}
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="status ${status}">
+            ${status.toUpperCase()}
+          </div>
+
+        </div>
+
+
+        <div class="details">
+
+          <div class="detail">
+
+            <div class="detail-label">
+              AMOUNT
+            </div>
+
+            <div class="detail-value gold">
+              TZS ${Number(
+                payment.amount || 0
+              ).toLocaleString()}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <div class="detail-label">
+              METHOD
+            </div>
+
+            <div class="detail-value">
+              ${escapeHTML(method)}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <div class="detail-label">
+              TRANSACTION
+            </div>
+
+            <div class="detail-value">
+              ${escapeHTML(transaction)}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <div class="detail-label">
+              SUBMITTED
+            </div>
+
+            <div class="detail-value">
+              ${escapeHTML(submitted)}
+            </div>
+
+          </div>
+
+        </div>
+
+
+        ${
+          status === "pending"
+
+          ? `
+
+          <div class="request-actions">
+
+            <button
+              class="activate-btn"
+              onclick="activatePayment('${payment.id}')"
+            >
+              ✓ ACTIVATE
+            </button>
+
+            <button
+              class="reject-btn"
+              onclick="rejectPayment('${payment.id}')"
+            >
+              ✕ REJECT
+            </button>
+
+            <button
+              class="delete-btn"
+              onclick="deletePayment('${payment.id}')"
+            >
+              DELETE
+            </button>
+
+          </div>
+
+          `
+
+          :
+
+          `
+
+          <div class="request-actions">
+
+            <button
+              class="delete-btn"
+              onclick="deletePayment('${payment.id}')"
+            >
+              DELETE REQUEST
+            </button>
+
+          </div>
+
+          `
+        }
+
+      `;
+
+
+      requests.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   ACTIVATE PAYMENT
+========================================= */
+
+function activatePayment(id){
+
+  if(
+    !confirm(
+      "Activate this user's account?"
+    )
+  ){
+    return;
+  }
+
+
+  let payments =
+    getPayments();
+
+
+  const payment =
+    payments.find(
+      function(item){
+
+        return String(item.id) ===
+               String(id);
+
+      }
+    );
+
+
+  if(!payment){
+
+    alert(
+      "Payment request not found."
+    );
+
+    return;
+
+  }
+
+
+  payment.status =
+    "approved";
+
+  payment.verifiedAt =
+    new Date().toISOString();
+
+
+  savePayments(payments);
+
+
+  let users =
+    getUsers();
+
+
+  users =
+    users.map(
+      function(user){
+
+        const sameUser =
+          String(
+            user.username || ""
+          ).toLowerCase()
+          ===
+          String(
+            payment.username || ""
+          ).toLowerCase();
+
+
+        if(sameUser){
+
+          return {
+
+            ...user,
+
+            status:"active",
+
+            paymentStatus:"verified",
+
+            paymentMethod:
+              payment.method,
+
+            paymentReference:
+              payment.transaction,
+
+            activatedAt:
+              new Date().toISOString()
+
+          };
+
+        }
+
+
+        return user;
+
+      }
+    );
+
+
+  saveUsers(users);
+
+
+  alert(
+    "Account activated successfully."
+  );
+
+
+  loadDashboard();
+
+}
+
+
+/* =========================================
+   REJECT
+========================================= */
+
+function rejectPayment(id){
+
+  if(
+    !confirm(
+      "Reject this payment request?"
+    )
+  ){
+    return;
+  }
+
+
+  let payments =
+    getPayments();
+
+
+  const payment =
+    payments.find(
+      function(item){
+
+        return String(item.id) ===
+               String(id);
+
+      }
+    );
+
+
+  if(!payment){
+
+    alert(
+      "Payment request not found."
+    );
+
+    return;
+
+  }
+
+
+  payment.status =
+    "rejected";
+
+  payment.rejectedAt =
+    new Date().toISOString();
+
+
+  savePayments(payments);
+
+
+  let users =
+    getUsers();
+
+
+  users =
+    users.map(
+      function(user){
+
+        const sameUser =
+          String(
+            user.username || ""
+          ).toLowerCase()
+          ===
+          String(
+            payment.username || ""
+          ).toLowerCase();
+
+
+        if(sameUser){
+
+          return {
+
+            ...user,
+
+            status:"rejected",
+
+            paymentStatus:"rejected"
+
+          };
+
+        }
+
+
+        return user;
+
+      }
+    );
+
+
+  saveUsers(users);
+
+
+  alert(
+    "Payment request rejected."
+  );
+
+
+  loadDashboard();
+
+}
+
+
+/* =========================================
+   DELETE PAYMENT
+========================================= */
+
+function deletePayment(id){
+
+  if(
+    !confirm(
+      "Delete this payment request?"
+    )
+  ){
+    return;
+  }
+
+
+  let payments =
+    getPayments();
+
+
+  payments =
+    payments.filter(
+      function(payment){
+
+        return String(payment.id) !==
+               String(id);
+
+      }
+    );
+
+
+  savePayments(payments);
+
+
+  loadDashboard();
+
+}
+
+
+/* =========================================
+   PENDING
+========================================= */
+
+function showPending(){
+
+  document.getElementById(
+    "requestLabel"
+  ).textContent =
+    "PENDING ONLY";
+
+
+  loadRequests(true);
+
+}
+
+
+/* =========================================
+   ALL USERS
+========================================= */
+
+function showAllUsers(){
+
+  document.getElementById(
+    "requestLabel"
+  ).textContent =
+    "LATEST REQUESTS";
+
+
+  loadRequests(false);
+
+  renderUsers();
+
+}
+
+
+/* =========================================
+   USERS
+========================================= */
+
+function renderUsers(search = ""){
+
+  const container =
+    document.getElementById(
+      "usersList"
+    );
+
+
+  container.innerHTML = "";
+
+
+  const users =
+    getUsers();
+
+
+  const keyword =
+    String(search)
+      .trim()
+      .toLowerCase();
+
+
+  const filtered =
+    users.filter(
+      function(user){
+
+        const fullname =
+          String(
+            user.fullname || ""
+          ).toLowerCase();
+
+        const username =
+          String(
+            user.username || ""
+          ).toLowerCase();
+
+        const phone =
+          String(
+            user.phone || ""
+          ).toLowerCase();
+
+
+        return (
+          !keyword ||
+          fullname.includes(keyword) ||
+          username.includes(keyword) ||
+          phone.includes(keyword)
+        );
+
+      }
+    );
+
+
+  if(filtered.length === 0){
+
+    container.innerHTML = `
+
+      <div
+        class="empty"
+        style="display:block"
+      >
+
+        <div class="empty-icon">
+          👥
+        </div>
+
+        <h3>
+          No Users Found
+        </h3>
+
+        <p>
+          Registered users will appear here.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  filtered.forEach(
+    function(user){
+
+      const status =
+        String(
+          user.status ||
+          "pending"
+        ).toLowerCase();
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "user-card";
+
+
+      card.innerHTML = `
+
+        <div class="user-card-top">
+
+          <div>
+
+            <div class="user-card-name">
+              ${escapeHTML(
+                user.fullname ||
+                "Unnamed User"
+              )}
+            </div>
+
+            <div class="user-card-username">
+              @${escapeHTML(
+                user.username ||
+                "-"
+              )}
+            </div>
+
+          </div>
+
+
+          <div class="user-status ${status}">
+            ${status.toUpperCase()}
+          </div>
+
+        </div>
+
+      `;
+
+
+      container.appendChild(card);
+
+    }
+  );
+
+}
+
+
+function searchUsers(){
+
+  const value =
+    document.getElementById(
+      "userSearch"
+    ).value;
+
+
+  renderUsers(value);
+
+}
+
+
+/* =========================================
+   PLATFORM HINT
+========================================= */
+
+function updatePlatformHints(){
+
+  const platform =
+    document.getElementById(
+      "contentPlatform"
+    ).value;
+
+
+  const videoInput =
+    document.getElementById(
+      "contentVideoUrl"
+    );
+
+  const followInput =
+    document.getElementById(
+      "contentFollowUrl"
+    );
+
+
+  if(platform === "tiktok"){
+
+    videoInput.placeholder =
+      "https://www.tiktok.com/@account/video/123456789";
+
+    followInput.placeholder =
+      "https://www.tiktok.com/@account";
+
+  }
+
+
+  if(platform === "youtube"){
+
+    videoInput.placeholder =
+      "https://www.youtube.com/watch?v=VIDEO_ID";
+
+    followInput.placeholder =
+      "https://www.youtube.com/@channel";
+
+  }
+
+
+  if(platform === "facebook"){
+
+    videoInput.placeholder =
+      "https://www.facebook.com/.../videos/...";
+
+    followInput.placeholder =
+      "https://www.facebook.com/page";
+
+  }
+
+}
+
+
+/* =========================================
+   ADD CONTENT
+========================================= */
+
+function addContent(){
+
+  const platform =
+    document.getElementById(
+      "contentPlatform"
+    ).value;
+
+
+  const title =
+    document.getElementById(
+      "contentTitle"
+    ).value.trim();
+
+
+  const videoUrl =
+    document.getElementById(
+      "contentVideoUrl"
+    ).value.trim();
+
+
+  const followUrl =
+    document.getElementById(
+      "contentFollowUrl"
+    ).value.trim();
+
+
+  const description =
+    document.getElementById(
+      "contentDescription"
+    ).value.trim();
+
+
+  if(!title){
+
+    alert(
+      "Enter video title."
+    );
+
+    return;
+
+  }
+
+
+  if(!videoUrl){
+
+    alert(
+      "Enter video URL."
+    );
+
+    return;
+
+  }
+
+
+  if(!followUrl){
+
+    alert(
+      "Enter account/channel follow URL."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    new URL(videoUrl);
+
+    new URL(followUrl);
+
+  }catch{
+
+    alert(
+      "Please enter valid URLs."
+    );
+
+    return;
+
+  }
+
+
+  const content =
+    getContent();
+
+
+  const item = {
+
+    id:
+      "content_" +
+      Date.now(),
+
+    platform:
+
+      platform,
+
+    title:
+
+      title,
+
+    videoUrl:
+
+      videoUrl,
+
+    followUrl:
+
+      followUrl,
+
+    description:
+
+      description,
+
+    createdAt:
+
+      new Date().toISOString(),
+
+    active:
+
+      true
+
+  };
+
+
+  content.unshift(item);
+
+
+  saveContent(content);
+
+
+  document.getElementById(
+    "contentTitle"
+  ).value = "";
+
+
+  document.getElementById(
+    "contentVideoUrl"
+  ).value = "";
+
+
+  document.getElementById(
+    "contentFollowUrl"
+  ).value = "";
+
+
+  document.getElementById(
+    "contentDescription"
+  ).value = "";
+
+
+  renderContent();
+
+
+  alert(
+    "Content published successfully."
+  );
+
+}
+
+
+/* =========================================
+   PLATFORM ICON
+========================================= */
+
+function platformIcon(platform){
+
+  if(platform === "tiktok"){
+    return "♪";
+  }
+
+  if(platform === "youtube"){
+    return "▶";
+  }
+
+  if(platform === "facebook"){
+    return "f";
+  }
+
+  return "🎬";
+
+}
+
+
+/* =========================================
+   RENDER CONTENT
+========================================= */
+
+function renderContent(){
+
+  const container =
+    document.getElementById(
+      "contentList"
+    );
+
+
+  const empty =
+    document.getElementById(
+      "emptyContent"
+    );
+
+
+  const count =
+    document.getElementById(
+      "contentCount"
+    );
+
+
+  container.innerHTML = "";
+
+
+  const content =
+    getContent();
+
+
+  count.textContent =
+    content.length +
+    (
+      content.length === 1
+      ? " POST"
+      : " POSTS"
+    );
+
+
+  if(content.length === 0){
+
+    empty.style.display =
+      "block";
+
+    return;
+
+  }
+
+
+  empty.style.display =
+    "none";
+
+
+  content.forEach(
+    function(item){
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      const platformName =
+        item.platform
+          .charAt(0)
+          .toUpperCase() +
+        item.platform.substring(1);
+
+
+      card.className =
+        "content-card";
+
+
+      card.innerHTML = `
+
+        <div class="content-top">
+
+          <div class="content-platform">
+
+            <span>
+              ${platformIcon(
+                item.platform
+              )}
+            </span>
+
+            ${platformName}
+
+          </div>
+
+
+          <div class="content-status">
+            ACTIVE
+          </div>
+
+        </div>
+
+
+        <div class="content-title">
+
+          ${escapeHTML(
+            item.title
+          )}
+
+        </div>
+
+
+        ${
+          item.description
+
+          ?
+
+          `
+
+          <div class="content-description">
+
+            ${escapeHTML(
+              item.description
+            )}
+
+          </div>
+
+          `
+
+          : ""
+
+        }
+
+
+        <div class="content-url">
+
+          ${escapeHTML(
+           
