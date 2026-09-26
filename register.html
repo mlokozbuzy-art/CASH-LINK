@@ -39,24 +39,19 @@ body{
   height:70px;
   margin:auto;
   border-radius:20px;
-
   background:linear-gradient(
     145deg,
     #ffe082,
     #d4a72c,
     #8f6b12
   );
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   color:#090909;
   font-size:24px;
   font-weight:900;
-
-  box-shadow:
-    0 0 25px rgba(212,167,44,.25);
+  box-shadow:0 0 25px rgba(212,167,44,.25);
 }
 
 .brand h1{
@@ -75,11 +70,8 @@ body{
   background:#101010;
   border:1px solid #292929;
   border-radius:24px;
-
   padding:28px 22px;
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.6);
+  box-shadow:0 25px 70px rgba(0,0,0,.6);
 }
 
 .title{
@@ -99,17 +91,11 @@ body{
 
 .ref-box{
   display:none;
-
   margin-bottom:18px;
   padding:13px;
-
   border-radius:12px;
-
-  background:
-    rgba(212,167,44,.08);
-
-  border:
-    1px solid rgba(212,167,44,.25);
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
 }
 
 .ref-box small{
@@ -138,21 +124,12 @@ body{
 input{
   width:100%;
   height:50px;
-
   background:#070707;
-
-  border:
-    1px solid #292929;
-
+  border:1px solid #292929;
   border-radius:12px;
-
   color:#fff;
-
   outline:none;
-
-  padding:
-    0 15px;
-
+  padding:0 15px;
   font-size:14px;
 }
 
@@ -162,10 +139,7 @@ input::placeholder{
 
 input:focus{
   border-color:#d4a72c;
-
-  box-shadow:
-    0 0 0 2px
-    rgba(212,167,44,.08);
+  box-shadow:0 0 0 2px rgba(212,167,44,.08);
 }
 
 .note{
@@ -177,32 +151,19 @@ input:focus{
 .register-btn{
   width:100%;
   height:53px;
-
   margin-top:5px;
-
   border:none;
-
   border-radius:13px;
-
   background:linear-gradient(
     135deg,
     #ffe082,
     #d4a72c,
     #a77b17
   );
-
   color:#080808;
-
   font-size:15px;
   font-weight:900;
-
   cursor:pointer;
-
-  transition:.2s;
-}
-
-.register-btn:active{
-  transform:scale(.98);
 }
 
 .register-btn:disabled{
@@ -212,122 +173,64 @@ input:focus{
 
 .message{
   display:none;
-
   margin-top:15px;
   padding:13px;
-
   border-radius:10px;
-
   text-align:center;
-
   font-size:12px;
   line-height:1.5;
 }
 
 .message.success{
   display:block;
-
-  background:
-    rgba(40,180,100,.10);
-
-  border:
-    1px solid rgba(40,180,100,.3);
-
+  background:rgba(40,180,100,.10);
+  border:1px solid rgba(40,180,100,.3);
   color:#62df91;
 }
 
 .message.error{
   display:block;
-
-  background:
-    rgba(220,60,60,.10);
-
-  border:
-    1px solid rgba(220,60,60,.3);
-
+  background:rgba(220,60,60,.10);
+  border:1px solid rgba(220,60,60,.3);
   color:#ff7777;
 }
 
 .login{
   text-align:center;
-
   margin-top:23px;
   padding-top:20px;
-
-  border-top:
-    1px solid #222;
-
+  border-top:1px solid #222;
   color:#777;
   font-size:13px;
 }
 
 .login a{
   color:#e0b83e;
-
   text-decoration:none;
-
   font-weight:bold;
 }
 
 .back{
   display:block;
-
   text-align:center;
-
   margin-top:18px;
-
   color:#686868;
-
   text-decoration:none;
-
   font-size:12px;
 }
 
 .footer{
   text-align:center;
-
   margin-top:18px;
-
   color:#444;
-
   font-size:11px;
-}
-
-.loading{
-  display:inline-block;
-
-  width:14px;
-  height:14px;
-
-  border:
-    2px solid rgba(0,0,0,.25);
-
-  border-top-color:#080808;
-
-  border-radius:50%;
-
-  animation:
-    spin .7s linear infinite;
-
-  vertical-align:middle;
-
-  margin-right:7px;
-}
-
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
 }
 </style>
 </head>
 
-
 <body>
 
 <div class="wrapper">
-
-  <!-- BRAND -->
 
   <div class="brand">
 
@@ -335,9 +238,7 @@ input:focus{
       LC
     </div>
 
-    <h1>
-      LINKCASH
-    </h1>
+    <h1>LINKCASH</h1>
 
     <p>
       Simple. Secure. Connected.
@@ -345,8 +246,6 @@ input:focus{
 
   </div>
 
-
-  <!-- CARD -->
 
   <div class="card">
 
@@ -374,22 +273,17 @@ input:focus{
         INVITED BY
       </small>
 
-      <strong
-        id="refUsername"
-      >
+      <strong id="refUsername">
         —
       </strong>
 
     </div>
 
 
-    <!-- FORM -->
-
     <form
       id="registerForm"
       novalidate
     >
-
 
       <!-- FULL NAME -->
 
@@ -505,8 +399,6 @@ input:focus{
       </div>
 
 
-      <!-- BUTTON -->
-
       <button
         type="submit"
         class="register-btn"
@@ -518,15 +410,11 @@ input:focus{
     </form>
 
 
-    <!-- MESSAGE -->
-
     <div
       class="message"
       id="message"
     ></div>
 
-
-    <!-- LOGIN -->
 
     <div class="login">
 
@@ -541,8 +429,6 @@ input:focus{
   </div>
 
 
-  <!-- BACK -->
-
   <a
     href="index.html"
     class="back"
@@ -550,8 +436,6 @@ input:focus{
     ← Back to Home
   </a>
 
-
-  <!-- FOOTER -->
 
   <div class="footer">
     © 2026 LINKCASH
@@ -563,11 +447,11 @@ input:focus{
 <script>
 
 /* =====================================================
-   SUPABASE EDGE FUNCTION
+   QUICK-TASK EDGE FUNCTION
    ===================================================== */
 
 const REGISTER_URL =
-  "https://plmasvzxgcwnxgbeaurc.supabase.co/functions/v1/register-user-v2";
+  "https://plmasvzxgcwnxgbeaurc.supabase.co/functions/v1/quick-task";
 
 
 /* =====================================================
@@ -623,7 +507,7 @@ if(referrerUsername){
 
 
 /* =====================================================
-   SHOW MESSAGE
+   MESSAGE
    ===================================================== */
 
 function showMessage(
@@ -644,36 +528,6 @@ function showMessage(
 
 
 /* =====================================================
-   CLEAR MESSAGE
-   ===================================================== */
-
-function clearMessage(){
-
-  message.className =
-    "message";
-
-  message.textContent =
-    "";
-
-  message.style.display =
-    "none";
-
-}
-
-
-/* =====================================================
-   VALIDATE EMAIL
-   ===================================================== */
-
-function validEmail(email){
-
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    .test(email);
-
-}
-
-
-/* =====================================================
    REGISTER
    ===================================================== */
 
@@ -683,21 +537,26 @@ form.addEventListener(
 
     event.preventDefault();
 
-    clearMessage();
+    showMessage(
+      "",
+      ""
+    );
+
+    message.style.display =
+      "none";
 
     button.disabled =
       true;
 
-    button.innerHTML =
-      '<span class="loading"></span>CREATING ACCOUNT...';
+    button.textContent =
+      "CREATING ACCOUNT...";
 
 
     try{
 
-
-      /* =================================================
-         GET DATA
-         ================================================= */
+      /* ===============================================
+         FORM DATA
+         =============================================== */
 
       const fullname =
         document
@@ -735,9 +594,9 @@ form.addEventListener(
           .value;
 
 
-      /* =================================================
+      /* ===============================================
          VALIDATION
-         ================================================= */
+         =============================================== */
 
       if(
         !fullname ||
@@ -780,17 +639,6 @@ form.addEventListener(
 
 
       if(
-        !validEmail(email)
-      ){
-
-        throw new Error(
-          "Please enter a valid email address."
-        );
-
-      }
-
-
-      if(
         password.length < 6
       ){
 
@@ -801,137 +649,86 @@ form.addEventListener(
       }
 
 
-      /* =================================================
-         REFERRER
-
-         Currently username is available from ?ref=
-         The Edge Function can later resolve it to ID.
-         ================================================= */
-
-      const referrer =
-        referrerUsername ||
-        null;
-
-
-      /* =================================================
-         REQUEST BODY
-         ================================================= */
-
-      const requestBody = {
-
-        fullname:
-          fullname,
-
-        username:
-          username,
-
-        phone:
-          phone,
-
-        email:
-          email,
-
-        password:
-          password,
-
-        referrer_username:
-          referrer
-
-      };
-
-
-      console.log(
-        "LINKCASH REQUEST:",
-        requestBody
-      );
-
-
-      /* =================================================
-         SEND REQUEST
-         ================================================= */
-
-      let response;
-
-      try{
-
-        response =
-          await fetch(
-            REGISTER_URL,
-            {
-
-              method:
-                "POST",
-
-              mode:
-                "cors",
-
-              headers:{
-                "Content-Type":
-                  "application/json",
-
-                "Accept":
-                  "application/json"
-              },
-
-              body:
-                JSON.stringify(
-                  requestBody
-                )
-
-            }
-          );
-
-      }catch(fetchError){
-
-        console.error(
-          "FETCH ERROR:",
-          fetchError
-        );
+      if(
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+          email
+        )
+      ){
 
         throw new Error(
-          "Cannot connect to the registration server. Please check your Supabase Edge Function and CORS settings."
+          "Please enter a valid email address."
         );
 
       }
 
 
-      /* =================================================
-         READ RESPONSE
-         ================================================= */
+      /* ===============================================
+         REQUEST
+         =============================================== */
+
+      const response =
+        await fetch(
+          REGISTER_URL,
+          {
+            method:
+              "POST",
+
+            mode:
+              "cors",
+
+            headers:{
+              "Content-Type":
+                "application/json",
+
+              "Accept":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify({
+
+                fullname:
+                  fullname,
+
+                username:
+                  username,
+
+                phone:
+                  phone,
+
+                email:
+                  email,
+
+                password:
+                  password,
+
+                referrer_username:
+                  referrerUsername ||
+                  null
+
+              })
+          }
+        );
+
+
+      /* ===============================================
+         SERVER RESPONSE
+         =============================================== */
 
       const responseText =
         await response.text();
 
 
       console.log(
-        "SERVER STATUS:",
+        "QUICK TASK STATUS:",
         response.status
       );
 
       console.log(
-        "SERVER RESPONSE:",
+        "QUICK TASK RESPONSE:",
         responseText
       );
 
-
-      /* =================================================
-         EMPTY RESPONSE
-         ================================================= */
-
-      if(
-        !responseText
-      ){
-
-        throw new Error(
-          "Server returned an empty response."
-        );
-
-      }
-
-
-      /* =================================================
-         PARSE JSON
-         ================================================= */
 
       let result;
 
@@ -942,38 +739,22 @@ form.addEventListener(
             responseText
           );
 
-      }catch(parseError){
+      }catch{
 
         throw new Error(
+          responseText ||
           "Server returned an invalid response."
         );
 
       }
 
 
-      /* =================================================
-         SERVER ERROR
-         ================================================= */
+      /* ===============================================
+         ERROR
+         =============================================== */
 
       if(
-        !response.ok
-      ){
-
-        throw new Error(
-          result.message ||
-          result.error ||
-          "Registration failed. Server error " +
-          response.status
-        );
-
-      }
-
-
-      /* =================================================
-         APPLICATION ERROR
-         ================================================= */
-
-      if(
+        !response.ok ||
         result.success !== true
       ){
 
@@ -986,9 +767,9 @@ form.addEventListener(
       }
 
 
-      /* =================================================
+      /* ===============================================
          SAVE USER
-         ================================================= */
+         =============================================== */
 
       const userData = {
 
@@ -1018,16 +799,15 @@ form.addEventListener(
 
       localStorage.setItem(
         "linkcashUser",
-
         JSON.stringify(
           userData
         )
       );
 
 
-      /* =================================================
+      /* ===============================================
          SUCCESS
-         ================================================= */
+         =============================================== */
 
       showMessage(
         "Account created successfully ✓",
@@ -1035,16 +815,13 @@ form.addEventListener(
       );
 
 
-      button.disabled =
-        true;
-
       button.textContent =
         "ACCOUNT CREATED ✓";
 
 
-      /* =================================================
+      /* ===============================================
          REDIRECT
-         ================================================= */
+         =============================================== */
 
       setTimeout(
         function(){
@@ -1060,14 +837,14 @@ form.addEventListener(
     }catch(error){
 
       console.error(
-        "LINKCASH ERROR:",
+        "LINKCASH REGISTER ERROR:",
         error
       );
 
 
       showMessage(
         error.message ||
-        "Registration failed. Please try again.",
+        "Registration failed.",
         "error"
       );
 
@@ -1087,7 +864,3 @@ form.addEventListener(
 
 </body>
 </html>
-
-Muhimu: hii "register.html" haiwezi kurekebisha "404 OPTIONS" ikiwa tatizo liko ndani ya Supabase Edge Function. Kwa kuwa logs zako za awali zilionyesha "OPTIONS" na "404", tunahitaji pia kurekebisha "register-user-v2".
-
-Kwa hiyo hatua inayofuata ni unitumie code ya "register-user-v2" uliyonayo Supabase, nami nitakupa full Edge Function yenye CORS/"OPTIONS" support ili hizi registration zianze kuingia database.
