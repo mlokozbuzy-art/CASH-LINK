@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>LINKCASH - Register</title>
 
@@ -41,12 +46,14 @@ body{
   height:70px;
   margin:auto;
   border-radius:20px;
-  background:linear-gradient(
-    145deg,
-    #ffe082,
-    #d4a72c,
-    #8f6b12
-  );
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe082,
+      #d4a72c,
+      #8f6b12
+    );
 
   display:flex;
   align-items:center;
@@ -97,16 +104,22 @@ body{
   line-height:1.5;
 }
 
-/* REFERRER */
+
+/* =========================
+   REFERRER
+========================= */
 
 .ref-box{
   display:none;
+
   margin-bottom:18px;
+
   padding:13px;
 
   border-radius:12px;
 
-  background:rgba(212,167,44,.08);
+  background:
+    rgba(212,167,44,.08);
 
   border:
     1px solid rgba(212,167,44,.25);
@@ -123,6 +136,11 @@ body{
   color:#e0b83e;
   font-size:13px;
 }
+
+
+/* =========================
+   FIELDS
+========================= */
 
 .field{
   margin-bottom:17px;
@@ -164,7 +182,8 @@ input:focus{
   border-color:#d4a72c;
 
   box-shadow:
-    0 0 0 2px rgba(212,167,44,.08);
+    0 0 0 2px
+    rgba(212,167,44,.08);
 }
 
 .username-note{
@@ -172,6 +191,11 @@ input:focus{
   color:#666;
   font-size:11px;
 }
+
+
+/* =========================
+   REGISTER BUTTON
+========================= */
 
 .register-btn{
   width:100%;
@@ -202,7 +226,8 @@ input:focus{
   cursor:pointer;
 
   box-shadow:
-    0 10px 25px rgba(212,167,44,.16);
+    0 10px 25px
+    rgba(212,167,44,.16);
 }
 
 .register-btn:active{
@@ -212,6 +237,11 @@ input:focus{
 .register-btn:disabled{
   cursor:not-allowed;
 }
+
+
+/* =========================
+   MESSAGE
+========================= */
 
 .message{
   display:none;
@@ -224,10 +254,12 @@ input:focus{
 
   text-align:center;
 
-  background:rgba(212,167,44,.08);
+  background:
+    rgba(212,167,44,.08);
 
   border:
-    1px solid rgba(212,167,44,.25);
+    1px solid
+    rgba(212,167,44,.25);
 
   color:#e6c65c;
 
@@ -235,6 +267,11 @@ input:focus{
 
   line-height:1.5;
 }
+
+
+/* =========================
+   LOGIN
+========================= */
 
 .login{
   text-align:center;
@@ -252,9 +289,16 @@ input:focus{
 
 .login a{
   color:#e0b83e;
+
   text-decoration:none;
+
   font-weight:bold;
 }
+
+
+/* =========================
+   BACK
+========================= */
 
 .back{
   display:block;
@@ -270,6 +314,11 @@ input:focus{
   font-size:12px;
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 .footer{
   text-align:center;
 
@@ -284,12 +333,16 @@ input:focus{
 
 </head>
 
+
 <body>
+
 
 <div class="wrapper">
 
 
-<!-- BRAND -->
+<!-- =========================
+     BRAND
+========================= -->
 
 <div class="brand">
 
@@ -308,9 +361,13 @@ input:focus{
 </div>
 
 
-<!-- REGISTER CARD -->
+
+<!-- =========================
+     REGISTER CARD
+========================= -->
 
 <div class="card">
+
 
   <div class="title">
 
@@ -325,7 +382,10 @@ input:focus{
   </div>
 
 
-  <!-- REFERRER -->
+
+  <!-- =========================
+       REFERRER
+  ========================= -->
 
   <div
     class="ref-box"
@@ -345,7 +405,14 @@ input:focus{
   </div>
 
 
-  <form id="registerForm">
+
+  <!-- =========================
+       FORM
+  ========================= -->
+
+  <form
+    id="registerForm"
+  >
 
 
     <!-- FULL NAME -->
@@ -367,6 +434,7 @@ input:focus{
     </div>
 
 
+
     <!-- USERNAME -->
 
     <div class="field">
@@ -386,10 +454,17 @@ input:focus{
       >
 
       <div class="username-note">
-        3–20 characters. Letters, numbers and underscore only.
+
+        Username must be 3–20 characters.
+
+        <br>
+
+        Letters, numbers and underscore only.
+
       </div>
 
     </div>
+
 
 
     <!-- PHONE -->
@@ -411,6 +486,7 @@ input:focus{
     </div>
 
 
+
     <!-- EMAIL -->
 
     <div class="field">
@@ -428,6 +504,7 @@ input:focus{
       >
 
     </div>
+
 
 
     <!-- PASSWORD -->
@@ -450,17 +527,22 @@ input:focus{
     </div>
 
 
-    <!-- BUTTON -->
+
+    <!-- REGISTER -->
 
     <button
       type="submit"
       class="register-btn"
       id="registerButton"
     >
+
       CREATE ACCOUNT
+
     </button>
 
+
   </form>
+
 
 
   <!-- MESSAGE -->
@@ -469,6 +551,7 @@ input:focus{
     class="message"
     id="message"
   ></div>
+
 
 
   <!-- LOGIN -->
@@ -483,29 +566,41 @@ input:focus{
 
   </div>
 
+
 </div>
 
+
+
+<!-- BACK -->
 
 <a
   href="index.html"
   class="back"
 >
+
   ← Back to Home
+
 </a>
 
 
+
 <div class="footer">
+
   © 2026 LINKCASH
+
 </div>
+
 
 
 <script>
 
-/* ==========================================
+/* =====================================================
    GET REFERRER FROM URL
+
    Example:
+
    register.html?ref=mussa
-========================================== */
+===================================================== */
 
 const urlParams =
   new URLSearchParams(
@@ -521,28 +616,31 @@ const referrer =
   .toLowerCase();
 
 
-/* ==========================================
+
+/* =====================================================
    SHOW REFERRER
-========================================== */
+===================================================== */
 
 if(referrer){
 
   document.getElementById(
     "refBox"
-  ).style.display="block";
+  ).style.display =
+    "block";
 
 
   document.getElementById(
     "refUsername"
-  ).textContent=
-    "@"+referrer;
+  ).textContent =
+    "@" + referrer;
 
 }
 
 
-/* ==========================================
+
+/* =====================================================
    FORM
-========================================== */
+===================================================== */
 
 const form =
   document.getElementById(
@@ -562,9 +660,10 @@ const registerButton =
   );
 
 
-/* ==========================================
+
+/* =====================================================
    SUBMIT
-========================================== */
+===================================================== */
 
 form.addEventListener(
   "submit",
@@ -573,7 +672,9 @@ form.addEventListener(
     event.preventDefault();
 
 
-    /* VALUES */
+    /* ===============================================
+       GET VALUES
+    =============================================== */
 
     const fullname =
       document
@@ -611,9 +712,10 @@ form.addEventListener(
         .value;
 
 
-    /* =====================================
-       BASIC VALIDATION
-    ===================================== */
+
+    /* ===============================================
+       VALIDATION
+    =============================================== */
 
     if(
       !fullname ||
@@ -632,6 +734,7 @@ form.addEventListener(
     }
 
 
+
     if(
       username.length < 3 ||
       username.length > 20
@@ -644,6 +747,7 @@ form.addEventListener(
       return;
 
     }
+
 
 
     const usernamePattern =
@@ -663,11 +767,12 @@ form.addEventListener(
     }
 
 
-    /* =====================================
-       LOAD USERS
-    ===================================== */
 
-    let users=[];
+    /* ===============================================
+       LOAD USERS
+    =============================================== */
+
+    let users = [];
 
 
     const savedUsers =
@@ -686,35 +791,44 @@ form.addEventListener(
           );
 
 
-        if(!Array.isArray(users)){
+        if(
+          !Array.isArray(users)
+        ){
 
-          users=[];
+          users = [];
 
         }
 
       }catch{
 
-        users=[];
+        users = [];
 
       }
 
     }
 
 
-    /* =====================================
+
+    /* ===============================================
        CHECK USERNAME
-    ===================================== */
+    =============================================== */
 
     const usernameExists =
       users.some(
         function(user){
 
-          return String(
-            user.username || ""
-          )
-          .toLowerCase()
-          ===
-          username;
+          return (
+
+            String(
+              user.username || ""
+            )
+            .toLowerCase()
+
+            ===
+
+            username
+
+          );
 
         }
       );
@@ -731,11 +845,13 @@ form.addEventListener(
     }
 
 
-    /* =====================================
-       FIND REFERRER
-    ===================================== */
 
-    let validReferrer=null;
+    /* ===============================================
+       CHECK REFERRER
+    =============================================== */
+
+    let validReferrer =
+      null;
 
 
     if(referrer){
@@ -744,12 +860,18 @@ form.addEventListener(
         users.find(
           function(user){
 
-            return String(
-              user.username || ""
-            )
-            .toLowerCase()
-            ===
-            referrer;
+            return (
+
+              String(
+                user.username || ""
+              )
+              .toLowerCase()
+
+              ===
+
+              referrer
+
+            );
 
           }
         );
@@ -765,14 +887,16 @@ form.addEventListener(
     }
 
 
-    /* =====================================
-       CREATE USER
-    ===================================== */
 
-    const newUser={
+    /* ===============================================
+       CREATE PENDING ACCOUNT
+    =============================================== */
+
+    const newUser = {
 
       id:
-        "LC-"+Date.now(),
+        "LC-" +
+        Date.now(),
 
       fullname:
         fullname,
@@ -799,87 +923,163 @@ form.addEventListener(
         0,
 
       commission:
-        0
+        0,
+
+      /* IMPORTANT */
+
+      status:
+        "pending",
+
+      activationFee:
+        14500,
+
+      paymentStatus:
+        "unpaid",
+
+      paymentMethod:
+        null,
+
+      paymentReference:
+        null
 
     };
 
 
-    /* =====================================
-       SAVE USER
-    ===================================== */
+
+    /* ===============================================
+       ADD USER
+    =============================================== */
 
     users.push(
       newUser
     );
 
 
+
+    /* ===============================================
+       SAVE USERS
+    =============================================== */
+
     localStorage.setItem(
       "linkcashUsers",
-      JSON.stringify(users)
+      JSON.stringify(
+        users
+      )
     );
 
 
-    /* =====================================
+
+    /* ===============================================
        SAVE CURRENT USER
-    ===================================== */
+    =============================================== */
 
     localStorage.setItem(
       "linkcashUser",
-      JSON.stringify(newUser)
+      JSON.stringify(
+        newUser
+      )
     );
 
 
-    localStorage.removeItem(
-      "linkcashLoggedIn"
+
+    /* ===============================================
+       MARK USER AS LOGGED IN
+
+       This allows pending-dashboard
+       to open immediately.
+    =============================================== */
+
+    localStorage.setItem(
+      "linkcashLoggedIn",
+      "true"
     );
 
 
-    /* =====================================
-       SUCCESS
-    ===================================== */
 
-    message.style.display=
+    /* ===============================================
+       SUCCESS MESSAGE
+    =============================================== */
+
+    message.style.display =
       "block";
 
 
     if(validReferrer){
 
-      message.innerHTML=
-        "Account created successfully ✓<br>"+
-        "Referral: @"+
-        validReferrer;
+      message.innerHTML =
+
+        "Account created successfully ✓"
+
+        +
+
+        "<br>"
+
+        +
+
+        "Invited by @" +
+
+        validReferrer
+
+        +
+
+        "<br><br>"
+
+        +
+
+        "Opening your pending account...";
 
     }else{
 
-      message.textContent=
-        "Account created successfully ✓";
+      message.innerHTML =
+
+        "Account created successfully ✓"
+
+        +
+
+        "<br><br>"
+
+        +
+
+        "Opening your pending account...";
 
     }
 
 
-    registerButton.disabled=true;
 
-    registerButton.style.opacity=".65";
+    /* ===============================================
+       DISABLE BUTTON
+    =============================================== */
+
+    registerButton.disabled =
+      true;
 
 
-    /* =====================================
-       GO LOGIN
-    ===================================== */
+    registerButton.style.opacity =
+      ".65";
+
+
+
+    /* ===============================================
+       OPEN PENDING DASHBOARD
+    =============================================== */
 
     setTimeout(
       function(){
 
-        window.location.href=
-          "login.html";
+        window.location.href =
+          "pending-dashboard.html";
 
       },
-      1400
+      1000
     );
 
   }
+
 );
 
 </script>
 
+
 </body>
+
 </html>
