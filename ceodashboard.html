@@ -32,7 +32,7 @@ button,
 input,
 select,
 textarea{
-  font-family:inherit;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 /* =========================
@@ -178,14 +178,16 @@ textarea{
 ========================= */
 
 .action-bar{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
+  display:flex;
+  gap:9px;
   margin-bottom:17px;
+  overflow-x:auto;
+  padding-bottom:3px;
 }
 
 .action-btn{
-  min-height:43px;
+  min-width:105px;
+  height:43px;
   border-radius:10px;
   border:1px solid #292929;
   background:#101010;
@@ -212,6 +214,7 @@ textarea{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:10px;
   margin:20px 0 11px;
 }
 
@@ -225,7 +228,7 @@ textarea{
 }
 
 /* =========================
-   REQUEST LIST
+   REQUESTS
 ========================= */
 
 .requests{
@@ -373,7 +376,7 @@ textarea{
 .reject-btn,
 .delete-btn{
   flex:1;
-  min-height:40px;
+  height:40px;
   border-radius:10px;
   font-size:10px;
   font-weight:900;
@@ -477,6 +480,10 @@ textarea{
   color:#ff7777;
 }
 
+/* =========================
+   SEARCH
+========================= */
+
 .search{
   width:100%;
   height:44px;
@@ -490,36 +497,52 @@ textarea{
   font-size:11px;
 }
 
+.search:focus{
+  border-color:#d4a72c;
+}
+
 /* =========================
    CONTENT MANAGER
 ========================= */
 
-.content-manager{
+.content-section{
   margin-top:30px;
 }
 
-.content-form{
-  background:linear-gradient(
-    145deg,
-    #151515,
-    #0a0a0a
-  );
-  border:1px solid #2b2b2b;
-  border-radius:20px;
-  padding:18px;
+.content-box{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:19px;
+  padding:17px;
 }
 
-.form-label{
-  display:block;
-  color:#777;
+.content-tabs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  margin-bottom:15px;
+}
+
+.content-tab{
+  min-height:42px;
+  border-radius:10px;
+  border:1px solid #292929;
+  background:#090909;
+  color:#888;
   font-size:9px;
-  font-weight:bold;
-  margin-bottom:6px;
-  margin-top:12px;
+  font-weight:900;
+  cursor:pointer;
 }
 
-.form-label:first-child{
-  margin-top:0;
+.content-tab.active{
+  color:#d4a72c;
+  border-color:rgba(212,167,44,.5);
+  background:rgba(212,167,44,.06);
+}
+
+.content-form{
+  display:grid;
+  gap:10px;
 }
 
 .form-input,
@@ -527,22 +550,21 @@ textarea{
 .form-textarea{
   width:100%;
   border:1px solid #292929;
-  background:#080808;
+  background:#090909;
   color:#fff;
-  border-radius:11px;
   outline:none;
+  border-radius:11px;
+  padding:12px;
   font-size:11px;
 }
 
 .form-input,
 .form-select{
   height:44px;
-  padding:0 12px;
 }
 
 .form-textarea{
   min-height:80px;
-  padding:12px;
   resize:vertical;
 }
 
@@ -552,197 +574,157 @@ textarea{
   border-color:#d4a72c;
 }
 
+.form-label{
+  color:#777;
+  font-size:9px;
+  font-weight:bold;
+  margin-bottom:4px;
+}
+
+.form-group{
+  display:grid;
+  gap:5px;
+}
+
+.requirements{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.requirement{
+  border:1px solid #292929;
+  background:#090909;
+  border-radius:11px;
+  padding:11px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.requirement input{
+  accent-color:#d4a72c;
+}
+
+.requirement span{
+  font-size:9px;
+  color:#aaa;
+}
+
 .add-content-btn{
   width:100%;
-  height:46px;
-  margin-top:15px;
+  height:44px;
   border:none;
   border-radius:11px;
   background:linear-gradient(
-    135deg,
+    145deg,
     #ffe082,
-    #d4a72c
+    #d4a72c,
+    #8f6b12
   );
-  color:#080808;
-  font-size:11px;
+  color:#050505;
+  font-size:10px;
   font-weight:900;
   cursor:pointer;
+  margin-top:4px;
+}
+
+.add-content-btn:hover{
+  opacity:.9;
 }
 
 /* =========================
-   CONTENT CARDS
+   CONTENT LIST
 ========================= */
 
 .content-list{
+  margin-top:18px;
   display:grid;
-  gap:12px;
-  margin-top:13px;
-}
-
-.content-card{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:18px;
-  padding:15px;
-}
-
-.content-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
   gap:10px;
 }
 
-.content-platform{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  color:#d4a72c;
-  font-size:10px;
-  font-weight:900;
+.content-card{
+  background:#090909;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:14px;
 }
 
-.content-status{
-  color:#58d88a;
-  font-size:8px;
-  font-weight:900;
+.content-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
 }
 
 .content-title{
-  font-size:14px;
+  font-size:12px;
   font-weight:900;
-  margin-top:11px;
+}
+
+.content-platform{
+  color:#d4a72c;
+  font-size:8px;
+  font-weight:900;
+  margin-top:4px;
 }
 
 .content-description{
   color:#777;
   font-size:10px;
   line-height:1.5;
-  margin-top:6px;
+  margin-top:9px;
 }
 
-.content-url{
-  margin-top:10px;
-  padding:9px;
-  border-radius:9px;
-  background:#080808;
-  border:1px solid #202020;
+.content-link{
   color:#777;
   font-size:9px;
   word-break:break-all;
+  margin-top:8px;
 }
 
-.content-actions{
+.content-requirements{
   display:flex;
-  gap:8px;
-  margin-top:12px;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:10px;
 }
 
-.preview-content-btn,
-.remove-content-btn{
-  flex:1;
-  height:39px;
+.req-badge{
+  padding:6px 8px;
   border-radius:10px;
-  cursor:pointer;
-  font-size:9px;
+  background:rgba(212,167,44,.07);
+  border:1px solid rgba(212,167,44,.15);
+  color:#d4a72c;
+  font-size:7px;
   font-weight:900;
 }
 
-.preview-content-btn{
-  background:rgba(212,167,44,.08);
-  border:1px solid rgba(212,167,44,.25);
-  color:#d4a72c;
-}
-
-.remove-content-btn{
-  background:rgba(255,80,80,.07);
+.content-delete{
   border:1px solid rgba(255,80,80,.2);
+  background:rgba(255,80,80,.06);
   color:#ff7777;
+  border-radius:9px;
+  padding:8px 10px;
+  font-size:8px;
+  font-weight:900;
+  cursor:pointer;
 }
 
 /* =========================
-   VIDEO PREVIEW
+   PLATFORM ICON
 ========================= */
 
-.preview-box{
-  margin-top:13px;
-  background:#050505;
-  border:1px solid #242424;
-  border-radius:14px;
-  overflow:hidden;
-}
-
-.preview-frame{
-  width:100%;
-  aspect-ratio:16/9;
-  border:0;
-  display:block;
-}
-
-.tiktok-frame{
-  width:100%;
-  height:600px;
-  border:0;
-  display:block;
-}
-
-.facebook-frame{
-  width:100%;
-  height:450px;
-  border:0;
-  display:block;
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.86);
-  z-index:500;
+.platform-icon{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  background:#181818;
+  display:flex;
   align-items:center;
   justify-content:center;
-  padding:15px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-card{
-  width:100%;
-  max-width:500px;
-  max-height:92vh;
-  overflow:auto;
-  background:#111;
-  border:1px solid #333;
-  border-radius:20px;
-  padding:18px;
-}
-
-.modal-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:15px;
-}
-
-.modal-title h2{
-  font-size:17px;
-}
-
-.close{
-  width:33px;
-  height:33px;
-  border-radius:50%;
-  background:#1b1b1b;
-  border:1px solid #333;
-  color:#aaa;
-  cursor:pointer;
-  font-size:18px;
+  font-size:19px;
+  flex-shrink:0;
 }
 
 /* =========================
@@ -762,6 +744,11 @@ textarea{
   cursor:pointer;
 }
 
+.logout:hover{
+  color:#fff;
+  border-color:#444;
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -779,12 +766,24 @@ textarea{
 
 @media(max-width:600px){
 
-  .action-bar{
-    grid-template-columns:repeat(2,1fr);
-  }
-
   .stats{
     grid-template-columns:repeat(3,1fr);
+  }
+
+  .stat{
+    padding:13px 8px;
+  }
+
+  .stat-value{
+    font-size:18px;
+  }
+
+  .stat-name{
+    font-size:8px;
+  }
+
+  .content-tabs{
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
@@ -795,8 +794,9 @@ textarea{
     gap:6px;
   }
 
-  .stat{
-    padding:13px 7px;
+  .stat-icon{
+    width:30px;
+    height:30px;
   }
 
   .stat-value{
@@ -807,12 +807,8 @@ textarea{
     grid-template-columns:1fr;
   }
 
-  .request-actions{
-    flex-direction:column;
-  }
-
-  .tiktok-frame{
-    height:520px;
+  .requirements{
+    grid-template-columns:1fr;
   }
 
 }
@@ -821,9 +817,7 @@ textarea{
 
 </head>
 
-
 <body>
-
 
 <header class="topbar">
 
@@ -849,6 +843,10 @@ textarea{
 <main class="container">
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <section class="header">
 
   <small>
@@ -861,8 +859,8 @@ textarea{
   </h1>
 
   <p>
-    Manage LINKCASH users, payments and promotional
-    content from this dashboard.
+    Manage LINKCASH users, payments and
+    platform content from this dashboard.
   </p>
 
 </section>
@@ -937,7 +935,7 @@ textarea{
 
 
 <!-- =========================
-     ACTIONS
+     ACTION BAR
 ========================= -->
 
 <div class="action-bar">
@@ -961,13 +959,6 @@ textarea{
     onclick="showAllUsers()"
   >
     USERS
-  </button>
-
-  <button
-    class="action-btn"
-    onclick="scrollToContent()"
-  >
-    🎬 CONTENT
   </button>
 
 </div>
@@ -1054,1563 +1045,208 @@ textarea{
 </section>
 
 
-<!-- =========================
-     CONTENT MANAGER
-========================= -->
+<!-- =================================================
+     CONTENT MANAGEMENT
+================================================= -->
 
-<section
-  class="content-manager"
-  id="contentManager"
->
+<section class="content-section">
 
   <div class="section-title">
 
     <h2>
-      🎬 Content Manager
+      Content Management
     </h2>
 
     <span>
-      CEO ONLY
+      CEO CONTROL
     </span>
 
   </div>
 
 
-  <div class="content-form">
-
-    <label class="form-label">
-      PLATFORM
-    </label>
-
-    <select
-      class="form-select"
-      id="contentPlatform"
-      onchange="updatePlatformHints()"
-    >
-
-      <option value="tiktok">
-        TikTok
-      </option>
-
-      <option value="youtube">
-        YouTube
-      </option>
-
-      <option value="facebook">
-        Facebook
-      </option>
-
-    </select>
+  <div class="content-box">
 
 
-    <label class="form-label">
-      VIDEO TITLE
-    </label>
+    <!-- PLATFORM TABS -->
 
-    <input
-      class="form-input"
-      id="contentTitle"
-      type="text"
-      placeholder="Example: Watch our new TikTok"
-    >
-
-
-    <label class="form-label">
-      VIDEO URL
-    </label>
-
-    <input
-      class="form-input"
-      id="contentVideoUrl"
-      type="url"
-      placeholder="Paste video link here"
-    >
-
-
-    <label class="form-label">
-      ACCOUNT / CHANNEL FOLLOW URL
-    </label>
-
-    <input
-      class="form-input"
-      id="contentFollowUrl"
-      type="url"
-      placeholder="Paste TikTok / YouTube / Facebook profile link"
-    >
-
-
-    <label class="form-label">
-      DESCRIPTION
-    </label>
-
-    <textarea
-      class="form-textarea"
-      id="contentDescription"
-      placeholder="Write a short message for users..."
-    ></textarea>
-
-
-    <button
-      class="add-content-btn"
-      onclick="addContent()"
-    >
-      + PUBLISH CONTENT
-    </button>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>
-      Published Content
-    </h2>
-
-    <span id="contentCount">
-      0 POSTS
-    </span>
-
-  </div>
-
-
-  <div
-    class="content-list"
-    id="contentList"
-  ></div>
-
-
-  <div
-    class="empty"
-    id="emptyContent"
-    style="display:none"
-  >
-
-    <div class="empty-icon">
-      🎬
-    </div>
-
-    <h3>
-      No Content Yet
-    </h3>
-
-    <p>
-      Add TikTok, YouTube or Facebook videos above.
-    </p>
-
-  </div>
-
-</section>
-
-
-<button
-  class="logout"
-  onclick="logoutCEO()"
->
-  LOG OUT CEO
-</button>
-
-
-<div class="footer">
-  © 2026 LINKCASH • CEO ADMINISTRATION
-</div>
-
-</main>
-
-
-<!-- =========================
-     PREVIEW MODAL
-========================= -->
-
-<div
-  class="modal"
-  id="previewModal"
->
-
-  <div class="modal-card">
-
-    <div class="modal-title">
-
-      <h2 id="previewTitle">
-        Video Preview
-      </h2>
+    <div class="content-tabs">
 
       <button
-        class="close"
-        onclick="closePreview()"
+        class="content-tab active"
+        id="tab-tiktok"
+        onclick="selectContentType('tiktok')"
       >
-        ×
+        🎵 TIKTOK
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-youtube"
+        onclick="selectContentType('youtube')"
+      >
+        ▶️ YOUTUBE
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-facebook"
+        onclick="selectContentType('facebook')"
+      >
+        📘 FACEBOOK
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-instagram"
+        onclick="selectContentType('instagram')"
+      >
+        📸 INSTAGRAM
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-ads"
+        onclick="selectContentType('ads')"
+      >
+        📢 ADS
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-quiz"
+        onclick="selectContentType('quiz')"
+      >
+        🧠 QUIZ
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-efootball"
+        onclick="selectContentType('efootball')"
+      >
+        ⚽ EFOOTBALL
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-cargame"
+        onclick="selectContentType('cargame')"
+      >
+        🏎️ CAR GAME
       </button>
 
     </div>
 
 
-    <div id="previewBody"></div>
+    <!-- FORM -->
 
-  </div>
+    <div class="content-form">
 
-</div>
 
+      <div class="form-group">
 
-<script>
-
-/* =========================================
-   CEO SECURITY
-========================================= */
-
-if(
-  localStorage.getItem(
-    "linkcashCEOLoggedIn"
-  ) !== "true"
-){
-
-  window.location.replace(
-    "ceologin.html"
-  );
-
-}
-
-
-/* =========================================
-   USERS
-========================================= */
-
-function getUsers(){
-
-  try{
-
-    const saved =
-      localStorage.getItem(
-        "linkcashUsers"
-      );
-
-    if(!saved){
-      return [];
-    }
-
-    const users =
-      JSON.parse(saved);
-
-    return Array.isArray(users)
-      ? users
-      : [];
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-function saveUsers(users){
-
-  localStorage.setItem(
-    "linkcashUsers",
-    JSON.stringify(users)
-  );
-
-}
-
-
-/* =========================================
-   PAYMENTS
-========================================= */
-
-function getPayments(){
-
-  try{
-
-    const saved =
-      localStorage.getItem(
-        "linkcashPayments"
-      );
-
-    if(!saved){
-      return [];
-    }
-
-    const payments =
-      JSON.parse(saved);
-
-    return Array.isArray(payments)
-      ? payments
-      : [];
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-function savePayments(payments){
-
-  localStorage.setItem(
-    "linkcashPayments",
-    JSON.stringify(payments)
-  );
-
-}
-
-
-/* =========================================
-   CONTENT DATABASE
-========================================= */
-
-function getContent(){
-
-  try{
-
-    const saved =
-      localStorage.getItem(
-        "linkcashCEOContent"
-      );
-
-    if(!saved){
-      return [];
-    }
-
-    const content =
-      JSON.parse(saved);
-
-    return Array.isArray(content)
-      ? content
-      : [];
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-function saveContent(content){
-
-  localStorage.setItem(
-    "linkcashCEOContent",
-    JSON.stringify(content)
-  );
-
-}
-
-
-/* =========================================
-   STATS
-========================================= */
-
-function updateStats(){
-
-  const users =
-    getUsers();
-
-  const payments =
-    getPayments();
-
-
-  const active =
-    users.filter(
-      function(user){
-
-        const status =
-          String(
-            user.status || ""
-          ).toLowerCase();
-
-        return (
-          status === "active" ||
-          status === "activated"
-        );
-
-      }
-    ).length;
-
-
-  const pending =
-    payments.filter(
-      function(payment){
-
-        return String(
-          payment.status || ""
-        ).toLowerCase()
-        === "pending";
-
-      }
-    ).length;
-
-
-  document.getElementById(
-    "totalUsers"
-  ).textContent =
-    users.length;
-
-
-  document.getElementById(
-    "pendingCount"
-  ).textContent =
-    pending;
-
-
-  document.getElementById(
-    "activeUsers"
-  ).textContent =
-    active;
-
-}
-
-
-/* =========================================
-   INITIALS
-========================================= */
-
-function getInitials(name){
-
-  if(!name){
-    return "U";
-  }
-
-  const parts =
-    String(name)
-      .trim()
-      .split(/\s+/);
-
-
-  if(parts.length === 1){
-
-    return parts[0]
-      .substring(0,2)
-      .toUpperCase();
-
-  }
-
-
-  return (
-    parts[0][0] +
-    parts[1][0]
-  ).toUpperCase();
-
-}
-
-
-/* =========================================
-   ESCAPE
-========================================= */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-
-/* =========================================
-   REQUESTS
-========================================= */
-
-function loadRequests(
-  onlyPending = false
-){
-
-  const requests =
-    document.getElementById(
-      "requests"
-    );
-
-  const empty =
-    document.getElementById(
-      "emptyRequests"
-    );
-
-
-  requests.innerHTML = "";
-
-
-  let payments =
-    getPayments();
-
-
-  if(onlyPending){
-
-    payments =
-      payments.filter(
-        function(payment){
-
-          return String(
-            payment.status || ""
-          ).toLowerCase()
-          === "pending";
-
-        }
-      );
-
-  }
-
-
-  payments =
-    [...payments].reverse();
-
-
-  if(payments.length === 0){
-
-    empty.style.display =
-      "block";
-
-    return;
-
-  }
-
-
-  empty.style.display =
-    "none";
-
-
-  payments.forEach(
-    function(payment){
-
-      const card =
-        document.createElement(
-          "div"
-        );
-
-
-      const status =
-        String(
-          payment.status ||
-          "pending"
-        ).toLowerCase();
-
-
-      card.className =
-        "request " + status;
-
-
-      const fullname =
-        payment.fullname ||
-        payment.username ||
-        "Unknown User";
-
-
-      const username =
-        payment.username ||
-        "-";
-
-
-      const method =
-        payment.method ||
-        "-";
-
-
-      const transaction =
-        payment.transaction ||
-        payment.paymentReference ||
-        "-";
-
-
-      let submitted =
-        "-";
-
-
-      if(payment.submittedAt){
-
-        try{
-
-          submitted =
-            new Date(
-              payment.submittedAt
-            ).toLocaleString();
-
-        }catch{
-
-          submitted =
-            payment.submittedAt;
-
-        }
-
-      }
-
-
-      card.innerHTML = `
-
-        <div class="request-top">
-
-          <div class="user-info">
-
-            <div class="avatar">
-              ${getInitials(fullname)}
-            </div>
-
-            <div>
-
-              <div class="user-name">
-                ${escapeHTML(fullname)}
-              </div>
-
-              <div class="user-username">
-                @${escapeHTML(username)}
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="status ${status}">
-            ${status.toUpperCase()}
-          </div>
-
+        <div class="form-label">
+          CONTENT TITLE
         </div>
 
-
-        <div class="details">
-
-          <div class="detail">
-
-            <div class="detail-label">
-              AMOUNT
-            </div>
-
-            <div class="detail-value gold">
-              TZS ${Number(
-                payment.amount || 0
-              ).toLocaleString()}
-            </div>
-
-          </div>
-
-
-          <div class="detail">
-
-            <div class="detail-label">
-              METHOD
-            </div>
-
-            <div class="detail-value">
-              ${escapeHTML(method)}
-            </div>
-
-          </div>
-
-
-          <div class="detail">
-
-            <div class="detail-label">
-              TRANSACTION
-            </div>
-
-            <div class="detail-value">
-              ${escapeHTML(transaction)}
-            </div>
-
-          </div>
-
-
-          <div class="detail">
-
-            <div class="detail-label">
-              SUBMITTED
-            </div>
-
-            <div class="detail-value">
-              ${escapeHTML(submitted)}
-            </div>
-
-          </div>
-
-        </div>
-
-
-        ${
-          status === "pending"
-
-          ? `
-
-          <div class="request-actions">
-
-            <button
-              class="activate-btn"
-              onclick="activatePayment('${payment.id}')"
-            >
-              ✓ ACTIVATE
-            </button>
-
-            <button
-              class="reject-btn"
-              onclick="rejectPayment('${payment.id}')"
-            >
-              ✕ REJECT
-            </button>
-
-            <button
-              class="delete-btn"
-              onclick="deletePayment('${payment.id}')"
-            >
-              DELETE
-            </button>
-
-          </div>
-
-          `
-
-          :
-
-          `
-
-          <div class="request-actions">
-
-            <button
-              class="delete-btn"
-              onclick="deletePayment('${payment.id}')"
-            >
-              DELETE REQUEST
-            </button>
-
-          </div>
-
-          `
-        }
-
-      `;
-
-
-      requests.appendChild(card);
-
-    }
-  );
-
-}
-
-
-/* =========================================
-   ACTIVATE PAYMENT
-========================================= */
-
-function activatePayment(id){
-
-  if(
-    !confirm(
-      "Activate this user's account?"
-    )
-  ){
-    return;
-  }
-
-
-  let payments =
-    getPayments();
-
-
-  const payment =
-    payments.find(
-      function(item){
-
-        return String(item.id) ===
-               String(id);
-
-      }
-    );
-
-
-  if(!payment){
-
-    alert(
-      "Payment request not found."
-    );
-
-    return;
-
-  }
-
-
-  payment.status =
-    "approved";
-
-  payment.verifiedAt =
-    new Date().toISOString();
-
-
-  savePayments(payments);
-
-
-  let users =
-    getUsers();
-
-
-  users =
-    users.map(
-      function(user){
-
-        const sameUser =
-          String(
-            user.username || ""
-          ).toLowerCase()
-          ===
-          String(
-            payment.username || ""
-          ).toLowerCase();
-
-
-        if(sameUser){
-
-          return {
-
-            ...user,
-
-            status:"active",
-
-            paymentStatus:"verified",
-
-            paymentMethod:
-              payment.method,
-
-            paymentReference:
-              payment.transaction,
-
-            activatedAt:
-              new Date().toISOString()
-
-          };
-
-        }
-
-
-        return user;
-
-      }
-    );
-
-
-  saveUsers(users);
-
-
-  alert(
-    "Account activated successfully."
-  );
-
-
-  loadDashboard();
-
-}
-
-
-/* =========================================
-   REJECT
-========================================= */
-
-function rejectPayment(id){
-
-  if(
-    !confirm(
-      "Reject this payment request?"
-    )
-  ){
-    return;
-  }
-
-
-  let payments =
-    getPayments();
-
-
-  const payment =
-    payments.find(
-      function(item){
-
-        return String(item.id) ===
-               String(id);
-
-      }
-    );
-
-
-  if(!payment){
-
-    alert(
-      "Payment request not found."
-    );
-
-    return;
-
-  }
-
-
-  payment.status =
-    "rejected";
-
-  payment.rejectedAt =
-    new Date().toISOString();
-
-
-  savePayments(payments);
-
-
-  let users =
-    getUsers();
-
-
-  users =
-    users.map(
-      function(user){
-
-        const sameUser =
-          String(
-            user.username || ""
-          ).toLowerCase()
-          ===
-          String(
-            payment.username || ""
-          ).toLowerCase();
-
-
-        if(sameUser){
-
-          return {
-
-            ...user,
-
-            status:"rejected",
-
-            paymentStatus:"rejected"
-
-          };
-
-        }
-
-
-        return user;
-
-      }
-    );
-
-
-  saveUsers(users);
-
-
-  alert(
-    "Payment request rejected."
-  );
-
-
-  loadDashboard();
-
-}
-
-
-/* =========================================
-   DELETE PAYMENT
-========================================= */
-
-function deletePayment(id){
-
-  if(
-    !confirm(
-      "Delete this payment request?"
-    )
-  ){
-    return;
-  }
-
-
-  let payments =
-    getPayments();
-
-
-  payments =
-    payments.filter(
-      function(payment){
-
-        return String(payment.id) !==
-               String(id);
-
-      }
-    );
-
-
-  savePayments(payments);
-
-
-  loadDashboard();
-
-}
-
-
-/* =========================================
-   PENDING
-========================================= */
-
-function showPending(){
-
-  document.getElementById(
-    "requestLabel"
-  ).textContent =
-    "PENDING ONLY";
-
-
-  loadRequests(true);
-
-}
-
-
-/* =========================================
-   ALL USERS
-========================================= */
-
-function showAllUsers(){
-
-  document.getElementById(
-    "requestLabel"
-  ).textContent =
-    "LATEST REQUESTS";
-
-
-  loadRequests(false);
-
-  renderUsers();
-
-}
-
-
-/* =========================================
-   USERS
-========================================= */
-
-function renderUsers(search = ""){
-
-  const container =
-    document.getElementById(
-      "usersList"
-    );
-
-
-  container.innerHTML = "";
-
-
-  const users =
-    getUsers();
-
-
-  const keyword =
-    String(search)
-      .trim()
-      .toLowerCase();
-
-
-  const filtered =
-    users.filter(
-      function(user){
-
-        const fullname =
-          String(
-            user.fullname || ""
-          ).toLowerCase();
-
-        const username =
-          String(
-            user.username || ""
-          ).toLowerCase();
-
-        const phone =
-          String(
-            user.phone || ""
-          ).toLowerCase();
-
-
-        return (
-          !keyword ||
-          fullname.includes(keyword) ||
-          username.includes(keyword) ||
-          phone.includes(keyword)
-        );
-
-      }
-    );
-
-
-  if(filtered.length === 0){
-
-    container.innerHTML = `
-
-      <div
-        class="empty"
-        style="display:block"
-      >
-
-        <div class="empty-icon">
-          👥
-        </div>
-
-        <h3>
-          No Users Found
-        </h3>
-
-        <p>
-          Registered users will appear here.
-        </p>
+        <input
+          class="form-input"
+          id="contentTitle"
+          type="text"
+          placeholder="Example: Follow our TikTok"
+        >
 
       </div>
 
-    `;
 
-    return;
+      <div class="form-group">
 
-  }
-
-
-  filtered.forEach(
-    function(user){
-
-      const status =
-        String(
-          user.status ||
-          "pending"
-        ).toLowerCase();
-
-
-      const card =
-        document.createElement(
-          "div"
-        );
-
-
-      card.className =
-        "user-card";
-
-
-      card.innerHTML = `
-
-        <div class="user-card-top">
-
-          <div>
-
-            <div class="user-card-name">
-              ${escapeHTML(
-                user.fullname ||
-                "Unnamed User"
-              )}
-            </div>
-
-            <div class="user-card-username">
-              @${escapeHTML(
-                user.username ||
-                "-"
-              )}
-            </div>
-
-          </div>
-
-
-          <div class="user-status ${status}">
-            ${status.toUpperCase()}
-          </div>
-
+        <div class="form-label">
+          LINK / URL
         </div>
 
-      `;
+        <input
+          class="form-input"
+          id="contentLink"
+          type="url"
+          placeholder="Paste TikTok, YouTube, Facebook or Instagram link"
+        >
 
+      </div>
 
-      container.appendChild(card);
 
-    }
-  );
+      <div class="form-group">
 
-}
+        <div class="form-label">
+          DESCRIPTION
+        </div>
 
+        <textarea
+          class="form-textarea"
+          id="contentDescription"
+          placeholder="Write instructions for users..."
+        ></textarea>
 
-function searchUsers(){
+      </div>
 
-  const value =
-    document.getElementById(
-      "userSearch"
-    ).value;
 
+      <!-- REQUIREMENTS -->
 
-  renderUsers(value);
+      <div
+        id="socialRequirements"
+      >
 
-}
+        <div class="form-label">
+          USER REQUIREMENTS
+        </div>
 
+        <div class="requirements">
 
-/* =========================================
-   PLATFORM HINT
-========================================= */
+          <label class="requirement">
 
-function updatePlatformHints(){
-
-  const platform =
-    document.getElementById(
-      "contentPlatform"
-    ).value;
-
-
-  const videoInput =
-    document.getElementById(
-      "contentVideoUrl"
-    );
-
-  const followInput =
-    document.getElementById(
-      "contentFollowUrl"
-    );
-
-
-  if(platform === "tiktok"){
-
-    videoInput.placeholder =
-      "https://www.tiktok.com/@account/video/123456789";
-
-    followInput.placeholder =
-      "https://www.tiktok.com/@account";
-
-  }
-
-
-  if(platform === "youtube"){
-
-    videoInput.placeholder =
-      "https://www.youtube.com/watch?v=VIDEO_ID";
-
-    followInput.placeholder =
-      "https://www.youtube.com/@channel";
-
-  }
-
-
-  if(platform === "facebook"){
-
-    videoInput.placeholder =
-      "https://www.facebook.com/.../videos/...";
-
-    followInput.placeholder =
-      "https://www.facebook.com/page";
-
-  }
-
-}
-
-
-/* =========================================
-   ADD CONTENT
-========================================= */
-
-function addContent(){
-
-  const platform =
-    document.getElementById(
-      "contentPlatform"
-    ).value;
-
-
-  const title =
-    document.getElementById(
-      "contentTitle"
-    ).value.trim();
-
-
-  const videoUrl =
-    document.getElementById(
-      "contentVideoUrl"
-    ).value.trim();
-
-
-  const followUrl =
-    document.getElementById(
-      "contentFollowUrl"
-    ).value.trim();
-
-
-  const description =
-    document.getElementById(
-      "contentDescription"
-    ).value.trim();
-
-
-  if(!title){
-
-    alert(
-      "Enter video title."
-    );
-
-    return;
-
-  }
-
-
-  if(!videoUrl){
-
-    alert(
-      "Enter video URL."
-    );
-
-    return;
-
-  }
-
-
-  if(!followUrl){
-
-    alert(
-      "Enter account/channel follow URL."
-    );
-
-    return;
-
-  }
-
-
-  try{
-
-    new URL(videoUrl);
-
-    new URL(followUrl);
-
-  }catch{
-
-    alert(
-      "Please enter valid URLs."
-    );
-
-    return;
-
-  }
-
-
-  const content =
-    getContent();
-
-
-  const item = {
-
-    id:
-      "content_" +
-      Date.now(),
-
-    platform:
-
-      platform,
-
-    title:
-
-      title,
-
-    videoUrl:
-
-      videoUrl,
-
-    followUrl:
-
-      followUrl,
-
-    description:
-
-      description,
-
-    createdAt:
-
-      new Date().toISOString(),
-
-    active:
-
-      true
-
-  };
-
-
-  content.unshift(item);
-
-
-  saveContent(content);
-
-
-  document.getElementById(
-    "contentTitle"
-  ).value = "";
-
-
-  document.getElementById(
-    "contentVideoUrl"
-  ).value = "";
-
-
-  document.getElementById(
-    "contentFollowUrl"
-  ).value = "";
-
-
-  document.getElementById(
-    "contentDescription"
-  ).value = "";
-
-
-  renderContent();
-
-
-  alert(
-    "Content published successfully."
-  );
-
-}
-
-
-/* =========================================
-   PLATFORM ICON
-========================================= */
-
-function platformIcon(platform){
-
-  if(platform === "tiktok"){
-    return "♪";
-  }
-
-  if(platform === "youtube"){
-    return "▶";
-  }
-
-  if(platform === "facebook"){
-    return "f";
-  }
-
-  return "🎬";
-
-}
-
-
-/* =========================================
-   RENDER CONTENT
-========================================= */
-
-function renderContent(){
-
-  const container =
-    document.getElementById(
-      "contentList"
-    );
-
-
-  const empty =
-    document.getElementById(
-      "emptyContent"
-    );
-
-
-  const count =
-    document.getElementById(
-      "contentCount"
-    );
-
-
-  container.innerHTML = "";
-
-
-  const content =
-    getContent();
-
-
-  count.textContent =
-    content.length +
-    (
-      content.length === 1
-      ? " POST"
-      : " POSTS"
-    );
-
-
-  if(content.length === 0){
-
-    empty.style.display =
-      "block";
-
-    return;
-
-  }
-
-
-  empty.style.display =
-    "none";
-
-
-  content.forEach(
-    function(item){
-
-      const card =
-        document.createElement(
-          "div"
-        );
-
-
-      const platformName =
-        item.platform
-          .charAt(0)
-          .toUpperCase() +
-        item.platform.substring(1);
-
-
-      card.className =
-        "content-card";
-
-
-      card.innerHTML = `
-
-        <div class="content-top">
-
-          <div class="content-platform">
+            <input
+              type="checkbox"
+              id="requireFollow"
+            >
 
             <span>
-              ${platformIcon(
-                item.platform
-              )}
+              FOLLOW ACCOUNT
             </span>
 
-            ${platformName}
-
-          </div>
+          </label>
 
 
-          <div class="content-status">
-            ACTIVE
-          </div>
+          <label class="requirement">
 
-        </div>
+            <input
+              type="checkbox"
+              id="requireWatch"
+              checked
+            >
 
+            <span>
+              WATCH VIDEO
+            </span>
 
-        <div class="content-title">
-
-          ${escapeHTML(
-            item.title
-          )}
-
-        </div>
-
-
-        ${
-          item.description
-
-          ?
-
-          `
-
-          <div class="content-description">
-
-            ${escapeHTML(
-              item.description
-            )}
-
-          </div>
-
-          `
-
-          : ""
-
-        }
+          </label>
 
 
-        <div class="content-url">
+          <label class="requirement">
 
-          ${escapeHTML(
-           
+            <input
+              type="checkbox"
+              id="requireLike"
+            >
+
+            <span>
+              LIKE
+            </span>
+
+          </label>
+
+
+          <label class="requirement">
+
+            <input
+              type="checkbox"
+              id="requireShare"
