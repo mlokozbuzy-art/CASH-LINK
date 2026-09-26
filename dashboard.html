@@ -4,161 +4,874 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dashboard | LINKCASH</title>
+  <title>LINKCASH - Dashboard</title>
 
   <style>
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      background: #f5f7fb;
-      color: #172033;
+      background: #050505;
+      color: white;
+      min-height: 100vh;
     }
 
-    /* SIDEBAR */
-    .sidebar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 250px;
-      height: 100vh;
-      background: #ffffff;
-      border-right: 1px solid #e8edf5;
-      padding: 25px 15px;
-      z-index: 1000;
-    }
+    /* TOP BAR */
 
-    .logo {
-      color: #1167d8;
-      font-size: 25px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 35px;
-      letter-spacing: 1px;
-    }
-
-    .menu-title {
-      color: #98a2b3;
-      font-size: 11px;
-      font-weight: bold;
-      padding: 0 12px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    .menu a {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      text-decoration: none;
-      color: #667085;
-      padding: 13px 14px;
-      border-radius: 10px;
-      margin-bottom: 5px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .menu a:hover,
-    .menu a.active {
-      background: #edf5ff;
-      color: #1167d8;
-    }
-
-    .logout {
-      position: absolute;
-      bottom: 25px;
-      left: 15px;
-      right: 15px;
-    }
-
-    .logout a {
-      color: #d92d20 !important;
-    }
-
-    /* MAIN */
-    .main {
-      margin-left: 250px;
-      padding: 25px;
-    }
-
-    /* TOPBAR */
     .topbar {
-      background: white;
-      padding: 15px 20px;
-      border-radius: 15px;
+      height: 70px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+
+      padding: 0 18px;
+
+      background: #0d0d0d;
+
+      border-bottom: 1px solid #242424;
+
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .mobile-menu {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .welcome small {
-      color: #667085;
-      font-size: 13px;
-    }
-
-    .welcome h2 {
-      font-size: 21px;
-      margin-top: 3px;
-    }
-
-    .profile-mini {
+    .brand {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .avatar {
+    .logo {
       width: 42px;
       height: 42px;
-      background: #1167d8;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
 
-    /* STATISTICS */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-bottom: 25px;
-    }
-
-    .stat {
-      background: white;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.04);
-    }
-
-    .stat-icon {
-      width: 43px;
-      height: 43px;
       border-radius: 12px;
-      background: #edf5ff;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffe082,
+          #d4a72c,
+          #8f6b12
+        );
+
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 21px;
-      margin-bottom: 15px;
+
+      color: #050505;
+
+      font-weight: 900;
+      font-size: 15px;
     }
 
-    .stat p {
-      color: #667085;
-     
+    .brand-name {
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .profile-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+
+      border: 1px solid #3a3a3a;
+
+      background: #171717;
+
+      color: #d4a72c;
+
+      cursor: pointer;
+
+      font-size: 18px;
+    }
+
+    /* MAIN */
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+
+      margin: auto;
+
+      padding: 25px 18px 100px;
+    }
+
+    /* WELCOME */
+
+    .welcome {
+      margin-bottom: 22px;
+    }
+
+    .welcome small {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .welcome h1 {
+      margin-top: 6px;
+      font-size: 25px;
+    }
+
+    .welcome h1 span {
+      color: #d4a72c;
+    }
+
+    /* BALANCE */
+
+    .balance-card {
+
+      background:
+        linear-gradient(
+          145deg,
+          #171717,
+          #0b0b0b
+        );
+
+      border: 1px solid #343434;
+
+      border-radius: 22px;
+
+      padding: 23px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      margin-bottom: 20px;
+    }
+
+    .balance-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      border-radius: 50%;
+
+      background: rgba(212,167,44,.08);
+
+      right: -60px;
+      top: -60px;
+    }
+
+    .balance-label {
+      color: #888;
+      font-size: 12px;
+    }
+
+    .balance {
+      font-size: 34px;
+      font-weight: 900;
+
+      margin: 8px 0 18px;
+
+      color: #fff;
+    }
+
+    .balance span {
+      color: #d4a72c;
+      font-size: 19px;
+    }
+
+    .balance-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .balance-actions button {
+
+      flex: 1;
+
+      height: 43px;
+
+      border-radius: 11px;
+
+      cursor: pointer;
+
+      font-weight: 700;
+    }
+
+    .deposit {
+      border: none;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffe082,
+          #d4a72c
+        );
+
+      color: #080808;
+    }
+
+    .withdraw {
+      background: transparent;
+
+      border: 1px solid #3b3b3b;
+
+      color: #ddd;
+    }
+
+    /* QUICK ACTIONS */
+
+    .section-title {
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin: 25px 0 13px;
+    }
+
+    .section-title h2 {
+      font-size: 17px;
+    }
+
+    .section-title a {
+      color: #d4a72c;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .actions {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 10px;
+    }
+
+    .action {
+
+      background: #101010;
+
+      border: 1px solid #262626;
+
+      border-radius: 16px;
+
+      padding: 15px 8px;
+
+      text-align: center;
+
+      color: white;
+
+      text-decoration: none;
+
+      transition: .2s;
+    }
+
+    .action:hover {
+      border-color: #d4a72c;
+    }
+
+    .action-icon {
+
+      width: 42px;
+      height: 42px;
+
+      margin: auto;
+
+      border-radius: 13px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #1b1b1b;
+
+      color: #d4a72c;
+
+      font-size: 19px;
+    }
+
+    .action p {
+      margin-top: 8px;
+
+      color: #aaa;
+
+      font-size: 11px;
+    }
+
+    /* TRANSACTIONS */
+
+    .transactions {
+
+      background: #101010;
+
+      border: 1px solid #262626;
+
+      border-radius: 18px;
+
+      overflow: hidden;
+    }
+
+    .transaction {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 15px;
+
+      border-bottom: 1px solid #202020;
+    }
+
+    .transaction:last-child {
+      border-bottom: none;
+    }
+
+    .transaction-left {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+    }
+
+    .transaction-icon {
+
+      width: 39px;
+      height: 39px;
+
+      border-radius: 12px;
+
+      background: #191919;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: #d4a72c;
+    }
+
+    .transaction-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .transaction-date {
+      color: #666;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+
+    .amount {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .positive {
+      color: #54d88a;
+    }
+
+    .negative {
+      color: #e96b6b;
+    }
+
+    /* BOTTOM NAV */
+
+    .bottom-nav {
+
+      position: fixed;
+
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      height: 72px;
+
+      background: rgba(10,10,10,.97);
+
+      border-top: 1px solid #252525;
+
+      display: flex;
+
+      justify-content: center;
+
+      z-index: 20;
+    }
+
+    .nav-inner {
+
+      width: 100%;
+      max-width: 600px;
+
+      display: flex;
+
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .nav-item {
+
+      text-decoration: none;
+
+      color: #666;
+
+      text-align: center;
+
+      font-size: 10px;
+
+      cursor: pointer;
+    }
+
+    .nav-item div {
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    .nav-item.active {
+      color: #d4a72c;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 380px) {
+
+      .actions {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .balance {
+        font-size: 29px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="logo">
+        LC
+      </div>
+
+      <div class="brand-name">
+        LINKCASH
+      </div>
+
+    </div>
+
+
+    <button
+      class="profile-btn"
+      onclick="showProfile()"
+    >
+      👤
+    </button>
+
+  </header>
+
+
+
+  <!-- MAIN -->
+
+  <main class="container">
+
+
+    <!-- WELCOME -->
+
+    <div class="welcome">
+
+      <small>WELCOME BACK</small>
+
+      <h1>
+        Hello, <span id="username">User</span>
+      </h1>
+
+    </div>
+
+
+
+    <!-- BALANCE -->
+
+    <div class="balance-card">
+
+      <div class="balance-label">
+        Available Balance
+      </div>
+
+      <div class="balance">
+        TZS 0.00
+      </div>
+
+      <div class="balance-actions">
+
+        <button
+          class="deposit"
+          onclick="deposit()"
+        >
+          + Deposit
+        </button>
+
+        <button
+          class="withdraw"
+          onclick="withdraw()"
+        >
+          Withdraw
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="section-title">
+
+      <h2>Quick Actions</h2>
+
+    </div>
+
+
+    <div class="actions">
+
+      <a
+        href="#"
+        class="action"
+        onclick="sendMoney()"
+      >
+
+        <div class="action-icon">
+          ↑
+        </div>
+
+        <p>Send</p>
+
+      </a>
+
+
+      <a
+        href="#"
+        class="action"
+        onclick="deposit()"
+      >
+
+        <div class="action-icon">
+          +
+        </div>
+
+        <p>Deposit</p>
+
+      </a>
+
+
+      <a
+        href="#"
+        class="action"
+        onclick="withdraw()"
+      >
+
+        <div class="action-icon">
+          ↓
+        </div>
+
+        <p>Withdraw</p>
+
+      </a>
+
+
+      <a
+        href="#"
+        class="action"
+        onclick="showLinks()"
+      >
+
+        <div class="action-icon">
+          🔗
+        </div>
+
+        <p>My Links</p>
+
+      </a>
+
+    </div>
+
+
+
+    <!-- TRANSACTIONS -->
+
+    <div class="section-title">
+
+      <h2>Recent Activity</h2>
+
+      <a href="#">
+        View All
+      </a>
+
+    </div>
+
+
+    <div class="transactions">
+
+      <div class="transaction">
+
+        <div class="transaction-left">
+
+          <div class="transaction-icon">
+            +
+          </div>
+
+          <div>
+
+            <div class="transaction-name">
+              Account Created
+            </div>
+
+            <div class="transaction-date">
+              Today
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="amount positive">
+          TZS 0.00
+        </div>
+
+      </div>
+
+
+      <div class="transaction">
+
+        <div class="transaction-left">
+
+          <div class="transaction-icon">
+            🔗
+          </div>
+
+          <div>
+
+            <div class="transaction-name">
+              LINKCASH Account
+            </div>
+
+            <div class="transaction-date">
+              Welcome
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="amount">
+          —
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- BOTTOM NAV -->
+
+  <nav class="bottom-nav">
+
+    <div class="nav-inner">
+
+      <a
+        class="nav-item active"
+        href="dashboard.html"
+      >
+
+        <div>⌂</div>
+
+        Home
+
+      </a>
+
+
+      <a
+        class="nav-item"
+        href="#"
+        onclick="showLinks()"
+      >
+
+        <div>🔗</div>
+
+        Links
+
+      </a>
+
+
+      <a
+        class="nav-item"
+        href="#"
+        onclick="showProfile()"
+      >
+
+        <div>👤</div>
+
+        Profile
+
+      </a>
+
+
+      <a
+        class="nav-item"
+        href="#"
+        onclick="logout()"
+      >
+
+        <div>↪</div>
+
+        Logout
+
+      </a>
+
+    </div>
+
+  </nav>
+
+
+
+  <script>
+
+
+    /* GET USER */
+
+    const savedUser =
+      localStorage.getItem("linkcashUser");
+
+
+    if (savedUser) {
+
+      const user =
+        JSON.parse(savedUser);
+
+      document.getElementById(
+        "username"
+      ).textContent =
+        user.fullname.split(" ")[0];
+
+    }
+
+
+
+    /* LOGIN CHECK */
+
+    if (
+      localStorage.getItem(
+        "linkcashLoggedIn"
+      ) !== "true"
+    ) {
+
+      window.location.href =
+        "login.html";
+
+    }
+
+
+
+    /* ACTIONS */
+
+    function deposit() {
+
+      alert(
+        "Deposit feature will be connected to your payment system."
+      );
+
+    }
+
+
+    function withdraw() {
+
+      alert(
+        "Withdrawal feature will be connected soon."
+      );
+
+    }
+
+
+    function sendMoney() {
+
+      alert(
+        "Send Money feature will be available soon."
+      );
+
+    }
+
+
+    function showLinks() {
+
+      alert(
+        "Your LINKCASH links will appear here."
+      );
+
+    }
+
+
+    function showProfile() {
+
+      if (!savedUser) return;
+
+      const user =
+        JSON.parse(savedUser);
+
+      alert(
+        "Name: " +
+        user.fullname +
+        "\nPhone: " +
+        user.phone +
+        "\nEmail: " +
+        user.email
+      );
+
+    }
+
+
+    /* LOGOUT */
+
+    function logout() {
+
+      localStorage.removeItem(
+        "linkcashLoggedIn"
+      );
+
+      window.location.href =
+        "login.html";
+
+    }
+
+  </script>
+
+
+</body>
+</html>
