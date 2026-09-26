@@ -166,9 +166,8 @@ input:focus{
   cursor:pointer;
 }
 
-.register-btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
+.register-btn:active{
+  transform:scale(.98);
 }
 
 .message{
@@ -278,8 +277,6 @@ input:focus{
     </div>
 
 
-    <!-- FORM -->
-
     <form
       id="registerForm"
       novalidate
@@ -368,10 +365,6 @@ input:focus{
           required
         >
 
-        <div class="note">
-          Email is used for account records. No verification.
-        </div>
-
       </div>
 
 
@@ -410,15 +403,11 @@ input:focus{
     </form>
 
 
-    <!-- MESSAGE -->
-
     <div
       class="message"
       id="message"
     ></div>
 
-
-    <!-- LOGIN -->
 
     <div class="login">
 
@@ -450,25 +439,9 @@ input:focus{
 
 <script>
 
-/* =====================================================
-   SUPABASE EDGE FUNCTION
-   ===================================================== */
-
-const REGISTER_URL =
-  "https://plmasvzxgcwnxgbeaurc.supabase.co/functions/v1/quick-task";
-
-
-/* =====================================================
-   SUPABASE PUBLISHABLE KEY
-   ===================================================== */
-
-const SUPABASE_PUBLISHABLE_KEY =
-  "sb_publishable_QUoRhZ-o_TqxKEveIXERDQ_IRIvWQWG";
-
-
-/* =====================================================
+/* =========================================
    ELEMENTS
-   ===================================================== */
+   ========================================= */
 
 const form =
   document.getElementById(
@@ -486,9 +459,9 @@ const message =
   );
 
 
-/* =====================================================
+/* =========================================
    REFERRER
-   ===================================================== */
+   ========================================= */
 
 const params =
   new URLSearchParams(
@@ -518,9 +491,9 @@ if(referrerUsername){
 }
 
 
-/* =====================================================
-   SHOW MESSAGE
-   ===================================================== */
+/* =========================================
+   MESSAGE
+   ========================================= */
 
 function showMessage(
   text,
@@ -539,13 +512,50 @@ function showMessage(
 }
 
 
-/* =====================================================
+/* =========================================
+   GET USERS
+   ========================================= */
+
+function getUsers(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "linkcashUsers"
+      )
+    ) || [];
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+/* =========================================
+   SAVE USERS
+   ========================================= */
+
+function saveUsers(users){
+
+  localStorage.setItem(
+    "linkcashUsers",
+    JSON.stringify(users)
+  );
+
+}
+
+
+/* =========================================
    REGISTER
-   ===================================================== */
+   ========================================= */
 
 form.addEventListener(
   "submit",
-  async function(event){
+  function(event){
 
     event.preventDefault();
 
@@ -561,9 +571,9 @@ form.addEventListener(
 
     try{
 
-      /* ===============================================
-         GET FORM DATA
-         =============================================== */
+      /* ===============================
+         FORM DATA
+         =============================== */
 
       const fullname =
         document
@@ -601,9 +611,9 @@ form.addEventListener(
           .value;
 
 
-      /* ===============================================
+      /* ===============================
          VALIDATION
-         =============================================== */
+         =============================== */
 
       if(
         !fullname ||
@@ -615,18 +625,6 @@ form.addEventListener(
 
         throw new Error(
           "Please fill in all fields."
-        );
-
-      }
-
-
-      if(
-        username.length < 3 ||
-        username.length > 20
-      ){
-
-        throw new Error(
-          "Username must be between 3 and 20 characters."
         );
 
       }
@@ -656,157 +654,101 @@ form.addEventListener(
       }
 
 
-      if(
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-          email
-        )
-      ){
+      /* ===============================
+         GET EXISTING USERS
+         =============================== */
 
-        throw new Error(
-          "Please enter a valid email address."
-        );
-
-      }
+      const users =
+        getUsers();
 
 
-      /* ===============================================
-         SEND REQUEST
-         =============================================== */
+      /* ===============================
+         CHECK USERNAME
+         =============================== */
 
-      const response =
-        await fetch(
-          REGISTER_URL,
-          {
+      const usernameExists =
+        users.some(
+          function(user){
 
-            method:
-              "POST",
-
-            mode:
-              "cors",
-
-            headers:{
-
-              "Content-Type":
-                "application/json",
-
-              "Accept":
-                "application/json",
-
-              "apikey":
-                SUPABASE_PUBLISHABLE_KEY
-
-            },
-
-            body:
-              JSON.stringify({
-
-                fullname:
-                  fullname,
-
-                username:
-                  username,
-
-                phone:
-                  phone,
-
-                email:
-                  email,
-
-                password:
-                  password,
-
-                referrer_username:
-                  referrerUsername ||
-                  null
-
-              })
+            return (
+              user.username ===
+              username
+            );
 
           }
         );
 
 
-      /* ===============================================
-         READ SERVER RESPONSE
-         =============================================== */
-
-      const responseText =
-        await response.text();
-
-
-      console.log(
-        "STATUS:",
-        response.status
-      );
-
-      console.log(
-        "SERVER RESPONSE:",
-        responseText
-      );
-
-
-      let result;
-
-      try{
-
-        result =
-          JSON.parse(
-            responseText
-          );
-
-      }catch{
+      if(usernameExists){
 
         throw new Error(
-          responseText ||
-          "Server returned an invalid response."
+          "Username is already taken."
         );
 
       }
 
 
-      /* ===============================================
-         SERVER ERROR
-         =============================================== */
+      /* ===============================
+         CHECK EMAIL
+         =============================== */
 
-      if(
-        !response.ok
-      ){
+      const emailExists =
+        users.some(
+          function(user){
+
+            return (
+              user.email ===
+              email
+            );
+
+          }
+        );
+
+
+      if(emailExists){
 
         throw new Error(
-          result.message ||
-          result.error ||
-          "Registration failed."
+          "Email address is already registered."
         );
 
       }
 
 
-      /* ===============================================
-         APPLICATION ERROR
-         =============================================== */
+      /* ===============================
+         CHECK PHONE
+         =============================== */
 
-      if(
-        result.success !== true
-      ){
+      const phoneExists =
+        users.some(
+          function(user){
+
+            return (
+              user.phone ===
+              phone
+            );
+
+          }
+        );
+
+
+      if(phoneExists){
 
         throw new Error(
-          result.message ||
-          result.error ||
-          "Registration failed."
+          "Phone number is already registered."
         );
 
       }
 
 
-      /* ===============================================
-         SAVE USER
-         =============================================== */
+      /* ===============================
+         CREATE USER
+         =============================== */
 
-      const userData = {
+      const newUser = {
 
         id:
-          result.user_id ||
-          result.id ||
-          null,
+          "LC-" +
+          Date.now(),
 
         fullname:
           fullname,
@@ -820,25 +762,71 @@ form.addEventListener(
         email:
           email,
 
+        password:
+          password,
+
         status:
-          result.status ||
-          "pending"
+          "pending",
+
+        referrer:
+          referrerUsername ||
+          null,
+
+        createdAt:
+          new Date().toISOString()
 
       };
 
 
-      localStorage.setItem(
-        "linkcashUser",
+      /* ===============================
+         SAVE USER
+         =============================== */
 
-        JSON.stringify(
-          userData
-        )
+      users.push(
+        newUser
+      );
+
+      saveUsers(
+        users
       );
 
 
-      /* ===============================================
+      /* ===============================
+         SAVE CURRENT USER
+         =============================== */
+
+      localStorage.setItem(
+        "linkcashUser",
+        JSON.stringify({
+
+          id:
+            newUser.id,
+
+          fullname:
+            newUser.fullname,
+
+          username:
+            newUser.username,
+
+          phone:
+            newUser.phone,
+
+          email:
+            newUser.email,
+
+          status:
+            "pending",
+
+          referrer:
+            newUser.referrer
+
+        })
+      );
+
+
+      /* ===============================
          SUCCESS
-         =============================================== */
+         =============================== */
 
       showMessage(
         "Account created successfully ✓",
@@ -850,9 +838,9 @@ form.addEventListener(
         "ACCOUNT CREATED ✓";
 
 
-      /* ===============================================
+      /* ===============================
          REDIRECT
-         =============================================== */
+         =============================== */
 
       setTimeout(
         function(){
