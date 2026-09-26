@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LINKCASH - CEO Login</title>
 
-
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -22,860 +14,456 @@
   font-family:Arial,Helvetica,sans-serif;
 }
 
-
 body{
-
   min-height:100vh;
-
   background:#050505;
-
   color:#fff;
-
   display:flex;
-
-  align-items:center;
-
   justify-content:center;
-
+  align-items:center;
   padding:20px;
-
 }
-
 
 .wrapper{
-
   width:100%;
-
   max-width:430px;
-
 }
-
-
-/* =========================
-   BRAND
-========================= */
 
 .brand{
-
   text-align:center;
-
   margin-bottom:25px;
-
 }
-
 
 .logo{
-
   width:70px;
-
   height:70px;
-
   margin:auto;
-
   border-radius:20px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffe082,
-      #d4a72c,
-      #8f6b12
-    );
-
-  color:#090909;
-
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
+  color:#090909;
   font-size:24px;
-
   font-weight:900;
-
-  box-shadow:
-    0 0 25px
-    rgba(212,167,44,.25);
-
+  box-shadow:0 0 25px rgba(212,167,44,.25);
 }
-
 
 .brand h1{
-
   margin-top:13px;
-
   font-size:28px;
-
   letter-spacing:3px;
-
 }
-
 
 .brand p{
-
   margin-top:7px;
-
   color:#8d8d8d;
-
   font-size:13px;
-
 }
-
-
-/* =========================
-   CARD
-========================= */
 
 .card{
-
   background:#101010;
-
   border:1px solid #292929;
-
   border-radius:24px;
-
   padding:28px 22px;
-
-  box-shadow:
-    0 25px 70px
-    rgba(0,0,0,.6);
-
+  box-shadow:0 25px 70px rgba(0,0,0,.6);
 }
-
-
-/* =========================
-   BADGE
-========================= */
 
 .badge{
-
   width:max-content;
-
-  margin:
-    0 auto 18px;
-
-  padding:7px 12px;
-
+  margin:0 auto 18px;
+  padding:7px 13px;
   border-radius:20px;
-
-  background:
-    rgba(212,167,44,.08);
-
-  border:
-    1px solid
-    rgba(212,167,44,.25);
-
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
   color:#e0b83e;
-
   font-size:10px;
-
   font-weight:bold;
-
 }
-
-
-/* =========================
-   TITLE
-========================= */
 
 .title{
-
   margin-bottom:23px;
-
 }
-
 
 .title h2{
-
   font-size:23px;
-
   margin-bottom:7px;
-
 }
-
 
 .title p{
-
   color:#858585;
-
   font-size:13px;
-
   line-height:1.5;
-
 }
-
-
-/* =========================
-   FIELDS
-========================= */
 
 .field{
-
   margin-bottom:17px;
-
 }
-
 
 .field label{
-
   display:block;
-
   color:#cfcfcf;
-
   font-size:12px;
-
   margin-bottom:8px;
-
 }
-
 
 input{
-
   width:100%;
-
   height:50px;
-
   background:#070707;
-
   border:1px solid #292929;
-
   border-radius:12px;
-
   color:#fff;
-
   outline:none;
-
   padding:0 15px;
-
   font-size:14px;
-
 }
-
 
 input::placeholder{
-
   color:#555;
-
 }
-
 
 input:focus{
-
   border-color:#d4a72c;
-
-  box-shadow:
-    0 0 0 2px
-    rgba(212,167,44,.08);
-
 }
-
-
-/* =========================
-   PASSWORD
-========================= */
 
 .password-wrap{
-
   position:relative;
-
 }
-
 
 .password-wrap input{
-
   padding-right:65px;
-
 }
-
 
 .show-password{
-
   position:absolute;
-
   right:12px;
-
   top:50%;
-
-  transform:
-    translateY(-50%);
-
+  transform:translateY(-50%);
   background:none;
-
   border:none;
-
   color:#d4a72c;
-
   font-size:11px;
-
   font-weight:bold;
-
   cursor:pointer;
-
 }
-
-
-/* =========================
-   LOGIN BUTTON
-========================= */
 
 .login-btn{
-
   width:100%;
-
   height:53px;
-
   margin-top:5px;
-
   border:none;
-
   border-radius:13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffe082,
-      #d4a72c,
-      #a77b17
-    );
-
+  background:linear-gradient(
+    135deg,
+    #ffe082,
+    #d4a72c,
+    #a77b17
+  );
   color:#080808;
-
   font-size:14px;
-
   font-weight:900;
-
-  letter-spacing:.5px;
-
   cursor:pointer;
-
 }
-
 
 .login-btn:active{
-
   transform:scale(.98);
-
 }
-
-
-.login-btn:disabled{
-
-  opacity:.6;
-
-  cursor:not-allowed;
-
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
 
 .message{
-
   display:none;
-
   margin-top:15px;
-
   padding:13px;
-
   border-radius:10px;
-
   text-align:center;
-
   font-size:12px;
-
   line-height:1.5;
-
 }
 
-
-.message.error{
-
+.error{
   display:block;
-
-  background:
-    rgba(220,60,60,.10);
-
-  border:
-    1px solid
-    rgba(220,60,60,.30);
-
+  background:rgba(220,60,60,.10);
+  border:1px solid rgba(220,60,60,.30);
   color:#ff7777;
-
 }
 
-
-.message.success{
-
+.success{
   display:block;
-
-  background:
-    rgba(40,180,100,.10);
-
-  border:
-    1px solid
-    rgba(40,180,100,.30);
-
+  background:rgba(40,180,100,.10);
+  border:1px solid rgba(40,180,100,.30);
   color:#62df91;
-
 }
-
-
-/* =========================
-   BACK
-========================= */
 
 .back{
-
   display:block;
-
   text-align:center;
-
   margin-top:18px;
-
   color:#686868;
-
   text-decoration:none;
-
   font-size:12px;
-
 }
-
-
-.back:hover{
-
-  color:#aaa;
-
-}
-
-
-/* =========================
-   FOOTER
-========================= */
 
 .footer{
-
   text-align:center;
-
   margin-top:18px;
-
   color:#444;
-
   font-size:11px;
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="wrapper">
 
+  <div class="brand">
 
-<!-- =========================
-     BRAND
-========================= -->
+    <div class="logo">
+      LC
+    </div>
 
-<div class="brand">
+    <h1>LINKCASH</h1>
 
-
-  <div class="logo">
-    LC
-  </div>
-
-
-  <h1>
-    LINKCASH
-  </h1>
-
-
-  <p>
-    Simple. Secure. Connected.
-  </p>
-
-
-</div>
-
-
-
-<!-- =========================
-     LOGIN CARD
-========================= -->
-
-<div class="card">
-
-
-  <div class="badge">
-    CEO / ADMIN
-  </div>
-
-
-  <div class="title">
-
-    <h2>
-      CEO Login
-    </h2>
-
-    <p>
-      Sign in to manage LINKCASH
-      accounts and payment verification.
-    </p>
+    <p>Simple. Secure. Connected.</p>
 
   </div>
 
 
+  <div class="card">
 
-  <form
-    id="ceoForm"
-  >
+    <div class="badge">
+      CEO ACCESS
+    </div>
 
+    <div class="title">
 
-    <!-- USERNAME -->
+      <h2>CEO Login</h2>
 
-    <div class="field">
-
-      <label>
-        CEO USERNAME
-      </label>
-
-      <input
-        type="text"
-        id="ceoUsername"
-        placeholder="Enter CEO username"
-        autocomplete="username"
-        required
-      >
+      <p>
+        Authorized access for LINKCASH account management.
+      </p>
 
     </div>
 
 
+    <form id="ceoLoginForm">
 
-    <!-- PASSWORD -->
+      <div class="field">
 
-    <div class="field">
-
-      <label>
-        CEO PASSWORD
-      </label>
-
-
-      <div class="password-wrap">
+        <label>USERNAME</label>
 
         <input
-          type="password"
-          id="ceoPassword"
-          placeholder="Enter CEO password"
-          autocomplete="current-password"
+          id="username"
+          type="text"
+          placeholder="Enter CEO username"
+          autocomplete="username"
           required
         >
 
+      </div>
 
-        <button
-          type="button"
-          class="show-password"
-          id="showPassword"
-        >
-          SHOW
-        </button>
+
+      <div class="field">
+
+        <label>PASSWORD</label>
+
+        <div class="password-wrap">
+
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter CEO password"
+            autocomplete="current-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            id="showPassword"
+          >
+            SHOW
+          </button>
+
+        </div>
 
       </div>
 
-    </div>
+
+      <button
+        type="submit"
+        class="login-btn"
+        id="loginButton"
+      >
+        CEO LOGIN
+      </button>
+
+    </form>
 
 
+    <div
+      id="message"
+      class="message"
+    ></div>
 
-    <!-- LOGIN -->
-
-    <button
-      type="submit"
-      class="login-btn"
-      id="loginButton"
-    >
-
-      CEO LOGIN
-
-    </button>
+  </div>
 
 
-  </form>
+  <a
+    href="index.html"
+    class="back"
+  >
+    ← Back to Home
+  </a>
 
 
-
-  <!-- MESSAGE -->
-
-  <div
-    id="message"
-    class="message"
-  ></div>
-
-
-</div>
-
-
-
-<!-- BACK -->
-
-<a
-  href="index.html"
-  class="back"
->
-
-  ← Back to Home
-
-</a>
-
-
-
-<div class="footer">
-
-  © 2026 LINKCASH
+  <div class="footer">
+    © 2026 LINKCASH
+  </div>
 
 </div>
-
-
-</div>
-
 
 
 <script>
 
-/* =================================================
-   ELEMENTS
-================================================= */
-
 const form =
-  document.getElementById(
-    "ceoForm"
-  );
+  document.getElementById("ceoLoginForm");
 
+const username =
+  document.getElementById("username");
 
-const usernameInput =
-  document.getElementById(
-    "ceoUsername"
-  );
+const password =
+  document.getElementById("password");
 
-
-const passwordInput =
-  document.getElementById(
-    "ceoPassword"
-  );
-
-
-const showPassword =
-  document.getElementById(
-    "showPassword"
-  );
-
-
-const loginButton =
-  document.getElementById(
-    "loginButton"
-  );
-
+const button =
+  document.getElementById("loginButton");
 
 const message =
-  document.getElementById(
-    "message"
-  );
+  document.getElementById("message");
+
+const showPassword =
+  document.getElementById("showPassword");
 
 
+/* SHOW / HIDE PASSWORD */
 
-/* =================================================
-   SHOW / HIDE PASSWORD
-================================================= */
+showPassword.onclick = function(){
 
-showPassword.addEventListener(
-  "click",
-  function(){
+  if(password.type === "password"){
 
-    if(
-      passwordInput.type ===
-      "password"
-    ){
+    password.type = "text";
 
-      passwordInput.type =
-        "text";
+    showPassword.textContent = "HIDE";
 
-      showPassword.textContent =
-        "HIDE";
+  }else{
 
-    }else{
+    password.type = "password";
 
-      passwordInput.type =
-        "password";
-
-      showPassword.textContent =
-        "SHOW";
-
-    }
+    showPassword.textContent = "SHOW";
 
   }
-);
+
+};
 
 
+/* CEO LOGIN */
 
-/* =================================================
-   LOGIN
-================================================= */
+form.onsubmit = function(event){
 
-form.addEventListener(
-  "submit",
-  function(event){
+  event.preventDefault();
 
-    event.preventDefault();
 
+  const enteredUsername =
+    username.value.trim();
+
+  const enteredPassword =
+    password.value;
+
+
+  /*
+    CEO CREDENTIALS
+  */
+
+  if(
+    enteredUsername === "CEO" &&
+    enteredPassword === "CEO@12345"
+  ){
+
+    /*
+      CREATE CEO SESSION
+    */
+
+    localStorage.setItem(
+      "linkcashCEOLoggedIn",
+      "true"
+    );
+
+
+    localStorage.setItem(
+      "linkcashCEO",
+      "CEO"
+    );
+
+
+    message.className =
+      "message success";
+
+    message.textContent =
+      "CEO login successful ✓ Opening dashboard...";
 
     message.style.display =
-      "none";
+      "block";
 
 
-    const username =
-      usernameInput
-        .value
-        .trim();
+    button.disabled =
+      true;
+
+    button.textContent =
+      "OPENING DASHBOARD...";
 
 
-    const password =
-      passwordInput
-        .value;
+    /*
+      OPEN CEO DASHBOARD
+    */
 
+    setTimeout(function(){
 
-    /* =============================================
-       CEO CREDENTIALS
-    ============================================= */
-
-    const CEO_USERNAME =
-      "CEO";
-
-
-    const CEO_PASSWORD =
-      "CEO@12345";
-
-
-
-    /* =============================================
-       CHECK LOGIN
-    ============================================= */
-
-    if(
-      username ===
-      CEO_USERNAME
-      &&
-      password ===
-      CEO_PASSWORD
-    ){
-
-
-      /* ===========================================
-         SAVE CEO SESSION
-      =========================================== */
-
-      localStorage.setItem(
-        "linkcashCEOLoggedIn",
-        "true"
+      window.location.replace(
+        "ceo-dashboard.html"
       );
 
-
-      localStorage.setItem(
-        "linkcashCEO",
-        JSON.stringify({
-
-          username:
-            "CEO",
-
-          role:
-            "CEO",
-
-          loginTime:
-            new Date().toISOString()
-
-        })
-      );
+    },500);
 
 
-      /* ===========================================
-         SUCCESS
-      =========================================== */
+  }else{
 
-      message.className =
-        "message success";
+    message.className =
+      "message error";
 
+    message.textContent =
+      "Wrong CEO username or password.";
 
-      message.textContent =
-        "CEO login successful ✓";
+    message.style.display =
+      "block";
 
+    password.value = "";
 
-      message.style.display =
-        "block";
+    button.disabled =
+      false;
 
-
-      loginButton.disabled =
-        true;
-
-
-      loginButton.textContent =
-        "LOGIN SUCCESSFUL ✓";
-
-
-      /* ===========================================
-         OPEN CEO DASHBOARD
-      =========================================== */
-
-      setTimeout(
-        function(){
-
-          window.location.href =
-            "ceo-dashboard.html";
-
-        },
-        700
-      );
-
-
-    }else{
-
-
-      /* ===========================================
-         INVALID LOGIN
-      =========================================== */
-
-      message.className =
-        "message error";
-
-
-      message.textContent =
-        "Invalid CEO username or password.";
-
-
-      message.style.display =
-        "block";
-
-
-      passwordInput.value =
-        "";
-
-
-      loginButton.disabled =
-        false;
-
-
-      loginButton.textContent =
-        "CEO LOGIN";
-
-    }
+    button.textContent =
+      "CEO LOGIN";
 
   }
-);
+
+};
 
 </script>
 
-
 </body>
-
 </html>
