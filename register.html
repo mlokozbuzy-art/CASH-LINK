@@ -18,11 +18,9 @@
       min-height: 100vh;
       background: #050505;
       color: white;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       padding: 20px;
     }
 
@@ -39,9 +37,7 @@
     .logo {
       width: 70px;
       height: 70px;
-
       margin: auto;
-
       border-radius: 20px;
 
       background:
@@ -57,7 +53,6 @@
       justify-content: center;
 
       color: #090909;
-
       font-size: 24px;
       font-weight: 900;
 
@@ -67,27 +62,20 @@
 
     .brand h1 {
       margin-top: 13px;
-
       font-size: 28px;
-
       letter-spacing: 3px;
     }
 
     .brand p {
       margin-top: 7px;
-
       color: #8d8d8d;
-
       font-size: 13px;
     }
 
     .card {
       background: #101010;
-
       border: 1px solid #292929;
-
       border-radius: 24px;
-
       padding: 28px 22px;
 
       box-shadow:
@@ -100,13 +88,42 @@
 
     .title h2 {
       font-size: 23px;
-
       margin-bottom: 7px;
     }
 
     .title p {
       color: #858585;
+      font-size: 13px;
+      line-height: 1.5;
+    }
 
+    /* REFERRER */
+
+    .ref-box {
+      display: none;
+
+      margin-bottom: 18px;
+
+      padding: 12px;
+
+      border-radius: 12px;
+
+      background:
+        rgba(212,167,44,.08);
+
+      border:
+        1px solid rgba(212,167,44,.25);
+    }
+
+    .ref-box small {
+      color: #777;
+      font-size: 10px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .ref-box strong {
+      color: #e0b83e;
       font-size: 13px;
     }
 
@@ -116,17 +133,13 @@
 
     .field label {
       display: block;
-
       color: #cfcfcf;
-
       font-size: 13px;
-
       margin-bottom: 8px;
     }
 
     input {
       width: 100%;
-
       height: 50px;
 
       background: #070707;
@@ -159,15 +172,12 @@
 
     .username-note {
       margin-top: 6px;
-
       color: #666;
-
       font-size: 11px;
     }
 
     .register-btn {
       width: 100%;
-
       height: 53px;
 
       margin-top: 5px;
@@ -292,7 +302,7 @@
     </div>
 
 
-    <!-- REGISTER -->
+    <!-- REGISTER CARD -->
 
     <div class="card">
 
@@ -303,6 +313,26 @@
         <p>
           Create your LINKCASH account to get started.
         </p>
+
+      </div>
+
+
+      <!-- REFERRER -->
+
+      <div
+        class="ref-box"
+        id="refBox"
+      >
+
+        <small>
+          INVITED BY
+        </small>
+
+        <strong
+          id="refUsername"
+        >
+          —
+        </strong>
 
       </div>
 
@@ -341,6 +371,7 @@
             placeholder="Choose a username"
             minlength="3"
             maxlength="20"
+            autocomplete="username"
             required
           >
 
@@ -363,6 +394,7 @@
             type="tel"
             id="phone"
             placeholder="07XXXXXXXX"
+            autocomplete="tel"
             required
           >
 
@@ -381,6 +413,7 @@
             type="email"
             id="email"
             placeholder="Enter your email"
+            autocomplete="email"
             required
           >
 
@@ -400,6 +433,7 @@
             id="password"
             placeholder="Create your password"
             minlength="6"
+            autocomplete="new-password"
             required
           >
 
@@ -460,11 +494,57 @@
 
   <script>
 
+    /* =========================
+       GET REFERRER
+       Example:
+       register.html?ref=mussa
+    ========================= */
+
+    const urlParams =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const referrer =
+      (
+        urlParams.get("ref") || ""
+      )
+      .trim()
+      .toLowerCase();
+
+
+    /* SHOW REFERRER */
+
+    if (referrer) {
+
+      document.getElementById(
+        "refBox"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "refUsername"
+      ).textContent =
+        "@" + referrer;
+
+    }
+
+
+    /* =========================
+       FORM
+    ========================= */
+
     const form =
-      document.getElementById("registerForm");
+      document.getElementById(
+        "registerForm"
+      );
+
 
     const message =
-      document.getElementById("message");
+      document.getElementById(
+        "message"
+      );
 
 
     form.addEventListener(
@@ -473,6 +553,10 @@
 
         event.preventDefault();
 
+
+        /* =========================
+           GET VALUES
+        ========================= */
 
         const fullname =
           document
@@ -500,7 +584,8 @@
           document
             .getElementById("email")
             .value
-            .trim();
+            .trim()
+            .toLowerCase();
 
 
         const password =
@@ -509,7 +594,9 @@
             .value;
 
 
-        /* VALIDATION */
+        /* =========================
+           VALIDATION
+        ========================= */
 
         if (
           !fullname ||
@@ -528,10 +615,13 @@
         }
 
 
-        if (username.length < 3) {
+        if (
+          username.length < 3 ||
+          username.length > 20
+        ) {
 
           alert(
-            "Username must contain at least 3 characters."
+            "Username must be 3–20 characters."
           );
 
           return;
@@ -539,38 +629,183 @@
         }
 
 
-        /* CHECK EXISTING USER */
+        /* USERNAME FORMAT */
 
-        const existingUser =
+        const usernamePattern =
+          /^[a-zA-Z0-9_]+$/;
+
+
+        if (
+          !usernamePattern.test(username)
+        ) {
+
+          alert(
+            "Username can only contain letters, numbers and underscore."
+          );
+
+          return;
+
+        }
+
+
+        /* =========================
+           GET ALL USERS
+        ========================= */
+
+        let users = [];
+
+
+        const savedUsers =
           localStorage.getItem(
-            "linkcashUser"
+            "linkcashUsers"
           );
 
 
-        if (existingUser) {
+        if (savedUsers) {
 
-          const oldUser =
-            JSON.parse(existingUser);
+          try {
+
+            users =
+              JSON.parse(
+                savedUsers
+              );
 
 
-          if (
-            oldUser.username === username
-          ) {
+            if (!Array.isArray(users)) {
 
-            alert(
-              "This username already exists."
-            );
+              users = [];
 
-            return;
+            }
+
+          } catch {
+
+            users = [];
 
           }
 
         }
 
 
-        /* CREATE USER */
+        /* =========================
+           BACKWARD COMPATIBILITY
+           Convert old account
+           into users list.
+        ========================= */
 
-        const user = {
+        const oldUser =
+          localStorage.getItem(
+            "linkcashUser"
+          );
+
+
+        if (
+          oldUser &&
+          users.length === 0
+        ) {
+
+          try {
+
+            const parsedOldUser =
+              JSON.parse(oldUser);
+
+
+            if (
+              parsedOldUser &&
+              parsedOldUser.username
+            ) {
+
+              users.push({
+                ...parsedOldUser,
+
+                referrer:
+                  parsedOldUser.referrer || null,
+
+                joinedAt:
+                  parsedOldUser.joinedAt ||
+                  new Date().toISOString()
+              });
+
+            }
+
+          } catch {
+
+            /* Ignore invalid old account */
+
+          }
+
+        }
+
+
+        /* =========================
+           CHECK USERNAME
+        ========================= */
+
+        const usernameExists =
+          users.some(
+            function(user) {
+
+              return (
+                String(
+                  user.username
+                ).toLowerCase()
+                === username
+              );
+
+            }
+          );
+
+
+        if (usernameExists) {
+
+          alert(
+            "This username already exists. Please choose another."
+          );
+
+          return;
+
+        }
+
+
+        /* =========================
+           CHECK REFERRER
+        ========================= */
+
+        let validReferrer =
+          null;
+
+
+        if (referrer) {
+
+          const refUser =
+            users.find(
+              function(user) {
+
+                return (
+                  String(
+                    user.username
+                  ).toLowerCase()
+                  === referrer
+                );
+
+              }
+            );
+
+
+          if (refUser) {
+
+            validReferrer =
+              refUser.username;
+
+          }
+
+        }
+
+
+        /* =========================
+           CREATE ACCOUNT
+        ========================= */
+
+        const newUser = {
 
           fullname:
             fullname,
@@ -585,16 +820,50 @@
             email,
 
           password:
-            password
+            password,
+
+          referrer:
+            validReferrer,
+
+          joinedAt:
+            new Date().toISOString(),
+
+          balance:
+            0,
+
+          commission:
+            0
 
         };
 
 
-        /* SAVE ACCOUNT */
+        /* =========================
+           ADD USER
+        ========================= */
+
+        users.push(
+          newUser
+        );
+
+
+        /* =========================
+           SAVE ALL USERS
+        ========================= */
+
+        localStorage.setItem(
+          "linkcashUsers",
+          JSON.stringify(users)
+        );
+
+
+        /* =========================
+           KEEP CURRENT ACCOUNT
+           FOR YOUR CURRENT LOGIN
+        ========================= */
 
         localStorage.setItem(
           "linkcashUser",
-          JSON.stringify(user)
+          JSON.stringify(newUser)
         );
 
 
@@ -605,20 +874,46 @@
         );
 
 
-        /* SUCCESS */
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
 
         message.style.display =
           "block";
 
 
-        message.textContent =
-          "Account created successfully ✓";
+        if (validReferrer) {
+
+          message.textContent =
+            "Account created successfully ✓ You joined @" +
+            validReferrer +
+            "'s team.";
+
+        } else {
+
+          message.textContent =
+            "Account created successfully ✓";
+
+        }
 
 
-        form.reset();
+        /* DISABLE BUTTON */
+
+        const button =
+          document.querySelector(
+            ".register-btn"
+          );
 
 
-        /* GO LOGIN */
+        button.disabled = true;
+
+        button.style.opacity =
+          ".65";
+
+
+        /* =========================
+           GO LOGIN
+        ========================= */
 
         setTimeout(
           function() {
@@ -627,7 +922,7 @@
               "login.html";
 
           },
-          1200
+          1400
         );
 
       }
