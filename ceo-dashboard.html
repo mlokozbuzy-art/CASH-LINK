@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LINKCASH - CEO Login</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:#050505;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.wrapper{
+  width:100%;
+  max-width:430px;
+}
+
+.brand{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.logo{
+  width:70px;
+  height:70px;
+  margin:auto;
+  border-radius:20px;
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
+  color:#090909;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:900;
+}
+
+.brand h1{
+  margin-top:13px;
+  letter-spacing:3px;
+  font-size:28px;
+}
+
+.brand p{
+  margin-top:7px;
+  color:#777;
+  font-size:12px;
+}
+
+.card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:24px;
+  padding:28px 22px;
+}
+
+.badge{
+  width:max-content;
+  margin:0 auto 18px;
+  padding:7px 12px;
+  border-radius:20px;
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
+  color:#e0b83e;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.title{
+  margin-bottom:22px;
+}
+
+.title h2{
+  font-size:23px;
+  margin-bottom:7px;
+}
+
+.title p{
+  color:#858585;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.field{
+  margin-bottom:17px;
+}
+
+.field label{
+  display:block;
+  color:#ccc;
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  height:50px;
+  background:#070707;
+  border:1px solid #292929;
+  border-radius:12px;
+  color:#fff;
+  padding:0 15px;
+  outline:none;
+}
+
+input:focus{
+  border-color:#d4a72c;
+}
+
+.login-btn{
+  width:100%;
+  height:52px;
+  border:0;
+  border-radius:13px;
+  background:linear-gradient(
+    135deg,
+    #ffe082,
+    #d4a72c,
+    #a77b17
+  );
+  color:#080808;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.message{
+  display:none;
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  font-size:12px;
+}
+
+.message.error{
+  display:block;
+  background:rgba(220,60,60,.1);
+  border:1px solid rgba(220,60,60,.3);
+  color:#ff7777;
+}
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:18px;
+  color:#666;
+  text-decoration:none;
+  font-size:12px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:18px;
+  color:#444;
+  font-size:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="brand">
+
+    <div class="logo">
+      LC
+    </div>
+
+    <h1>LINKCASH</h1>
+
+    <p>Simple. Secure. Connected.</p>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="badge">
+      CEO / ADMIN
+    </div>
+
+    <div class="title">
+
+      <h2>CEO Login</h2>
+
+      <p>
+        Sign in to manage LINKCASH accounts and payment verification.
+      </p>
+
+    </div>
+
+
+    <form id="ceoForm">
+
+      <div class="field">
+
+        <label>CEO USERNAME</label>
+
+        <input
+          type="text"
+          id="ceoUsername"
+          placeholder="Enter CEO username"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>CEO PASSWORD</label>
+
+        <input
+          type="password"
+          id="ceoPassword"
+          placeholder="Enter CEO password"
+          required
+        >
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="login-btn"
+      >
+        CEO LOGIN
+      </button>
+
+    </form>
+
+
+    <div
+      id="message"
+      class="message"
+    ></div>
+
+  </div>
+
+
+  <a
+    href="index.html"
+    class="back"
+  >
+    ← Back to Home
+  </a>
+
+
+  <div class="footer">
+    © 2026 LINKCASH
+  </div>
+
+</div>
+
+
+<script>
+
+const form =
+  document.getElementById("ceoForm");
+
+const message =
+  document.getElementById("message");
+
+
+form.addEventListener(
+  "submit",
+  function(e){
+
+    e.preventDefault();
+
+
+    const username =
+      document
+        .getElementById("ceoUsername")
+        .value
+        .trim();
+
+
+    const password =
+      document
+        .getElementById("ceoPassword")
+        .value;
+
+
+    /*
+      DEMO CEO CREDENTIALS
+
+      Username: CEO
+      Password: CEO@12345
+    */
+
+    if(
+      username === "CEO" &&
+      password === "CEO@12345"
+    ){
+
+      localStorage.setItem(
+        "linkcashCEOLoggedIn",
+        "true"
+      );
+
+
+      localStorage.setItem(
+        "linkcashCEO",
+        JSON.stringify({
+          username:"CEO",
+          role:"CEO"
+        })
+      );
+
+
+      window.location.href =
+        "ceo-dashboard.html";
+
+
+    }else{
+
+      message.className =
+        "message error";
+
+      message.textContent =
+        "Invalid CEO username or password.";
+
+      message.style.display =
+        "block";
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
