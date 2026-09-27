@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>LINKCASH - CEO Panel</title>
+<title>LINKCASH - CEO Dashboard</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -17,9 +17,9 @@
 }
 
 body{
+  min-height:100vh;
   background:#050505;
   color:#fff;
-  min-height:100vh;
   padding-bottom:40px;
 }
 
@@ -33,7 +33,7 @@ body{
   padding:0 17px;
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
 }
 
 .brand{
@@ -43,14 +43,15 @@ body{
 }
 
 .logo{
-  width:42px;
-  height:42px;
+  width:41px;
+  height:41px;
   border-radius:12px;
   background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
   color:#050505;
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:14px;
   font-weight:900;
 }
 
@@ -61,20 +62,24 @@ body{
 }
 
 .ceo-badge{
-  color:#d4a72c;
-  border:1px solid rgba(212,167,44,.3);
-  background:rgba(212,167,44,.08);
   padding:8px 12px;
   border-radius:20px;
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
+  color:#d4a72c;
   font-size:9px;
   font-weight:900;
 }
 
 .container{
-  max-width:900px;
   width:100%;
+  max-width:900px;
   margin:auto;
-  padding:24px 16px;
+  padding:24px 16px 40px;
+}
+
+.header{
+  margin-bottom:20px;
 }
 
 .header small{
@@ -84,8 +89,8 @@ body{
 }
 
 .header h1{
-  margin-top:6px;
   font-size:25px;
+  margin-top:6px;
 }
 
 .header h1 span{
@@ -95,27 +100,62 @@ body{
 .header p{
   color:#666;
   font-size:11px;
-  line-height:1.5;
   margin-top:6px;
+  line-height:1.5;
+}
+
+.connection{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:12px;
+  padding:11px 13px;
+  margin-bottom:18px;
+  font-size:10px;
+  color:#777;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#777;
+}
+
+.dot.online{
+  background:#58d88a;
+  box-shadow:0 0 10px rgba(88,216,138,.5);
+}
+
+.dot.error{
+  background:#ff5555;
 }
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:10px;
-  margin:22px 0 18px;
+  margin-bottom:18px;
 }
 
 .stat{
   background:#101010;
   border:1px solid #282828;
   border-radius:17px;
-  padding:15px 11px;
+  padding:16px 11px;
 }
 
 .stat-icon{
-  font-size:18px;
-  margin-bottom:8px;
+  width:35px;
+  height:35px;
+  border-radius:11px;
+  background:#1b1b1b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
 }
 
 .stat-value{
@@ -125,19 +165,19 @@ body{
 
 .stat-name{
   color:#666;
-  font-size:8px;
+  font-size:9px;
   margin-top:4px;
 }
 
 .tabs{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:8px;
   margin-bottom:18px;
 }
 
 .tab{
-  min-height:44px;
+  min-height:42px;
   border-radius:11px;
   border:1px solid #292929;
   background:#101010;
@@ -147,10 +187,10 @@ body{
   cursor:pointer;
 }
 
-.tab.active,
-.tab:hover{
-  color:#d4a72c;
+.tab:hover,
+.tab.active{
   border-color:#d4a72c;
+  color:#d4a72c;
   background:rgba(212,167,44,.07);
 }
 
@@ -164,9 +204,9 @@ body{
 
 .section-title{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin:20px 0 12px;
+  justify-content:space-between;
+  margin:20px 0 11px;
 }
 
 .section-title h2{
@@ -178,16 +218,39 @@ body{
   font-size:9px;
 }
 
+.action-bar{
+  display:flex;
+  gap:9px;
+  margin-bottom:17px;
+}
+
+.action-btn{
+  flex:1;
+  height:43px;
+  border-radius:10px;
+  border:1px solid #292929;
+  background:#101010;
+  color:#aaa;
+  font-size:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.action-btn:hover{
+  border-color:#d4a72c;
+  color:#d4a72c;
+}
+
 .search{
   width:100%;
-  height:44px;
+  border-radius:11px;
   border:1px solid #292929;
   background:#090909;
-  border-radius:11px;
   color:#fff;
-  padding:0 13px;
+  padding:13px;
   outline:none;
-  margin-bottom:13px;
+  font-size:11px;
+  margin-bottom:12px;
 }
 
 .search:focus{
@@ -202,31 +265,24 @@ body{
   margin-bottom:11px;
 }
 
-.user-card.pending{
-  border-color:rgba(212,167,44,.3);
-}
-
-.user-card.active{
-  border-color:rgba(88,216,138,.25);
-}
-
 .user-top{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   gap:10px;
-  margin-bottom:14px;
 }
 
 .user-info{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:11px;
+  min-width:0;
 }
 
 .avatar{
   width:44px;
   height:44px;
+  min-width:44px;
   border-radius:13px;
   background:#1d1d1d;
   color:#d4a72c;
@@ -236,12 +292,12 @@ body{
   font-weight:900;
 }
 
-.name{
+.user-name{
   font-size:13px;
-  font-weight:900;
+  font-weight:bold;
 }
 
-.username{
+.user-username{
   color:#666;
   font-size:9px;
   margin-top:4px;
@@ -254,14 +310,14 @@ body{
   font-weight:900;
 }
 
-.status.pending{
-  color:#d4a72c;
-  background:rgba(212,167,44,.08);
-}
-
 .status.active{
   color:#58d88a;
   background:rgba(88,216,138,.08);
+}
+
+.status.pending{
+  color:#d4a72c;
+  background:rgba(212,167,44,.08);
 }
 
 .status.rejected{
@@ -273,26 +329,31 @@ body{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:8px;
+  margin-top:14px;
 }
 
 .detail{
   background:#090909;
   border:1px solid #202020;
   border-radius:11px;
-  padding:10px;
+  padding:11px;
 }
 
-.label{
+.detail-label{
   color:#555;
   font-size:8px;
   margin-bottom:5px;
 }
 
-.value{
+.detail-value{
   color:#ddd;
-  font-size:10px;
+  font-size:11px;
   font-weight:bold;
   word-break:break-word;
+}
+
+.gold{
+  color:#d4a72c;
 }
 
 .actions{
@@ -301,48 +362,37 @@ body{
   margin-top:13px;
 }
 
-.btn{
+.activate-btn,
+.reject-btn,
+.delete-btn{
   flex:1;
   height:40px;
   border-radius:10px;
-  font-size:9px;
+  font-size:10px;
   font-weight:900;
   cursor:pointer;
 }
 
-.activate{
-  color:#58d88a;
+.activate-btn{
   border:1px solid rgba(88,216,138,.3);
   background:rgba(88,216,138,.08);
+  color:#58d88a;
 }
 
-.reject{
-  color:#ff7777;
+.reject-btn{
   border:1px solid rgba(255,80,80,.25);
   background:rgba(255,80,80,.07);
+  color:#ff7777;
 }
 
-.delete{
-  color:#aaa;
+.delete-btn{
   border:1px solid #292929;
   background:#101010;
-}
-
-.refresh{
-  width:100%;
-  height:43px;
-  border-radius:11px;
-  border:1px solid #292929;
-  background:#101010;
-  color:#d4a72c;
-  font-weight:900;
-  font-size:10px;
-  cursor:pointer;
-  margin-bottom:15px;
+  color:#777;
 }
 
 .empty{
-  padding:40px 20px;
+  padding:38px 20px;
   text-align:center;
   background:#101010;
   border:1px solid #292929;
@@ -359,38 +409,93 @@ body{
 }
 
 .empty p{
+  margin-top:6px;
   color:#666;
   font-size:10px;
-  margin-top:6px;
 }
 
-.panel-box{
+.content-form{
   background:#101010;
   border:1px solid #292929;
   border-radius:18px;
-  padding:18px;
+  padding:16px;
 }
 
-.info-row{
-  display:flex;
-  justify-content:space-between;
-  padding:13px 0;
-  border-bottom:1px solid #202020;
+.input,
+.select,
+.textarea{
+  width:100%;
+  border-radius:11px;
+  border:1px solid #292929;
+  background:#090909;
+  color:#fff;
+  padding:12px 13px;
+  outline:none;
+  font-size:11px;
+  margin-bottom:10px;
 }
 
-.info-row:last-child{
-  border-bottom:0;
+.textarea{
+  min-height:100px;
 }
 
-.info-label{
-  color:#666;
-  font-size:10px;
-}
-
-.info-value{
+.save-btn{
+  width:100%;
+  height:43px;
+  border:1px solid rgba(212,167,44,.35);
+  background:rgba(212,167,44,.1);
   color:#d4a72c;
+  border-radius:11px;
   font-size:10px;
   font-weight:900;
+  cursor:pointer;
+}
+
+.content-list{
+  margin-top:14px;
+  display:grid;
+  gap:10px;
+}
+
+.content-card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:14px;
+}
+
+.content-title{
+  font-size:12px;
+  font-weight:900;
+}
+
+.content-url{
+  color:#777;
+  font-size:9px;
+  margin-top:7px;
+  word-break:break-all;
+}
+
+.content-actions{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
+}
+
+.small-btn{
+  flex:1;
+  height:35px;
+  border-radius:9px;
+  border:1px solid #292929;
+  background:#090909;
+  color:#aaa;
+  font-size:9px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.small-btn.delete{
+  color:#ff7777;
 }
 
 .logout{
@@ -408,29 +513,22 @@ body{
 
 .footer{
   text-align:center;
+  margin-top:22px;
   color:#444;
   font-size:9px;
-  margin-top:22px;
 }
 
-.loading{
-  text-align:center;
-  padding:25px;
-  color:#777;
-  font-size:11px;
-}
-
-@media(max-width:600px){
+@media(max-width:650px){
   .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tabs{
     grid-template-columns:repeat(3,1fr);
   }
-
-  .stat-value{
-    font-size:18px;
-  }
 }
 
-@media(max-width:380px){
+@media(max-width:400px){
   .tabs{
     grid-template-columns:repeat(2,1fr);
   }
@@ -468,13 +566,19 @@ body{
   </h1>
 
   <p>
-    Manage LINKCASH users and account activation.
+    Manage LINKCASH users and platform content
+    from one dashboard.
   </p>
 
 </section>
 
+<div class="connection">
+  <div class="dot" id="connectionDot"></div>
+  <span id="connectionText">
+    CONNECTING TO SUPABASE...
+  </span>
+</div>
 
-<!-- STATS -->
 
 <section class="stats">
 
@@ -486,7 +590,7 @@ body{
 
   <div class="stat">
     <div class="stat-icon">⏳</div>
-    <div class="stat-value" id="pendingUsers">0</div>
+    <div class="stat-value" id="pendingCount">0</div>
     <div class="stat-name">PENDING</div>
   </div>
 
@@ -496,47 +600,45 @@ body{
     <div class="stat-name">ACTIVE</div>
   </div>
 
+  <div class="stat">
+    <div class="stat-icon">💰</div>
+    <div class="stat-value" id="totalBalance">0</div>
+    <div class="stat-name">BALANCE</div>
+  </div>
+
 </section>
 
 
-<!-- TABS -->
-
 <div class="tabs">
 
-  <button
-    class="tab active"
-    onclick="openPanel('users',this)">
+  <button class="tab active"
+          onclick="openPanel('users',this)">
     👥 USERS
   </button>
 
-  <button
-    class="tab"
-    onclick="openPanel('pending',this)">
+  <button class="tab"
+          onclick="openPanel('pending',this)">
     ⏳ PENDING
   </button>
 
-  <button
-    class="tab"
-    onclick="openPanel('active',this)">
-    ✓ ACTIVE
+  <button class="tab"
+          onclick="openPanel('social',this)">
+    📱 SOCIAL
   </button>
 
-  <button
-    class="tab"
-    onclick="openPanel('payments',this)">
-    💳 PAYMENTS
+  <button class="tab"
+          onclick="openPanel('ads',this)">
+    📢 ADS
   </button>
 
-  <button
-    class="tab"
-    onclick="openPanel('settings',this)">
-    ⚙️ SETTINGS
+  <button class="tab"
+          onclick="openPanel('quiz',this)">
+    🧠 QUIZ
   </button>
 
-  <button
-    class="tab"
-    onclick="loadAll()">
-    ↻ REFRESH
+  <button class="tab"
+          onclick="openPanel('games',this)">
+    🎮 GAMES
   </button>
 
 </div>
@@ -545,6 +647,25 @@ body{
 <!-- USERS -->
 
 <section id="users" class="panel active">
+
+  <div class="action-bar">
+
+    <button class="action-btn"
+            onclick="loadUsers()">
+      ↻ REFRESH
+    </button>
+
+    <button class="action-btn"
+            onclick="filterUsers('all')">
+      ALL
+    </button>
+
+    <button class="action-btn"
+            onclick="filterUsers('active')">
+      ACTIVE
+    </button>
+
+  </div>
 
   <div class="section-title">
 
@@ -555,7 +676,7 @@ body{
   </div>
 
   <input
-    id="search"
+    id="userSearch"
     class="search"
     placeholder="Search username, name or phone..."
     oninput="renderUsers()">
@@ -573,7 +694,7 @@ body{
 
     <h2>Pending Users</h2>
 
-    <span>ACTIVATE USERS</span>
+    <span>WAITING</span>
 
   </div>
 
@@ -582,96 +703,175 @@ body{
 </section>
 
 
-<!-- ACTIVE -->
+<!-- SOCIAL -->
 
-<section id="active" class="panel">
+<section id="social" class="panel">
 
   <div class="section-title">
+    <h2>Social Content</h2>
+    <span>CEO CONTROL</span>
+  </div>
 
-    <h2>Active Users</h2>
+  <div class="content-form">
 
-    <span>ACTIVATED</span>
+    <input
+      id="socialTitle"
+      class="input"
+      placeholder="Post / video title">
+
+    <input
+      id="socialURL"
+      class="input"
+      placeholder="Paste URL">
+
+    <button
+      class="save-btn"
+      onclick="addSocial()">
+      + ADD SOCIAL CONTENT
+    </button>
 
   </div>
 
-  <div id="activeList"></div>
-
-</section>
-
-
-<!-- PAYMENTS -->
-
-<section id="payments" class="panel">
-
-  <div class="section-title">
-
-    <h2>Payments</h2>
-
-    <span>USER PAYMENTS</span>
-
-  </div>
-
-  <div class="panel-box">
-
-    <div class="info-row">
-      <span class="info-label">Total Users</span>
-      <span class="info-value" id="paymentUsers">0</span>
-    </div>
-
-    <div class="info-row">
-      <span class="info-label">Pending Accounts</span>
-      <span class="info-value" id="paymentPending">0</span>
-    </div>
-
-    <div class="info-row">
-      <span class="info-label">Active Accounts</span>
-      <span class="info-value" id="paymentActive">0</span>
-    </div>
-
-    <div class="info-row">
-      <span class="info-label">Database</span>
-      <span class="info-value">SUPABASE</span>
-    </div>
-
+  <div id="socialList"
+       class="content-list">
   </div>
 
 </section>
 
 
-<!-- SETTINGS -->
+<!-- ADS -->
 
-<section id="settings" class="panel">
+<section id="ads" class="panel">
 
   <div class="section-title">
+    <h2>Advertisements</h2>
+    <span>CEO ADS</span>
+  </div>
 
-    <h2>CEO Settings</h2>
+  <div class="content-form">
 
-    <span>LINKCASH</span>
+    <input
+      id="adTitle"
+      class="input"
+      placeholder="Ad title">
+
+    <textarea
+      id="adText"
+      class="textarea"
+      placeholder="Advertisement description"></textarea>
+
+    <input
+      id="adURL"
+      class="input"
+      placeholder="Ad link">
+
+    <button
+      class="save-btn"
+      onclick="addAd()">
+      + ADD AD
+    </button>
 
   </div>
 
-  <div class="panel-box">
+  <div id="adsList"
+       class="content-list">
+  </div>
 
-    <div class="info-row">
-      <span class="info-label">System</span>
-      <span class="info-value">LINKCASH</span>
-    </div>
+</section>
 
-    <div class="info-row">
-      <span class="info-label">Database</span>
-      <span class="info-value">SUPABASE</span>
-    </div>
 
-    <div class="info-row">
-      <span class="info-label">Users Table</span>
-      <span class="info-value">public.users</span>
-    </div>
+<!-- QUIZ -->
 
-    <div class="info-row">
-      <span class="info-label">CEO Access</span>
-      <span class="info-value">ACTIVE</span>
-    </div>
+<section id="quiz" class="panel">
 
+  <div class="section-title">
+    <h2>Quiz Manager</h2>
+    <span>QUESTIONS</span>
+  </div>
+
+  <div class="content-form">
+
+    <input
+      id="quizQuestion"
+      class="input"
+      placeholder="Question">
+
+    <input
+      id="quizA"
+      class="input"
+      placeholder="Option A">
+
+    <input
+      id="quizB"
+      class="input"
+      placeholder="Option B">
+
+    <input
+      id="quizC"
+      class="input"
+      placeholder="Option C">
+
+    <input
+      id="quizD"
+      class="input"
+      placeholder="Option D">
+
+    <select id="quizAnswer"
+            class="select">
+
+      <option value="A">Correct answer: A</option>
+      <option value="B">Correct answer: B</option>
+      <option value="C">Correct answer: C</option>
+      <option value="D">Correct answer: D</option>
+
+    </select>
+
+    <button
+      class="save-btn"
+      onclick="addQuiz()">
+      + ADD QUIZ QUESTION
+    </button>
+
+  </div>
+
+  <div id="quizList"
+       class="content-list">
+  </div>
+
+</section>
+
+
+<!-- GAMES -->
+
+<section id="games" class="panel">
+
+  <div class="section-title">
+    <h2>Games</h2>
+    <span>CEO CONTROL</span>
+  </div>
+
+  <div class="content-form">
+
+    <input
+      id="gameTitle"
+      class="input"
+      placeholder="Game title">
+
+    <input
+      id="gameURL"
+      class="input"
+      placeholder="Game / tournament link">
+
+    <button
+      class="save-btn"
+      onclick="addGame()">
+      + ADD GAME
+    </button>
+
+  </div>
+
+  <div id="gamesList"
+       class="content-list">
   </div>
 
 </section>
@@ -692,53 +892,231 @@ body{
 
 <script>
 
-/* ==========================================
-   SUPABASE
-========================================== */
+/* =========================================
+   SUPABASE CONNECTION
+========================================= */
 
 const SUPABASE_URL =
-"https://plmasvzxgcwnxgbeaurc.supabase.co";
+  "https://plmasvzxgcwnxgbeaurc.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_QUoRhZ-o_TqxKEveIXERDQ_IRIvWQWG";
+  "sb_publishable_QUoRhZ-o_TqxKEveIXERDQ_IRIvWQWG";
 
 const supabaseClient =
-supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 
-/* ==========================================
-   DATA
-========================================== */
+/* =========================================
+   CONNECTION TEST
+========================================= */
 
-let allUsers = [];
+async function testConnection(){
 
+  const dot =
+    document.getElementById("connectionDot");
 
-/* ==========================================
-   ESCAPE
-========================================== */
+  const text =
+    document.getElementById("connectionText");
 
-function escapeHTML(value){
+  try{
 
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    const { error } =
+      await supabaseClient
+      .from("users")
+      .select("id")
+      .limit(1);
+
+    if(error){
+
+      console.error(error);
+
+      dot.className =
+        "dot error";
+
+      text.textContent =
+        "SUPABASE ERROR: " +
+        error.message;
+
+      return false;
+    }
+
+    dot.className =
+      "dot online";
+
+    text.textContent =
+      "SUPABASE CONNECTED";
+
+    return true;
+
+  }catch(error){
+
+    console.error(error);
+
+    dot.className =
+      "dot error";
+
+    text.textContent =
+      "SUPABASE CONNECTION FAILED";
+
+    return false;
+  }
 
 }
 
 
-/* ==========================================
+/* =========================================
+   GET USERS FROM SUPABASE
+========================================= */
+
+let allUsers = [];
+
+let currentFilter = "all";
+
+
+async function getUsers(){
+
+  const { data, error } =
+    await supabaseClient
+    .from("users")
+    .select(
+      "id,username,fullname,phone,status,balance,created_at"
+    )
+    .order(
+      "created_at",
+      {
+        ascending:false
+      }
+    );
+
+  if(error){
+
+    console.error(
+      "SUPABASE USERS ERROR:",
+      error
+    );
+
+    throw error;
+  }
+
+  return data || [];
+
+}
+
+
+/* =========================================
+   LOAD USERS
+========================================= */
+
+async function loadUsers(){
+
+  const container =
+    document.getElementById(
+      "usersList"
+    );
+
+  container.innerHTML = `
+    <div class="empty">
+      <div class="empty-icon">⏳</div>
+      <h3>Loading Users...</h3>
+      <p>Connecting to Supabase.</p>
+    </div>
+  `;
+
+  try{
+
+    allUsers =
+      await getUsers();
+
+    updateStats();
+
+    renderUsers();
+
+    renderPending();
+
+  }catch(error){
+
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">⚠️</div>
+        <h3>Supabase Error</h3>
+        <p>${escapeHTML(
+          error.message ||
+          "Could not load users."
+        )}</p>
+      </div>
+    `;
+
+  }
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+function updateStats(){
+
+  const total =
+    allUsers.length;
+
+  const pending =
+    allUsers.filter(user =>
+      String(
+        user.status || "pending"
+      ).toLowerCase()
+      === "pending"
+    ).length;
+
+  const active =
+    allUsers.filter(user =>
+      String(
+        user.status || ""
+      ).toLowerCase()
+      === "active"
+    ).length;
+
+  const balance =
+    allUsers.reduce(
+      (sum,user) =>
+        sum + Number(
+          user.balance || 0
+        ),
+      0
+    );
+
+  document.getElementById(
+    "totalUsers"
+  ).textContent = total;
+
+  document.getElementById(
+    "pendingCount"
+  ).textContent = pending;
+
+  document.getElementById(
+    "activeUsers"
+  ).textContent = active;
+
+  document.getElementById(
+    "totalBalance"
+  ).textContent =
+    balance.toLocaleString();
+
+}
+
+
+/* =========================================
    INITIALS
-========================================== */
+========================================= */
 
-function initials(name){
+function getInitials(name){
 
-  if(!name) return "U";
+  if(!name){
+    return "U";
+  }
 
   const parts =
     String(name)
@@ -761,296 +1139,25 @@ function initials(name){
 }
 
 
-/* ==========================================
-   LOAD USERS FROM SUPABASE
-========================================== */
+/* =========================================
+   ESCAPE HTML
+========================================= */
 
-async function loadUsers(){
+function escapeHTML(value){
 
-  showLoading();
-
-  const {
-    data,
-    error
-  } = await supabaseClient
-    .from("users")
-    .select("*")
-    .order("created_at",{ascending:false});
-
-  if(error){
-
-    console.error(error);
-
-    document.getElementById("usersList").innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Supabase Error</h3>
-        <p>${escapeHTML(error.message)}</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-  allUsers = data || [];
-
-  updateStats();
-
-  renderUsers();
-
-  renderPending();
-
-  renderActive();
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
 
-/* ==========================================
-   LOADING
-========================================== */
-
-function showLoading(){
-
-  document.getElementById("usersList").innerHTML =
-    `<div class="loading">Loading users...</div>`;
-
-  document.getElementById("pendingList").innerHTML =
-    `<div class="loading">Loading...</div>`;
-
-  document.getElementById("activeList").innerHTML =
-    `<div class="loading">Loading...</div>`;
-
-}
-
-
-/* ==========================================
-   STATS
-========================================== */
-
-function updateStats(){
-
-  const total =
-    allUsers.length;
-
-  const pending =
-    allUsers.filter(user =>
-      String(user.status || "")
-      .toLowerCase() === "pending"
-    ).length;
-
-  const active =
-    allUsers.filter(user =>
-      String(user.status || "")
-      .toLowerCase() === "active"
-    ).length;
-
-  document.getElementById(
-    "totalUsers"
-  ).textContent = total;
-
-  document.getElementById(
-    "pendingUsers"
-  ).textContent = pending;
-
-  document.getElementById(
-    "activeUsers"
-  ).textContent = active;
-
-  document.getElementById(
-    "paymentUsers"
-  ).textContent = total;
-
-  document.getElementById(
-    "paymentPending"
-  ).textContent = pending;
-
-  document.getElementById(
-    "paymentActive"
-  ).textContent = active;
-
-}
-
-
-/* ==========================================
-   USER CARD
-========================================== */
-
-function userCard(user){
-
-  const status =
-    String(
-      user.status || "pending"
-    ).toLowerCase();
-
-  const name =
-    user.fullname ||
-    "Unnamed User";
-
-  const username =
-    user.username ||
-    "-";
-
-  const phone =
-    user.phone ||
-    "-";
-
-  const balance =
-    Number(
-      user.balance || 0
-    ).toLocaleString();
-
-  const created =
-    user.created_at
-      ? new Date(
-          user.created_at
-        ).toLocaleString()
-      : "-";
-
-
-  let buttons = "";
-
-  if(status === "pending"){
-
-    buttons = `
-
-      <div class="actions">
-
-        <button
-          class="btn activate"
-          onclick="activateUser(${user.id})">
-          ✓ ACTIVATE
-        </button>
-
-        <button
-          class="btn reject"
-          onclick="rejectUser(${user.id})">
-          ✕ REJECT
-        </button>
-
-      </div>
-
-    `;
-
-  }else{
-
-    buttons = `
-
-      <div class="actions">
-
-        <button
-          class="btn delete"
-          onclick="deleteUser(${user.id})">
-          DELETE USER
-        </button>
-
-      </div>
-
-    `;
-
-  }
-
-
-  return `
-
-    <div class="user-card ${status}">
-
-      <div class="user-top">
-
-        <div class="user-info">
-
-          <div class="avatar">
-            ${initials(name)}
-          </div>
-
-          <div>
-
-            <div class="name">
-              ${escapeHTML(name)}
-            </div>
-
-            <div class="username">
-              @${escapeHTML(username)}
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="status ${status}">
-          ${status.toUpperCase()}
-        </div>
-
-      </div>
-
-
-      <div class="details">
-
-        <div class="detail">
-
-          <div class="label">
-            PHONE
-          </div>
-
-          <div class="value">
-            ${escapeHTML(phone)}
-          </div>
-
-        </div>
-
-
-        <div class="detail">
-
-          <div class="label">
-            BALANCE
-          </div>
-
-          <div class="value">
-            TZS ${balance}
-          </div>
-
-        </div>
-
-
-        <div class="detail">
-
-          <div class="label">
-            STATUS
-          </div>
-
-          <div class="value">
-            ${escapeHTML(status)}
-          </div>
-
-        </div>
-
-
-        <div class="detail">
-
-          <div class="label">
-            REGISTERED
-          </div>
-
-          <div class="value">
-            ${escapeHTML(created)}
-          </div>
-
-        </div>
-
-      </div>
-
-      ${buttons}
-
-    </div>
-
-  `;
-
-}
-
-
-/* ==========================================
+/* =========================================
    RENDER USERS
-========================================== */
+========================================= */
 
 function renderUsers(){
 
@@ -1060,24 +1167,40 @@ function renderUsers(){
     );
 
   const search =
-    document.getElementById(
-      "search"
-    ).value
+    String(
+      document.getElementById(
+        "userSearch"
+      ).value || ""
+    )
     .trim()
     .toLowerCase();
 
+  let users =
+    [...allUsers];
 
-  const users =
-    allUsers.filter(user => {
+  if(currentFilter === "active"){
 
-      const name =
+    users =
+      users.filter(user =>
         String(
-          user.fullname || ""
-        ).toLowerCase();
+          user.status || ""
+        ).toLowerCase()
+        === "active"
+      );
+
+  }
+
+  users =
+    users.filter(user => {
 
       const username =
         String(
           user.username || ""
+        ).toLowerCase();
+
+      const fullname =
+        String(
+          user.fullname || ""
         ).toLowerCase();
 
       const phone =
@@ -1087,196 +1210,251 @@ function renderUsers(){
 
       return (
         !search ||
-        name.includes(search) ||
         username.includes(search) ||
+        fullname.includes(search) ||
         phone.includes(search)
       );
 
     });
 
+  container.innerHTML = "";
 
   if(users.length === 0){
 
     container.innerHTML = `
-
       <div class="empty">
-
-        <div class="empty-icon">
-          👥
-        </div>
-
-        <h3>
-          No Registered Users
-        </h3>
-
-        <p>
-          Registered users will appear here.
-        </p>
-
+        <div class="empty-icon">👥</div>
+        <h3>No registered users found</h3>
+        <p>Users registered in LINKCASH will appear here.</p>
       </div>
-
     `;
 
     return;
-
   }
 
+  users.forEach(user => {
 
-  container.innerHTML =
-    users.map(user =>
-      userCard(user)
-    ).join("");
+    container.appendChild(
+      createUserCard(user)
+    );
+
+  });
 
 }
 
 
-/* ==========================================
-   PENDING
-========================================== */
+/* =========================================
+   USER CARD
+========================================= */
 
-function renderPending(){
+function createUserCard(user){
 
-  const container =
-    document.getElementById(
-      "pendingList"
-    );
+  const card =
+    document.createElement("div");
 
-  const users =
-    allUsers.filter(user =>
-      String(user.status || "")
-      .toLowerCase() === "pending"
-    );
+  card.className =
+    "user-card";
 
+  const status =
+    String(
+      user.status || "pending"
+    ).toLowerCase();
 
-  if(users.length === 0){
+  const name =
+    user.fullname ||
+    user.username ||
+    "Unknown User";
 
-    container.innerHTML = `
+  const username =
+    user.username || "-";
 
-      <div class="empty">
+  const phone =
+    user.phone || "-";
 
-        <div class="empty-icon">
-          ✓
-        </div>
+  const balance =
+    Number(
+      user.balance || 0
+    ).toLocaleString();
 
-        <h3>
-          No Pending Users
-        </h3>
+  let created = "-";
 
-        <p>
-          New users waiting for activation
-          will appear here.
-        </p>
+  if(user.created_at){
 
-      </div>
+    try{
 
-    `;
+      created =
+        new Date(
+          user.created_at
+        ).toLocaleString();
 
-    return;
+    }catch{}
 
   }
 
+  card.innerHTML = `
 
-  container.innerHTML =
-    users.map(user =>
-      userCard(user)
-    ).join("");
+    <div class="user-top">
+
+      <div class="user-info">
+
+        <div class="avatar">
+          ${getInitials(name)}
+        </div>
+
+        <div>
+
+          <div class="user-name">
+            ${escapeHTML(name)}
+          </div>
+
+          <div class="user-username">
+            @${escapeHTML(username)}
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="status ${escapeHTML(status)}">
+        ${escapeHTML(status.toUpperCase())}
+      </div>
+
+    </div>
+
+
+    <div class="details">
+
+      <div class="detail">
+
+        <div class="detail-label">
+          PHONE
+        </div>
+
+        <div class="detail-value">
+          ${escapeHTML(phone)}
+        </div>
+
+      </div>
+
+
+      <div class="detail">
+
+        <div class="detail-label">
+          BALANCE
+        </div>
+
+        <div class="detail-value gold">
+          TZS ${balance}
+        </div>
+
+      </div>
+
+
+      <div class="detail">
+
+        <div class="detail-label">
+          USERNAME
+        </div>
+
+        <div class="detail-value">
+          ${escapeHTML(username)}
+        </div>
+
+      </div>
+
+
+      <div class="detail">
+
+        <div class="detail-label">
+          REGISTERED
+        </div>
+
+        <div class="detail-value">
+          ${escapeHTML(created)}
+        </div>
+
+      </div>
+
+    </div>
+
+
+    ${
+      status === "pending"
+      ? `
+
+      <div class="actions">
+
+        <button
+          class="activate-btn"
+          onclick="activateUser(${Number(user.id)})">
+          ✓ ACTIVATE
+        </button>
+
+        <button
+          class="reject-btn"
+          onclick="rejectUser(${Number(user.id)})">
+          ✕ REJECT
+        </button>
+
+      </div>
+
+      `
+      :
+      status === "active"
+      ? `
+
+      <div class="actions">
+
+        <button
+          class="reject-btn"
+          onclick="rejectUser(${Number(user.id)})">
+          ✕ DEACTIVATE
+        </button>
+
+      </div>
+
+      `
+      : `
+
+      <div class="actions">
+
+        <button
+          class="activate-btn"
+          onclick="activateUser(${Number(user.id)})">
+          ✓ ACTIVATE
+        </button>
+
+      </div>
+
+      `
+    }
+
+  `;
+
+  return card;
 
 }
 
 
-/* ==========================================
-   ACTIVE
-========================================== */
-
-function renderActive(){
-
-  const container =
-    document.getElementById(
-      "activeList"
-    );
-
-  const users =
-    allUsers.filter(user =>
-      String(user.status || "")
-      .toLowerCase() === "active"
-    );
-
-
-  if(users.length === 0){
-
-    container.innerHTML = `
-
-      <div class="empty">
-
-        <div class="empty-icon">
-          👥
-        </div>
-
-        <h3>
-          No Active Users
-        </h3>
-
-        <p>
-          Activated users will appear here.
-        </p>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    users.map(user =>
-      userCard(user)
-    ).join("");
-
-}
-
-
-/* ==========================================
+/* =========================================
    ACTIVATE USER
-========================================== */
+========================================= */
 
 async function activateUser(id){
 
-  const user =
-    allUsers.find(
-      item =>
-        String(item.id) ===
-        String(id)
-    );
-
-  if(!user){
-    alert("User not found.");
+  if(!confirm(
+    "Activate this user?"
+  )){
     return;
   }
 
-
-  const ok =
-    confirm(
-      "Activate " +
-      (user.fullname ||
-      user.username ||
-      "this user") +
-      "?"
-    );
-
-  if(!ok) return;
-
-
-  const {
-    error
-  } = await supabaseClient
+  const { error } =
+    await supabaseClient
     .from("users")
     .update({
       status:"active"
     })
     .eq("id",id);
-
 
   if(error){
 
@@ -1288,9 +1466,7 @@ async function activateUser(id){
     console.error(error);
 
     return;
-
   }
-
 
   alert(
     "User activated successfully."
@@ -1301,44 +1477,40 @@ async function activateUser(id){
 }
 
 
-/* ==========================================
-   REJECT USER
-========================================== */
+/* =========================================
+   REJECT / DEACTIVATE
+========================================= */
 
 async function rejectUser(id){
 
-  const ok =
-    confirm(
-      "Reject this user?"
-    );
+  if(!confirm(
+    "Set this user as rejected?"
+  )){
+    return;
+  }
 
-  if(!ok) return;
-
-
-  const {
-    error
-  } = await supabaseClient
+  const { error } =
+    await supabaseClient
     .from("users")
     .update({
       status:"rejected"
     })
     .eq("id",id);
 
-
   if(error){
 
     alert(
-      "Reject failed:\n" +
+      "Update failed:\n" +
       error.message
     );
 
-    return;
+    console.error(error);
 
+    return;
   }
 
-
   alert(
-    "User rejected."
+    "User status updated."
   );
 
   await loadUsers();
@@ -1346,52 +1518,727 @@ async function rejectUser(id){
 }
 
 
-/* ==========================================
-   DELETE USER
-========================================== */
+/* =========================================
+   FILTER
+========================================= */
 
-async function deleteUser(id){
+function filterUsers(type){
 
-  const ok =
-    confirm(
-      "Delete this user permanently?"
-    );
+  currentFilter =
+    type;
 
-  if(!ok) return;
-
-
-  const {
-    error
-  } = await supabaseClient
-    .from("users")
-    .delete()
-    .eq("id",id);
-
-
-  if(error){
-
-    alert(
-      "Delete failed:\n" +
-      error.message
-    );
-
-    return;
-
-  }
-
-
-  alert(
-    "User deleted."
+  openPanel(
+    "users",
+    document.querySelector(
+      ".tab"
+    )
   );
 
-  await loadUsers();
+  renderUsers();
 
 }
 
 
-/* ==========================================
-   TABS
-========================================== */
+/* =========================================
+   PENDING USERS
+========================================= */
+
+function renderPending(){
+
+  const container =
+    document.getElementById(
+      "pendingList"
+    );
+
+  const pending =
+    allUsers.filter(user =>
+      String(
+        user.status || "pending"
+      ).toLowerCase()
+      === "pending"
+    );
+
+  container.innerHTML = "";
+
+  if(pending.length === 0){
+
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">✓</div>
+        <h3>No Pending Users</h3>
+        <p>All registered users have been processed.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  pending.forEach(user => {
+
+    container.appendChild(
+      createUserCard(user)
+    );
+
+  });
+
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+function getSocial(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "linkcashSocial"
+      ) || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function saveSocial(data){
+
+  localStorage.setItem(
+    "linkcashSocial",
+    JSON.stringify(data)
+  );
+
+}
+
+
+function addSocial(){
+
+  const title =
+    document.getElementById(
+      "socialTitle"
+    ).value.trim();
+
+  const url =
+    document.getElementById(
+      "socialURL"
+    ).value.trim();
+
+  if(!title || !url){
+
+    alert(
+      "Enter title and URL."
+    );
+
+    return;
+  }
+
+  const data =
+    getSocial();
+
+  data.push({
+    id:Date.now(),
+    title,
+    url
+  });
+
+  saveSocial(data);
+
+  document.getElementById(
+    "socialTitle"
+  ).value = "";
+
+  document.getElementById(
+    "socialURL"
+  ).value = "";
+
+  renderSocial();
+
+}
+
+
+function renderSocial(){
+
+  const container =
+    document.getElementById(
+      "socialList"
+    );
+
+  const data =
+    getSocial();
+
+  container.innerHTML = "";
+
+  [...data].reverse().forEach(item => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "content-card";
+
+    card.innerHTML = `
+
+      <div class="content-title">
+        ${escapeHTML(item.title)}
+      </div>
+
+      <div class="content-url">
+        ${escapeHTML(item.url)}
+      </div>
+
+      <div class="content-actions">
+
+        <button
+          class="small-btn"
+          onclick="window.open('${escapeHTML(item.url)}','_blank')">
+          OPEN
+        </button>
+
+        <button
+          class="small-btn delete"
+          onclick="deleteSocial(${item.id})">
+          DELETE
+        </button>
+
+      </div>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+function deleteSocial(id){
+
+  const data =
+    getSocial()
+    .filter(item =>
+      item.id !== id
+    );
+
+  saveSocial(data);
+
+  renderSocial();
+
+}
+
+
+/* =========================================
+   ADS
+========================================= */
+
+function getAds(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "linkcashAds"
+      ) || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function saveAds(data){
+
+  localStorage.setItem(
+    "linkcashAds",
+    JSON.stringify(data)
+  );
+
+}
+
+
+function addAd(){
+
+  const title =
+    document.getElementById(
+      "adTitle"
+    ).value.trim();
+
+  const text =
+    document.getElementById(
+      "adText"
+    ).value.trim();
+
+  const url =
+    document.getElementById(
+      "adURL"
+    ).value.trim();
+
+  if(!title){
+
+    alert(
+      "Enter ad title."
+    );
+
+    return;
+  }
+
+  const ads =
+    getAds();
+
+  ads.push({
+    id:Date.now(),
+    title,
+    text,
+    url
+  });
+
+  saveAds(ads);
+
+  document.getElementById(
+    "adTitle"
+  ).value = "";
+
+  document.getElementById(
+    "adText"
+  ).value = "";
+
+  document.getElementById(
+    "adURL"
+  ).value = "";
+
+  renderAds();
+
+}
+
+
+function renderAds(){
+
+  const container =
+    document.getElementById(
+      "adsList"
+    );
+
+  container.innerHTML = "";
+
+  [...getAds()].reverse()
+  .forEach(ad => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "content-card";
+
+    card.innerHTML = `
+
+      <div class="content-title">
+        ${escapeHTML(ad.title)}
+      </div>
+
+      <div class="content-url">
+        ${escapeHTML(ad.text)}
+      </div>
+
+      <div class="content-actions">
+
+        ${
+          ad.url
+          ? `
+          <button
+            class="small-btn"
+            onclick="window.open('${escapeHTML(ad.url)}','_blank')">
+            OPEN
+          </button>
+          `
+          : ""
+        }
+
+        <button
+          class="small-btn delete"
+          onclick="deleteAd(${ad.id})">
+          DELETE
+        </button>
+
+      </div>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+function deleteAd(id){
+
+  const data =
+    getAds()
+    .filter(ad =>
+      ad.id !== id
+    );
+
+  saveAds(data);
+
+  renderAds();
+
+}
+
+
+/* =========================================
+   QUIZ
+========================================= */
+
+function getQuiz(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "linkcashQuiz"
+      ) || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function saveQuiz(data){
+
+  localStorage.setItem(
+    "linkcashQuiz",
+    JSON.stringify(data)
+  );
+
+}
+
+
+function addQuiz(){
+
+  const question =
+    document.getElementById(
+      "quizQuestion"
+    ).value.trim();
+
+  const A =
+    document.getElementById(
+      "quizA"
+    ).value.trim();
+
+  const B =
+    document.getElementById(
+      "quizB"
+    ).value.trim();
+
+  const C =
+    document.getElementById(
+      "quizC"
+    ).value.trim();
+
+  const D =
+    document.getElementById(
+      "quizD"
+    ).value.trim();
+
+  const answer =
+    document.getElementById(
+      "quizAnswer"
+    ).value;
+
+  if(
+    !question ||
+    !A ||
+    !B ||
+    !C ||
+    !D
+  ){
+
+    alert(
+      "Fill all quiz fields."
+    );
+
+    return;
+  }
+
+  const quiz =
+    getQuiz();
+
+  quiz.push({
+    id:Date.now(),
+    question,
+    options:{
+      A,B,C,D
+    },
+    answer
+  });
+
+  saveQuiz(quiz);
+
+  document.querySelectorAll(
+    "#quiz input"
+  ).forEach(input =>
+    input.value = ""
+  );
+
+  renderQuiz();
+
+}
+
+
+function renderQuiz(){
+
+  const container =
+    document.getElementById(
+      "quizList"
+    );
+
+  container.innerHTML = "";
+
+  [...getQuiz()].reverse()
+  .forEach(item => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "content-card";
+
+    card.innerHTML = `
+
+      <div class="content-title">
+        ${escapeHTML(item.question)}
+      </div>
+
+      <div class="content-url">
+        A: ${escapeHTML(item.options.A)}
+      </div>
+
+      <div class="content-url">
+        B: ${escapeHTML(item.options.B)}
+      </div>
+
+      <div class="content-url">
+        C: ${escapeHTML(item.options.C)}
+      </div>
+
+      <div class="content-url">
+        D: ${escapeHTML(item.options.D)}
+      </div>
+
+      <div class="content-url">
+        Correct answer:
+        ${escapeHTML(item.answer)}
+      </div>
+
+      <div class="content-actions">
+
+        <button
+          class="small-btn delete"
+          onclick="deleteQuiz(${item.id})">
+          DELETE
+        </button>
+
+      </div>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+function deleteQuiz(id){
+
+  const data =
+    getQuiz()
+    .filter(item =>
+      item.id !== id
+    );
+
+  saveQuiz(data);
+
+  renderQuiz();
+
+}
+
+
+/* =========================================
+   GAMES
+========================================= */
+
+function getGames(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "linkcashGames"
+      ) || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function saveGames(data){
+
+  localStorage.setItem(
+    "linkcashGames",
+    JSON.stringify(data)
+  );
+
+}
+
+
+function addGame(){
+
+  const title =
+    document.getElementById(
+      "gameTitle"
+    ).value.trim();
+
+  const url =
+    document.getElementById(
+      "gameURL"
+    ).value.trim();
+
+  if(!title){
+
+    alert(
+      "Enter game title."
+    );
+
+    return;
+  }
+
+  const games =
+    getGames();
+
+  games.push({
+    id:Date.now(),
+    title,
+    url
+  });
+
+  saveGames(games);
+
+  document.getElementById(
+    "gameTitle"
+  ).value = "";
+
+  document.getElementById(
+    "gameURL"
+  ).value = "";
+
+  renderGames();
+
+}
+
+
+function renderGames(){
+
+  const container =
+    document.getElementById(
+      "gamesList"
+    );
+
+  container.innerHTML = "";
+
+  [...getGames()].reverse()
+  .forEach(game => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "content-card";
+
+    card.innerHTML = `
+
+      <div class="content-title">
+        ${escapeHTML(game.title)}
+      </div>
+
+      ${
+        game.url
+        ? `
+        <div class="content-url">
+          ${escapeHTML(game.url)}
+        </div>
+        `
+        : ""
+      }
+
+      <div class="content-actions">
+
+        ${
+          game.url
+          ? `
+          <button
+            class="small-btn"
+            onclick="window.open('${escapeHTML(game.url)}','_blank')">
+            OPEN
+          </button>
+          `
+          : ""
+        }
+
+        <button
+          class="small-btn delete"
+          onclick="deleteGame(${game.id})">
+          DELETE
+        </button>
+
+      </div>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+function deleteGame(id){
+
+  const data =
+    getGames()
+    .filter(game =>
+      game.id !== id
+    );
+
+  saveGames(data);
+
+  renderGames();
+
+}
+
+
+/* =========================================
+   PANELS
+========================================= */
 
 function openPanel(
   panelId,
@@ -1399,52 +2246,64 @@ function openPanel(
 ){
 
   document
-    .querySelectorAll(".panel")
-    .forEach(panel =>
-      panel.classList.remove("active")
-    );
-
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(tab =>
-      tab.classList.remove("active")
-    );
-
+  .querySelectorAll(".panel")
+  .forEach(panel =>
+    panel.classList.remove("active")
+  );
 
   document
-    .getElementById(panelId)
-    .classList.add("active");
+  .querySelectorAll(".tab")
+  .forEach(tab =>
+    tab.classList.remove("active")
+  );
 
+  const panel =
+    document.getElementById(
+      panelId
+    );
 
-  button.classList.add("active");
+  if(panel){
+    panel.classList.add("active");
+  }
+
+  if(button){
+    button.classList.add("active");
+  }
+
+  if(panelId === "pending"){
+    renderPending();
+  }
+
+  if(panelId === "social"){
+    renderSocial();
+  }
+
+  if(panelId === "ads"){
+    renderAds();
+  }
+
+  if(panelId === "quiz"){
+    renderQuiz();
+  }
+
+  if(panelId === "games"){
+    renderGames();
+  }
 
 }
 
 
-/* ==========================================
-   REFRESH
-========================================== */
-
-async function loadAll(){
-
-  await loadUsers();
-
-}
-
-
-/* ==========================================
+/* =========================================
    LOGOUT
-========================================== */
+========================================= */
 
 function logoutCEO(){
 
-  const ok =
-    confirm(
-      "Are you sure you want to logout?"
-    );
-
-  if(!ok) return;
+  if(!confirm(
+    "Are you sure you want to logout CEO?"
+  )){
+    return;
+  }
 
   localStorage.removeItem(
     "linkcashCEOLoggedIn"
@@ -1454,17 +2313,36 @@ function logoutCEO(){
     "linkcashCEO"
   );
 
-  window.location.href =
-    "ceologin.html";
+  window.location.replace(
+    "login.html"
+  );
 
 }
 
 
-/* ==========================================
+/* =========================================
    START
-========================================== */
+========================================= */
 
-loadAll();
+async function startDashboard(){
+
+  const connected =
+    await testConnection();
+
+  if(!connected){
+    return;
+  }
+
+  await loadUsers();
+
+  renderSocial();
+  renderAds();
+  renderQuiz();
+  renderGames();
+
+}
+
+startDashboard();
 
 </script>
 
