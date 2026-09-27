@@ -131,7 +131,7 @@ button{
 }
 
 /* ================================
-   FOUR MAIN BOXES
+   FIVE MAIN BOXES
 ================================ */
 
 .stats{
@@ -192,6 +192,34 @@ button{
   color:#d4a72c;
   font-size:9px;
   margin-top:5px;
+}
+
+/* Fifth box */
+.stat:nth-child(5){
+  grid-column:1 / -1;
+}
+
+@media(min-width:501px){
+  .stat:nth-child(5){
+    grid-column:auto;
+  }
+
+  .stats{
+    grid-template-columns:repeat(5,1fr);
+  }
+
+  .stat{
+    min-height:145px;
+    padding:16px 12px;
+  }
+
+  .stat-value{
+    font-size:22px;
+  }
+
+  .stat-name{
+    font-size:8px;
+  }
 }
 
 /* ================================
@@ -574,6 +602,10 @@ button{
   .stat{
     min-height:118px;
   }
+
+  .stat:nth-child(5){
+    grid-column:1 / -1;
+  }
 }
 
 @media(max-width:400px){
@@ -612,10 +644,6 @@ button{
   <span>LINKCASH LOCAL SYSTEM • ONLINE</span>
 </div>
 
-<!-- ================================
-     FOUR BOXES
-================================ -->
-
 <section class="stats">
 
   <div class="stat">
@@ -628,7 +656,6 @@ button{
     <div class="stat-icon">⏳</div>
     <div class="stat-value" id="pendingCount">0</div>
     <div class="stat-name">PENDING</div>
-    <div class="stat-sub">1 ACTIVE</div>
   </div>
 
   <div class="stat">
@@ -638,16 +665,18 @@ button{
   </div>
 
   <div class="stat">
-    <div class="stat-icon">📤</div>
+    <div class="stat-icon">🟢</div>
+    <div class="stat-value" id="activeCount">0</div>
+    <div class="stat-name">ACTIVE USERS</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-icon">💸</div>
     <div class="stat-value" id="submittedCount">0</div>
-    <div class="stat-name">SUBMITTED REQUEST</div>
+    <div class="stat-name">WITHDRAW</div>
   </div>
 
 </section>
-
-<!-- ================================
-     TABS
-================================ -->
 
 <div class="tabs">
 
@@ -681,10 +710,6 @@ button{
 
 </div>
 
-<!-- ================================
-     USERS
-================================ -->
-
 <section id="users" class="panel active">
 
 <div class="action-bar">
@@ -712,15 +737,11 @@ ACTIVE
 id="userSearch"
 class="search"
 placeholder="Search username, name or phone..."
-oninput="renderUsers()">
+oninput="renderUsers">
 
 <div id="usersList"></div>
 
 </section>
-
-<!-- ================================
-     PAYMENTS
-================================ -->
 
 <section id="payments" class="panel">
 
@@ -733,10 +754,6 @@ oninput="renderUsers()">
 
 </section>
 
-<!-- ================================
-     WITHDRAWALS
-================================ -->
-
 <section id="withdrawals" class="panel">
 
 <div class="section-title">
@@ -748,10 +765,6 @@ oninput="renderUsers()">
 
 </section>
 
-<!-- ================================
-     VIDEOS
-================================ -->
-
 <section id="videos" class="panel">
 
 <div class="section-title">
@@ -761,10 +774,7 @@ oninput="renderUsers()">
 
 <div class="content-form">
 
-<input
-id="videoTitle"
-class="input"
-placeholder="Video title">
+<input id="videoTitle" class="input" placeholder="Video title">
 
 <select id="videoPlatform" class="select">
 <option value="youtube">YouTube</option>
@@ -774,10 +784,7 @@ placeholder="Video title">
 <option value="other">Other</option>
 </select>
 
-<input
-id="videoURL"
-class="input"
-placeholder="Paste video URL">
+<input id="videoURL" class="input" placeholder="Paste video URL">
 
 <button class="save-btn" onclick="addVideo()">
 + ADD VIDEO
@@ -789,10 +796,6 @@ placeholder="Paste video URL">
 
 </section>
 
-<!-- ================================
-     ADS
-================================ -->
-
 <section id="ads" class="panel">
 
 <div class="section-title">
@@ -802,15 +805,9 @@ placeholder="Paste video URL">
 
 <div class="content-form">
 
-<input
-id="adTitle"
-class="input"
-placeholder="Advertisement title">
+<input id="adTitle" class="input" placeholder="Advertisement title">
 
-<textarea
-id="adText"
-class="textarea"
-placeholder="Advertisement description"></textarea>
+<textarea id="adText" class="textarea" placeholder="Advertisement description"></textarea>
 
 <select id="adPlatform" class="select">
 <option value="youtube">YouTube</option>
@@ -821,15 +818,9 @@ placeholder="Advertisement description"></textarea>
 <option value="other">Other</option>
 </select>
 
-<input
-id="adURL"
-class="input"
-placeholder="Ad link">
+<input id="adURL" class="input" placeholder="Ad link">
 
-<input
-id="adImage"
-class="input"
-placeholder="Optional image URL">
+<input id="adImage" class="input" placeholder="Optional image URL">
 
 <button class="save-btn" onclick="addAd()">
 + PUBLISH AD TO USER DASHBOARD
@@ -841,10 +832,6 @@ placeholder="Optional image URL">
 
 </section>
 
-<!-- ================================
-     QUIZ
-================================ -->
-
 <section id="quiz" class="panel">
 
 <div class="section-title">
@@ -854,30 +841,15 @@ placeholder="Optional image URL">
 
 <div class="content-form">
 
-<input
-id="quizQuestion"
-class="input"
-placeholder="Question">
+<input id="quizQuestion" class="input" placeholder="Question">
 
-<input
-id="quizA"
-class="input"
-placeholder="Option A">
+<input id="quizA" class="input" placeholder="Option A">
 
-<input
-id="quizB"
-class="input"
-placeholder="Option B">
+<input id="quizB" class="input" placeholder="Option B">
 
-<input
-id="quizC"
-class="input"
-placeholder="Option C">
+<input id="quizC" class="input" placeholder="Option C">
 
-<input
-id="quizD"
-class="input"
-placeholder="Option D">
+<input id="quizD" class="input" placeholder="Option D">
 
 <select id="quizAnswer" class="select">
 <option value="A">Correct answer: A</option>
@@ -896,10 +868,6 @@ placeholder="Option D">
 
 </section>
 
-<!-- ================================
-     GAMES
-================================ -->
-
 <section id="games" class="panel">
 
 <div class="section-title">
@@ -909,15 +877,9 @@ placeholder="Option D">
 
 <div class="content-form">
 
-<input
-id="gameTitle"
-class="input"
-placeholder="Game title">
+<input id="gameTitle" class="input" placeholder="Game title">
 
-<input
-id="gameURL"
-class="input"
-placeholder="Game / tournament link">
+<input id="gameURL" class="input" placeholder="Game / tournament link">
 
 <button class="save-btn" onclick="addGame()">
 + ADD GAME
@@ -941,10 +903,6 @@ placeholder="Game / tournament link">
 
 <script>
 
-/* =====================================================
-LOCAL STORAGE
-===================================================== */
-
 function getLocal(key){
   try{
     return JSON.parse(localStorage.getItem(key) || "[]");
@@ -966,11 +924,6 @@ function escapeHTML(value){
   .replaceAll("'","&#039;");
 }
 
-
-/* =====================================================
-USERS
-===================================================== */
-
 let allUsers=[];
 let currentFilter="all";
 
@@ -978,12 +931,10 @@ function getUsers(){
 
   const accounts=[];
 
-  const accountKeys=[
+  [
     "linkcashAccount",
     "linkcashUsers"
-  ];
-
-  accountKeys.forEach(key=>{
+  ].forEach(key=>{
 
     const raw=localStorage.getItem(key);
 
@@ -1039,11 +990,6 @@ function loadUsers(){
 
 }
 
-
-/* =====================================================
-STATS
-===================================================== */
-
 function updateStats(){
 
   const pending=allUsers.filter(u=>
@@ -1070,8 +1016,8 @@ function updateStats(){
   document.getElementById("pendingCount").textContent=
     pending;
 
-  document.querySelector(".stat:nth-child(2) .stat-sub").textContent=
-    active + " ACTIVE";
+  document.getElementById("activeCount").textContent=
+    active;
 
   document.getElementById("paymentCount").textContent=
     payments;
@@ -1081,22 +1027,12 @@ function updateStats(){
 
 }
 
-
-/* =====================================================
-FILTER
-===================================================== */
-
 function filterUsers(type){
 
   currentFilter=type;
   renderUsers();
 
 }
-
-
-/* =====================================================
-RENDER USERS
-===================================================== */
 
 function renderUsers(){
 
@@ -1172,7 +1108,6 @@ function renderUsers(){
       "Unknown User";
 
     const username=user.username||"-";
-
     const phone=user.phone||"-";
 
     const balance=
@@ -1251,11 +1186,6 @@ function renderUsers(){
 
 }
 
-
-/* =====================================================
-USER ACTIONS
-===================================================== */
-
 function findUser(username){
 
   return allUsers.find(
@@ -1271,15 +1201,11 @@ function saveUser(user){
   let account;
 
   try{
-
     account=JSON.parse(
       localStorage.getItem("linkcashAccount")
     );
-
   }catch(e){
-
     account=null;
-
   }
 
   if(account && account.username===username){
@@ -1349,11 +1275,6 @@ function rejectSpecificUser(username){
   loadUsers();
 
 }
-
-
-/* =====================================================
-PAYMENTS
-===================================================== */
 
 function getPaymentRequests(){
 
@@ -1637,11 +1558,6 @@ function rejectPayment(id){
 
 }
 
-
-/* =====================================================
-WITHDRAWALS
-===================================================== */
-
 function getWithdrawals(){
 
   return getLocal(
@@ -1848,11 +1764,6 @@ function rejectWithdrawal(id){
   alert("Withdrawal rejected.");
 
 }
-
-
-/* =====================================================
-VIDEOS
-===================================================== */
 
 function getYouTubeID(url){
 
@@ -2183,11 +2094,6 @@ function deleteVideo(id){
 
 }
 
-
-/* =====================================================
-ADS
-===================================================== */
-
 function addAd(){
 
   const title=
@@ -2458,11 +2364,6 @@ function deleteAd(id){
 
 }
 
-
-/* =====================================================
-QUIZ
-===================================================== */
-
 function addQuiz(){
 
   const question=
@@ -2649,11 +2550,6 @@ function deleteQuiz(id){
 
 }
 
-
-/* =====================================================
-GAMES
-===================================================== */
-
 function addGame(){
 
   const title=
@@ -2798,11 +2694,6 @@ function deleteGame(id){
 
 }
 
-
-/* =====================================================
-SAFE URL
-===================================================== */
-
 function openSafeURL(url){
 
   try{
@@ -2838,11 +2729,6 @@ function openSafeURL(url){
   }
 
 }
-
-
-/* =====================================================
-PANELS
-===================================================== */
 
 function openPanel(
   panelId,
@@ -2916,11 +2802,6 @@ function openPanel(
 
 }
 
-
-/* =====================================================
-LOGOUT
-===================================================== */
-
 function logoutCEO(){
 
   if(
@@ -2946,11 +2827,6 @@ function logoutCEO(){
   );
 
 }
-
-
-/* =====================================================
-START
-===================================================== */
 
 function startDashboard(){
 
