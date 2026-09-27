@@ -1,5 +1,12 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LINKCASH - Create Account</title><style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>LINKCASH - Create Account</title>
+
+<style>
 *{
 box-sizing:border-box;
 margin:0;
@@ -11,21 +18,16 @@ body{
 min-height:100vh;
 background:#050505;
 color:#fff;
-
-display:flex;  
-justify-content:center;  
-align-items:center;  
-
+display:flex;
+justify-content:center;
+align-items:center;
 padding:20px;
-
 }
 
 .wrapper{
 width:100%;
 max-width:430px;
 }
-
-/* BRAND */
 
 .brand{
 text-align:center;
@@ -36,61 +38,35 @@ margin-bottom:24px;
 width:68px;
 height:68px;
 margin:auto;
-
-border-radius:19px;  
-
-background:linear-gradient(  
-    145deg,  
-    #ffe082,  
-    #d4a72c,  
-    #8f6b12  
-);  
-
-display:flex;  
-align-items:center;  
-justify-content:center;  
-
-color:#080808;  
-
-font-size:23px;  
+border-radius:19px;
+background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#080808;
+font-size:23px;
 font-weight:900;
-
+box-shadow:0 0 30px rgba(212,167,44,.20);
 }
 
 .brand h1{
 margin-top:12px;
-
-font-size:27px;  
-
-letter-spacing:3px;  
-
-color:#fff;
-
+font-size:27px;
+letter-spacing:3px;
 }
 
 .brand p{
 margin-top:7px;
-
-color:#777;  
-
+color:#777;
 font-size:12px;
-
 }
-
-/* CARD */
 
 .card{
 background:#101010;
-
-border:1px solid #292929;  
-
-border-radius:23px;  
-
-padding:27px 22px;  
-
-box-shadow:  
-    0 25px 70px rgba(0,0,0,.65);
-
+border:1px solid #292929;
+border-radius:23px;
+padding:27px 22px;
+box-shadow:0 25px 70px rgba(0,0,0,.65);
 }
 
 .title{
@@ -99,23 +75,14 @@ margin-bottom:21px;
 
 .title h2{
 font-size:22px;
-
-color:#fff;  
-
 margin-bottom:7px;
-
 }
 
 .title p{
 color:#777;
-
-font-size:13px;  
-
+font-size:13px;
 line-height:1.5;
-
 }
-
-/* FIELDS */
 
 .field{
 margin-bottom:15px;
@@ -123,34 +90,21 @@ margin-bottom:15px;
 
 .field label{
 display:block;
-
-color:#ccc;  
-
-font-size:13px;  
-
+color:#ccc;
+font-size:13px;
 margin-bottom:7px;
-
 }
 
 input{
 width:100%;
-
-height:49px;  
-
-background:#070707;  
-
-border:1px solid #292929;  
-
-border-radius:11px;  
-
-color:#fff;  
-
-outline:none;  
-
-padding:0 14px;  
-
+height:49px;
+background:#070707;
+border:1px solid #292929;
+border-radius:11px;
+color:#fff;
+outline:none;
+padding:0 14px;
 font-size:14px;
-
 }
 
 input::placeholder{
@@ -159,13 +113,8 @@ color:#555;
 
 input:focus{
 border-color:#d4a72c;
-
-box-shadow:  
-    0 0 0 2px rgba(212,167,44,.08);
-
+box-shadow:0 0 0 2px rgba(212,167,44,.08);
 }
-
-/* PASSWORD */
 
 .password-wrap{
 position:relative;
@@ -177,352 +126,307 @@ padding-right:60px;
 
 .show-password{
 position:absolute;
-
-right:11px;  
-
-top:50%;  
-
-transform:translateY(-50%);  
-
-border:none;  
-
-background:none;  
-
-color:#d4a72c;  
-
-font-size:11px;  
-
-font-weight:bold;  
-
+right:11px;
+top:50%;
+transform:translateY(-50%);
+border:none;
+background:none;
+color:#d4a72c;
+font-size:11px;
+font-weight:bold;
 cursor:pointer;
-
 }
-
-/* BUTTON */
 
 .register-btn{
 width:100%;
-
-height:52px;  
-
-margin-top:4px;  
-
-border:none;  
-
-border-radius:13px;  
-
-background:linear-gradient(  
-    135deg,  
-    #ffe082,  
-    #d4a72c,  
-    #a77b17  
-);  
-
-color:#080808;  
-
-font-size:15px;  
-
-font-weight:900;  
-
+height:52px;
+margin-top:4px;
+border:none;
+border-radius:13px;
+background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
+color:#080808;
+font-size:15px;
+font-weight:900;
 cursor:pointer;
-
 }
 
 .register-btn:active{
 transform:scale(.98);
 }
 
-/* MESSAGE */
+.register-btn:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
 
 .message{
 display:none;
-
-margin-top:14px;  
-
-padding:12px;  
-
-border-radius:10px;  
-
-text-align:center;  
-
-font-size:12px;  
-
+margin-top:14px;
+padding:12px;
+border-radius:10px;
+text-align:center;
+font-size:12px;
 line-height:1.5;
-
 }
 
 .message.success{
 display:block;
-
-color:#62df91;  
-
-background:rgba(40,180,100,.08);  
-
+color:#62df91;
+background:rgba(40,180,100,.08);
 border:1px solid rgba(40,180,100,.25);
-
 }
 
 .message.error{
 display:block;
-
-color:#ff7777;  
-
-background:rgba(220,60,60,.08);  
-
+color:#ff7777;
+background:rgba(220,60,60,.08);
 border:1px solid rgba(220,60,60,.25);
-
 }
-
-/* LOGIN */
 
 .login{
 text-align:center;
-
-margin-top:21px;  
-
-padding-top:19px;  
-
-border-top:1px solid #222;  
-
-color:#777;  
-
+margin-top:21px;
+padding-top:19px;
+border-top:1px solid #222;
+color:#777;
 font-size:13px;
-
 }
 
 .login a{
 color:#e0b83e;
-
-text-decoration:none;  
-
+text-decoration:none;
 font-weight:bold;
-
 }
-
-/* BACK */
 
 .back{
 display:block;
-
-text-align:center;  
-
-margin-top:18px;  
-
-color:#666;  
-
-text-decoration:none;  
-
+text-align:center;
+margin-top:18px;
+color:#666;
+text-decoration:none;
 font-size:12px;
-
 }
-
-.back:hover{
-color:#d4a72c;
-}
-
-/* FOOTER */
 
 .footer{
 text-align:center;
-
-margin-top:17px;  
-
-color:#444;  
-
+margin-top:17px;
+color:#444;
 font-size:10px;
-
 }
 
-</style></head><body><div class="wrapper"><!-- BRAND -->
+.fee-box{
+margin-bottom:18px;
+padding:14px;
+border-radius:13px;
+background:rgba(212,167,44,.06);
+border:1px solid rgba(212,167,44,.18);
+text-align:center;
+}
 
-<div class="brand">  <div class="logo">  
-    LC  
-</div>  
+.fee-box small{
+display:block;
+color:#777;
+font-size:9px;
+margin-bottom:5px;
+}
 
-<h1>  
-    LINKCASH  
-</h1>  
+.fee-box strong{
+color:#d4a72c;
+font-size:20px;
+}
 
-<p>  
-    Create your account  
-</p>
+</style>
+</head>
 
-</div>  <!-- CARD -->  <div class="card">  <div class="title">  
+<body>
 
-    <h2>  
-        Create Account  
-    </h2>  
+<div class="wrapper">
 
-    <p>  
-        Join LINKCASH and get started.  
-    </p>  
+<div class="brand">
 
-</div>  
+<div class="logo">
+LC
+</div>
 
+<h1>LINKCASH</h1>
 
-<form id="registerForm">  
-
-
-    <!-- FULL NAME -->  
-
-    <div class="field">  
-
-        <label>  
-            Full Name  
-        </label>  
-
-        <input  
-            type="text"  
-            id="fullname"  
-            placeholder="Enter your full name"  
-            required  
-        >  
-
-    </div>  
-
-
-    <!-- USERNAME -->  
-
-    <div class="field">  
-
-        <label>  
-            Username  
-        </label>  
-
-        <input  
-            type="text"  
-            id="username"  
-            placeholder="Choose a username"  
-            required  
-        >  
-
-    </div>  
-
-
-    <!-- PHONE -->  
-
-    <div class="field">  
-
-        <label>  
-            Phone Number  
-        </label>  
-
-        <input  
-            type="tel"  
-            id="phone"  
-            placeholder="Enter your phone number"  
-            required  
-        >  
-
-    </div>  
-
-
-    <!-- PASSWORD -->  
-
-    <div class="field">  
-
-        <label>  
-            Password  
-        </label>  
-
-        <div class="password-wrap">  
-
-            <input  
-                type="password"  
-                id="password"  
-                placeholder="Create a password"  
-                required  
-            >  
-
-            <button  
-                type="button"  
-                class="show-password"  
-                id="showPassword"  
-            >  
-                SHOW  
-            </button>  
-
-        </div>  
-
-    </div>  
-
-
-    <!-- CONFIRM PASSWORD -->  
-
-    <div class="field">  
-
-        <label>  
-            Confirm Password  
-        </label>  
-
-        <div class="password-wrap">  
-
-            <input  
-                type="password"  
-                id="confirmPassword"  
-                placeholder="Confirm your password"  
-                required  
-            >  
-
-            <button  
-                type="button"  
-                class="show-password"  
-                id="showConfirmPassword"  
-            >  
-                SHOW  
-            </button>  
-
-        </div>  
-
-    </div>  
-
-
-    <!-- BUTTON -->  
-
-    <button  
-        type="submit"  
-        class="register-btn"  
-        id="registerBtn"  
-    >  
-        CREATE ACCOUNT  
-    </button>  
-
-</form>  
-
-
-<!-- MESSAGE -->  
-
-<div  
-    id="message"  
-    class="message"  
-></div>  
-
-
-<!-- LOGIN -->  
-
-<div class="login">  
-
-    Already have an account?  
-
-    <a href="login.html">  
-        Log In  
-    </a>  
+<p>Create your account</p>
 
 </div>
 
-</div>  <!-- BACK -->  <a
+
+<div class="card">
+
+<div class="title">
+
+<h2>Create Account</h2>
+
+<p>
+Create your LINKCASH account and continue to activation.
+</p>
+
+</div>
+
+
+<div class="fee-box">
+
+<small>ACTIVATION FEE</small>
+
+<strong>
+TSh 14,500
+</strong>
+
+</div>
+
+
+<form id="registerForm">
+
+
+<div class="field">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="fullname"
+placeholder="Enter your full name"
+autocomplete="name"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Username</label>
+
+<input
+type="text"
+id="username"
+placeholder="Choose a username"
+autocomplete="username"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="Enter your phone number"
+autocomplete="tel"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Password</label>
+
+<div class="password-wrap">
+
+<input
+type="password"
+id="password"
+placeholder="Create a password"
+autocomplete="new-password"
+required
+>
+
+<button
+type="button"
+class="show-password"
+id="showPassword"
+>
+SHOW
+</button>
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>Confirm Password</label>
+
+<div class="password-wrap">
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm your password"
+autocomplete="new-password"
+required
+>
+
+<button
+type="button"
+class="show-password"
+id="showConfirmPassword"
+>
+SHOW
+</button>
+
+</div>
+
+</div>
+
+
+<button
+type="submit"
+class="register-btn"
+id="registerBtn"
+>
+CREATE ACCOUNT
+</button>
+
+</form>
+
+
+<div
+id="message"
+class="message"
+></div>
+
+
+<div class="login">
+
+Already have an account?
+
+<a href="login.html">
+Log In
+</a>
+
+</div>
+
+</div>
+
+
+<a
 href="index.html"
 class="back"
-
-> 
-
+>
 ← Back to Home
+</a>
 
-</a>  <div class="footer">  
-    © 2026 LINKCASH  
-</div>  </div><script>  /* =====================================
-ELEMENTS
-===================================== */
+
+<div class="footer">
+© 2026 LINKCASH
+</div>
+
+</div>
+
+
+<script>
 
 const form =
 document.getElementById("registerForm");
@@ -554,248 +458,270 @@ document.getElementById("showPassword");
 const showConfirmPassword =
 document.getElementById("showConfirmPassword");
 
-/* =====================================
-SHOW PASSWORD
-===================================== */
+
+/* SHOW PASSWORD */
 
 showPassword.onclick = function(){
 
-if(password.type === "password"){  
+if(password.type === "password"){
 
-    password.type = "text";  
+password.type = "text";
+showPassword.textContent = "HIDE";
 
-    showPassword.textContent = "HIDE";  
+}else{
 
-}else{  
-
-    password.type = "password";  
-
-    showPassword.textContent = "SHOW";  
+password.type = "password";
+showPassword.textContent = "SHOW";
 
 }
 
 };
 
-/* =====================================
-SHOW CONFIRM PASSWORD
-===================================== */
+
+/* SHOW CONFIRM PASSWORD */
 
 showConfirmPassword.onclick = function(){
 
-if(confirmPassword.type === "password"){  
+if(confirmPassword.type === "password"){
 
-    confirmPassword.type = "text";  
+confirmPassword.type = "text";
+showConfirmPassword.textContent = "HIDE";
 
-    showConfirmPassword.textContent = "HIDE";  
+}else{
 
-}else{  
-
-    confirmPassword.type = "password";  
-
-    showConfirmPassword.textContent = "SHOW";  
+confirmPassword.type = "password";
+showConfirmPassword.textContent = "SHOW";
 
 }
 
 };
 
-/* =====================================
-MESSAGE
-===================================== */
+
+/* MESSAGE */
 
 function showMessage(text,type){
 
-message.className =  
-    "message " + type;  
+message.className =
+"message " + type;
 
-message.textContent =  
-    text;  
+message.textContent =
+text;
 
-message.style.display =  
-    "block";
+message.style.display =
+"block";
 
 }
 
-/* =====================================
-REGISTER
-===================================== */
+
+/* REGISTER */
 
 form.onsubmit = function(event){
 
-event.preventDefault();  
+event.preventDefault();
 
 
-const name =  
-    fullname.value.trim();  
+const name =
+fullname.value.trim();
 
-const user =  
-    username.value.trim().toLowerCase();  
+const user =
+username.value.trim().toLowerCase();
 
-const number =  
-    phone.value.trim();  
+const number =
+phone.value.trim();
 
-const pass =  
-    password.value;  
+const pass =
+password.value;
 
-const confirm =  
-    confirmPassword.value;  
+const confirm =
+confirmPassword.value;
 
 
-/* NAME */  
+/* VALIDATION */
 
-if(!name){  
+if(!name){
 
-    showMessage(  
-        "Please enter your full name.",  
-        "error"  
-    );  
+showMessage(
+"Please enter your full name.",
+"error"
+);
 
-    fullname.focus();  
+fullname.focus();
 
-    return;  
-}  
+return;
 
+}
 
-/* USERNAME */  
 
-if(!user){  
+if(!user){
 
-    showMessage(  
-        "Please choose a username.",  
-        "error"  
-    );  
+showMessage(
+"Please choose a username.",
+"error"
+);
 
-    username.focus();  
+username.focus();
 
-    return;  
-}  
+return;
 
+}
 
-/* PHONE */  
 
-if(!number){  
+if(!number){
 
-    showMessage(  
-        "Please enter your phone number.",  
-        "error"  
-    );  
+showMessage(
+"Please enter your phone number.",
+"error"
+);
 
-    phone.focus();  
+phone.focus();
 
-    return;  
-}  
+return;
 
+}
 
-/* PASSWORD */  
 
-if(!pass){  
+if(!pass){
 
-    showMessage(  
-        "Please create a password.",  
-        "error"  
-    );  
+showMessage(
+"Please create a password.",
+"error"
+);
 
-    password.focus();  
+password.focus();
 
-    return;  
-}  
+return;
 
+}
 
-/* PASSWORD LENGTH */  
 
-if(pass.length < 6){  
+if(pass.length < 6){
 
-    showMessage(  
-        "Password must be at least 6 characters.",  
-        "error"  
-    );  
+showMessage(
+"Password must be at least 6 characters.",
+"error"
+);
 
-    password.focus();  
+password.focus();
 
-    return;  
-}  
+return;
 
+}
 
-/* CONFIRM */  
 
-if(pass !== confirm){  
+if(pass !== confirm){
 
-    showMessage(  
-        "Passwords do not match.",  
-        "error"  
-    );  
+showMessage(
+"Passwords do not match.",
+"error"
+);
 
-    confirmPassword.focus();  
+confirmPassword.focus();
 
-    return;  
-}  
+return;
 
+}
 
-/* =====================================  
-   CREATE ACCOUNT  
-===================================== */  
 
-const account = {  
+/* =====================================
+   CREATE NEW USER
+   IMPORTANT:
+   NEW USER IS NOT ACTIVE
+   NEW USER IS PENDING
+===================================== */
 
-    fullname:name,  
+const account = {
 
-    username:user,  
+fullname:name,
 
-    phone:number,  
+username:user,
 
-    password:pass,  
+phone:number,
 
-    status:"active",  
+password:pass,
 
-    createdAt:  
-        new Date().toISOString()  
+/*
+  NEW ACCOUNT MUST WAIT
+  FOR ACTIVATION PAYMENT
+*/
 
-};  
+status:"pending",
 
+paymentStatus:"pending",
 
-/* =====================================  
-   SAVE  
-===================================== */  
+activationStatus:"pending",
 
-localStorage.setItem(  
-    "linkcashAccount",  
-    JSON.stringify(account)  
-);  
+activationFee:14500,
 
+paymentSubmitted:false,
 
-/* CLEAR LOGIN */  
-
-localStorage.removeItem(  
-    "linkcashLoggedIn"  
-);  
-
-localStorage.removeItem(  
-    "linkcashUser"  
-);  
-
-
-/* SUCCESS */  
-
-registerBtn.disabled = true;  
-
-registerBtn.textContent =  
-    "ACCOUNT CREATED ✓";  
-
-
-showMessage(  
-    "Account created successfully ✓",  
-    "success"  
-);  
-
-
-/* GO LOGIN */  
-
-setTimeout(function(){  
-
-    window.location.href =  
-        "login.html";  
-
-},1000);
+createdAt:new Date().toISOString()
 
 };
 
-</script></body></html>
+
+/* =====================================
+   SAVE ACCOUNT
+===================================== */
+
+localStorage.setItem(
+"linkcashAccount",
+JSON.stringify(account)
+);
+
+
+/* =====================================
+   CLEAR OLD LOGIN
+===================================== */
+
+localStorage.removeItem(
+"linkcashLoggedIn"
+);
+
+localStorage.removeItem(
+"linkcashUser"
+);
+
+
+/* =====================================
+   CREATE PENDING SESSION
+===================================== */
+
+localStorage.setItem(
+"linkcashPendingUser",
+JSON.stringify(account)
+);
+
+
+/* =====================================
+   SUCCESS
+===================================== */
+
+registerBtn.disabled = true;
+
+registerBtn.textContent =
+"ACCOUNT CREATED ✓";
+
+
+showMessage(
+"Account created successfully. Please complete activation payment.",
+"success"
+);
+
+
+/* =====================================
+   SEND NEW USER TO PENDING DASHBOARD
+===================================== */
+
+setTimeout(function(){
+
+window.location.href =
+"pending-dashboard.html";
+
+},900);
+
+};
+
+</script>
+
+</body>
+</html>
