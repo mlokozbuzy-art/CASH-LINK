@@ -271,6 +271,7 @@ type="text"
 id="username"
 placeholder="Choose a username"
 autocomplete="username"
+maxlength="30"
 required>
 </div>
 
@@ -358,47 +359,74 @@ Already have an account?
 
 <script>
 
-const form=document.getElementById("registerForm");
+/* =========================================
+   ELEMENTS
+========================================= */
 
-const fullname=document.getElementById("fullname");
-const username=document.getElementById("username");
-const phone=document.getElementById("phone");
-const password=document.getElementById("password");
-const confirmPassword=document.getElementById("confirmPassword");
+const form =
+document.getElementById("registerForm");
 
-const registerBtn=document.getElementById("registerBtn");
-const message=document.getElementById("message");
+const fullname =
+document.getElementById("fullname");
 
-const showPassword=document.getElementById("showPassword");
-const showConfirmPassword=document.getElementById("showConfirmPassword");
+const username =
+document.getElementById("username");
+
+const phone =
+document.getElementById("phone");
+
+const password =
+document.getElementById("password");
+
+const confirmPassword =
+document.getElementById("confirmPassword");
+
+const registerBtn =
+document.getElementById("registerBtn");
+
+const message =
+document.getElementById("message");
+
+const showPassword =
+document.getElementById("showPassword");
+
+const showConfirmPassword =
+document.getElementById("showConfirmPassword");
 
 
-/* ================================
-   GET REFERRER FROM LINK
-================================ */
+/* =========================================
+   REFERRAL LINK
+========================================= */
 
-const params=new URLSearchParams(window.location.search);
+const params =
+new URLSearchParams(
+window.location.search
+);
 
-const referralUsername=
-String(params.get("ref") || "")
+const referralUsername =
+String(
+params.get("ref") || ""
+)
 .trim()
 .toLowerCase();
 
 
-/* ================================
-   PASSWORD
-================================ */
+/* =========================================
+   PASSWORD SHOW / HIDE
+========================================= */
 
 showPassword.onclick=function(){
 
 if(password.type==="password"){
 
 password.type="text";
+
 showPassword.textContent="HIDE";
 
 }else{
 
 password.type="password";
+
 showPassword.textContent="SHOW";
 
 }
@@ -411,11 +439,13 @@ showConfirmPassword.onclick=function(){
 if(confirmPassword.type==="password"){
 
 confirmPassword.type="text";
+
 showConfirmPassword.textContent="HIDE";
 
 }else{
 
 confirmPassword.type="password";
+
 showConfirmPassword.textContent="SHOW";
 
 }
@@ -423,39 +453,49 @@ showConfirmPassword.textContent="SHOW";
 };
 
 
-/* ================================
+/* =========================================
    MESSAGE
-================================ */
+========================================= */
 
 function showMessage(text,type){
 
-message.className="message "+type;
-message.textContent=text;
-message.style.display="block";
+message.className=
+"message "+type;
+
+message.textContent=
+text;
+
+message.style.display=
+"block";
 
 }
 
 
-/* ================================
-   GET ALL ACCOUNTS
-================================ */
+/* =========================================
+   GET ACCOUNTS
+========================================= */
 
 function getAccounts(){
 
 try{
 
 const data=
-localStorage.getItem("linkcashAccounts");
+localStorage.getItem(
+"linkcashAccounts"
+);
 
 if(!data){
 return [];
 }
 
-const accounts=JSON.parse(data);
+const accounts=
+JSON.parse(data);
 
-return Array.isArray(accounts)
-? accounts
-: [];
+if(!Array.isArray(accounts)){
+return [];
+}
+
+return accounts;
 
 }catch(error){
 
@@ -466,9 +506,9 @@ return [];
 }
 
 
-/* ================================
-   SAVE ALL ACCOUNTS
-================================ */
+/* =========================================
+   SAVE ACCOUNTS
+========================================= */
 
 function saveAccounts(accounts){
 
@@ -480,25 +520,123 @@ JSON.stringify(accounts)
 }
 
 
-/* ================================
-   REGISTER
-================================ */
+/* =========================================
+   GET USERS
+========================================= */
 
-form.addEventListener("submit",function(event){
+function getUsers(){
+
+try{
+
+const data=
+localStorage.getItem(
+"linkcashUsers"
+);
+
+if(!data){
+return [];
+}
+
+const users=
+JSON.parse(data);
+
+return Array.isArray(users)
+? users
+: [];
+
+}catch(error){
+
+return [];
+
+}
+
+}
+
+
+/* =========================================
+   SAVE USERS
+========================================= */
+
+function saveUsers(users){
+
+localStorage.setItem(
+"linkcashUsers",
+JSON.stringify(users)
+);
+
+}
+
+
+/* =========================================
+   NORMALIZE USERNAME
+========================================= */
+
+function normalizeUsername(value){
+
+return String(value || "")
+.trim()
+.toLowerCase();
+
+}
+
+
+/* =========================================
+   CREATE REFERRAL LINK
+========================================= */
+
+function createReferralLink(user){
+
+return (
+window.location.origin +
+window.location.pathname.replace(
+"register.html",
+"register.html"
+) +
+"?ref=" +
+encodeURIComponent(
+normalizeUsername(user.username)
+)
+);
+
+}
+
+
+/* =========================================
+   REGISTER
+========================================= */
+
+form.addEventListener(
+"submit",
+function(event){
 
 event.preventDefault();
 
-const name=fullname.value.trim();
+
+/* =====================================
+   VALUES
+===================================== */
+
+const name=
+fullname.value.trim();
 
 const user=
-username.value.trim().toLowerCase();
+normalizeUsername(
+username.value
+);
 
-const number=phone.value.trim();
+const number=
+phone.value.trim();
 
-const pass=password.value;
+const pass=
+password.value;
 
-const confirm=confirmPassword.value;
+const confirm=
+confirmPassword.value;
 
+
+/* =====================================
+   VALIDATION
+===================================== */
 
 if(!name){
 
@@ -507,7 +645,10 @@ showMessage(
 "error"
 );
 
+fullname.focus();
+
 return;
+
 }
 
 
@@ -518,7 +659,28 @@ showMessage(
 "error"
 );
 
+username.focus();
+
 return;
+
+}
+
+
+/*
+   Username format
+*/
+
+if(!/^[a-z0-9._-]{3,30}$/.test(user)){
+
+showMessage(
+"Username must contain 3-30 characters using letters, numbers, dot, dash or underscore.",
+"error"
+);
+
+username.focus();
+
+return;
+
 }
 
 
@@ -529,7 +691,10 @@ showMessage(
 "error"
 );
 
+phone.focus();
+
 return;
+
 }
 
 
@@ -540,7 +705,10 @@ showMessage(
 "error"
 );
 
+password.focus();
+
 return;
+
 }
 
 
@@ -551,160 +719,315 @@ showMessage(
 "error"
 );
 
+confirmPassword.focus();
+
 return;
+
 }
 
 
-/* ================================
-   ACCOUNTS
-================================ */
+/* =====================================
+   GET CURRENT ACCOUNTS
+===================================== */
 
-const accounts=getAccounts();
+const accounts=
+getAccounts();
 
-
-const existing=
-accounts.find(function(item){
-
-return String(item.username || "")
-.trim()
-.toLowerCase()===user;
-
-});
+const users=
+getUsers();
 
 
-if(existing){
+/* =====================================
+   CHECK DUPLICATE USERNAME
+===================================== */
+
+const existingAccount=
+accounts.find(
+function(item){
+
+return normalizeUsername(
+item.username
+)===user;
+
+}
+);
+
+
+const existingUser=
+users.find(
+function(item){
+
+return normalizeUsername(
+item.username
+)===user;
+
+}
+);
+
+
+if(
+existingAccount ||
+existingUser
+){
 
 showMessage(
 "This username already exists.",
 "error"
 );
 
+username.focus();
+
 return;
 
 }
 
 
-/* ================================
+/* =====================================
    FIND REFERRER
-================================ */
+===================================== */
 
 let referrer=null;
 
 if(referralUsername){
 
 referrer=
-accounts.find(function(item){
+accounts.find(
+function(item){
 
-return String(item.username || "")
-.trim()
-.toLowerCase()===referralUsername;
+return normalizeUsername(
+item.username
+)===referralUsername;
 
-});
+}
+);
+
+
+/*
+   If account is not in linkcashAccounts,
+   also check linkcashUsers.
+*/
+
+if(!referrer){
+
+referrer=
+users.find(
+function(item){
+
+return normalizeUsername(
+item.username
+)===referralUsername;
+
+}
+);
+
+}
 
 }
 
 
-/* ================================
+/* =====================================
+   PREVENT SELF REFERRAL
+===================================== */
+
+if(
+referrer &&
+normalizeUsername(
+referrer.username
+)===user
+){
+
+referrer=null;
+
+}
+
+
+/* =====================================
    CREATE ACCOUNT
-================================ */
+===================================== */
 
 const account={
 
-id:"USER-"+Date.now(),
+id:
+"USER-"+Date.now(),
 
-fullname:name,
+fullname:
+name,
 
-username:user,
+username:
+user,
 
-phone:number,
+phone:
+number,
 
-password:pass,
+password:
+pass,
 
-status:"pending",
+status:
+"pending",
 
-paymentStatus:"pending",
+paymentStatus:
+"pending",
 
-activationStatus:"pending",
+activationStatus:
+"pending",
 
-activationFee:14500,
+activationFee:
+14500,
 
-paymentSubmitted:false,
+paymentSubmitted:
+false,
 
-paymentReference:"",
+paymentReference:
+"",
 
-paymentMethod:"",
+paymentMethod:
+"",
 
-submittedAt:null,
+submittedAt:
+null,
 
-/*
-   REFERRAL SYSTEM
-*/
+
+/* ================================
+   REFERRAL
+================================ */
 
 referredBy:
 referrer
-? referrer.username
+? normalizeUsername(
+referrer.username
+)
 : "",
 
-referralLevel:1,
+referralCode:
+user,
 
-referralEarnings:0,
+referralLink:
+"",
 
-level1Earnings:0,
 
-level2Earnings:0,
+/*
+   Network levels
+*/
 
-level3Earnings:0,
+referralLevel:
+referrer
+? 1
+: 0,
 
-level4Earnings:0,
+level1Earnings:
+0,
 
-totalEarnings:0,
+level2Earnings:
+0,
 
-createdAt:new Date().toISOString()
+level3Earnings:
+0,
+
+level4Earnings:
+0,
+
+referralEarnings:
+0,
+
+totalEarnings:
+0,
+
+balance:
+0,
+
+createdAt:
+new Date().toISOString()
 
 };
 
 
-/* ================================
-   SAVE
-================================ */
+/* =====================================
+   CREATE REFERRAL LINK
+===================================== */
+
+account.referralLink=
+createReferralLink(
+account
+);
+
+
+/* =====================================
+   SAVE TO ACCOUNTS
+===================================== */
 
 accounts.push(account);
 
 saveAccounts(accounts);
 
 
-/*
-   CURRENT USER
-*/
+/* =====================================
+   SAVE TO USERS
+===================================== */
+
+const updatedUsers=
+getUsers();
+
+
+updatedUsers.push(account);
+
+saveUsers(
+updatedUsers
+);
+
+
+/* =====================================
+   CURRENT ACCOUNT
+===================================== */
 
 localStorage.setItem(
 "linkcashAccount",
 JSON.stringify(account)
 );
 
+
+/* =====================================
+   CURRENT USER
+===================================== */
+
 localStorage.setItem(
 "linkcashUser",
 JSON.stringify(account)
 );
+
+
+/* =====================================
+   PENDING USER
+===================================== */
 
 localStorage.setItem(
 "linkcashPendingUser",
 JSON.stringify(account)
 );
 
+
+/* =====================================
+   REMOVE OLD LOGIN
+===================================== */
+
 localStorage.removeItem(
 "linkcashLoggedIn"
 );
 
+localStorage.removeItem(
+"linkcashLoggedInUser"
+);
 
-/* ================================
+
+/* =====================================
    SUCCESS
-================================ */
+===================================== */
 
-registerBtn.disabled=true;
+registerBtn.disabled=
+true;
 
 registerBtn.textContent=
 "ACCOUNT CREATED ✓";
+
 
 showMessage(
 "Account created successfully. Opening activation page...",
@@ -712,14 +1035,23 @@ showMessage(
 );
 
 
-setTimeout(function(){
+/* =====================================
+   OPEN PENDING DASHBOARD
+===================================== */
 
-window.location.href=
-"pending-dashboard.html";
+setTimeout(
+function(){
 
-},900);
+window.location.replace(
+"pending-dashboard.html"
+);
 
-});
+},
+900
+);
+
+}
+);
 
 </script>
 
