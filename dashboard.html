@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>LINKCASH - Dashboard</title>
 
 <style>
+
+/* =========================================
+   RESET
+========================================= */
 
 *{
     box-sizing:border-box;
@@ -23,19 +30,27 @@ body{
     padding-bottom:30px;
 }
 
-/* =========================
+button,
+input{
+    font-family:inherit;
+}
+
+
+/* =========================================
    HEADER
-========================= */
+========================================= */
 
 .header{
+
     position:sticky;
     top:0;
     z-index:100;
 
-    background:rgba(5,5,5,.96);
-    border-bottom:1px solid #242424;
+    background:rgba(5,5,5,.97);
 
-    padding:15px 18px;
+    border-bottom:1px solid #252525;
+
+    padding:14px 16px;
 
     display:flex;
     align-items:center;
@@ -43,23 +58,27 @@ body{
 }
 
 .header-left{
+
     display:flex;
     align-items:center;
+
     gap:11px;
 }
 
 .logo{
-    width:43px;
-    height:43px;
+
+    width:44px;
+    height:44px;
 
     border-radius:13px;
 
-    background:linear-gradient(
-        145deg,
-        #ffe082,
-        #d4a72c,
-        #8f6b12
-    );
+    background:
+        linear-gradient(
+            145deg,
+            #ffe082,
+            #d4a72c,
+            #8f6b12
+        );
 
     color:#080808;
 
@@ -72,73 +91,97 @@ body{
 }
 
 .brand-name{
+
     font-size:18px;
+
     font-weight:900;
+
     letter-spacing:2px;
 }
 
 .header-sub{
+
     color:#777;
+
     font-size:9px;
+
     margin-top:3px;
 }
 
 .menu-btn{
+
     width:42px;
     height:42px;
 
     border:1px solid #292929;
+
     border-radius:12px;
 
     background:#101010;
+
     color:#d4a72c;
 
-    font-size:20px;
+    font-size:22px;
+
     cursor:pointer;
 }
 
-/* =========================
-   MAIN
-========================= */
+
+/* =========================================
+   CONTAINER
+========================================= */
 
 .container{
+
     width:100%;
+
     max-width:480px;
+
     margin:auto;
-    padding:20px 16px;
+
+    padding:20px 15px;
 }
 
-/* =========================
+
+/* =========================================
    WELCOME
-========================= */
+========================================= */
 
 .welcome{
+
     margin-bottom:18px;
 }
 
 .welcome small{
+
     color:#777;
+
     font-size:12px;
 }
 
 .welcome h1{
+
     margin-top:5px;
+
     font-size:25px;
 }
 
 .welcome span{
+
     color:#d4a72c;
 }
 
-/* =========================
+
+/* =========================================
    BALANCE
-========================= */
+========================================= */
 
 .balance-card{
+
     background:
         linear-gradient(
             145deg,
-            #171717,
+            #181818,
             #0d0d0d
         );
 
@@ -152,10 +195,12 @@ body{
         0 18px 50px rgba(0,0,0,.5);
 
     position:relative;
+
     overflow:hidden;
 }
 
-.balance-card::after{
+.balance-card:after{
+
     content:"";
 
     position:absolute;
@@ -168,189 +213,110 @@ body{
 
     border-radius:50%;
 
-    background:rgba(212,167,44,.08);
+    background:
+        rgba(212,167,44,.08);
 }
 
 .balance-label{
+
     color:#888;
+
     font-size:12px;
 }
 
 .balance{
+
     margin-top:8px;
 
     font-size:32px;
-    font-weight:900;
 
-    letter-spacing:1px;
+    font-weight:900;
 }
 
 .balance-symbol{
+
     color:#d4a72c;
 }
 
 .balance-bottom{
+
     margin-top:18px;
 
     display:flex;
+
     justify-content:space-between;
 
     color:#777;
+
     font-size:11px;
 }
 
 .balance-bottom strong{
+
     color:#62df91;
 }
 
-/* =========================
-   MY LINK
-========================= */
+
+/* =========================================
+   SECTION TITLE
+========================================= */
 
 .section-title{
-    margin-top:24px;
+
+    margin-top:25px;
+
     margin-bottom:12px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 }
 
 .section-title h2{
+
     font-size:16px;
 }
 
 .section-title span{
-    color:#666;
-    font-size:10px;
-}
 
-.link-card{
-    background:#101010;
-
-    border:1px solid #292929;
-
-    border-radius:19px;
-
-    padding:18px;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.35);
-}
-
-.link-label{
-    color:#888;
-    font-size:11px;
-    margin-bottom:9px;
-}
-
-.link-row{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.link-input{
-    flex:1;
-
-    min-width:0;
-
-    height:45px;
-
-    background:#070707;
-
-    border:1px solid #292929;
-
-    border-radius:11px;
-
-    color:#d4a72c;
-
-    padding:0 12px;
-
-    font-size:11px;
-
-    outline:none;
-}
-
-.copy-btn{
-    height:45px;
-
-    padding:0 14px;
-
-    border:none;
-
-    border-radius:11px;
-
-    background:linear-gradient(
-        135deg,
-        #ffe082,
-        #d4a72c,
-        #a77b17
-    );
-
-    color:#080808;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    cursor:pointer;
-}
-
-.share-btn{
-    width:100%;
-
-    height:43px;
-
-    margin-top:10px;
-
-    border:1px solid #332d1d;
-
-    border-radius:11px;
-
-    background:#15130d;
-
-    color:#d4a72c;
-
-    font-weight:bold;
-
-    font-size:12px;
-
-    cursor:pointer;
-}
-
-.link-note{
     color:#666;
 
     font-size:10px;
-
-    line-height:1.5;
-
-    margin-top:10px;
 }
 
-/* =========================
-   QUICK ACTIONS
-========================= */
+
+/* =========================================
+   GRID
+========================================= */
 
 .grid{
+
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+        repeat(2,1fr);
 
     gap:11px;
 }
 
+
+/* =========================================
+   BOX
+========================================= */
+
 .box{
+
     background:#101010;
 
-    border:1px solid #282828;
+    border:1px solid #292929;
 
     border-radius:17px;
 
-    padding:18px 14px;
+    padding:16px 13px;
 
-    min-height:100px;
+    min-height:105px;
 
     cursor:pointer;
 
@@ -358,43 +324,129 @@ body{
 }
 
 .box:active{
-    transform:scale(.97);
+
+    transform:scale(.96);
 }
 
 .box-icon{
-    width:38px;
-    height:38px;
 
-    border-radius:11px;
+    width:42px;
+    height:42px;
 
-    background:#181818;
+    border-radius:12px;
+
+    background:#fff;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    color:#d4a72c;
+    margin-bottom:11px;
 
-    font-size:18px;
-
-    margin-bottom:12px;
+    overflow:hidden;
 }
 
 .box h3{
+
     font-size:13px;
 }
 
 .box p{
+
     color:#666;
+
     font-size:10px;
+
     margin-top:5px;
 }
 
-/* =========================
+
+/* =========================================
+   GAME ICONS
+========================================= */
+
+.game-icon{
+
+    font-size:25px;
+}
+
+.efootball-icon{
+
+    font-size:24px;
+}
+
+
+/* =========================================
+   SERVICE ICON
+========================================= */
+
+.service-icon{
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe082,
+            #d4a72c
+        );
+
+    color:#080808;
+
+    font-weight:900;
+
+    font-size:18px;
+}
+
+
+/* =========================================
+   VIDEO ICONS
+========================================= */
+
+.video-icon{
+
+    font-weight:900;
+}
+
+.tiktok-icon{
+
+    font-size:26px;
+
+    color:#000;
+
+    text-shadow:
+        2px 2px #25f4ee,
+        -2px -2px #fe2c55;
+}
+
+.youtube-icon{
+
+    color:#ff0000;
+
+    font-size:25px;
+}
+
+.facebook-icon{
+
+    color:#1877f2;
+
+    font-size:30px;
+}
+
+.instagram-icon{
+
+    font-size:27px;
+
+    color:#d62976;
+}
+
+
+/* =========================================
    TEAM
-========================= */
+========================================= */
 
 .team-box{
+
     background:#101010;
 
     border:1px solid #292929;
@@ -405,65 +457,81 @@ body{
 }
 
 .team-main{
+
     padding:18px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     cursor:pointer;
 }
 
 .team-left{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
 }
 
 .team-icon{
+
     width:43px;
     height:43px;
 
     border-radius:13px;
 
-    background:rgba(212,167,44,.09);
+    background:
+        rgba(212,167,44,.09);
 
-    border:1px solid rgba(212,167,44,.20);
+    border:
+        1px solid rgba(212,167,44,.20);
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     color:#d4a72c;
-    font-size:18px;
+
+    font-size:19px;
 }
 
 .team-main h3{
+
     font-size:14px;
 }
 
 .team-main p{
+
     color:#666;
+
     font-size:10px;
+
     margin-top:4px;
 }
 
 .arrow{
+
     color:#777;
+
     font-size:20px;
 
     transition:.2s;
 }
 
 .team-box.open .arrow{
+
     transform:rotate(90deg);
 }
 
-/* =========================
-   LEVELS
-========================= */
-
 .levels{
+
     display:none;
 
     border-top:1px solid #222;
@@ -472,13 +540,11 @@ body{
 }
 
 .team-box.open .levels{
+
     display:block;
 }
 
 .level{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
 
     padding:14px;
 
@@ -494,16 +560,30 @@ body{
 }
 
 .level:last-child{
+
     margin-bottom:0;
 }
 
-.level-left{
+.level-top{
+
     display:flex;
+
     align-items:center;
+
+    justify-content:space-between;
+}
+
+.level-left{
+
+    display:flex;
+
+    align-items:center;
+
     gap:11px;
 }
 
 .level-number{
+
     width:35px;
     height:35px;
 
@@ -514,77 +594,166 @@ body{
     color:#d4a72c;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-size:11px;
+
     font-weight:900;
 }
 
 .level h4{
+
     font-size:12px;
 }
 
-.level p{
-    color:#666;
-    font-size:9px;
-    margin-top:3px;
-}
-
 .level-count{
+
     color:#aaa;
+
     font-size:11px;
 }
 
-/* =========================
-   SOCIAL MEDIA
-========================= */
+.members{
 
-.social-grid{
-    display:grid;
+    display:none;
 
-    grid-template-columns:repeat(4,1fr);
+    margin-top:12px;
 
-    gap:9px;
+    border-top:1px solid #222;
+
+    padding-top:10px;
 }
 
-.social{
+.level.open .members{
+
+    display:block;
+}
+
+.member-head,
+.member{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1.2fr;
+
+    gap:8px;
+
+    padding:9px 4px;
+
+    font-size:10px;
+}
+
+.member-head{
+
+    color:#777;
+
+    border-bottom:
+        1px solid #222;
+}
+
+.member{
+
+    color:#ddd;
+
+    border-bottom:
+        1px solid #171717;
+}
+
+.member:last-child{
+
+    border-bottom:none;
+}
+
+
+/* =========================================
+   MY LINK
+========================================= */
+
+.my-link{
+
     background:#101010;
 
     border:1px solid #292929;
 
-    border-radius:15px;
+    border-radius:18px;
 
-    padding:14px 5px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    color:#fff;
-
-    transition:.2s;
+    padding:16px;
 }
 
-.social:active{
-    transform:scale(.95);
+.link-label{
+
+    color:#777;
+
+    font-size:11px;
+
+    margin-bottom:8px;
 }
 
-.social-icon{
-    font-size:20px;
-    margin-bottom:7px;
+.link-row{
+
+    display:flex;
+
+    gap:8px;
 }
 
-.social span{
-    font-size:9px;
-    color:#aaa;
+.link-input{
+
+    flex:1;
+
+    min-width:0;
+
+    height:45px;
+
+    background:#070707;
+
+    border:1px solid #292929;
+
+    border-radius:10px;
+
+    color:#ccc;
+
+    padding:0 10px;
+
+    font-size:11px;
+
+    outline:none;
 }
 
-/* =========================
+.copy-btn{
+
+    width:70px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe082,
+            #d4a72c
+        );
+
+    color:#080808;
+
+    font-weight:900;
+
+    font-size:11px;
+
+    cursor:pointer;
+}
+
+
+/* =========================================
    ACCOUNT
-========================= */
+========================================= */
 
 .account-box{
+
     background:#101010;
 
     border:1px solid #292929;
@@ -595,6 +764,7 @@ body{
 }
 
 .account-row{
+
     display:flex;
 
     align-items:center;
@@ -607,24 +777,31 @@ body{
 }
 
 .account-row:last-child{
+
     border-bottom:none;
 }
 
 .account-row span:first-child{
+
     color:#777;
+
     font-size:11px;
 }
 
 .account-row span:last-child{
+
     color:#ddd;
+
     font-size:11px;
 }
 
-/* =========================
+
+/* =========================================
    LOGOUT
-========================= */
+========================================= */
 
 .logout{
+
     width:100%;
 
     height:48px;
@@ -644,11 +821,216 @@ body{
     cursor:pointer;
 }
 
-/* =========================
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.78);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:500;
+}
+
+.modal-box{
+
+    width:100%;
+
+    max-width:390px;
+
+    background:#101010;
+
+    border:1px solid #333;
+
+    border-radius:21px;
+
+    padding:22px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.7);
+}
+
+.modal-title{
+
+    color:#d4a72c;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    margin-bottom:18px;
+
+    text-align:center;
+}
+
+
+/* =========================================
+   SERVICE FORM
+========================================= */
+
+.form-group{
+
+    margin-bottom:14px;
+}
+
+.form-group label{
+
+    display:block;
+
+    color:#bbb;
+
+    font-size:12px;
+
+    margin-bottom:7px;
+}
+
+.form-group select,
+.form-group input{
+
+    width:100%;
+
+    height:47px;
+
+    border:1px solid #292929;
+
+    border-radius:11px;
+
+    background:#070707;
+
+    color:#fff;
+
+    padding:0 12px;
+
+    outline:none;
+
+    font-size:13px;
+}
+
+.form-group select:focus,
+.form-group input:focus{
+
+    border-color:#d4a72c;
+}
+
+.confirm-service{
+
+    width:100%;
+
+    height:49px;
+
+    margin-top:5px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe082,
+            #d4a72c,
+            #a77b17
+        );
+
+    color:#080808;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.close-btn{
+
+    width:100%;
+
+    height:43px;
+
+    margin-top:10px;
+
+    border:1px solid #292929;
+
+    border-radius:11px;
+
+    background:#181818;
+
+    color:#aaa;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+.result{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border-radius:11px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+.result.error{
+
+    display:block;
+
+    background:
+        rgba(220,60,60,.08);
+
+    border:
+        1px solid rgba(220,60,60,.25);
+
+    color:#ff7777;
+}
+
+.result.success{
+
+    display:block;
+
+    background:
+        rgba(40,180,100,.08);
+
+    border:
+        1px solid rgba(40,180,100,.25);
+
+    color:#62df91;
+}
+
+
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 .footer{
+
     text-align:center;
 
     margin-top:25px;
@@ -658,41 +1040,30 @@ body{
     font-size:10px;
 }
 
-/* =========================
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
-@media(max-width:360px){
+@media(max-width:350px){
 
-    .container{
-        padding-left:12px;
-        padding-right:12px;
+    .grid{
+
+        grid-template-columns:1fr;
     }
-
-    .link-row{
-        flex-direction:column;
-    }
-
-    .link-input{
-        width:100%;
-    }
-
-    .copy-btn{
-        width:100%;
-    }
-
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =========================================
      HEADER
-========================= -->
+========================================= -->
 
 <header class="header">
 
@@ -727,13 +1098,12 @@ body{
 </header>
 
 
-
 <main class="container">
 
 
-<!-- =========================
+<!-- =========================================
      WELCOME
-========================= -->
+========================================= -->
 
 <div class="welcome">
 
@@ -752,10 +1122,9 @@ body{
 </div>
 
 
-
-<!-- =========================
+<!-- =========================================
      BALANCE
-========================= -->
+========================================= -->
 
 <div class="balance-card">
 
@@ -790,75 +1159,133 @@ body{
 </div>
 
 
-
-<!-- =========================
-     MY LINK
-========================= -->
+<!-- =========================================
+     GAMES
+========================================= -->
 
 <div class="section-title">
 
     <h2>
-        My Link
+        Games
     </h2>
 
     <span>
-        REFERRAL
+        PLAY
     </span>
 
 </div>
 
 
-<div class="link-card">
-
-    <div class="link-label">
-        Your personal LINKCASH referral link
-    </div>
+<div class="grid">
 
 
-    <div class="link-row">
-
-        <input
-            type="text"
-            id="myLink"
-            class="link-input"
-            readonly
-        >
-
-
-        <button
-            class="copy-btn"
-            onclick="copyMyLink()"
-        >
-            COPY
-        </button>
-
-    </div>
-
-
-    <button
-        class="share-btn"
-        onclick="shareMyLink()"
+    <div
+        class="box"
+        onclick="openGame('eFootball')"
     >
-        SHARE MY LINK
-    </button>
 
+        <div class="box-icon">
 
-    <div class="link-note">
-        Share this link with people you want to invite to LINKCASH.
+            <div class="efootball-icon">
+                ⚽
+            </div>
+
+        </div>
+
+        <h3>
+            eFootball
+        </h3>
+
+        <p>
+            Play eFootball
+        </p>
+
     </div>
+
+
+    <div
+        class="box"
+        onclick="openGame('Railway')"
+    >
+
+        <div class="box-icon">
+
+            <div class="game-icon">
+                🚂
+            </div>
+
+        </div>
+
+        <h3>
+            Railway
+        </h3>
+
+        <p>
+            Play Railway
+        </p>
+
+    </div>
+
+
+    <div
+        class="box"
+        onclick="openGame('Ninja Arashi')"
+    >
+
+        <div class="box-icon">
+
+            <div class="game-icon">
+                🥷
+            </div>
+
+        </div>
+
+        <h3>
+            Ninja Arashi
+        </h3>
+
+        <p>
+            Play Ninja Arashi
+        </p>
+
+    </div>
+
+
+    <div
+        class="box"
+        onclick="openGame('Bike Stunt')"
+    >
+
+        <div class="box-icon">
+
+            <div class="game-icon">
+                🏍️
+            </div>
+
+        </div>
+
+        <h3>
+            Bike Stunt
+        </h3>
+
+        <p>
+            Play Bike Stunt
+        </p>
+
+    </div>
+
 
 </div>
 
 
-
-<!-- =========================
-     QUICK ACCESS
-========================= -->
+<!-- =========================================
+     SERVICES
+========================================= -->
 
 <div class="section-title">
 
     <h2>
-        Quick Access
+        Services
     </h2>
 
     <span>
@@ -873,93 +1300,209 @@ body{
 
     <div
         class="box"
-        onclick="showNotice('Transactions')"
+        onclick="openService('ROAN')"
     >
 
-        <div class="box-icon">
-            ↔
+        <div class="box-icon service-icon">
+            R
         </div>
 
         <h3>
-            Transactions
+            ROAN
         </h3>
 
         <p>
-            View your activity
+            Mobile service
         </p>
 
     </div>
-
 
 
     <div
         class="box"
-        onclick="showNotice('Earnings')"
+        onclick="openService('KIKOBA')"
     >
 
-        <div class="box-icon">
-            ₮
+        <div class="box-icon service-icon">
+            K
         </div>
 
         <h3>
-            Earnings
+            KIKOBA
         </h3>
 
         <p>
-            View your earnings
+            Mobile service
         </p>
 
     </div>
-
 
 
     <div
         class="box"
-        onclick="showNotice('Profile')"
+        onclick="openService('BUSTISHA')"
     >
 
-        <div class="box-icon">
-            ◉
+        <div class="box-icon service-icon">
+            B
         </div>
 
         <h3>
-            My Profile
+            BUSTISHA
         </h3>
 
         <p>
-            Account information
+            Mobile service
         </p>
 
     </div>
-
 
 
     <div
         class="box"
-        onclick="openTeam()"
+        onclick="openService('SONGESHA')"
     >
 
-        <div class="box-icon">
-            ◎
+        <div class="box-icon service-icon">
+            S
         </div>
 
         <h3>
-            My Team
+            SONGESHA
         </h3>
 
         <p>
-            View your levels
+            Mobile service
         </p>
 
     </div>
+
 
 </div>
 
 
+<!-- =========================================
+     VIDEO EARNING
+========================================= -->
 
-<!-- =========================
+<div class="section-title">
+
+    <h2>
+        Video Earning
+    </h2>
+
+    <span>
+        EARN
+    </span>
+
+</div>
+
+
+<div class="grid">
+
+
+    <div
+        class="box"
+        onclick="openVideo('TikTok')"
+    >
+
+        <div class="box-icon">
+
+            <div class="video-icon tiktok-icon">
+                ♪
+            </div>
+
+        </div>
+
+        <h3>
+            TikTok
+        </h3>
+
+        <p>
+            Video earning
+        </p>
+
+    </div>
+
+
+    <div
+        class="box"
+        onclick="openVideo('YouTube')"
+    >
+
+        <div class="box-icon">
+
+            <div class="video-icon youtube-icon">
+                ▶
+            </div>
+
+        </div>
+
+        <h3>
+            YouTube
+        </h3>
+
+        <p>
+            Video earning
+        </p>
+
+    </div>
+
+
+    <div
+        class="box"
+        onclick="openVideo('Facebook')"
+    >
+
+        <div class="box-icon">
+
+            <div class="video-icon facebook-icon">
+                f
+            </div>
+
+        </div>
+
+        <h3>
+            Facebook
+        </h3>
+
+        <p>
+            Video earning
+        </p>
+
+    </div>
+
+
+    <div
+        class="box"
+        onclick="openVideo('Instagram')"
+    >
+
+        <div class="box-icon">
+
+            <div class="video-icon instagram-icon">
+                ◎
+            </div>
+
+        </div>
+
+        <h3>
+            Instagram
+        </h3>
+
+        <p>
+            Video earning
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================
      MY TEAM
-========================= -->
+========================================= -->
 
 <div class="section-title">
 
@@ -987,11 +1530,9 @@ body{
 
         <div class="team-left">
 
-
             <div class="team-icon">
                 ◎
             </div>
-
 
             <div>
 
@@ -1000,7 +1541,7 @@ body{
                 </h3>
 
                 <p>
-                    View team levels
+                    View your team levels
                 </p>
 
             </div>
@@ -1015,7 +1556,6 @@ body{
     </div>
 
 
-
     <div class="levels">
 
 
@@ -1023,152 +1563,205 @@ body{
 
         <div
             class="level"
-            onclick="openLevel(1)"
+            onclick="toggleLevel(event,this)"
         >
 
-            <div class="level-left">
+            <div class="level-top">
 
-                <div class="level-number">
-                    1
-                </div>
+                <div class="level-left">
 
-                <div>
+                    <div class="level-number">
+                        1
+                    </div>
 
                     <h4>
                         LEVEL 1
                     </h4>
 
-                    <p>
-                        Direct team
-                    </p>
+                </div>
 
+                <div
+                    class="level-count"
+                    id="count1"
+                >
+                    0
                 </div>
 
             </div>
 
 
-            <div
-                class="level-count"
-                id="level1Count"
-            >
-                0
+            <div class="members">
+
+                <div class="member-head">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <span>
+                        Phone
+                    </span>
+
+                </div>
+
+                <div id="members1"></div>
+
             </div>
 
         </div>
-
 
 
         <!-- LEVEL 2 -->
 
         <div
             class="level"
-            onclick="openLevel(2)"
+            onclick="toggleLevel(event,this)"
         >
 
-            <div class="level-left">
+            <div class="level-top">
 
-                <div class="level-number">
-                    2
-                </div>
+                <div class="level-left">
 
-                <div>
+                    <div class="level-number">
+                        2
+                    </div>
 
                     <h4>
                         LEVEL 2
                     </h4>
 
-                    <p>
-                        Team network
-                    </p>
+                </div>
 
+                <div
+                    class="level-count"
+                    id="count2"
+                >
+                    0
                 </div>
 
             </div>
 
 
-            <div
-                class="level-count"
-                id="level2Count"
-            >
-                0
+            <div class="members">
+
+                <div class="member-head">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <span>
+                        Phone
+                    </span>
+
+                </div>
+
+                <div id="members2"></div>
+
             </div>
 
         </div>
-
 
 
         <!-- LEVEL 3 -->
 
         <div
             class="level"
-            onclick="openLevel(3)"
+            onclick="toggleLevel(event,this)"
         >
 
-            <div class="level-left">
+            <div class="level-top">
 
-                <div class="level-number">
-                    3
-                </div>
+                <div class="level-left">
 
-                <div>
+                    <div class="level-number">
+                        3
+                    </div>
 
                     <h4>
                         LEVEL 3
                     </h4>
 
-                    <p>
-                        Team network
-                    </p>
+                </div>
 
+                <div
+                    class="level-count"
+                    id="count3"
+                >
+                    0
                 </div>
 
             </div>
 
 
-            <div
-                class="level-count"
-                id="level3Count"
-            >
-                0
+            <div class="members">
+
+                <div class="member-head">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <span>
+                        Phone
+                    </span>
+
+                </div>
+
+                <div id="members3"></div>
+
             </div>
 
         </div>
-
 
 
         <!-- LEVEL 4 -->
 
         <div
             class="level"
-            onclick="openLevel(4)"
+            onclick="toggleLevel(event,this)"
         >
 
-            <div class="level-left">
+            <div class="level-top">
 
-                <div class="level-number">
-                    4
-                </div>
+                <div class="level-left">
 
-                <div>
+                    <div class="level-number">
+                        4
+                    </div>
 
                     <h4>
                         LEVEL 4
                     </h4>
 
-                    <p>
-                        Team network
-                    </p>
+                </div>
 
+                <div
+                    class="level-count"
+                    id="count4"
+                >
+                    0
                 </div>
 
             </div>
 
 
-            <div
-                class="level-count"
-                id="level4Count"
-            >
-                0
+            <div class="members">
+
+                <div class="member-head">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <span>
+                        Phone
+                    </span>
+
+                </div>
+
+                <div id="members4"></div>
+
             </div>
 
         </div>
@@ -1179,105 +1772,54 @@ body{
 </div>
 
 
-
-<!-- =========================
-     SOCIAL
-========================= -->
+<!-- =========================================
+     MY LINK
+========================================= -->
 
 <div class="section-title">
 
     <h2>
-        Follow LINKCASH
+        My Link
     </h2>
 
     <span>
-        SOCIAL
+        INVITE
     </span>
 
 </div>
 
 
-<div class="social-grid">
+<div class="my-link">
+
+    <div class="link-label">
+        Your referral link
+    </div>
 
 
-    <a
-        class="social"
-        href="https://www.tiktok.com/"
-        target="_blank"
-    >
+    <div class="link-row">
 
-        <div class="social-icon">
-            ♪
-        </div>
-
-        <span>
-            TikTok
-        </span>
-
-    </a>
+        <input
+            class="link-input"
+            id="myLink"
+            readonly
+        >
 
 
+        <button
+            class="copy-btn"
+            onclick="copyLink()"
+        >
+            COPY
+        </button>
 
-    <a
-        class="social"
-        href="https://www.youtube.com/"
-        target="_blank"
-    >
-
-        <div class="social-icon">
-            ▶
-        </div>
-
-        <span>
-            YouTube
-        </span>
-
-    </a>
-
-
-
-    <a
-        class="social"
-        href="https://www.facebook.com/"
-        target="_blank"
-    >
-
-        <div class="social-icon">
-            f
-        </div>
-
-        <span>
-            Facebook
-        </span>
-
-    </a>
-
-
-
-    <a
-        class="social"
-        href="https://www.instagram.com/"
-        target="_blank"
-    >
-
-        <div class="social-icon">
-            ◎
-        </div>
-
-        <span>
-            Instagram
-        </span>
-
-    </a>
-
+    </div>
 
 </div>
 
 
-
-<!-- =========================
+<!-- =========================================
      ACCOUNT
-========================= -->
+========================================= -->
 
 <div class="section-title">
 
@@ -1297,20 +1839,6 @@ body{
     <div class="account-row">
 
         <span>
-            Full Name
-        </span>
-
-        <span id="accountName">
-            -
-        </span>
-
-    </div>
-
-
-
-    <div class="account-row">
-
-        <span>
             Username
         </span>
 
@@ -1319,7 +1847,6 @@ body{
         </span>
 
     </div>
-
 
 
     <div class="account-row">
@@ -1333,7 +1860,6 @@ body{
         </span>
 
     </div>
-
 
 
     <div class="account-row">
@@ -1352,18 +1878,12 @@ body{
 </div>
 
 
-
-<!-- =========================
-     LOGOUT
-========================= -->
-
 <button
     class="logout"
     onclick="logout()"
 >
     LOG OUT
 </button>
-
 
 
 <div class="footer">
@@ -1374,30 +1894,248 @@ body{
 </main>
 
 
+<!-- =========================================
+     SERVICE MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="serviceModal"
+>
+
+
+    <div class="modal-box">
+
+
+        <div
+            class="modal-title"
+            id="serviceTitle"
+        >
+            ROAN
+        </div>
+
+
+        <form
+            id="serviceForm"
+        >
+
+
+            <div class="form-group">
+
+                <label>
+                    Mobile Operator
+                </label>
+
+                <select
+                    id="operator"
+                    required
+                >
+
+                    <option value="">
+                        Select Mobile Operator
+                    </option>
+
+                    <option value="Vodacom">
+                        Vodacom
+                    </option>
+
+                    <option value="Yas">
+                        Yas
+                    </option>
+
+                    <option value="Airtel">
+                        Airtel
+                    </option>
+
+                    <option value="Halotel">
+                        Halotel
+                    </option>
+
+                    <option value="TTCL">
+                        TTCL
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone No
+                </label>
+
+                <input
+                    type="tel"
+                    id="servicePhone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="confirm-service"
+                id="confirmService"
+            >
+                CONFIRM ROAN
+            </button>
+
+
+        </form>
+
+
+        <div
+            class="result"
+            id="serviceResult"
+        ></div>
+
+
+        <button
+            class="close-btn"
+            onclick="closeService()"
+        >
+            CLOSE
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     GENERAL MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="generalModal"
+>
+
+
+    <div class="modal-box">
+
+        <div
+            class="modal-title"
+            id="generalTitle"
+        >
+            LINKCASH
+        </div>
+
+
+        <div
+            class="result success"
+            id="generalText"
+            style="display:block"
+        >
+        </div>
+
+
+        <button
+            class="close-btn"
+            onclick="closeGeneral()"
+        >
+            CLOSE
+        </button>
+
+    </div>
+
+</div>
+
 
 <script>
+
+/* =========================================
+   CURRENT SERVICE
+========================================= */
+
+let currentService = "";
+
 
 /* =========================================
    LOAD ACCOUNT
 ========================================= */
 
 const savedAccount =
-    localStorage.getItem("linkcashAccount");
+    localStorage.getItem(
+        "linkcashAccount"
+    );
 
 
-let account = null;
+if(!savedAccount){
 
+    window.location.href =
+        "login.html";
 
-if(savedAccount){
+}else{
 
     try{
 
-        account =
+        const account =
             JSON.parse(savedAccount);
+
+
+        const username =
+            account.username || "Member";
+
+
+        document.getElementById(
+            "userName"
+        ).textContent =
+            username;
+
+
+        document.getElementById(
+            "accountUsername"
+        ).textContent =
+            username;
+
+
+        document.getElementById(
+            "accountPhone"
+        ).textContent =
+            account.phone || "-";
+
+
+        /* =================================
+           MY LINK
+        ================================= */
+
+        const baseURL =
+            window.location.origin +
+            window.location.pathname
+                .replace(
+                    "dashboard.html",
+                    ""
+                );
+
+
+        const referralLink =
+            baseURL +
+            "register.html?ref=" +
+            encodeURIComponent(
+                username
+            );
+
+
+        document.getElementById(
+            "myLink"
+        ).value =
+            referralLink;
+
 
     }catch(error){
 
-        account = null;
+        localStorage.removeItem(
+            "linkcashAccount"
+        );
+
+        window.location.href =
+            "login.html";
 
     }
 
@@ -1405,170 +2143,20 @@ if(savedAccount){
 
 
 /* =========================================
-   DISPLAY ACCOUNT
+   BALANCE
 ========================================= */
 
-if(account){
+/*
+   Kwa sasa balance inaanza 0.
+   Baadaye tutaunganisha na database.
+*/
 
-    document.getElementById(
-        "userName"
-    ).textContent =
-        account.fullname || "Member";
-
-
-    document.getElementById(
-        "accountName"
-    ).textContent =
-        account.fullname || "-";
-
-
-    document.getElementById(
-        "accountUsername"
-    ).textContent =
-        account.username || "-";
-
-
-    document.getElementById(
-        "accountPhone"
-    ).textContent =
-        account.phone || "-";
-
-}
-
-
-/* =========================================
-   CREATE MY LINK
-========================================= */
-
-function createMyLink(){
-
-    if(!account || !account.username){
-
-        return "";
-
-    }
-
-
-    /*
-       Example:
-
-       https://yourusername.github.io/LINKCASH/register.html?ref=username
-    */
-
-
-    const baseURL =
-        window.location.origin +
-        window.location.pathname
-            .replace("dashboard.html","");
-
-
-    return (
-        baseURL +
-        "register.html?ref=" +
-        encodeURIComponent(
-            account.username
-        )
-    );
-
-}
-
-
-const myLink =
-    createMyLink();
-
+let currentBalance = 0;
 
 document.getElementById(
-    "myLink"
-).value =
-    myLink || "Login account first";
-
-
-/* =========================================
-   COPY MY LINK
-========================================= */
-
-function copyMyLink(){
-
-    if(!myLink){
-
-        alert(
-            "Your referral link is not available."
-        );
-
-        return;
-
-    }
-
-
-    navigator.clipboard.writeText(
-        myLink
-    ).then(function(){
-
-        alert(
-            "Referral link copied ✓"
-        );
-
-    }).catch(function(){
-
-        const input =
-            document.getElementById(
-                "myLink"
-            );
-
-        input.select();
-
-        document.execCommand(
-            "copy"
-        );
-
-        alert(
-            "Referral link copied ✓"
-        );
-
-    });
-
-}
-
-
-/* =========================================
-   SHARE MY LINK
-========================================= */
-
-function shareMyLink(){
-
-    if(!myLink){
-
-        alert(
-            "Your referral link is not available."
-        );
-
-        return;
-
-    }
-
-
-    if(navigator.share){
-
-        navigator.share({
-
-            title:
-                "Join LINKCASH",
-
-            text:
-                "Join me on LINKCASH using my referral link:",
-
-            url:
-                myLink
-
-        });
-
-    }else{
-
-        copyMyLink();
-
-    }
-
-}
+    "balance"
+).textContent =
+    currentBalance.toLocaleString();
 
 
 /* =========================================
@@ -1577,35 +2165,311 @@ function shareMyLink(){
 
 function toggleTeam(){
 
-    const team =
-        document.getElementById(
+    document
+        .getElementById(
             "teamBox"
+        )
+        .classList.toggle(
+            "open"
         );
 
-    team.classList.toggle(
+}
+
+
+function toggleLevel(
+    event,
+    element
+){
+
+    event.stopPropagation();
+
+    element.classList.toggle(
         "open"
     );
 
 }
 
 
-function openTeam(){
+/* =========================================
+   SERVICE
+========================================= */
 
-    const team =
+function openService(
+    service
+){
+
+    currentService =
+        service;
+
+
+    document.getElementById(
+        "serviceTitle"
+    ).textContent =
+        service;
+
+
+    document.getElementById(
+        "confirmService"
+    ).textContent =
+        "CONFIRM " + service;
+
+
+    document.getElementById(
+        "serviceForm"
+    ).reset();
+
+
+    const result =
         document.getElementById(
-            "teamBox"
+            "serviceResult"
         );
 
-    team.classList.add(
-        "open"
-    );
+
+    result.className =
+        "result";
 
 
-    team.scrollIntoView({
+    result.style.display =
+        "none";
 
-        behavior:"smooth",
 
-        block:"center"
+    document.getElementById(
+        "serviceModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* =========================================
+   SERVICE CONFIRM
+========================================= */
+
+document.getElementById(
+    "serviceForm"
+).addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const operator =
+            document.getElementById(
+                "operator"
+            ).value;
+
+
+        const phone =
+            document.getElementById(
+                "servicePhone"
+            ).value.trim();
+
+
+        const result =
+            document.getElementById(
+                "serviceResult"
+            );
+
+
+        if(!operator){
+
+            result.className =
+                "result error";
+
+            result.textContent =
+                "Please select your mobile operator.";
+
+            result.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        if(!phone){
+
+            result.className =
+                "result error";
+
+            result.textContent =
+                "Please enter your phone number.";
+
+            result.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        /* =================================
+           ELIGIBILITY
+        ================================= */
+
+        if(currentBalance < 100000){
+
+            result.className =
+                "result error";
+
+
+            result.innerHTML =
+                "<strong>You are not eligible.</strong><br><br>" +
+                "Your dashboard should have " +
+                "<strong>TSh 100,000</strong> " +
+                "to use " +
+                currentService +
+                ".";
+
+
+            result.style.display =
+                "block";
+
+
+            return;
+
+        }
+
+
+        /* =================================
+           ELIGIBLE
+        ================================= */
+
+        result.className =
+            "result success";
+
+
+        result.textContent =
+            currentService +
+            " request submitted successfully.";
+
+
+        result.style.display =
+            "block";
+
+    }
+);
+
+
+/* =========================================
+   CLOSE SERVICE
+========================================= */
+
+function closeService(){
+
+    document.getElementById(
+        "serviceModal"
+    ).style.display =
+        "none";
+
+}
+
+
+/* =========================================
+   GAMES
+========================================= */
+
+function openGame(
+    game
+){
+
+    document.getElementById(
+        "generalTitle"
+    ).textContent =
+        game;
+
+
+    document.getElementById(
+        "generalText"
+    ).textContent =
+        game +
+        " is ready in the Games section.";
+
+
+    document.getElementById(
+        "generalModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* =========================================
+   VIDEO EARNING
+========================================= */
+
+function openVideo(
+    platform
+){
+
+    document.getElementById(
+        "generalTitle"
+    ).textContent =
+        platform;
+
+
+    document.getElementById(
+        "generalText"
+    ).textContent =
+        platform +
+        " Video Earning section is ready.";
+
+
+    document.getElementById(
+        "generalModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* =========================================
+   CLOSE GENERAL
+========================================= */
+
+function closeGeneral(){
+
+    document.getElementById(
+        "generalModal"
+    ).style.display =
+        "none";
+
+}
+
+
+/* =========================================
+   COPY LINK
+========================================= */
+
+function copyLink(){
+
+    const input =
+        document.getElementById(
+            "myLink"
+        );
+
+
+    navigator.clipboard.writeText(
+        input.value
+    ).then(function(){
+
+        document.getElementById(
+            "generalTitle"
+        ).textContent =
+            "My Link";
+
+
+        document.getElementById(
+            "generalText"
+        ).textContent =
+            "Referral link copied successfully.";
+
+
+        document.getElementById(
+            "generalModal"
+        ).style.display =
+            "flex";
 
     });
 
@@ -1613,36 +2477,7 @@ function openTeam(){
 
 
 /* =========================================
-   LEVEL
-========================================= */
-
-function openLevel(level){
-
-    alert(
-        "LEVEL " +
-        level +
-        " is ready for your team members."
-    );
-
-}
-
-
-/* =========================================
-   QUICK ACCESS
-========================================= */
-
-function showNotice(name){
-
-    alert(
-        name +
-        " section is ready."
-    );
-
-}
-
-
-/* =========================================
-   ACCOUNT SCROLL
+   ACCOUNT
 ========================================= */
 
 function scrollToAccount(){
@@ -1682,6 +2517,5 @@ function logout(){
 
 </script>
 
-
 </body>
-</html>
+    </html>
