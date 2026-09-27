@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>LINKCASH - CEO Dashboard</title>
 
@@ -363,7 +363,8 @@ body{
 }
 
 .activate-btn,
-.reject-btn{
+.reject-btn,
+.delete-btn{
   flex:1;
   height:40px;
   border-radius:10px;
@@ -382,6 +383,12 @@ body{
   border:1px solid rgba(255,80,80,.25);
   background:rgba(255,80,80,.07);
   color:#ff7777;
+}
+
+.delete-btn{
+  border:1px solid #292929;
+  background:#101010;
+  color:#777;
 }
 
 .empty{
@@ -405,7 +412,6 @@ body{
   margin-top:6px;
   color:#666;
   font-size:10px;
-  line-height:1.5;
 }
 
 .content-form{
@@ -431,7 +437,6 @@ body{
 
 .textarea{
   min-height:100px;
-  resize:vertical;
 }
 
 .save-btn{
@@ -469,7 +474,6 @@ body{
   font-size:9px;
   margin-top:7px;
   word-break:break-all;
-  line-height:1.5;
 }
 
 .content-actions{
@@ -523,6 +527,7 @@ body{
   .tabs{
     grid-template-columns:repeat(3,1fr);
   }
+
 }
 
 @media(max-width:400px){
@@ -534,6 +539,7 @@ body{
   .details{
     grid-template-columns:1fr;
   }
+
 }
 </style>
 </head>
@@ -543,8 +549,15 @@ body{
 <header class="topbar">
 
   <div class="brand">
-    <div class="logo">LC</div>
-    <div class="brand-name">LINKCASH</div>
+
+    <div class="logo">
+      LC
+    </div>
+
+    <div class="brand-name">
+      LINKCASH
+    </div>
+
   </div>
 
   <div class="ceo-badge">
@@ -553,11 +566,15 @@ body{
 
 </header>
 
+
 <main class="container">
+
 
 <section class="header">
 
-  <small>ADMINISTRATION</small>
+  <small>
+    ADMINISTRATION
+  </small>
 
   <h1>
     Welcome, <span>CEO</span>
@@ -570,9 +587,13 @@ body{
 
 </section>
 
+
 <div class="connection">
 
-  <div class="dot" id="connectionDot"></div>
+  <div
+    class="dot"
+    id="connectionDot">
+  </div>
 
   <span id="connectionText">
     CONNECTING TO SUPABASE...
@@ -584,27 +605,78 @@ body{
 <section class="stats">
 
   <div class="stat">
-    <div class="stat-icon">👥</div>
-    <div class="stat-value" id="totalUsers">0</div>
-    <div class="stat-name">TOTAL USERS</div>
+
+    <div class="stat-icon">
+      👥
+    </div>
+
+    <div
+      class="stat-value"
+      id="totalUsers">
+      0
+    </div>
+
+    <div class="stat-name">
+      TOTAL USERS
+    </div>
+
   </div>
 
-  <div class="stat">
-    <div class="stat-icon">⏳</div>
-    <div class="stat-value" id="pendingCount">0</div>
-    <div class="stat-name">PENDING</div>
-  </div>
 
   <div class="stat">
-    <div class="stat-icon">✓</div>
-    <div class="stat-value" id="activeUsers">0</div>
-    <div class="stat-name">ACTIVE</div>
+
+    <div class="stat-icon">
+      ⏳
+    </div>
+
+    <div
+      class="stat-value"
+      id="pendingCount">
+      0
+    </div>
+
+    <div class="stat-name">
+      PENDING
+    </div>
+
   </div>
 
+
   <div class="stat">
-    <div class="stat-icon">💰</div>
-    <div class="stat-value" id="totalBalance">0</div>
-    <div class="stat-name">BALANCE</div>
+
+    <div class="stat-icon">
+      ✓
+    </div>
+
+    <div
+      class="stat-value"
+      id="activeUsers">
+      0
+    </div>
+
+    <div class="stat-name">
+      ACTIVE
+    </div>
+
+  </div>
+
+
+  <div class="stat">
+
+    <div class="stat-icon">
+      💰
+    </div>
+
+    <div
+      class="stat-value"
+      id="totalBalance">
+      0
+    </div>
+
+    <div class="stat-name">
+      BALANCE
+    </div>
+
   </div>
 
 </section>
@@ -612,33 +684,39 @@ body{
 
 <div class="tabs">
 
-  <button class="tab active"
-          onclick="openPanel('users',this)">
+  <button
+    class="tab active"
+    onclick="openPanel('users',this)">
     👥 USERS
   </button>
 
-  <button class="tab"
-          onclick="openPanel('pending',this)">
+  <button
+    class="tab"
+    onclick="openPanel('pending',this)">
     ⏳ PENDING
   </button>
 
-  <button class="tab"
-          onclick="openPanel('social',this)">
+  <button
+    class="tab"
+    onclick="openPanel('social',this)">
     📱 SOCIAL
   </button>
 
-  <button class="tab"
-          onclick="openPanel('ads',this)">
+  <button
+    class="tab"
+    onclick="openPanel('ads',this)">
     📢 ADS
   </button>
 
-  <button class="tab"
-          onclick="openPanel('quiz',this)">
+  <button
+    class="tab"
+    onclick="openPanel('quiz',this)">
     🧠 QUIZ
   </button>
 
-  <button class="tab"
-          onclick="openPanel('games',this)">
+  <button
+    class="tab"
+    onclick="openPanel('games',this)">
     🎮 GAMES
   </button>
 
@@ -647,40 +725,52 @@ body{
 
 <!-- USERS -->
 
-<section id="users" class="panel active">
+<section
+  id="users"
+  class="panel active">
 
   <div class="action-bar">
 
-    <button class="action-btn"
-            onclick="loadUsers()">
+    <button
+      class="action-btn"
+      onclick="loadUsers()">
       ↻ REFRESH
     </button>
 
-    <button class="action-btn"
-            onclick="filterUsers('all')">
+    <button
+      class="action-btn"
+      onclick="filterUsers('all')">
       ALL
     </button>
 
-    <button class="action-btn"
-            onclick="filterUsers('active')">
+    <button
+      class="action-btn"
+      onclick="filterUsers('active')">
       ACTIVE
     </button>
 
   </div>
 
+
   <div class="section-title">
 
-    <h2>Registered Users</h2>
+    <h2>
+      Registered Users
+    </h2>
 
-    <span>SUPABASE</span>
+    <span>
+      SUPABASE
+    </span>
 
   </div>
+
 
   <input
     id="userSearch"
     class="search"
     placeholder="Search username, name or phone..."
     oninput="renderUsers()">
+
 
   <div id="usersList"></div>
 
@@ -689,13 +779,19 @@ body{
 
 <!-- PENDING -->
 
-<section id="pending" class="panel">
+<section
+  id="pending"
+  class="panel">
 
   <div class="section-title">
 
-    <h2>Pending Users</h2>
+    <h2>
+      Pending Users
+    </h2>
 
-    <span>WAITING</span>
+    <span>
+      WAITING
+    </span>
 
   </div>
 
@@ -706,12 +802,22 @@ body{
 
 <!-- SOCIAL -->
 
-<section id="social" class="panel">
+<section
+  id="social"
+  class="panel">
 
   <div class="section-title">
-    <h2>Social Content</h2>
-    <span>CEO CONTROL</span>
+
+    <h2>
+      Social Content
+    </h2>
+
+    <span>
+      CEO CONTROL
+    </span>
+
   </div>
+
 
   <div class="content-form">
 
@@ -733,19 +839,33 @@ body{
 
   </div>
 
-  <div id="socialList" class="content-list"></div>
+
+  <div
+    id="socialList"
+    class="content-list">
+  </div>
 
 </section>
 
 
 <!-- ADS -->
 
-<section id="ads" class="panel">
+<section
+  id="ads"
+  class="panel">
 
   <div class="section-title">
-    <h2>Advertisements</h2>
-    <span>CEO ADS</span>
+
+    <h2>
+      Advertisements
+    </h2>
+
+    <span>
+      CEO ADS
+    </span>
+
   </div>
+
 
   <div class="content-form">
 
@@ -772,19 +892,33 @@ body{
 
   </div>
 
-  <div id="adsList" class="content-list"></div>
+
+  <div
+    id="adsList"
+    class="content-list">
+  </div>
 
 </section>
 
 
 <!-- QUIZ -->
 
-<section id="quiz" class="panel">
+<section
+  id="quiz"
+  class="panel">
 
   <div class="section-title">
-    <h2>Quiz Manager</h2>
-    <span>QUESTIONS</span>
+
+    <h2>
+      Quiz Manager
+    </h2>
+
+    <span>
+      QUESTIONS
+    </span>
+
   </div>
+
 
   <div class="content-form">
 
@@ -813,14 +947,29 @@ body{
       class="input"
       placeholder="Option D">
 
-    <select id="quizAnswer" class="select">
 
-      <option value="A">Correct answer: A</option>
-      <option value="B">Correct answer: B</option>
-      <option value="C">Correct answer: C</option>
-      <option value="D">Correct answer: D</option>
+    <select
+      id="quizAnswer"
+      class="select">
+
+      <option value="A">
+        Correct answer: A
+      </option>
+
+      <option value="B">
+        Correct answer: B
+      </option>
+
+      <option value="C">
+        Correct answer: C
+      </option>
+
+      <option value="D">
+        Correct answer: D
+      </option>
 
     </select>
+
 
     <button
       class="save-btn"
@@ -830,19 +979,33 @@ body{
 
   </div>
 
-  <div id="quizList" class="content-list"></div>
+
+  <div
+    id="quizList"
+    class="content-list">
+  </div>
 
 </section>
 
 
 <!-- GAMES -->
 
-<section id="games" class="panel">
+<section
+  id="games"
+  class="panel">
 
   <div class="section-title">
-    <h2>Games</h2>
-    <span>CEO CONTROL</span>
+
+    <h2>
+      Games
+    </h2>
+
+    <span>
+      CEO CONTROL
+    </span>
+
   </div>
+
 
   <div class="content-form">
 
@@ -864,7 +1027,11 @@ body{
 
   </div>
 
-  <div id="gamesList" class="content-list"></div>
+
+  <div
+    id="gamesList"
+    class="content-list">
+  </div>
 
 </section>
 
@@ -872,8 +1039,11 @@ body{
 <button
   class="logout"
   onclick="logoutCEO()">
+
   🚪 LOG OUT CEO
+
 </button>
+
 
 <div class="footer">
   © 2026 LINKCASH • CEO ADMINISTRATION
@@ -894,11 +1064,21 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
   "sb_publishable_QUoRhZ-o_TqxKEveIXERDQ_IRIvWQWG";
 
+
 const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+let allUsers = [];
+
+let currentFilter = "all";
 
 
 /* =========================================
@@ -908,10 +1088,15 @@ const supabaseClient =
 async function testConnection(){
 
   const dot =
-    document.getElementById("connectionDot");
+    document.getElementById(
+      "connectionDot"
+    );
 
   const text =
-    document.getElementById("connectionText");
+    document.getElementById(
+      "connectionText"
+    );
+
 
   try{
 
@@ -921,14 +1106,16 @@ async function testConnection(){
       .select("id")
       .limit(1);
 
+
     if(error){
 
       console.error(
-        "SUPABASE CONNECTION ERROR:",
+        "SUPABASE ERROR:",
         error
       );
 
-      dot.className = "dot error";
+      dot.className =
+        "dot error";
 
       text.textContent =
         "SUPABASE ERROR: " +
@@ -937,35 +1124,35 @@ async function testConnection(){
       return false;
     }
 
-    dot.className = "dot online";
+
+    dot.className =
+      "dot online";
 
     text.textContent =
       "SUPABASE CONNECTED";
 
     return true;
 
+
   }catch(error){
 
     console.error(error);
 
-    dot.className = "dot error";
+    dot.className =
+      "dot error";
 
     text.textContent =
       "SUPABASE CONNECTION FAILED";
 
     return false;
   }
+
 }
 
 
 /* =========================================
-   USERS
+   GET USERS
 ========================================= */
-
-let allUsers = [];
-
-let currentFilter = "all";
-
 
 async function getUsers(){
 
@@ -982,6 +1169,7 @@ async function getUsers(){
       }
     );
 
+
   if(error){
 
     console.error(
@@ -992,7 +1180,9 @@ async function getUsers(){
     throw error;
   }
 
+
   return data || [];
+
 }
 
 
@@ -1003,7 +1193,10 @@ async function getUsers(){
 async function loadUsers(){
 
   const container =
-    document.getElementById("usersList");
+    document.getElementById(
+      "usersList"
+    );
+
 
   container.innerHTML = `
     <div class="empty">
@@ -1013,10 +1206,12 @@ async function loadUsers(){
     </div>
   `;
 
+
   try{
 
     allUsers =
       await getUsers();
+
 
     updateStats();
 
@@ -1024,22 +1219,32 @@ async function loadUsers(){
 
     renderPending();
 
+
   }catch(error){
+
+    console.error(error);
+
 
     container.innerHTML = `
       <div class="empty">
         <div class="empty-icon">⚠️</div>
-        <h3>Supabase Error</h3>
+
+        <h3>
+          Supabase Error
+        </h3>
+
         <p>
           ${escapeHTML(
             error.message ||
             "Could not load users."
           )}
         </p>
+
       </div>
     `;
 
   }
+
 }
 
 
@@ -1052,45 +1257,62 @@ function updateStats(){
   const total =
     allUsers.length;
 
+
   const pending =
-    allUsers.filter(user =>
-      String(
-        user.status || "pending"
-      ).toLowerCase() === "pending"
+    allUsers.filter(
+      user =>
+        String(
+          user.status ||
+          "pending"
+        ).toLowerCase()
+        === "pending"
     ).length;
 
+
   const active =
-    allUsers.filter(user =>
-      String(
-        user.status || ""
-      ).toLowerCase() === "active"
+    allUsers.filter(
+      user =>
+        String(
+          user.status || ""
+        ).toLowerCase()
+        === "active"
     ).length;
+
 
   const balance =
     allUsers.reduce(
       (sum,user) =>
-        sum + Number(
+        sum +
+        Number(
           user.balance || 0
         ),
       0
     );
 
+
   document.getElementById(
     "totalUsers"
-  ).textContent = total;
+  ).textContent =
+    total;
+
 
   document.getElementById(
     "pendingCount"
-  ).textContent = pending;
+  ).textContent =
+    pending;
+
 
   document.getElementById(
     "activeUsers"
-  ).textContent = active;
+  ).textContent =
+    active;
+
 
   document.getElementById(
     "totalBalance"
   ).textContent =
     balance.toLocaleString();
+
 }
 
 
@@ -1104,10 +1326,12 @@ function getInitials(name){
     return "U";
   }
 
+
   const parts =
     String(name)
     .trim()
     .split(/\s+/);
+
 
   if(parts.length === 1){
 
@@ -1117,10 +1341,12 @@ function getInitials(name){
 
   }
 
+
   return (
     parts[0][0] +
     parts[1][0]
   ).toUpperCase();
+
 }
 
 
@@ -1130,12 +1356,30 @@ function getInitials(name){
 
 function escapeHTML(value){
 
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+  return String(
+    value ?? ""
+  )
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
+
 }
 
 
@@ -1146,79 +1390,115 @@ function escapeHTML(value){
 function renderUsers(){
 
   const container =
-    document.getElementById("usersList");
+    document.getElementById(
+      "usersList"
+    );
+
 
   const search =
     String(
-      document.getElementById("userSearch").value || ""
+      document.getElementById(
+        "userSearch"
+      ).value || ""
     )
     .trim()
     .toLowerCase();
 
+
   let users =
     [...allUsers];
 
-  if(currentFilter === "active"){
+
+  if(
+    currentFilter ===
+    "active"
+  ){
 
     users =
-      users.filter(user =>
-        String(
-          user.status || ""
-        ).toLowerCase() === "active"
+      users.filter(
+        user =>
+          String(
+            user.status || ""
+          ).toLowerCase()
+          === "active"
       );
+
   }
 
+
   users =
-    users.filter(user => {
+    users.filter(
+      user => {
 
-      const username =
-        String(
-          user.username || ""
-        ).toLowerCase();
+        const username =
+          String(
+            user.username || ""
+          ).toLowerCase();
 
-      const fullname =
-        String(
-          user.fullname || ""
-        ).toLowerCase();
 
-      const phone =
-        String(
-          user.phone || ""
-        ).toLowerCase();
+        const fullname =
+          String(
+            user.fullname || ""
+          ).toLowerCase();
 
-      return (
-        !search ||
-        username.includes(search) ||
-        fullname.includes(search) ||
-        phone.includes(search)
-      );
-    });
+
+        const phone =
+          String(
+            user.phone || ""
+          ).toLowerCase();
+
+
+        return (
+          !search ||
+          username.includes(search) ||
+          fullname.includes(search) ||
+          phone.includes(search)
+        );
+
+      }
+    );
+
 
   container.innerHTML = "";
 
-  if(users.length === 0){
+
+  if(
+    users.length === 0
+  ){
 
     container.innerHTML = `
       <div class="empty">
-        <div class="empty-icon">👥</div>
-        <h3>No registered users found</h3>
+
+        <div class="empty-icon">
+          👥
+        </div>
+
+        <h3>
+          No registered users found
+        </h3>
+
         <p>
           Users registered in LINKCASH
           will appear here.
         </p>
+
       </div>
     `;
 
     return;
   }
 
-  users.forEach(user => {
 
-    container.appendChild(
-      createUserCard(user)
-    );
+  users.forEach(
+    user => {
 
-  });
+      container.appendChild(
+        createUserCard(user)
+      );
+
+    }
+  );
+
 }
 
 
@@ -1229,34 +1509,51 @@ function renderUsers(){
 function createUserCard(user){
 
   const card =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
-  card.className = "user-card";
+
+  card.className =
+    "user-card";
+
 
   const status =
     String(
-      user.status || "pending"
+      user.status ||
+      "pending"
     ).toLowerCase();
+
 
   const name =
     user.fullname ||
     user.username ||
     "Unknown User";
 
+
   const username =
-    user.username || "-";
+    user.username ||
+    "-";
+
 
   const phone =
-    user.phone || "-";
+    user.phone ||
+    "-";
+
 
   const balance =
     Number(
-      user.balance || 0
+      user.balance ||
+      0
     ).toLocaleString();
+
 
   let created = "-";
 
-  if(user.created_at){
+
+  if(
+    user.created_at
+  ){
 
     try{
 
@@ -1269,6 +1566,82 @@ function createUserCard(user){
 
   }
 
+
+  let actionHTML = "";
+
+
+  if(
+    status === "pending"
+  ){
+
+    actionHTML = `
+
+      <div class="actions">
+
+        <button
+          class="activate-btn"
+          onclick="activateUser(${Number(user.id)})">
+
+          ✓ ACTIVATE
+
+        </button>
+
+
+        <button
+          class="reject-btn"
+          onclick="rejectUser(${Number(user.id)})">
+
+          ✕ REJECT
+
+        </button>
+
+      </div>
+
+    `;
+
+  }
+  else if(
+    status === "active"
+  ){
+
+    actionHTML = `
+
+      <div class="actions">
+
+        <button
+          class="reject-btn"
+          onclick="rejectUser(${Number(user.id)})">
+
+          ✕ DEACTIVATE
+
+        </button>
+
+      </div>
+
+    `;
+
+  }
+  else{
+
+    actionHTML = `
+
+      <div class="actions">
+
+        <button
+          class="activate-btn"
+          onclick="activateUser(${Number(user.id)})">
+
+          ✓ ACTIVATE
+
+        </button>
+
+      </div>
+
+    `;
+
+  }
+
+
   card.innerHTML = `
 
     <div class="user-top">
@@ -1276,31 +1649,46 @@ function createUserCard(user){
       <div class="user-info">
 
         <div class="avatar">
+
           ${getInitials(name)}
+
         </div>
+
 
         <div>
 
           <div class="user-name">
+
             ${escapeHTML(name)}
+
           </div>
 
+
           <div class="user-username">
+
             @${escapeHTML(username)}
+
           </div>
 
         </div>
 
       </div>
 
-      <div class="status ${escapeHTML(status)}">
-        ${escapeHTML(status.toUpperCase())}
+
+      <div
+        class="status ${escapeHTML(status)}">
+
+        ${escapeHTML(
+          status.toUpperCase()
+        )}
+
       </div>
 
     </div>
 
 
     <div class="details">
+
 
       <div class="detail">
 
@@ -1309,7 +1697,9 @@ function createUserCard(user){
         </div>
 
         <div class="detail-value">
+
           ${escapeHTML(phone)}
+
         </div>
 
       </div>
@@ -1322,7 +1712,9 @@ function createUserCard(user){
         </div>
 
         <div class="detail-value gold">
+
           TZS ${balance}
+
         </div>
 
       </div>
@@ -1335,7 +1727,9 @@ function createUserCard(user){
         </div>
 
         <div class="detail-value">
+
           ${escapeHTML(username)}
+
         </div>
 
       </div>
@@ -1348,86 +1742,41 @@ function createUserCard(user){
         </div>
 
         <div class="detail-value">
+
           ${escapeHTML(created)}
+
         </div>
 
       </div>
 
+
     </div>
 
 
-    ${
-      status === "pending"
-      ?
-
-      `
-      <div class="actions">
-
-        <button
-          class="activate-btn"
-          onclick="activateUser(${Number(user.id)})">
-          ✓ ACTIVATE
-        </button>
-
-        <button
-          class="reject-btn"
-          onclick="rejectUser(${Number(user.id)})">
-          ✕ REJECT
-        </button>
-
-      </div>
-      `
-
-      :
-
-      status === "active"
-
-      ?
-
-      `
-      <div class="actions">
-
-        <button
-          class="reject-btn"
-          onclick="rejectUser(${Number(user.id)})">
-          ✕ DEACTIVATE
-        </button>
-
-      </div>
-      `
-
-      :
-
-      `
-      <div class="actions">
-
-        <button
-          class="activate-btn"
-          onclick="activateUser(${Number(user.id)})">
-          ✓ ACTIVATE
-        </button>
-
-      </div>
-      `
-    }
+    ${actionHTML}
 
   `;
 
+
   return card;
+
 }
 
 
 /* =========================================
-   ACTIVATE
+   ACTIVATE USER
 ========================================= */
 
 async function activateUser(id){
 
-  if(!confirm(
-    "Activate this user?"
-  )){
+  if(
+    !confirm(
+      "Activate this user?"
+    )
+  ){
     return;
   }
+
 
   const { error } =
     await supabaseClient
@@ -1435,7 +1784,11 @@ async function activateUser(id){
     .update({
       status:"active"
     })
-    .eq("id",id);
+    .eq(
+      "id",
+      id
+    );
+
 
   if(error){
 
@@ -1449,11 +1802,14 @@ async function activateUser(id){
     return;
   }
 
+
   alert(
     "User activated successfully."
   );
 
+
   await loadUsers();
+
 }
 
 
@@ -1463,11 +1819,14 @@ async function activateUser(id){
 
 async function rejectUser(id){
 
-  if(!confirm(
-    "Set this user as rejected?"
-  )){
+  if(
+    !confirm(
+      "Set this user as rejected?"
+    )
+  ){
     return;
   }
+
 
   const { error } =
     await supabaseClient
@@ -1475,7 +1834,11 @@ async function rejectUser(id){
     .update({
       status:"rejected"
     })
-    .eq("id",id);
+    .eq(
+      "id",
+      id
+    );
+
 
   if(error){
 
@@ -1489,11 +1852,14 @@ async function rejectUser(id){
     return;
   }
 
+
   alert(
     "User status updated."
   );
 
+
   await loadUsers();
+
 }
 
 
@@ -1503,53 +1869,92 @@ async function rejectUser(id){
 
 function filterUsers(type){
 
-  currentFilter = type;
+  currentFilter =
+    type;
+
+
+  const usersTab =
+    document.querySelector(
+      '.tab[onclick*="users"]'
+    );
+
+
+  openPanel(
+    "users",
+    usersTab
+  );
+
 
   renderUsers();
+
 }
 
 
 /* =========================================
-   PENDING
+   PENDING USERS
 ========================================= */
 
 function renderPending(){
 
   const container =
-    document.getElementById("pendingList");
+    document.getElementById(
+      "pendingList"
+    );
+
 
   const pending =
-    allUsers.filter(user =>
-      String(
-        user.status || "pending"
-      ).toLowerCase() === "pending"
+    allUsers.filter(
+      user =>
+        String(
+          user.status ||
+          "pending"
+        ).toLowerCase()
+        === "pending"
     );
+
 
   container.innerHTML = "";
 
-  if(pending.length === 0){
+
+  if(
+    pending.length === 0
+  ){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">✓</div>
-        <h3>No Pending Users</h3>
+
+        <div class="empty-icon">
+          ✓
+        </div>
+
+        <h3>
+          No Pending Users
+        </h3>
+
         <p>
           All registered users
           have been processed.
         </p>
+
       </div>
+
     `;
 
     return;
   }
 
-  pending.forEach(user => {
 
-    container.appendChild(
-      createUserCard(user)
-    );
+  pending.forEach(
+    user => {
 
-  });
+      container.appendChild(
+        createUserCard(user)
+      );
+
+    }
+  );
+
 }
 
 
@@ -1572,6 +1977,7 @@ function getSocial(){
     return [];
 
   }
+
 }
 
 
@@ -1581,6 +1987,7 @@ function saveSocial(data){
     "linkcashSocial",
     JSON.stringify(data)
   );
+
 }
 
 
@@ -1591,12 +1998,17 @@ function addSocial(){
       "socialTitle"
     ).value.trim();
 
+
   const url =
     document.getElementById(
       "socialURL"
     ).value.trim();
 
-  if(!title || !url){
+
+  if(
+    !title ||
+    !url
+  ){
 
     alert(
       "Enter title and URL."
@@ -1605,8 +2017,10 @@ function addSocial(){
     return;
   }
 
+
   const data =
     getSocial();
+
 
   data.push({
     id:Date.now(),
@@ -1614,17 +2028,22 @@ function addSocial(){
     url
   });
 
+
   saveSocial(data);
+
 
   document.getElementById(
     "socialTitle"
   ).value = "";
 
+
   document.getElementById(
     "socialURL"
   ).value = "";
 
+
   renderSocial();
+
 }
 
 
@@ -1635,52 +2054,78 @@ function renderSocial(){
       "socialList"
     );
 
+
   const data =
     getSocial();
 
+
   container.innerHTML = "";
+
 
   [...data]
   .reverse()
-  .forEach(item => {
+  .forEach(
+    item => {
 
-    const card =
-      document.createElement("div");
+      const card =
+        document.createElement(
+          "div"
+        );
 
-    card.className =
-      "content-card";
 
-    card.innerHTML = `
+      card.className =
+        "content-card";
 
-      <div class="content-title">
-        ${escapeHTML(item.title)}
-      </div>
 
-      <div class="content-url">
-        ${escapeHTML(item.url)}
-      </div>
+      card.innerHTML = `
 
-      <div class="content-actions">
+        <div class="content-title">
 
-        <button
-          class="small-btn"
-          onclick="openURL(${JSON.stringify(item.url)})">
-          OPEN
-        </button>
+          ${escapeHTML(
+            item.title
+          )}
 
-        <button
-          class="small-btn delete"
-          onclick="deleteSocial(${item.id})">
-          DELETE
-        </button>
+        </div>
 
-      </div>
 
-    `;
+        <div class="content-url">
 
-    container.appendChild(card);
+          ${escapeHTML(
+            item.url
+          )}
 
-  });
+        </div>
+
+
+        <div class="content-actions">
+
+          <button
+            class="small-btn"
+            onclick="openSafeURL(${JSON.stringify(item.url)})">
+
+            OPEN
+
+          </button>
+
+
+          <button
+            class="small-btn delete"
+            onclick="deleteSocial(${item.id})">
+
+            DELETE
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      container.appendChild(card);
+
+    }
+  );
+
 }
 
 
@@ -1688,13 +2133,16 @@ function deleteSocial(id){
 
   const data =
     getSocial()
-    .filter(item =>
-      item.id !== id
+    .filter(
+      item =>
+        item.id !== id
     );
+
 
   saveSocial(data);
 
   renderSocial();
+
 }
 
 
@@ -1717,6 +2165,7 @@ function getAds(){
     return [];
 
   }
+
 }
 
 
@@ -1726,6 +2175,7 @@ function saveAds(data){
     "linkcashAds",
     JSON.stringify(data)
   );
+
 }
 
 
@@ -1736,15 +2186,18 @@ function addAd(){
       "adTitle"
     ).value.trim();
 
+
   const text =
     document.getElementById(
       "adText"
     ).value.trim();
 
+
   const url =
     document.getElementById(
       "adURL"
     ).value.trim();
+
 
   if(!title){
 
@@ -1755,8 +2208,10 @@ function addAd(){
     return;
   }
 
+
   const ads =
     getAds();
+
 
   ads.push({
     id:Date.now(),
@@ -1765,21 +2220,27 @@ function addAd(){
     url
   });
 
+
   saveAds(ads);
+
 
   document.getElementById(
     "adTitle"
   ).value = "";
 
+
   document.getElementById(
     "adText"
   ).value = "";
+
 
   document.getElementById(
     "adURL"
   ).value = "";
 
+
   renderAds();
+
 }
 
 
@@ -1790,60 +2251,82 @@ function renderAds(){
       "adsList"
     );
 
+
   container.innerHTML = "";
+
 
   [...getAds()]
   .reverse()
-  .forEach(ad => {
+  .forEach(
+    ad => {
 
-    const card =
-      document.createElement("div");
+      const card =
+        document.createElement(
+          "div"
+        );
 
-    card.className =
-      "content-card";
 
-    card.innerHTML = `
+      card.className =
+        "content-card";
 
-      <div class="content-title">
-        ${escapeHTML(ad.title)}
-      </div>
 
-      <div class="content-url">
-        ${escapeHTML(ad.text)}
-      </div>
+      card.innerHTML = `
 
-      <div class="content-actions">
+        <div class="content-title">
 
-        ${
-          ad.url
-          ?
+          ${escapeHTML(
+            ad.title
+          )}
 
-          `
+        </div>
+
+
+        <div class="content-url">
+
+          ${escapeHTML(
+            ad.text
+          )}
+
+        </div>
+
+
+        <div class="content-actions">
+
+          ${
+            ad.url
+            ? `
+
+              <button
+                class="small-btn"
+                onclick="openSafeURL(${JSON.stringify(ad.url)})">
+
+                OPEN
+
+              </button>
+
+            `
+            : ""
+          }
+
+
           <button
-            class="small-btn"
-            onclick="openURL(${JSON.stringify(ad.url)})">
-            OPEN
+            class="small-btn delete"
+            onclick="deleteAd(${ad.id})">
+
+            DELETE
+
           </button>
-          `
 
-          :
+        </div>
 
-          ""
-        }
+      `;
 
-        <button
-          class="small-btn delete"
-          onclick="deleteAd(${ad.id})">
-          DELETE
-        </button>
 
-      </div>
+      container.appendChild(card);
 
-    `;
+    }
+  );
 
-    container.appendChild(card);
-
-  });
 }
 
 
@@ -1851,13 +2334,16 @@ function deleteAd(id){
 
   const data =
     getAds()
-    .filter(ad =>
-      ad.id !== id
+    .filter(
+      ad =>
+        ad.id !== id
     );
+
 
   saveAds(data);
 
   renderAds();
+
 }
 
 
@@ -1880,6 +2366,7 @@ function getQuiz(){
     return [];
 
   }
+
 }
 
 
@@ -1889,6 +2376,7 @@ function saveQuiz(data){
     "linkcashQuiz",
     JSON.stringify(data)
   );
+
 }
 
 
@@ -1899,30 +2387,36 @@ function addQuiz(){
       "quizQuestion"
     ).value.trim();
 
+
   const A =
     document.getElementById(
       "quizA"
     ).value.trim();
+
 
   const B =
     document.getElementById(
       "quizB"
     ).value.trim();
 
+
   const C =
     document.getElementById(
       "quizC"
     ).value.trim();
+
 
   const D =
     document.getElementById(
       "quizD"
     ).value.trim();
 
+
   const answer =
     document.getElementById(
       "quizAnswer"
     ).value;
+
 
   if(
     !question ||
@@ -1939,30 +2433,43 @@ function addQuiz(){
     return;
   }
 
+
   const quiz =
     getQuiz();
 
+
   quiz.push({
+
     id:Date.now(),
+
     question,
+
     options:{
-      A:A,
-      B:B,
-      C:C,
-      D:D
+      A,
+      B,
+      C,
+      D
     },
-    answer:answer
+
+    answer
+
   });
+
 
   saveQuiz(quiz);
 
+
   document.querySelectorAll(
     "#quiz input"
-  ).forEach(input =>
-    input.value = ""
+  )
+  .forEach(
+    input =>
+      input.value = ""
   );
 
+
   renderQuiz();
+
 }
 
 
@@ -1973,60 +2480,106 @@ function renderQuiz(){
       "quizList"
     );
 
+
   container.innerHTML = "";
+
 
   [...getQuiz()]
   .reverse()
-  .forEach(item => {
+  .forEach(
+    item => {
 
-    const card =
-      document.createElement("div");
+      const card =
+        document.createElement(
+          "div"
+        );
 
-    card.className =
-      "content-card";
 
-    card.innerHTML = `
+      card.className =
+        "content-card";
 
-      <div class="content-title">
-        ${escapeHTML(item.question)}
-      </div>
 
-      <div class="content-url">
-        A: ${escapeHTML(item.options.A)}
-      </div>
+      card.innerHTML = `
 
-      <div class="content-url">
-        B: ${escapeHTML(item.options.B)}
-      </div>
+        <div class="content-title">
 
-      <div class="content-url">
-        C: ${escapeHTML(item.options.C)}
-      </div>
+          ${escapeHTML(
+            item.question
+          )}
 
-      <div class="content-url">
-        D: ${escapeHTML(item.options.D)}
-      </div>
+        </div>
 
-      <div class="content-url">
-        Correct answer:
-        ${escapeHTML(item.answer)}
-      </div>
 
-      <div class="content-actions">
+        <div class="content-url">
 
-        <button
-          class="small-btn delete"
-          onclick="deleteQuiz(${item.id})">
-          DELETE
-        </button>
+          A:
+          ${escapeHTML(
+            item.options.A
+          )}
 
-      </div>
+        </div>
 
-    `;
 
-    container.appendChild(card);
+        <div class="content-url">
 
-  });
+          B:
+          ${escapeHTML(
+            item.options.B
+          )}
+
+        </div>
+
+
+        <div class="content-url">
+
+          C:
+          ${escapeHTML(
+            item.options.C
+          )}
+
+        </div>
+
+
+        <div class="content-url">
+
+          D:
+          ${escapeHTML(
+            item.options.D
+          )}
+
+        </div>
+
+
+        <div class="content-url">
+
+          Correct answer:
+          ${escapeHTML(
+            item.answer
+          )}
+
+        </div>
+
+
+        <div class="content-actions">
+
+          <button
+            class="small-btn delete"
+            onclick="deleteQuiz(${item.id})">
+
+            DELETE
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      container.appendChild(card);
+
+    }
+  );
+
 }
 
 
@@ -2034,13 +2587,16 @@ function deleteQuiz(id){
 
   const data =
     getQuiz()
-    .filter(item =>
-      item.id !== id
+    .filter(
+      item =>
+        item.id !== id
     );
+
 
   saveQuiz(data);
 
   renderQuiz();
+
 }
 
 
@@ -2063,6 +2619,7 @@ function getGames(){
     return [];
 
   }
+
 }
 
 
@@ -2072,6 +2629,7 @@ function saveGames(data){
     "linkcashGames",
     JSON.stringify(data)
   );
+
 }
 
 
@@ -2082,10 +2640,12 @@ function addGame(){
       "gameTitle"
     ).value.trim();
 
+
   const url =
     document.getElementById(
       "gameURL"
     ).value.trim();
+
 
   if(!title){
 
@@ -2096,26 +2656,37 @@ function addGame(){
     return;
   }
 
+
   const games =
     getGames();
 
+
   games.push({
+
     id:Date.now(),
+
     title,
+
     url
+
   });
 
+
   saveGames(games);
+
 
   document.getElementById(
     "gameTitle"
   ).value = "";
 
+
   document.getElementById(
     "gameURL"
   ).value = "";
 
+
   renderGames();
+
 }
 
 
@@ -2126,71 +2697,90 @@ function renderGames(){
       "gamesList"
     );
 
+
   container.innerHTML = "";
+
 
   [...getGames()]
   .reverse()
-  .forEach(game => {
+  .forEach(
+    game => {
 
-    const card =
-      document.createElement("div");
+      const card =
+        document.createElement(
+          "div"
+        );
 
-    card.className =
-      "content-card";
 
-    card.innerHTML = `
+      card.className =
+        "content-card";
 
-      <div class="content-title">
-        ${escapeHTML(game.title)}
-      </div>
 
-      ${
-        game.url
-        ?
+      card.innerHTML = `
 
-        `
-        <div class="content-url">
-          ${escapeHTML(game.url)}
+        <div class="content-title">
+
+          ${escapeHTML(
+            game.title
+          )}
+
         </div>
-        `
 
-        :
-
-        ""
-      }
-
-      <div class="content-actions">
 
         ${
           game.url
-          ?
+          ? `
+
+            <div class="content-url">
+
+              ${escapeHTML(
+                game.url
+              )}
+
+            </div>
 
           `
-          <button
-            class="small-btn"
-            onclick="openURL(${JSON.stringify(game.url)})">
-            OPEN
-          </button>
-          `
-
-          :
-
-          ""
+          : ""
         }
 
-        <button
-          class="small-btn delete"
-          onclick="deleteGame(${game.id})">
-          DELETE
-        </button>
 
-      </div>
+        <div class="content-actions">
 
-    `;
+          ${
+            game.url
+            ? `
 
-    container.appendChild(card);
+              <button
+                class="small-btn"
+                onclick="openSafeURL(${JSON.stringify(game.url)})">
 
-  });
+                OPEN
+
+              </button>
+
+            `
+            : ""
+          }
+
+
+          <button
+            class="small-btn delete"
+            onclick="deleteGame(${game.id})">
+
+            DELETE
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      container.appendChild(card);
+
+    }
+  );
+
 }
 
 
@@ -2198,41 +2788,60 @@ function deleteGame(id){
 
   const data =
     getGames()
-    .filter(game =>
-      game.id !== id
+    .filter(
+      game =>
+        game.id !== id
     );
+
 
   saveGames(data);
 
   renderGames();
+
 }
 
 
 /* =========================================
-   OPEN URL
+   SAFE URL OPEN
 ========================================= */
 
-function openURL(url){
+function openSafeURL(url){
 
-  if(!url){
-    return;
+  try{
+
+    const parsed =
+      new URL(url);
+
+
+    if(
+      parsed.protocol !==
+      "http:" &&
+      parsed.protocol !==
+      "https:"
+    ){
+
+      alert(
+        "Invalid URL."
+      );
+
+      return;
+    }
+
+
+    window.open(
+      parsed.href,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+  }catch{
+
+    alert(
+      "Invalid URL."
+    );
+
   }
 
-  let finalURL = url;
-
-  if(
-    !finalURL.startsWith("http://") &&
-    !finalURL.startsWith("https://")
-  ){
-
-    finalURL =
-      "https://" + finalURL;
-  }
-
-  window.open(
-    finalURL,
-    "_blank"
-  );
 }
 
 
@@ -2246,49 +2855,102 @@ function openPanel(
 ){
 
   document
-  .querySelectorAll(".panel")
-  .forEach(panel =>
-    panel.classList.remove("active")
+  .querySelectorAll(
+    ".panel"
+  )
+  .forEach(
+    panel =>
+      panel.classList.remove(
+        "active"
+      )
   );
 
+
   document
-  .querySelectorAll(".tab")
-  .forEach(tab =>
-    tab.classList.remove("active")
+  .querySelectorAll(
+    ".tab"
+  )
+  .forEach(
+    tab =>
+      tab.classList.remove(
+        "active"
+      )
   );
+
 
   const panel =
     document.getElementById(
       panelId
     );
 
+
   if(panel){
-    panel.classList.add("active");
+
+    panel.classList.add(
+      "active"
+    );
+
   }
+
 
   if(button){
-    button.classList.add("active");
+
+    button.classList.add(
+      "active"
+    );
+
   }
 
-  if(panelId === "pending"){
+
+  if(
+    panelId ===
+    "pending"
+  ){
+
     renderPending();
+
   }
 
-  if(panelId === "social"){
+
+  if(
+    panelId ===
+    "social"
+  ){
+
     renderSocial();
+
   }
 
-  if(panelId === "ads"){
+
+  if(
+    panelId ===
+    "ads"
+  ){
+
     renderAds();
+
   }
 
-  if(panelId === "quiz"){
+
+  if(
+    panelId ===
+    "quiz"
+  ){
+
     renderQuiz();
+
   }
 
-  if(panelId === "games"){
+
+  if(
+    panelId ===
+    "games"
+  ){
+
     renderGames();
+
   }
+
 }
 
 
@@ -2298,28 +2960,36 @@ function openPanel(
 
 function logoutCEO(){
 
-  if(!confirm(
-    "Are you sure you want to logout CEO?"
-  )){
+  if(
+    !confirm(
+      "Are you sure you want to logout CEO?"
+    )
+  ){
+
     return;
+
   }
+
 
   localStorage.removeItem(
     "linkcashCEOLoggedIn"
   );
 
+
   localStorage.removeItem(
     "linkcashCEO"
   );
 
+
   window.location.replace(
     "login.html"
   );
+
 }
 
 
 /* =========================================
-   START
+   START DASHBOARD
 ========================================= */
 
 async function startDashboard(){
@@ -2327,17 +2997,29 @@ async function startDashboard(){
   const connected =
     await testConnection();
 
+
   if(!connected){
+
     return;
+
   }
+
 
   await loadUsers();
 
+
   renderSocial();
+
   renderAds();
+
   renderQuiz();
+
   renderGames();
+
 }
+
+
+/* START */
 
 startDashboard();
 
