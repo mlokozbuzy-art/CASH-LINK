@@ -474,38 +474,288 @@ function hideMessage(){
 
 
 /* =========================================
-   GET REGISTERED ACCOUNT
+   NORMALIZE USERNAME
 ========================================= */
 
-function getAccount(){
+function normalizeUsername(value){
+
+    return String(value || "")
+        .trim()
+        .toLowerCase();
+
+}
+
+
+/* =========================================
+   GET ALL ACCOUNTS
+========================================= */
+
+function getAllAccounts(){
+
+    const accounts = [];
+
+    /*
+       Main accounts storage
+    */
 
     try{
 
         const data =
-            localStorage.getItem("linkcashAccount");
+            localStorage.getItem(
+                "linkcashAccounts"
+            );
 
-        if(!data){
-            return null;
+        if(data){
+
+            const parsed =
+                JSON.parse(data);
+
+            if(Array.isArray(parsed)){
+
+                parsed.forEach(function(user){
+
+                    if(user && user.username){
+
+                        accounts.push(user);
+
+                    }
+
+                });
+
+            }
+
         }
 
-        const account =
-            JSON.parse(data);
+    }catch(error){}
 
-        if(
-            !account ||
-            typeof account !== "object"
-        ){
 
-            return null;
+    /*
+       Backup users storage
+    */
+
+    try{
+
+        const data =
+            localStorage.getItem(
+                "linkcashUsers"
+            );
+
+        if(data){
+
+            const parsed =
+                JSON.parse(data);
+
+            if(Array.isArray(parsed)){
+
+                parsed.forEach(function(user){
+
+                    if(user && user.username){
+
+                        accounts.push(user);
+
+                    }
+
+                });
+
+            }
+
         }
 
-        return account;
+    }catch(error){}
 
-    }catch(error){
 
-        return null;
+    /*
+       Old/current account storage
+    */
 
-    }
+    try{
+
+        const data =
+            localStorage.getItem(
+                "linkcashAccount"
+            );
+
+        if(data){
+
+            const parsed =
+                JSON.parse(data);
+
+            if(
+                parsed &&
+                typeof parsed === "object" &&
+                parsed.username
+            ){
+
+                accounts.push(parsed);
+
+            }
+
+        }
+
+    }catch(error){}
+
+
+    /*
+       Remove duplicates.
+       linkcashAccounts is preferred.
+    */
+
+    const unique = {};
+
+    accounts.forEach(function(user){
+
+        const username =
+            normalizeUsername(
+                user.username
+            );
+
+        if(!username){
+            return;
+        }
+
+        /*
+           If duplicate exists,
+           prefer account with latest data.
+        */
+
+        unique[username] = {
+            ...unique[username],
+            ...user
+        };
+
+    });
+
+    return Object.values(unique);
+
+}
+
+
+/* =========================================
+   SAVE USER TO ALL USER STORAGE
+========================================= */
+
+function saveLoggedInUser(user){
+
+    /*
+       Current account
+    */
+
+    localStorage.setItem(
+        "linkcashAccount",
+        JSON.stringify(user)
+    );
+
+
+    /*
+       Current user
+    */
+
+    localStorage.setItem(
+        "linkcashUser",
+        JSON.stringify(user)
+    );
+
+
+    /*
+       Logged in user
+    */
+
+    localStorage.setItem(
+        "linkcashLoggedInUser",
+        JSON.stringify(user)
+    );
+
+
+    /*
+       Update main accounts list
+    */
+
+    try{
+
+        let accounts =
+            JSON.parse(
+                localStorage.getItem(
+                    "linkcashAccounts"
+                ) || "[]"
+            );
+
+        if(!Array.isArray(accounts)){
+            accounts=[];
+        }
+
+        const index =
+            accounts.findIndex(function(item){
+
+                return normalizeUsername(
+                    item.username
+                ) === normalizeUsername(
+                    user.username
+                );
+
+            });
+
+        if(index >= 0){
+
+            accounts[index]=user;
+
+        }else{
+
+            accounts.push(user);
+
+        }
+
+        localStorage.setItem(
+            "linkcashAccounts",
+            JSON.stringify(accounts)
+        );
+
+    }catch(error){}
+
+
+    /*
+       Update users list
+    */
+
+    try{
+
+        let users =
+            JSON.parse(
+                localStorage.getItem(
+                    "linkcashUsers"
+                ) || "[]"
+            );
+
+        if(!Array.isArray(users)){
+            users=[];
+        }
+
+        const index =
+            users.findIndex(function(item){
+
+                return normalizeUsername(
+                    item.username
+                ) === normalizeUsername(
+                    user.username
+                );
+
+            });
+
+        if(index >= 0){
+
+            users[index]=user;
+
+        }else{
+
+            users.push(user);
+
+        }
+
+        localStorage.setItem(
+            "linkcashUsers",
+            JSON.stringify(users)
+        );
+
+    }catch(error){}
 
 }
 
@@ -516,39 +766,39 @@ function getAccount(){
 
 function findUser(username,password){
 
-    const account =
-        getAccount();
-
-    if(!account){
-        return null;
-    }
-
-    const savedUsername =
-        String(account.username || "")
-        .trim()
-        .toLowerCase();
-
     const enteredUsername =
-        String(username || "")
-        .trim()
-        .toLowerCase();
-
-    const savedPassword =
-        String(account.password || "");
+        normalizeUsername(username);
 
     const enteredPassword =
         String(password || "");
 
-    if(
-        savedUsername === enteredUsername &&
-        savedPassword === enteredPassword
-    ){
 
-        return account;
+    const accounts =
+        getAllAccounts();
 
-    }
 
-    return null;
+    const user =
+        accounts.find(function(account){
+
+            const savedUsername =
+                normalizeUsername(
+                    account.username
+                );
+
+            const savedPassword =
+                String(
+                    account.password || ""
+                );
+
+            return (
+                savedUsername === enteredUsername &&
+                savedPassword === enteredPassword
+            );
+
+        });
+
+
+    return user || null;
 
 }
 
@@ -567,9 +817,16 @@ function loginCEO(username){
     localStorage.setItem(
         "linkcashCEO",
         JSON.stringify({
-            username:CEO_USERNAME,
-            role:"ceo",
-            loginAt:new Date().toISOString()
+
+            username:
+                CEO_USERNAME,
+
+            role:
+                "ceo",
+
+            loginAt:
+                new Date().toISOString()
+
         })
     );
 
@@ -581,10 +838,16 @@ function loginCEO(username){
     localStorage.setItem(
         "linkcashLoggedInUser",
         JSON.stringify({
-            username:username,
-            role:"ceo"
+
+            username:
+                username,
+
+            role:
+                "ceo"
+
         })
     );
+
 
     window.location.replace(
         "ceodashboard.html"
@@ -599,31 +862,25 @@ function loginCEO(username){
 
 function loginUser(user){
 
-    localStorage.setItem(
-        "linkcashLoggedInUser",
-        JSON.stringify(user)
-    );
+    /*
+       Save complete account.
+       This preserves referral information.
+    */
 
-    localStorage.setItem(
-        "linkcashUser",
-        JSON.stringify(user)
-    );
+    saveLoggedInUser(user);
 
-    localStorage.setItem(
-        "linkcashAccount",
-        JSON.stringify(user)
-    );
 
     const status =
         String(
-            user.status || "pending"
+            user.status ||
+            "pending"
         )
         .trim()
         .toLowerCase();
 
 
     /* =====================================
-       ACTIVE
+       ACTIVE USER
     ===================================== */
 
     if(
@@ -636,10 +893,16 @@ function loginUser(user){
             "true"
         );
 
+        localStorage.removeItem(
+            "linkcashPendingUser"
+        );
+
+
         showMessage(
             "Login successful. Opening dashboard...",
             "success"
         );
+
 
         setTimeout(function(){
 
@@ -650,14 +913,83 @@ function loginUser(user){
         },500);
 
         return;
+
     }
 
 
     /* =====================================
-       PENDING OR REJECTED
-       GO TO EXACT FILE:
-       pending-dashboard.html
+       PENDING USER
     ===================================== */
+
+    if(status === "pending"){
+
+        localStorage.removeItem(
+            "linkcashLoggedIn"
+        );
+
+        localStorage.setItem(
+            "linkcashPendingUser",
+            JSON.stringify(user)
+        );
+
+
+        showMessage(
+            "Your account is still pending activation...",
+            "success"
+        );
+
+
+        setTimeout(function(){
+
+            window.location.replace(
+                "pending-dashboard.html"
+            );
+
+        },700);
+
+        return;
+
+    }
+
+
+    /* =====================================
+       REJECTED USER
+    ===================================== */
+
+    if(status === "rejected"){
+
+        localStorage.removeItem(
+            "linkcashLoggedIn"
+        );
+
+        localStorage.setItem(
+            "linkcashPendingUser",
+            JSON.stringify(user)
+        );
+
+
+        showMessage(
+            "Your account requires attention. Opening account status...",
+            "error"
+        );
+
+
+        setTimeout(function(){
+
+            window.location.replace(
+                "pending-dashboard.html"
+            );
+
+        },700);
+
+        return;
+
+    }
+
+
+    /* =====================================
+       ANY UNKNOWN STATUS
+===================================== */
 
     localStorage.removeItem(
         "linkcashLoggedIn"
@@ -668,19 +1000,18 @@ function loginUser(user){
         JSON.stringify(user)
     );
 
+
     showMessage(
-        status === "rejected"
-        ? "Your account requires attention. Opening account status..."
-        : "Your account is still pending activation...",
-        status === "rejected"
-        ? "error"
-        : "success"
+        "Your account is not active yet. Opening account status...",
+        "success"
     );
+
 
     setTimeout(function(){
 
-        window.location.href =
-            "./pending-dashboard.html";
+        window.location.replace(
+            "pending-dashboard.html"
+        );
 
     },700);
 
@@ -688,7 +1019,7 @@ function loginUser(user){
 
 
 /* =========================================
-   LOGIN
+   LOGIN FORM
 ========================================= */
 
 loginForm.addEventListener(
@@ -698,6 +1029,7 @@ loginForm.addEventListener(
         event.preventDefault();
 
         hideMessage();
+
 
         const username =
             usernameInput.value.trim();
@@ -716,6 +1048,7 @@ loginForm.addEventListener(
             usernameInput.focus();
 
             return;
+
         }
 
 
@@ -729,10 +1062,13 @@ loginForm.addEventListener(
             passwordInput.focus();
 
             return;
+
         }
 
 
-        loginBtn.classList.add("loading");
+        loginBtn.classList.add(
+            "loading"
+        );
 
         loginBtn.innerHTML =
             '<span class="loading-dot">●</span> SIGNING IN...';
@@ -746,14 +1082,18 @@ loginForm.addEventListener(
             ================================= */
 
             if(
-                username.toLowerCase() ===
-                CEO_USERNAME.toLowerCase() &&
-                password === CEO_PASSWORD
+                normalizeUsername(username) ===
+                normalizeUsername(
+                    CEO_USERNAME
+                ) &&
+                password ===
+                CEO_PASSWORD
             ){
 
                 loginCEO(username);
 
                 return;
+
             }
 
 
@@ -777,12 +1117,15 @@ loginForm.addEventListener(
                 loginBtn.textContent =
                     "LOGIN TO LINKCASH";
 
+
                 showMessage(
                     "Username or password is incorrect.",
                     "error"
                 );
 
+
                 return;
+
             }
 
 
@@ -794,7 +1137,7 @@ loginForm.addEventListener(
 
                 localStorage.setItem(
                     "linkcashRememberedUsername",
-                    username
+                    normalizeUsername(username)
                 );
 
             }else{
@@ -807,6 +1150,7 @@ loginForm.addEventListener(
 
 
             loginUser(user);
+
 
         },350);
 
@@ -828,9 +1172,11 @@ document
             passwordInput.type === "password"
         ){
 
-            passwordInput.type = "text";
+            passwordInput.type =
+                "text";
 
-            this.textContent = "🙈";
+            this.textContent =
+                "🙈";
 
             this.setAttribute(
                 "aria-label",
@@ -839,9 +1185,11 @@ document
 
         }else{
 
-            passwordInput.type = "password";
+            passwordInput.type =
+                "password";
 
-            this.textContent = "👁";
+            this.textContent =
+                "👁";
 
             this.setAttribute(
                 "aria-label",
@@ -878,6 +1226,7 @@ const remembered =
     localStorage.getItem(
         "linkcashRememberedUsername"
     );
+
 
 if(remembered){
 
