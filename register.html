@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LINKCASH - Create Account</title>
 
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
@@ -39,7 +41,12 @@ width:68px;
 height:68px;
 margin:auto;
 border-radius:19px;
-background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+background:linear-gradient(
+145deg,
+#ffe082,
+#d4a72c,
+#8f6b12
+);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -84,6 +91,27 @@ font-size:13px;
 line-height:1.5;
 }
 
+.fee-box{
+margin-bottom:18px;
+padding:14px;
+border-radius:13px;
+background:rgba(212,167,44,.06);
+border:1px solid rgba(212,167,44,.18);
+text-align:center;
+}
+
+.fee-box small{
+display:block;
+color:#777;
+font-size:9px;
+margin-bottom:5px;
+}
+
+.fee-box strong{
+color:#d4a72c;
+font-size:20px;
+}
+
 .field{
 margin-bottom:15px;
 }
@@ -113,7 +141,8 @@ color:#555;
 
 input:focus{
 border-color:#d4a72c;
-box-shadow:0 0 0 2px rgba(212,167,44,.08);
+box-shadow:
+0 0 0 2px rgba(212,167,44,.08);
 }
 
 .password-wrap{
@@ -143,7 +172,12 @@ height:52px;
 margin-top:4px;
 border:none;
 border-radius:13px;
-background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
+background:linear-gradient(
+135deg,
+#ffe082,
+#d4a72c,
+#a77b17
+);
 color:#080808;
 font-size:15px;
 font-weight:900;
@@ -207,6 +241,10 @@ text-decoration:none;
 font-size:12px;
 }
 
+.back:hover{
+color:#d4a72c;
+}
+
 .footer{
 text-align:center;
 margin-top:17px;
@@ -214,28 +252,8 @@ color:#444;
 font-size:10px;
 }
 
-.fee-box{
-margin-bottom:18px;
-padding:14px;
-border-radius:13px;
-background:rgba(212,167,44,.06);
-border:1px solid rgba(212,167,44,.18);
-text-align:center;
-}
-
-.fee-box small{
-display:block;
-color:#777;
-font-size:9px;
-margin-bottom:5px;
-}
-
-.fee-box strong{
-color:#d4a72c;
-font-size:20px;
-}
-
 </style>
+
 </head>
 
 <body>
@@ -272,9 +290,7 @@ Create your LINKCASH account and continue to activation.
 
 <small>ACTIVATION FEE</small>
 
-<strong>
-TSh 14,500
-</strong>
+<strong>TSh 14,500</strong>
 
 </div>
 
@@ -428,6 +444,10 @@ class="back"
 
 <script>
 
+/* =========================================
+   ELEMENTS
+========================================= */
+
 const form =
 document.getElementById("registerForm");
 
@@ -459,45 +479,59 @@ const showConfirmPassword =
 document.getElementById("showConfirmPassword");
 
 
-/* SHOW PASSWORD */
+/* =========================================
+   SHOW PASSWORD
+========================================= */
 
 showPassword.onclick = function(){
 
 if(password.type === "password"){
 
 password.type = "text";
-showPassword.textContent = "HIDE";
+
+showPassword.textContent =
+"HIDE";
 
 }else{
 
 password.type = "password";
-showPassword.textContent = "SHOW";
+
+showPassword.textContent =
+"SHOW";
 
 }
 
 };
 
 
-/* SHOW CONFIRM PASSWORD */
+/* =========================================
+   SHOW CONFIRM PASSWORD
+========================================= */
 
 showConfirmPassword.onclick = function(){
 
 if(confirmPassword.type === "password"){
 
 confirmPassword.type = "text";
-showConfirmPassword.textContent = "HIDE";
+
+showConfirmPassword.textContent =
+"HIDE";
 
 }else{
 
 confirmPassword.type = "password";
-showConfirmPassword.textContent = "SHOW";
+
+showConfirmPassword.textContent =
+"SHOW";
 
 }
 
 };
 
 
-/* MESSAGE */
+/* =========================================
+   MESSAGE
+========================================= */
 
 function showMessage(text,type){
 
@@ -513,9 +547,13 @@ message.style.display =
 }
 
 
-/* REGISTER */
+/* =========================================
+   REGISTER
+========================================= */
 
-form.onsubmit = function(event){
+form.addEventListener(
+"submit",
+function(event){
 
 event.preventDefault();
 
@@ -536,7 +574,9 @@ const confirm =
 confirmPassword.value;
 
 
-/* VALIDATION */
+/* =========================================
+   VALIDATION
+========================================= */
 
 if(!name){
 
@@ -622,46 +662,120 @@ return;
 }
 
 
-/* =====================================
-   CREATE NEW USER
+/* =========================================
+   CHECK EXISTING ACCOUNT
+========================================= */
+
+const oldAccount =
+localStorage.getItem(
+"linkcashAccount"
+);
+
+if(oldAccount){
+
+try{
+
+const existing =
+JSON.parse(oldAccount);
+
+const existingUsername =
+String(
+existing.username || ""
+)
+.trim()
+.toLowerCase();
+
+if(existingUsername === user){
+
+showMessage(
+"This username already exists. Please choose another username.",
+"error"
+);
+
+username.focus();
+
+return;
+
+}
+
+}catch(error){
+
+/* Ignore invalid old data */
+
+}
+
+}
+
+
+/* =========================================
+   CREATE NEW ACCOUNT
    IMPORTANT:
-   NEW USER IS NOT ACTIVE
-   NEW USER IS PENDING
-===================================== */
+   NEW USER = PENDING
+========================================= */
 
 const account = {
 
-fullname:name,
+id:
+"USER-" +
+Date.now(),
 
-username:user,
+fullname:
+name,
 
-phone:number,
+username:
+user,
 
-password:pass,
+phone:
+number,
+
+password:
+pass,
 
 /*
-  NEW ACCOUNT MUST WAIT
-  FOR ACTIVATION PAYMENT
+   ACCOUNT IS NOT ACTIVE
 */
 
-status:"pending",
+status:
+"pending",
 
-paymentStatus:"pending",
+/*
+   PAYMENT IS NOT COMPLETED
+*/
 
-activationStatus:"pending",
+paymentStatus:
+"pending",
 
-activationFee:14500,
+/*
+   ACTIVATION IS NOT COMPLETED
+*/
 
-paymentSubmitted:false,
+activationStatus:
+"pending",
 
-createdAt:new Date().toISOString()
+activationFee:
+14500,
+
+paymentSubmitted:
+false,
+
+paymentReference:
+"",
+
+paymentMethod:
+"",
+
+submittedAt:
+null,
+
+createdAt:
+new Date().toISOString()
 
 };
 
 
-/* =====================================
+/* =========================================
    SAVE ACCOUNT
-===================================== */
+========================================= */
 
 localStorage.setItem(
 "linkcashAccount",
@@ -669,22 +783,28 @@ JSON.stringify(account)
 );
 
 
-/* =====================================
-   CLEAR OLD LOGIN
-===================================== */
+/* =========================================
+   SAVE USER SESSION DATA
+========================================= */
+
+localStorage.setItem(
+"linkcashUser",
+JSON.stringify(account)
+);
+
+
+/*
+   USER IS NOT LOGGED IN AS ACTIVE
+*/
 
 localStorage.removeItem(
 "linkcashLoggedIn"
 );
 
-localStorage.removeItem(
-"linkcashUser"
-);
 
-
-/* =====================================
-   CREATE PENDING SESSION
-===================================== */
+/* =========================================
+   SAVE PENDING USER
+========================================= */
 
 localStorage.setItem(
 "linkcashPendingUser",
@@ -692,34 +812,35 @@ JSON.stringify(account)
 );
 
 
-/* =====================================
+/* =========================================
    SUCCESS
-===================================== */
+========================================= */
 
-registerBtn.disabled = true;
+registerBtn.disabled =
+true;
 
 registerBtn.textContent =
 "ACCOUNT CREATED ✓";
 
 
 showMessage(
-"Account created successfully. Please complete activation payment.",
+"Account created successfully. Opening activation page...",
 "success"
 );
 
 
-/* =====================================
-   SEND NEW USER TO PENDING DASHBOARD
-===================================== */
+/* =========================================
+   GO TO PENDING DASHBOARD
+========================================= */
 
 setTimeout(function(){
 
 window.location.href =
-"Pending-dashboard.html";
+"pending-dashboard.html";
 
 },900);
 
-};
+});
 
 </script>
 
