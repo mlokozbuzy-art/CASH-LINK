@@ -21,11 +21,9 @@ body{
     min-height:100vh;
     background:#050505;
     color:#fff;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     padding:20px;
 }
 
@@ -34,9 +32,7 @@ body{
     max-width:420px;
 }
 
-/* =========================
-   BRAND
-========================= */
+/* BRAND */
 
 .brand{
     text-align:center;
@@ -46,9 +42,7 @@ body{
 .logo{
     width:70px;
     height:70px;
-
     margin:auto;
-
     border-radius:20px;
 
     background:linear-gradient(
@@ -63,7 +57,6 @@ body{
     justify-content:center;
 
     color:#080808;
-
     font-size:24px;
     font-weight:900;
 
@@ -73,31 +66,22 @@ body{
 
 .brand h1{
     margin-top:13px;
-
     font-size:28px;
-
     letter-spacing:3px;
 }
 
 .brand p{
     margin-top:7px;
-
     color:#777;
-
     font-size:12px;
 }
 
-/* =========================
-   CARD
-========================= */
+/* CARD */
 
 .card{
     background:#101010;
-
     border:1px solid #292929;
-
     border-radius:22px;
-
     padding:28px 22px;
 
     box-shadow:
@@ -110,21 +94,16 @@ body{
 
 .title h2{
     font-size:23px;
-
     margin-bottom:7px;
 }
 
 .title p{
     color:#777;
-
     font-size:13px;
-
     line-height:1.5;
 }
 
-/* =========================
-   FIELD
-========================= */
+/* FIELD */
 
 .field{
     margin-bottom:17px;
@@ -132,31 +111,22 @@ body{
 
 .field label{
     display:block;
-
     color:#ccc;
-
     font-size:13px;
-
     margin-bottom:8px;
 }
 
 input{
     width:100%;
-
     height:50px;
 
     background:#070707;
-
     border:1px solid #292929;
-
     border-radius:12px;
 
     color:#fff;
-
     outline:none;
-
     padding:0 15px;
-
     font-size:14px;
 }
 
@@ -171,9 +141,7 @@ input:focus{
         0 0 0 2px rgba(212,167,44,.08);
 }
 
-/* =========================
-   PASSWORD
-========================= */
+/* PASSWORD */
 
 .password-wrap{
     position:relative;
@@ -185,39 +153,27 @@ input:focus{
 
 .show-password{
     position:absolute;
-
     right:12px;
-
     top:50%;
-
     transform:translateY(-50%);
 
     border:none;
-
     background:none;
 
     color:#d4a72c;
-
     font-size:11px;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
-/* =========================
-   LOGIN BUTTON
-========================= */
+/* LOGIN */
 
 .login-btn{
     width:100%;
-
     height:52px;
-
     margin-top:5px;
 
     border:none;
-
     border-radius:13px;
 
     background:linear-gradient(
@@ -228,11 +184,8 @@ input:focus{
     );
 
     color:#080808;
-
     font-size:15px;
-
     font-weight:900;
-
     cursor:pointer;
 }
 
@@ -242,91 +195,66 @@ input:focus{
 
 .login-btn:disabled{
     opacity:.6;
-
     cursor:not-allowed;
 }
 
-/* =========================
-   MESSAGE
-========================= */
+/* MESSAGE */
 
 .message{
     display:none;
-
     margin-top:14px;
-
     padding:12px;
-
     border-radius:10px;
 
     text-align:center;
-
     font-size:12px;
-
     line-height:1.5;
 }
 
 .message.success{
     display:block;
-
     color:#62df91;
 
     background:rgba(40,180,100,.08);
-
     border:1px solid rgba(40,180,100,.25);
 }
 
 .message.error{
     display:block;
-
     color:#ff7777;
 
     background:rgba(220,60,60,.08);
-
     border:1px solid rgba(220,60,60,.25);
 }
 
-/* =========================
-   REGISTER
-========================= */
+/* REGISTER */
 
 .register{
     text-align:center;
-
     margin-top:22px;
-
     padding-top:20px;
 
     border-top:1px solid #222;
 
     color:#777;
-
     font-size:13px;
 }
 
 .register a{
     color:#e0b83e;
-
     text-decoration:none;
-
     font-weight:bold;
 }
 
-/* =========================
-   BACK
-========================= */
+/* BACK */
 
 .back{
     display:block;
-
     text-align:center;
-
     margin-top:18px;
 
     color:#666;
-
     text-decoration:none;
-
     font-size:12px;
 }
 
@@ -334,17 +262,12 @@ input:focus{
     color:#d4a72c;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .footer{
     text-align:center;
-
     margin-top:18px;
-
     color:#444;
-
     font-size:10px;
 }
 
@@ -380,7 +303,6 @@ input:focus{
     <!-- LOGIN CARD -->
 
     <div class="card">
-
 
         <div class="title">
 
@@ -448,7 +370,7 @@ input:focus{
             </div>
 
 
-            <!-- LOGIN -->
+            <!-- LOGIN BUTTON -->
 
             <button
                 type="submit"
@@ -576,6 +498,51 @@ function showMessage(text,type){
 
 
 /* =========================================
+   GET CURRENT ACCOUNT
+========================================= */
+
+function getAccount(){
+
+    const saved =
+        localStorage.getItem(
+            "linkcashAccount"
+        );
+
+    if(!saved){
+        return null;
+    }
+
+    try{
+
+        const account =
+            JSON.parse(saved);
+
+        return account;
+
+    }catch(error){
+
+        return null;
+
+    }
+
+}
+
+
+/* =========================================
+   UPDATE ACCOUNT
+========================================= */
+
+function saveAccount(account){
+
+    localStorage.setItem(
+        "linkcashAccount",
+        JSON.stringify(account)
+    );
+
+}
+
+
+/* =========================================
    LOGIN
 ========================================= */
 
@@ -631,36 +598,14 @@ form.addEventListener(
            GET ACCOUNT
         =============================== */
 
-        const savedAccount =
-            localStorage.getItem(
-                "linkcashAccount"
-            );
+        const account =
+            getAccount();
 
 
-        if(!savedAccount){
+        if(!account){
 
             showMessage(
                 "No account found. Please create an account first.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        let account;
-
-
-        try{
-
-            account =
-                JSON.parse(savedAccount);
-
-        }catch(error){
-
-            showMessage(
-                "Account data is invalid. Please create a new account.",
                 "error"
             );
 
@@ -701,8 +646,12 @@ form.addEventListener(
         =============================== */
 
         if(
-            String(account.password || "") !==
-            String(enteredPassword)
+            String(
+                account.password || ""
+            ) !==
+            String(
+                enteredPassword
+            )
         ){
 
             showMessage(
@@ -713,6 +662,18 @@ form.addEventListener(
             return;
 
         }
+
+
+        /* ===============================
+           NORMALIZE STATUS
+        =============================== */
+
+        const status =
+            String(
+                account.status || "pending"
+            )
+            .trim()
+            .toLowerCase();
 
 
         /* ===============================
@@ -732,7 +693,7 @@ form.addEventListener(
 
 
         /* ===============================
-           SUCCESS
+           SUCCESS UI
         =============================== */
 
         loginBtn.disabled =
@@ -743,20 +704,41 @@ form.addEventListener(
 
 
         showMessage(
-            "Login successful ✓ Opening dashboard...",
+            "Login successful ✓ Opening your dashboard...",
             "success"
         );
 
 
         /* ===============================
-           DASHBOARD
+           REDIRECT
         =============================== */
 
         setTimeout(
             function(){
 
+                /*
+                 ACTIVE USER
+                 */
+
+                if(
+                    status === "active" ||
+                    status === "activated"
+                ){
+
+                    window.location.href =
+                        "dashboard.html";
+
+                    return;
+
+                }
+
+
+                /*
+                 NEW / PENDING / REJECTED USER
+                 */
+
                 window.location.href =
-                    "dashboard.html";
+                    "pending-dashboard.html";
 
             },
             700
