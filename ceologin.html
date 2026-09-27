@@ -1,6 +1,13 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LINKCASH - Login</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LINKCASH - CEO Login</title>
+
+<style>
 
 *{
   box-sizing:border-box;
@@ -13,9 +20,11 @@ body{
   min-height:100vh;
   background:#050505;
   color:#fff;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   padding:20px;
 }
 
@@ -23,6 +32,8 @@ body{
   width:100%;
   max-width:430px;
 }
+
+/* BRAND */
 
 .brand{
   text-align:center;
@@ -32,36 +43,61 @@ body{
 .logo{
   width:70px;
   height:70px;
+
   margin:auto;
+
   border-radius:20px;
-  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe082,
+      #d4a72c,
+      #8f6b12
+    );
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   color:#090909;
+
   font-size:24px;
   font-weight:900;
-  box-shadow:0 0 25px rgba(212,167,44,.25);
+
+  box-shadow:
+    0 0 25px rgba(212,167,44,.25);
 }
 
 .brand h1{
   margin-top:13px;
+
   font-size:28px;
+
   letter-spacing:3px;
 }
 
 .brand p{
   margin-top:7px;
+
   color:#8d8d8d;
+
   font-size:13px;
 }
 
+/* CARD */
+
 .card{
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:24px;
+
   padding:28px 22px;
-  box-shadow:0 25px 70px rgba(0,0,0,.6);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.6);
 }
 
 .title{
@@ -70,14 +106,19 @@ body{
 
 .title h2{
   font-size:23px;
+
   margin-bottom:7px;
 }
 
 .title p{
   color:#858585;
+
   font-size:13px;
+
   line-height:1.5;
 }
+
+/* FIELD */
 
 .field{
   margin-bottom:17px;
@@ -85,20 +126,31 @@ body{
 
 .field label{
   display:block;
+
   color:#cfcfcf;
+
   font-size:13px;
+
   margin-bottom:8px;
 }
 
 input{
   width:100%;
+
   height:50px;
+
   background:#070707;
+
   border:1px solid #292929;
+
   border-radius:12px;
+
   color:#fff;
+
   outline:none;
+
   padding:0 15px;
+
   font-size:14px;
 }
 
@@ -108,8 +160,12 @@ input::placeholder{
 
 input:focus{
   border-color:#d4a72c;
-  box-shadow:0 0 0 2px rgba(212,167,44,.08);
+
+  box-shadow:
+    0 0 0 2px rgba(212,167,44,.08);
 }
+
+/* PASSWORD */
 
 .password-wrap{
   position:relative;
@@ -121,300 +177,353 @@ input:focus{
 
 .show-password{
   position:absolute;
+
   right:12px;
+
   top:50%;
+
   transform:translateY(-50%);
+
   background:none;
+
   border:none;
+
   color:#d4a72c;
+
   font-size:12px;
+
   font-weight:bold;
+
   cursor:pointer;
 }
 
+/* LOGIN BUTTON */
+
 .login-btn{
   width:100%;
+
   height:53px;
+
   margin-top:5px;
+
   border:none;
+
   border-radius:13px;
-  background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #d4a72c,
+      #a77b17
+    );
+
   color:#080808;
+
   font-size:15px;
+
   font-weight:900;
+
   cursor:pointer;
+}
+
+.login-btn:active{
+  transform:scale(.98);
 }
 
 .login-btn:disabled{
   opacity:.6;
+
   cursor:not-allowed;
 }
 
+/* MESSAGE */
+
 .message{
   display:none;
+
   margin-top:15px;
+
   padding:13px;
+
   border-radius:10px;
+
   text-align:center;
+
   font-size:12px;
+
   line-height:1.5;
 }
 
 .message.success{
   display:block;
-  background:rgba(40,180,100,.10);
-  border:1px solid rgba(40,180,100,.3);
+
+  background:
+    rgba(40,180,100,.10);
+
+  border:
+    1px solid rgba(40,180,100,.3);
+
   color:#62df91;
 }
 
 .message.error{
   display:block;
-  background:rgba(220,60,60,.10);
-  border:1px solid rgba(220,60,60,.3);
+
+  background:
+    rgba(220,60,60,.10);
+
+  border:
+    1px solid rgba(220,60,60,.3);
+
   color:#ff7777;
 }
 
-.message.pending{
-  display:block;
-  background:rgba(212,167,44,.08);
-  border:1px solid rgba(212,167,44,.25);
-  color:#e6c65c;
-}
-
-.message.rejected{
-  display:block;
-  background:rgba(220,60,60,.10);
-  border:1px solid rgba(220,60,60,.3);
-  color:#ff7777;
-}
-
-.register{
-  text-align:center;
-  margin-top:23px;
-  padding-top:20px;
-  border-top:1px solid #222;
-  color:#777;
-  font-size:13px;
-}
-
-.register a{
-  color:#e0b83e;
-  text-decoration:none;
-  font-weight:bold;
-}
+/* BACK */
 
 .back{
   display:block;
+
   text-align:center;
+
   margin-top:18px;
+
   color:#686868;
+
   text-decoration:none;
+
   font-size:12px;
 }
 
+.back:hover{
+  color:#d4a72c;
+}
+
+/* FOOTER */
+
 .footer{
   text-align:center;
+
   margin-top:18px;
+
   color:#444;
+
   font-size:11px;
 }
 
-.connection{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:7px;
-  margin-top:13px;
-  color:#555;
-  font-size:9px;
-}
+</style>
 
-.connection-dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#777;
-}
+</head>
 
-.connection-dot.online{
-  background:#58d88a;
-  box-shadow:0 0 8px rgba(88,216,138,.5);
-}
+<body>
 
-.connection-dot.error{
-  background:#ff5555;
-}
+<div class="wrapper">
 
-</style></head><body><div class="wrapper">  <div class="brand"><div class="logo">
-  LC
-</div>
+  <!-- BRAND -->
 
-<h1>LINKCASH</h1>
+  <div class="brand">
 
-<p>Simple. Secure. Connected.</p>
+    <div class="logo">
+      LC
+    </div>
 
-  </div>  <div class="card"><div class="title">
+    <h1>
+      LINKCASH
+    </h1>
 
-  <h2>Welcome Back</h2>
-
-  <p>
-    Login to your LINKCASH account.
-  </p>
-
-</div>
-
-
-<form id="loginForm" novalidate>
-
-  <div class="field">
-
-    <label>Username</label>
-
-    <input
-      type="text"
-      id="username"
-      placeholder="Enter your username"
-      autocomplete="username"
-      required
-    >
+    <p>
+      Simple. Secure. Connected.
+    </p>
 
   </div>
 
 
-  <div class="field">
+  <!-- LOGIN CARD -->
 
-    <label>Password</label>
+  <div class="card">
 
-    <div class="password-wrap">
+    <div class="title">
 
-      <input
-        type="password"
-        id="password"
-        placeholder="Enter your password"
-        autocomplete="current-password"
-        required
-      >
+      <h2>
+        CEO Login
+      </h2>
 
-      <button
-        type="button"
-        class="show-password"
-        id="showPassword"
-      >
-        SHOW
-      </button>
+      <p>
+        Login to access the LINKCASH CEO Dashboard.
+      </p>
 
     </div>
 
+
+    <form
+      id="loginForm"
+      novalidate
+    >
+
+      <!-- USERNAME -->
+
+      <div class="field">
+
+        <label>
+          CEO Username
+        </label>
+
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter CEO username"
+          autocomplete="username"
+          required
+        >
+
+      </div>
+
+
+      <!-- PASSWORD -->
+
+      <div class="field">
+
+        <label>
+          CEO Password
+        </label>
+
+        <div class="password-wrap">
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter CEO password"
+            autocomplete="current-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            id="showPassword"
+          >
+            SHOW
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- LOGIN -->
+
+      <button
+        type="submit"
+        class="login-btn"
+        id="loginBtn"
+      >
+        LOGIN
+      </button>
+
+    </form>
+
+
+    <!-- MESSAGE -->
+
+    <div
+      id="message"
+      class="message"
+    ></div>
+
   </div>
 
 
-  <button
-    type="submit"
-    class="login-btn"
-    id="loginBtn"
+  <!-- BACK -->
+
+  <a
+    href="index.html"
+    class="back"
   >
-    LOGIN
-  </button>
-
-</form>
-
-
-<div id="message" class="message"></div>
-
-
-<div class="connection">
-
-  <div
-    class="connection-dot"
-    id="connectionDot"
-  ></div>
-
-  <span id="connectionText">
-    CHECKING SUPABASE...
-  </span>
-
-</div>
-
-
-<div class="register">
-
-  Don't have an account?
-
-  <a href="register.html">
-    Create Account
+    ← Back to Home
   </a>
 
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+    © 2026 LINKCASH
+  </div>
+
 </div>
 
-  </div>  <a href="index.html" class="back">
-    ← Back to Home
-  </a>  <div class="footer">
-    © 2026 LINKCASH
-  </div></div><script>
 
-/* =========================================
-   SUPABASE
-========================================= */
+<script>
 
-const SUPABASE_URL =
-"https://vrrglcpixeqnqqdlqtot.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_CyKL7kpQ2K5AdosXfebJCg-k-uF8OpV";
-
-const supabaseClient =
-window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+/* =====================================================
+   CEO LOGIN
+   NO SUPABASE
+   NO DATABASE
+   NO API
+===================================================== */
 
 
-/* =========================================
+/*
+   WEKA CEO USERNAME HAPA
+*/
+
+const CEO_USERNAME = "ceo";
+
+
+/*
+   WEKA CEO PASSWORD HAPA
+*/
+
+const CEO_PASSWORD = "123456";
+
+
+/* =====================================================
    ELEMENTS
-========================================= */
+===================================================== */
 
 const form =
-document.getElementById("loginForm");
+  document.getElementById("loginForm");
 
 const usernameInput =
-document.getElementById("username");
+  document.getElementById("username");
 
 const passwordInput =
-document.getElementById("password");
+  document.getElementById("password");
 
-const button =
-document.getElementById("loginBtn");
+const loginButton =
+  document.getElementById("loginBtn");
 
 const message =
-document.getElementById("message");
+  document.getElementById("message");
 
-const showPassword =
-document.getElementById("showPassword");
-
-const connectionDot =
-document.getElementById("connectionDot");
-
-const connectionText =
-document.getElementById("connectionText");
+const showPasswordButton =
+  document.getElementById("showPassword");
 
 
-/* =========================================
-   SHOW PASSWORD
-========================================= */
+/* =====================================================
+   SHOW / HIDE PASSWORD
+===================================================== */
 
-showPassword.addEventListener(
+showPasswordButton.addEventListener(
   "click",
   function(){
 
-    if(passwordInput.type === "password"){
+    if(
+      passwordInput.type === "password"
+    ){
 
-      passwordInput.type = "text";
-      showPassword.textContent = "HIDE";
+      passwordInput.type =
+        "text";
+
+      showPasswordButton.textContent =
+        "HIDE";
 
     }else{
 
-      passwordInput.type = "password";
-      showPassword.textContent = "SHOW";
+      passwordInput.type =
+        "password";
+
+      showPasswordButton.textContent =
+        "SHOW";
 
     }
 
@@ -422,11 +531,14 @@ showPassword.addEventListener(
 );
 
 
-/* =========================================
+/* =====================================================
    MESSAGE
-========================================= */
+===================================================== */
 
-function showMessage(text,type){
+function showMessage(
+  text,
+  type
+){
 
   message.className =
     "message " + type;
@@ -454,68 +566,11 @@ function clearMessage(){
 }
 
 
-/* =========================================
-   CONNECTION
-========================================= */
-
-async function checkConnection(){
-
-  try{
-
-    const { error } =
-      await supabaseClient
-      .from("users")
-      .select("id")
-      .limit(1);
-
-    if(error){
-
-      connectionDot.className =
-        "connection-dot error";
-
-      connectionText.textContent =
-        "DATABASE CONNECTION ERROR";
-
-      console.error(error);
-
-      return;
-
-    }
-
-    connectionDot.className =
-      "connection-dot online";
-
-    connectionText.textContent =
-      "SUPABASE CONNECTED";
-
-  }catch(error){
-
-    connectionDot.className =
-      "connection-dot error";
-
-    connectionText.textContent =
-      "SUPABASE CONNECTION FAILED";
-
-    console.error(error);
-
-  }
-
-}
-
-
-/* =========================================
-   CLEAR OLD SESSION
-========================================= */
+/* =====================================================
+   CLEAR OLD SESSIONS
+===================================================== */
 
 function clearSessions(){
-
-  localStorage.removeItem(
-    "linkcashUser"
-  );
-
-  localStorage.removeItem(
-    "linkcashLoggedIn"
-  );
 
   localStorage.removeItem(
     "linkcashCEOLoggedIn"
@@ -528,87 +583,35 @@ function clearSessions(){
 }
 
 
-/* =========================================
-   SAVE USER
-========================================= */
-
-function saveUser(user){
-
-  const cleanUser = {
-
-    id:user.id || "",
-
-    username:user.username || "",
-
-    fullname:user.fullname || "",
-
-    phone:user.phone || "",
-
-    email:user.email || "",
-
-    role:String(
-      user.role || "user"
-    )
-    .trim()
-    .toLowerCase(),
-
-    status:String(
-      user.status || "pending"
-    )
-    .trim()
-    .toLowerCase(),
-
-    balance:Number(
-      user.balance || 0
-    ),
-
-    commission:Number(
-      user.commission || 0
-    ),
-
-    referrer:user.referrer || null
-
-  };
-
-
-  localStorage.setItem(
-    "linkcashUser",
-    JSON.stringify(cleanUser)
-  );
-
-  localStorage.setItem(
-    "linkcashLoggedIn",
-    "true"
-  );
-
-}
-
-
-/* =========================================
+/* =====================================================
    LOGIN
-========================================= */
+===================================================== */
 
 form.addEventListener(
   "submit",
-  async function(event){
+  function(event){
 
     event.preventDefault();
 
     clearMessage();
+
 
     const username =
       usernameInput.value
       .trim()
       .toLowerCase();
 
+
     const password =
       passwordInput.value;
 
 
+    /* VALIDATION */
+
     if(!username){
 
       showMessage(
-        "Please enter your username.",
+        "Please enter your CEO username.",
         "error"
       );
 
@@ -622,7 +625,7 @@ form.addEventListener(
     if(!password){
 
       showMessage(
-        "Please enter your password.",
+        "Please enter your CEO password.",
         "error"
       );
 
@@ -633,335 +636,137 @@ form.addEventListener(
     }
 
 
-    button.disabled = true;
+    loginButton.disabled =
+      true;
 
-    button.textContent =
+    loginButton.textContent =
       "LOGGING IN...";
 
 
-    try{
+    /*
+     * CLEAR OLD SESSION
+     */
+
+    clearSessions();
+
+
+    /*
+     * CHECK CEO LOGIN
+     */
+
+    if(
+      username === CEO_USERNAME &&
+      password === CEO_PASSWORD
+    ){
 
       /*
-       * MUHIMU:
-       * Hakuna CEO password maalum hapa.
-       * CEO naye anatafutwa kwenye public.users.
+       * SAVE CEO SESSION
        */
 
-      const { data:user, error } =
-        await supabaseClient
-        .from("users")
-        .select("*")
-        .eq("username",username)
-        .maybeSingle();
+      localStorage.setItem(
+        "linkcashCEOLoggedIn",
+        "true"
+      );
 
 
-      if(error){
+      localStorage.setItem(
+        "linkcashCEO",
+        JSON.stringify({
 
-        console.error(
-          "SUPABASE ERROR:",
-          error
-        );
+          username:CEO_USERNAME,
 
-        throw new Error(
-          "Database error: " +
-          error.message
-        );
+          role:"ceo",
 
-      }
+          status:"active",
 
+          loginTime:
+            new Date().toISOString()
 
-      if(!user){
-
-        throw new Error(
-          "Incorrect username or password."
-        );
-
-      }
+        })
+      );
 
 
-      /*
-       * PASSWORD
-       */
+      showMessage(
+        "CEO login successful ✓",
+        "success"
+      );
 
-      if(
-        String(user.password || "") !==
-        String(password)
-      ){
 
-        throw new Error(
-          "Incorrect username or password."
-        );
-
-      }
+      loginButton.textContent =
+        "LOGIN SUCCESSFUL ✓";
 
 
       /*
-       * ROLE
+       * GO TO CEO DASHBOARD
        */
 
-      const role =
-        String(
-          user.role || "user"
-        )
-        .trim()
-        .toLowerCase();
-
-
-      /*
-       * STATUS
-       */
-
-      const status =
-        String(
-          user.status || "pending"
-        )
-        .trim()
-        .toLowerCase();
-
-
-      /*
-       * SAFISHA SESSION ZA ZAMANI
-       */
-
-      clearSessions();
-
-
-      /*
-       * HIFADHI USER
-       */
-
-      saveUser(user);
-
-
-      /* =================================
-         CEO ONLY
-      ================================= */
-
-      if(role === "ceo"){
-
-        /*
-         * CEO lazima awe active.
-         */
-
-        if(
-          status !== "active" &&
-          status !== "activated"
-        ){
-
-          showMessage(
-            "CEO account is not active.",
-            "error"
-          );
-
-          button.disabled = false;
-
-          button.textContent =
-            "LOGIN";
-
-          return;
-
-        }
-
-
-        /*
-         * CEO SESSION
-         */
-
-        localStorage.setItem(
-          "linkcashCEOLoggedIn",
-          "true"
-        );
-
-
-        localStorage.setItem(
-          "linkcashCEO",
-          JSON.stringify({
-
-            id:user.id,
-
-            username:user.username,
-
-            fullname:user.fullname,
-
-            role:"ceo",
-
-            status:status
-
-          })
-        );
-
-
-        showMessage(
-          "CEO login successful ✓",
-          "success"
-        );
-
-
-        button.textContent =
-          "CEO LOGIN SUCCESSFUL ✓";
-
-
-        setTimeout(function(){
+      setTimeout(
+        function(){
 
           window.location.replace(
             "ceodashboard.html"
           );
 
-        },700);
-
-
-        return;
-
-      }
-
-
-      /* =================================
-         NORMAL USER
-      ================================= */
-
-      /*
-       * User wa kawaida hawezi kwenda
-       * kwenye CEO dashboard.
-       */
-
-      localStorage.removeItem(
-        "linkcashCEOLoggedIn"
-      );
-
-      localStorage.removeItem(
-        "linkcashCEO"
+        },
+        700
       );
 
 
-      /* REJECTED */
-
-      if(status === "rejected"){
-
-        showMessage(
-          "Your account has been rejected. Please contact LINKCASH support.",
-          "rejected"
-        );
-
-        button.disabled = false;
-
-        button.textContent =
-          "LOGIN";
-
-        return;
-
-      }
-
-
-      /* PENDING */
-
-      if(
-        status === "pending" ||
-        status === "payment_pending" ||
-        status === "inactive" ||
-        status === "non-active" ||
-        status === "not_activated"
-      ){
-
-        showMessage(
-          "Your account is waiting for CEO approval.",
-          "pending"
-        );
-
-        button.textContent =
-          "ACCOUNT PENDING";
-
-
-        setTimeout(function(){
-
-          window.location.replace(
-            "pending-dashboard.html"
-          );
-
-        },900);
-
-        return;
-
-      }
-
-
-      /* ACTIVE USER */
-
-      if(
-        status === "active" ||
-        status === "activated"
-      ){
-
-        showMessage(
-          "Login successful ✓",
-          "success"
-        );
-
-        button.textContent =
-          "LOGIN SUCCESSFUL ✓";
-
-
-        setTimeout(function(){
-
-          window.location.replace(
-            "dashboard.html"
-          );
-
-        },700);
-
-        return;
-
-      }
-
-
-      /* UNKNOWN STATUS */
-
-      showMessage(
-        "Your account is waiting for approval.",
-        "pending"
-      );
-
-      button.textContent =
-        "ACCOUNT PENDING";
-
-
-      setTimeout(function(){
-
-        window.location.replace(
-          "pending-dashboard.html"
-        );
-
-      },900);
-
-
-    }catch(error){
-
-      console.error(
-        "LOGIN ERROR:",
-        error
-      );
-
-      showMessage(
-        error.message ||
-        "Login failed. Please try again.",
-        "error"
-      );
-
-      button.disabled = false;
-
-      button.textContent =
-        "LOGIN";
+      return;
 
     }
+
+
+    /*
+     * WRONG LOGIN
+     */
+
+    showMessage(
+      "Incorrect CEO username or password.",
+      "error"
+    );
+
+
+    loginButton.disabled =
+      false;
+
+    loginButton.textContent =
+      "LOGIN";
 
   }
 );
 
 
-/* =========================================
-   START
-========================================= */
+/* =====================================================
+   AUTO CHECK
+===================================================== */
 
-checkConnection();
+(function(){
 
-</script></body>
+  /*
+   * Kama CEO tayari amelogin,
+   * unaweza kumpeleka moja kwa moja dashboard.
+   */
+
+  const loggedIn =
+    localStorage.getItem(
+      "linkcashCEOLoggedIn"
+    );
+
+
+  if(loggedIn === "true"){
+
+    /*
+     * Usifanye redirect automatic
+     * ili login page ibaki salama
+     * na iwe rahisi kuingia tena.
+     */
+
+  }
+
+})();
+
+</script>
+
+</body>
 </html>
