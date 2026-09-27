@@ -6,9 +6,6 @@
 
 <title>LINKCASH - CEO Dashboard</title>
 
-<!-- SUPABASE -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
 *{
   box-sizing:border-box;
@@ -399,15 +396,6 @@ body{
   font-size:10px;
 }
 
-/* LOADING */
-
-.loading{
-  padding:30px;
-  text-align:center;
-  color:#666;
-  font-size:11px;
-}
-
 /* LOGOUT */
 
 .logout{
@@ -478,8 +466,15 @@ body{
 <header class="topbar">
 
   <div class="brand">
-    <div class="logo">LC</div>
-    <div class="brand-name">LINKCASH</div>
+
+    <div class="logo">
+      LC
+    </div>
+
+    <div class="brand-name">
+      LINKCASH
+    </div>
+
   </div>
 
   <div class="ceo-badge">
@@ -512,44 +507,62 @@ body{
 <section class="stats">
 
   <div class="stat">
-    <div class="stat-icon">👥</div>
+
+    <div class="stat-icon">
+      👥
+    </div>
 
     <div
       class="stat-value"
       id="totalUsers"
-    >0</div>
+    >
+      0
+    </div>
 
     <div class="stat-name">
       TOTAL USERS
     </div>
+
   </div>
 
 
   <div class="stat">
-    <div class="stat-icon">⏳</div>
+
+    <div class="stat-icon">
+      ⏳
+    </div>
 
     <div
       class="stat-value"
       id="pendingUsers"
-    >0</div>
+    >
+      0
+    </div>
 
     <div class="stat-name">
       PENDING
     </div>
+
   </div>
 
 
   <div class="stat">
-    <div class="stat-icon">✓</div>
+
+    <div class="stat-icon">
+      ✓
+    </div>
 
     <div
       class="stat-value"
       id="activeUsers"
-    >0</div>
+    >
+      0
+    </div>
 
     <div class="stat-name">
       ACTIVE
     </div>
+
   </div>
 
 </section>
@@ -620,9 +633,13 @@ body{
 
   <div class="section-title">
 
-    <h2>Registered Users</h2>
+    <h2>
+      Registered Users
+    </h2>
 
-    <span>SUPABASE</span>
+    <span>
+      LOCAL DATA
+    </span>
 
   </div>
 
@@ -634,11 +651,7 @@ body{
     oninput="renderUsers()"
   >
 
-  <div id="usersList">
-    <div class="loading">
-      Loading users...
-    </div>
-  </div>
+  <div id="usersList"></div>
 
 </section>
 
@@ -652,7 +665,9 @@ body{
 
   <div class="section-title">
 
-    <h2>Payment Requests</h2>
+    <h2>
+      Payment Requests
+    </h2>
 
     <span id="paymentCount">
       0 REQUESTS
@@ -660,11 +675,7 @@ body{
 
   </div>
 
-  <div id="paymentsList">
-    <div class="loading">
-      Loading payments...
-    </div>
-  </div>
+  <div id="paymentsList"></div>
 
 </section>
 
@@ -678,7 +689,9 @@ body{
 
   <div class="section-title">
 
-    <h2>Social Tasks</h2>
+    <h2>
+      Social Tasks
+    </h2>
 
     <span>
       TIKTOK • YOUTUBE • FACEBOOK • INSTAGRAM
@@ -686,11 +699,7 @@ body{
 
   </div>
 
-  <div id="socialList">
-    <div class="loading">
-      Loading social tasks...
-    </div>
-  </div>
+  <div id="socialList"></div>
 
 </section>
 
@@ -704,17 +713,17 @@ body{
 
   <div class="section-title">
 
-    <h2>Advertisements</h2>
+    <h2>
+      Advertisements
+    </h2>
 
-    <span>ADS</span>
+    <span>
+      ADS
+    </span>
 
   </div>
 
-  <div id="adsList">
-    <div class="loading">
-      Loading ads...
-    </div>
-  </div>
+  <div id="adsList"></div>
 
 </section>
 
@@ -728,17 +737,17 @@ body{
 
   <div class="section-title">
 
-    <h2>Quiz Management</h2>
+    <h2>
+      Quiz Management
+    </h2>
 
-    <span>QUIZZES</span>
+    <span>
+      QUIZZES
+    </span>
 
   </div>
 
-  <div id="quizList">
-    <div class="loading">
-      Loading quizzes...
-    </div>
-  </div>
+  <div id="quizList"></div>
 
 </section>
 
@@ -752,17 +761,17 @@ body{
 
   <div class="section-title">
 
-    <h2>Games</h2>
+    <h2>
+      Games
+    </h2>
 
-    <span>eFOOTBALL • CAR GAMES</span>
+    <span>
+      eFOOTBALL • CAR GAMES
+    </span>
 
   </div>
 
-  <div id="gamesList">
-    <div class="loading">
-      Loading games...
-    </div>
-  </div>
+  <div id="gamesList"></div>
 
 </section>
 
@@ -787,101 +796,128 @@ body{
 <script>
 
 /* =====================================================
-   SUPABASE CONFIG
+   LOCAL DEMO DATA
+   NO DATABASE
 ===================================================== */
 
-const SUPABASE_URL =
-  "https://cwejuennizsgezeqngnz.supabase.co";
+let allUsers = [
 
-const SUPABASE_KEY =
-  "sb_publishable_o3xHXS74TUvzrJkLCpvF1Q_Af4Xtidl";
+  {
+    id:1,
+    username:"mussabe",
+    full_name:"MsAbBe",
+    phone:"0712345678",
+    status:"active",
+    role:"user",
+    balance:25000,
+    total_earned:85000
+  },
 
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+  {
+    id:2,
+    username:"justine",
+    full_name:"Justine",
+    phone:"0755555555",
+    status:"active",
+    role:"user",
+    balance:15000,
+    total_earned:45000
+  },
 
-
-/* =====================================================
-   SECURITY
-===================================================== */
-
-async function checkCEO(){
-
-  const {
-    data:{
-      session
-    }
-  } =
-  await supabaseClient
-    .auth
-    .getSession();
-
-
-  if(!session){
-
-    window.location.replace(
-      "ceologin.html"
-    );
-
-    return false;
-
+  {
+    id:3,
+    username:"newuser",
+    full_name:"New User",
+    phone:"0766666666",
+    status:"pending",
+    role:"user",
+    balance:0,
+    total_earned:0
   }
 
-
-  const {
-    data:profile,
-    error
-  } =
-  await supabaseClient
-    .from("profiles")
-    .select("role,status")
-    .eq("id",session.user.id)
-    .single();
+];
 
 
-  if(error || !profile){
+let payments = [
 
-    alert(
-      "CEO profile was not found."
-    );
-
-    await supabaseClient
-      .auth
-      .signOut();
-
-    window.location.replace(
-      "ceologin.html"
-    );
-
-    return false;
-
+  {
+    id:1,
+    user_id:3,
+    name:"New User",
+    username:"newuser",
+    phone:"0766666666",
+    amount:10000,
+    method:"M-PESA",
+    transaction:"TXN001",
+    status:"pending"
   }
 
+];
 
-  if(profile.role !== "ceo"){
 
-    alert(
-      "CEO access required."
-    );
+let socialTasks = [
 
-    await supabaseClient
-      .auth
-      .signOut();
+  {
+    platform:"TikTok",
+    title:"Follow LINKCASH TikTok",
+    reward:500,
+    watch_seconds:30,
+    active:true
+  },
 
-    window.location.replace(
-      "login.html"
-    );
-
-    return false;
-
+  {
+    platform:"YouTube",
+    title:"Watch LINKCASH Video",
+    reward:300,
+    watch_seconds:45,
+    active:true
   }
 
+];
 
-  return true;
 
-}
+let ads = [
+
+  {
+    title:"Welcome Advertisement",
+    description:"Watch this advertisement and earn.",
+    reward:200,
+    watch_seconds:20,
+    active:true
+  }
+
+];
+
+
+let quizzes = [
+
+  {
+    title:"LINKCASH General Quiz",
+    description:"Answer questions and earn rewards.",
+    reward:500,
+    active:true
+  }
+
+];
+
+
+let games = [
+
+  {
+    game_type:"eFootball",
+    title:"eFootball Challenge",
+    reward:1000,
+    active:true
+  },
+
+  {
+    game_type:"Car Game",
+    title:"Car Racing Challenge",
+    reward:700,
+    active:true
+  }
+
+];
 
 
 /* =====================================================
@@ -902,12 +938,15 @@ function escapeHTML(value){
 
 function initials(name){
 
-  if(!name) return "U";
+  if(!name){
+    return "U";
+  }
 
   const p =
     String(name)
       .trim()
       .split(/\s+/);
+
 
   if(p.length === 1){
 
@@ -916,6 +955,7 @@ function initials(name){
       .toUpperCase();
 
   }
+
 
   return (
     p[0][0] +
@@ -942,23 +982,33 @@ function openTab(id,button){
 
   document
     .querySelectorAll(".panel")
-    .forEach(
-      panel =>
-        panel.classList.remove("active")
-    );
+    .forEach(panel => {
+
+      panel.classList.remove(
+        "active"
+      );
+
+    });
 
 
   document
     .querySelectorAll(".tab")
-    .forEach(
-      tab =>
-        tab.classList.remove("active")
-    );
+    .forEach(tab => {
+
+      tab.classList.remove(
+        "active"
+      );
+
+    });
 
 
-  document
-    .getElementById(id)
-    .classList.add("active");
+  const panel =
+    document.getElementById(id);
+
+
+  if(panel){
+    panel.classList.add("active");
+  }
 
 
   if(button){
@@ -971,91 +1021,31 @@ function openTab(id,button){
   }
 
   if(id === "payments"){
-    loadPayments();
+    renderPayments();
   }
 
   if(id === "social"){
-    loadSocialTasks();
+    renderSocialTasks();
   }
 
   if(id === "ads"){
-    loadAds();
+    renderAds();
   }
 
   if(id === "quiz"){
-    loadQuizzes();
+    renderQuizzes();
   }
 
   if(id === "games"){
-    loadGames();
+    renderGames();
   }
 
 }
 
 
 /* =====================================================
-   USERS
+   STATS
 ===================================================== */
-
-let allUsers = [];
-
-
-async function loadUsers(){
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("profiles")
-    .select(`
-      id,
-      username,
-      full_name,
-      phone,
-      status,
-      role,
-      balance,
-      total_earned,
-      created_at
-    `)
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
-
-    console.error(error);
-
-    document.getElementById(
-      "usersList"
-    ).innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load Users</h3>
-        <p>${escapeHTML(error.message)}</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  allUsers =
-    data || [];
-
-
-  updateStats();
-
-  renderUsers();
-
-}
-
 
 function updateStats(){
 
@@ -1065,41 +1055,40 @@ function updateStats(){
 
   const pending =
     allUsers.filter(
-      u =>
-        String(u.status)
-          .toLowerCase()
-        === "pending"
+      user =>
+        String(user.status)
+          .toLowerCase() === "pending"
     ).length;
 
 
   const active =
     allUsers.filter(
-      u =>
-        String(u.status)
-          .toLowerCase()
-        === "active"
+      user =>
+        String(user.status)
+          .toLowerCase() === "active"
     ).length;
 
 
   document.getElementById(
     "totalUsers"
-  ).textContent =
-    total;
+  ).textContent = total;
 
 
   document.getElementById(
     "pendingUsers"
-  ).textContent =
-    pending;
+  ).textContent = pending;
 
 
   document.getElementById(
     "activeUsers"
-  ).textContent =
-    active;
+  ).textContent = active;
 
 }
 
+
+/* =====================================================
+   USERS
+===================================================== */
 
 function renderUsers(){
 
@@ -1120,44 +1109,56 @@ function renderUsers(){
 
 
   const users =
-    allUsers.filter(
-      user => {
+    allUsers.filter(user => {
 
-        const name =
-          String(
-            user.full_name || ""
-          ).toLowerCase();
-
-        const username =
-          String(
-            user.username || ""
-          ).toLowerCase();
-
-        const phone =
-          String(
-            user.phone || ""
-          ).toLowerCase();
+      const name =
+        String(
+          user.full_name || ""
+        ).toLowerCase();
 
 
-        return (
-          !search ||
-          name.includes(search) ||
-          username.includes(search) ||
-          phone.includes(search)
-        );
+      const username =
+        String(
+          user.username || ""
+        ).toLowerCase();
 
-      }
-    );
+
+      const phone =
+        String(
+          user.phone || ""
+        ).toLowerCase();
+
+
+      return (
+        !search ||
+        name.includes(search) ||
+        username.includes(search) ||
+        phone.includes(search)
+      );
+
+    });
 
 
   if(users.length === 0){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">👥</div>
-        <h3>No Users Found</h3>
-        <p>Registered users will appear here.</p>
+
+        <div class="empty-icon">
+          👥
+        </div>
+
+        <h3>
+          No Users Found
+        </h3>
+
+        <p>
+          Users will appear here.
+        </p>
+
       </div>
+
     `;
 
     return;
@@ -1179,8 +1180,8 @@ function renderUsers(){
     const card =
       document.createElement("div");
 
-    card.className =
-      "card";
+
+    card.className = "card";
 
 
     card.innerHTML = `
@@ -1190,7 +1191,9 @@ function renderUsers(){
         <div class="user-info">
 
           <div class="avatar">
-            ${initials(user.full_name)}
+            ${initials(
+              user.full_name
+            )}
           </div>
 
           <div>
@@ -1211,6 +1214,7 @@ function renderUsers(){
           </div>
 
         </div>
+
 
         <div class="status ${status}">
           ${status.toUpperCase()}
@@ -1258,7 +1262,9 @@ function renderUsers(){
           </div>
 
           <div class="value gold">
-            TZS ${money(user.balance)}
+            TZS ${money(
+              user.balance
+            )}
           </div>
 
         </div>
@@ -1271,7 +1277,9 @@ function renderUsers(){
           </div>
 
           <div class="value gold">
-            TZS ${money(user.total_earned)}
+            TZS ${money(
+              user.total_earned
+            )}
           </div>
 
         </div>
@@ -1292,7 +1300,7 @@ function renderUsers(){
    PAYMENTS
 ===================================================== */
 
-async function loadPayments(){
+function renderPayments(){
 
   const container =
     document.getElementById(
@@ -1300,68 +1308,32 @@ async function loadPayments(){
     );
 
 
-  container.innerHTML =
-    `<div class="loading">Loading payments...</div>`;
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("payment_requests")
-    .select(`
-      id,
-      user_id,
-      amount,
-      method,
-      transaction_reference,
-      status,
-      submitted_at,
-      reviewed_at,
-      profiles(
-        username,
-        full_name,
-        phone
-      )
-    `)
-    .order(
-      "submitted_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Payment Error</h3>
-        <p>${escapeHTML(error.message)}</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
   document.getElementById(
     "paymentCount"
   ).textContent =
-    `${data.length} REQUESTS`;
+    `${payments.length} REQUESTS`;
 
 
-  if(!data.length){
+  if(payments.length === 0){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">✓</div>
-        <h3>No Payment Requests</h3>
-        <p>Payment requests will appear here.</p>
+
+        <div class="empty-icon">
+          ✓
+        </div>
+
+        <h3>
+          No Payment Requests
+        </h3>
+
+        <p>
+          Payment requests will appear here.
+        </p>
+
       </div>
+
     `;
 
     return;
@@ -1372,7 +1344,7 @@ async function loadPayments(){
   container.innerHTML = "";
 
 
-  data.forEach(payment => {
+  payments.forEach(payment => {
 
     const status =
       String(
@@ -1380,16 +1352,11 @@ async function loadPayments(){
       ).toLowerCase();
 
 
-    const profile =
-      payment.profiles || {};
-
-
     const card =
       document.createElement("div");
 
 
-    card.className =
-      "card";
+    card.className = "card";
 
 
     card.innerHTML = `
@@ -1400,7 +1367,7 @@ async function loadPayments(){
 
           <div class="avatar">
             ${initials(
-              profile.full_name
+              payment.name
             )}
           </div>
 
@@ -1408,20 +1375,20 @@ async function loadPayments(){
 
             <div class="name">
               ${escapeHTML(
-                profile.full_name ||
-                "Unknown User"
+                payment.name
               )}
             </div>
 
             <div class="username">
               @${escapeHTML(
-                profile.username || "-"
+                payment.username
               )}
             </div>
 
           </div>
 
         </div>
+
 
         <div class="status ${status}">
           ${status.toUpperCase()}
@@ -1433,35 +1400,62 @@ async function loadPayments(){
       <div class="details">
 
         <div class="detail">
-          <div class="label">AMOUNT</div>
+
+          <div class="label">
+            AMOUNT
+          </div>
+
           <div class="value gold">
-            TZS ${money(payment.amount)}
-          </div>
-        </div>
-
-        <div class="detail">
-          <div class="label">METHOD</div>
-          <div class="value">
-            ${escapeHTML(payment.method)}
-          </div>
-        </div>
-
-        <div class="detail">
-          <div class="label">TRANSACTION</div>
-          <div class="value">
-            ${escapeHTML(
-              payment.transaction_reference
+            TZS ${money(
+              payment.amount
             )}
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="label">PHONE</div>
+
+          <div class="label">
+            METHOD
+          </div>
+
           <div class="value">
             ${escapeHTML(
-              profile.phone || "-"
+              payment.method
             )}
           </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <div class="label">
+            TRANSACTION
+          </div>
+
+          <div class="value">
+            ${escapeHTML(
+              payment.transaction
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <div class="label">
+            PHONE
+          </div>
+
+          <div class="value">
+            ${escapeHTML(
+              payment.phone
+            )}
+          </div>
+
         </div>
 
       </div>
@@ -1472,23 +1466,24 @@ async function loadPayments(){
 
         ? `
 
-        <div class="actions">
+          <div class="actions">
 
-          <button
-            class="btn green"
-            onclick="approvePayment('${payment.id}','${payment.user_id}')"
-          >
-            ✓ ACTIVATE
-          </button>
+            <button
+              class="btn green"
+              onclick="approvePayment(${payment.id})"
+            >
+              ✓ ACTIVATE
+            </button>
 
-          <button
-            class="btn red"
-            onclick="rejectPayment('${payment.id}','${payment.user_id}')"
-          >
-            ✕ REJECT
-          </button>
 
-        </div>
+            <button
+              class="btn red"
+              onclick="rejectPayment(${payment.id})"
+            >
+              ✕ REJECT
+            </button>
+
+          </div>
 
         `
 
@@ -1510,10 +1505,18 @@ async function loadPayments(){
    APPROVE PAYMENT
 ===================================================== */
 
-async function approvePayment(
-  paymentId,
-  userId
-){
+function approvePayment(id){
+
+  const payment =
+    payments.find(
+      item => item.id === id
+    );
+
+
+  if(!payment){
+    return;
+  }
+
 
   if(
     !confirm(
@@ -1524,61 +1527,31 @@ async function approvePayment(
   }
 
 
-  const {
-    error:paymentError
-  } =
-  await supabaseClient
-    .from("payment_requests")
-    .update({
-      status:"approved",
-      reviewed_at:new Date().toISOString()
-    })
-    .eq("id",paymentId);
+  payment.status =
+    "approved";
 
 
-  if(paymentError){
-
-    alert(
-      paymentError.message
+  const user =
+    allUsers.find(
+      item =>
+        item.id === payment.user_id
     );
 
-    return;
+
+  if(user){
+
+    user.status =
+      "active";
 
   }
 
 
-  const {
-    error:userError
-  } =
-  await supabaseClient
-    .from("profiles")
-    .update({
-      status:"active"
-    })
-    .eq("id",userId);
+  updateStats();
 
-
-  if(userError){
-
-    alert(
-      userError.message
-    );
-
-    return;
-
-  }
-
+  renderPayments();
 
   alert(
     "Account activated successfully."
-  );
-
-
-  await refreshAll();
-
-  openTab(
-    "payments",
-    document.querySelectorAll(".tab")[1]
   );
 
 }
@@ -1588,10 +1561,18 @@ async function approvePayment(
    REJECT PAYMENT
 ===================================================== */
 
-async function rejectPayment(
-  paymentId,
-  userId
-){
+function rejectPayment(id){
+
+  const payment =
+    payments.find(
+      item => item.id === id
+    );
+
+
+  if(!payment){
+    return;
+  }
+
 
   if(
     !confirm(
@@ -1602,61 +1583,31 @@ async function rejectPayment(
   }
 
 
-  const {
-    error:paymentError
-  } =
-  await supabaseClient
-    .from("payment_requests")
-    .update({
-      status:"rejected",
-      reviewed_at:new Date().toISOString()
-    })
-    .eq("id",paymentId);
+  payment.status =
+    "rejected";
 
 
-  if(paymentError){
-
-    alert(
-      paymentError.message
+  const user =
+    allUsers.find(
+      item =>
+        item.id === payment.user_id
     );
 
-    return;
+
+  if(user){
+
+    user.status =
+      "rejected";
 
   }
 
 
-  const {
-    error:userError
-  } =
-  await supabaseClient
-    .from("profiles")
-    .update({
-      status:"rejected"
-    })
-    .eq("id",userId);
+  updateStats();
 
-
-  if(userError){
-
-    alert(
-      userError.message
-    );
-
-    return;
-
-  }
-
+  renderPayments();
 
   alert(
     "Payment rejected."
-  );
-
-
-  await refreshAll();
-
-  openTab(
-    "payments",
-    document.querySelectorAll(".tab")[1]
   );
 
 }
@@ -1666,7 +1617,7 @@ async function rejectPayment(
    SOCIAL TASKS
 ===================================================== */
 
-async function loadSocialTasks(){
+function renderSocialTasks(){
 
   const container =
     document.getElementById(
@@ -1674,48 +1625,26 @@ async function loadSocialTasks(){
     );
 
 
-  container.innerHTML =
-    `<div class="loading">Loading social tasks...</div>`;
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("social_tasks")
-    .select("*")
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
+  if(!socialTasks.length){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load</h3>
-        <p>${escapeHTML(error.message)}</p>
+
+        <div class="empty-icon">
+          📱
+        </div>
+
+        <h3>
+          No Social Tasks
+        </h3>
+
+        <p>
+          Social tasks will appear here.
+        </p>
+
       </div>
-    `;
 
-    return;
-
-  }
-
-
-  if(!data.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">📱</div>
-        <h3>No Social Tasks</h3>
-        <p>Create tasks from Supabase.</p>
-      </div>
     `;
 
     return;
@@ -1726,13 +1655,13 @@ async function loadSocialTasks(){
   container.innerHTML = "";
 
 
-  data.forEach(task => {
+  socialTasks.forEach(task => {
 
     const card =
       document.createElement("div");
 
-    card.className =
-      "card";
+
+    card.className = "card";
 
 
     card.innerHTML = `
@@ -1743,20 +1672,26 @@ async function loadSocialTasks(){
 
           <div class="platform">
             ${escapeHTML(
-              String(task.platform)
-                .toUpperCase()
+              task.platform.toUpperCase()
             )}
           </div>
 
-          <div class="name"
-               style="margin-top:9px">
-            ${escapeHTML(task.title)}
+          <div
+            class="name"
+            style="margin-top:9px"
+          >
+            ${escapeHTML(
+              task.title
+            )}
           </div>
 
         </div>
 
+
         <div class="gold">
-          TZS ${money(task.reward)}
+          TZS ${money(
+            task.reward
+          )}
         </div>
 
       </div>
@@ -1776,6 +1711,7 @@ async function loadSocialTasks(){
 
         </div>
 
+
         <div class="detail">
 
           <div class="label">
@@ -1783,7 +1719,9 @@ async function loadSocialTasks(){
           </div>
 
           <div class="value">
-            ${task.active ? "ACTIVE" : "OFF"}
+            ${task.active
+              ? "ACTIVE"
+              : "OFF"}
           </div>
 
         </div>
@@ -1804,7 +1742,7 @@ async function loadSocialTasks(){
    ADS
 ===================================================== */
 
-async function loadAds(){
+function renderAds(){
 
   const container =
     document.getElementById(
@@ -1812,48 +1750,26 @@ async function loadAds(){
     );
 
 
-  container.innerHTML =
-    `<div class="loading">Loading ads...</div>`;
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("ads")
-    .select("*")
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
+  if(!ads.length){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load Ads</h3>
-        <p>${escapeHTML(error.message)}</p>
+
+        <div class="empty-icon">
+          📢
+        </div>
+
+        <h3>
+          No Ads
+        </h3>
+
+        <p>
+          Advertisements will appear here.
+        </p>
+
       </div>
-    `;
 
-    return;
-
-  }
-
-
-  if(!data.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">📢</div>
-        <h3>No Ads</h3>
-        <p>Advertisements will appear here.</p>
-      </div>
     `;
 
     return;
@@ -1864,13 +1780,13 @@ async function loadAds(){
   container.innerHTML = "";
 
 
-  data.forEach(ad => {
+  ads.forEach(ad => {
 
     const card =
       document.createElement("div");
 
-    card.className =
-      "card";
+
+    card.className = "card";
 
 
     card.innerHTML = `
@@ -1880,19 +1796,24 @@ async function loadAds(){
         <div>
 
           <div class="name">
-            ${escapeHTML(ad.title)}
+            ${escapeHTML(
+              ad.title
+            )}
           </div>
 
           <div class="username">
             ${escapeHTML(
-              ad.description || ""
+              ad.description
             )}
           </div>
 
         </div>
 
+
         <div class="gold">
-          TZS ${money(ad.reward)}
+          TZS ${money(
+            ad.reward
+          )}
         </div>
 
       </div>
@@ -1912,6 +1833,7 @@ async function loadAds(){
 
         </div>
 
+
         <div class="detail">
 
           <div class="label">
@@ -1919,7 +1841,9 @@ async function loadAds(){
           </div>
 
           <div class="value">
-            ${ad.active ? "ACTIVE" : "OFF"}
+            ${ad.active
+              ? "ACTIVE"
+              : "OFF"}
           </div>
 
         </div>
@@ -1940,7 +1864,7 @@ async function loadAds(){
    QUIZZES
 ===================================================== */
 
-async function loadQuizzes(){
+function renderQuizzes(){
 
   const container =
     document.getElementById(
@@ -1948,48 +1872,26 @@ async function loadQuizzes(){
     );
 
 
-  container.innerHTML =
-    `<div class="loading">Loading quizzes...</div>`;
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("quizzes")
-    .select("*")
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
+  if(!quizzes.length){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load Quizzes</h3>
-        <p>${escapeHTML(error.message)}</p>
+
+        <div class="empty-icon">
+          🧠
+        </div>
+
+        <h3>
+          No Quizzes
+        </h3>
+
+        <p>
+          Quizzes will appear here.
+        </p>
+
       </div>
-    `;
 
-    return;
-
-  }
-
-
-  if(!data.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">🧠</div>
-        <h3>No Quizzes</h3>
-        <p>Quizzes will appear here.</p>
-      </div>
     `;
 
     return;
@@ -2000,13 +1902,13 @@ async function loadQuizzes(){
   container.innerHTML = "";
 
 
-  data.forEach(quiz => {
+  quizzes.forEach(quiz => {
 
     const card =
       document.createElement("div");
 
-    card.className =
-      "card";
+
+    card.className = "card";
 
 
     card.innerHTML = `
@@ -2016,19 +1918,24 @@ async function loadQuizzes(){
         <div>
 
           <div class="name">
-            ${escapeHTML(quiz.title)}
+            ${escapeHTML(
+              quiz.title
+            )}
           </div>
 
           <div class="username">
             ${escapeHTML(
-              quiz.description || ""
+              quiz.description
             )}
           </div>
 
         </div>
 
+
         <div class="gold">
-          TZS ${money(quiz.reward)}
+          TZS ${money(
+            quiz.reward
+          )}
         </div>
 
       </div>
@@ -2043,7 +1950,9 @@ async function loadQuizzes(){
           </div>
 
           <div class="value">
-            ${quiz.active ? "ACTIVE" : "OFF"}
+            ${quiz.active
+              ? "ACTIVE"
+              : "OFF"}
           </div>
 
         </div>
@@ -2064,7 +1973,7 @@ async function loadQuizzes(){
    GAMES
 ===================================================== */
 
-async function loadGames(){
+function renderGames(){
 
   const container =
     document.getElementById(
@@ -2072,48 +1981,26 @@ async function loadGames(){
     );
 
 
-  container.innerHTML =
-    `<div class="loading">Loading games...</div>`;
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("games")
-    .select("*")
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
-
-
-  if(error){
+  if(!games.length){
 
     container.innerHTML = `
+
       <div class="empty">
-        <div class="empty-icon">⚠️</div>
-        <h3>Unable To Load Games</h3>
-        <p>${escapeHTML(error.message)}</p>
+
+        <div class="empty-icon">
+          🎮
+        </div>
+
+        <h3>
+          No Games
+        </h3>
+
+        <p>
+          Games will appear here.
+        </p>
+
       </div>
-    `;
 
-    return;
-
-  }
-
-
-  if(!data.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">🎮</div>
-        <h3>No Games</h3>
-        <p>Games will appear here.</p>
-      </div>
     `;
 
     return;
@@ -2124,13 +2011,13 @@ async function loadGames(){
   container.innerHTML = "";
 
 
-  data.forEach(game => {
+  games.forEach(game => {
 
     const card =
       document.createElement("div");
 
-    card.className =
-      "card";
+
+    card.className = "card";
 
 
     card.innerHTML = `
@@ -2141,8 +2028,7 @@ async function loadGames(){
 
           <div class="platform">
             ${escapeHTML(
-              String(game.game_type)
-                .toUpperCase()
+              game.game_type.toUpperCase()
             )}
           </div>
 
@@ -2150,13 +2036,18 @@ async function loadGames(){
             class="name"
             style="margin-top:9px"
           >
-            ${escapeHTML(game.title)}
+            ${escapeHTML(
+              game.title
+            )}
           </div>
 
         </div>
 
+
         <div class="gold">
-          TZS ${money(game.reward)}
+          TZS ${money(
+            game.reward
+          )}
         </div>
 
       </div>
@@ -2171,7 +2062,9 @@ async function loadGames(){
           </div>
 
           <div class="value">
-            ${game.active ? "ACTIVE" : "OFF"}
+            ${game.active
+              ? "ACTIVE"
+              : "OFF"}
           </div>
 
         </div>
@@ -2189,51 +2082,46 @@ async function loadGames(){
 
 
 /* =====================================================
-   REFRESH EVERYTHING
+   REFRESH
 ===================================================== */
 
-async function refreshAll(){
+function refreshAll(){
 
-  await loadUsers();
+  updateStats();
 
-  await loadPayments();
+  renderUsers();
 
-  await loadSocialTasks();
+  renderPayments();
 
-  await loadAds();
+  renderSocialTasks();
 
-  await loadQuizzes();
+  renderAds();
 
-  await loadGames();
+  renderQuizzes();
+
+  renderGames();
 
 }
 
 
 /* =====================================================
-   CEO LOGOUT
+   LOGOUT
 ===================================================== */
 
-async function logoutCEO(){
+function logoutCEO(){
 
-  const ok =
-    confirm(
+  if(
+    !confirm(
       "Are you sure you want to logout?"
-    );
-
-
-  if(!ok){
+    )
+  ){
     return;
   }
 
 
-  await supabaseClient
-    .auth
-    .signOut();
-
-
   /*
-    Also clear old local CEO session
-    if your previous login used it.
+    No database.
+    Clear local CEO session.
   */
 
   localStorage.removeItem(
@@ -2253,23 +2141,10 @@ async function logoutCEO(){
 
 
 /* =====================================================
-   START DASHBOARD
+   START
 ===================================================== */
 
-(async function(){
-
-  const allowed =
-    await checkCEO();
-
-
-  if(!allowed){
-    return;
-  }
-
-
-  await refreshAll();
-
-})();
+refreshAll();
 
 </script>
 
