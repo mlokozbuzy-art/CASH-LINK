@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en">
 <head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0"><title>LINKCASH - Register</title><!-- SUPABASE --><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LINKCASH - Create Account</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
 *{
   box-sizing:border-box;
   margin:0;
@@ -12,7 +11,7 @@
 body{
   min-height:100vh;
   background:#050505;
-  color:white;
+  color:#fff;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -34,25 +33,14 @@ body{
   height:70px;
   margin:auto;
   border-radius:20px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffe082,
-      #d4a72c,
-      #8f6b12
-    );
-
+  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
   display:flex;
   align-items:center;
   justify-content:center;
-
   color:#090909;
   font-size:24px;
   font-weight:900;
-
-  box-shadow:
-    0 0 25px rgba(212,167,44,.25);
+  box-shadow:0 0 25px rgba(212,167,44,.25);
 }
 
 .brand h1{
@@ -72,9 +60,7 @@ body{
   border:1px solid #292929;
   border-radius:24px;
   padding:28px 22px;
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.6);
+  box-shadow:0 25px 70px rgba(0,0,0,.6);
 }
 
 .title{
@@ -127,21 +113,13 @@ body{
 input{
   width:100%;
   height:50px;
-
   background:#070707;
-
   border:1px solid #292929;
-
   border-radius:12px;
-
   color:white;
-
   outline:none;
-
   padding:0 15px;
-
   font-size:14px;
-
   transition:.2s;
 }
 
@@ -151,49 +129,29 @@ input::placeholder{
 
 input:focus{
   border-color:#d4a72c;
-
-  box-shadow:
-    0 0 0 2px
-    rgba(212,167,44,.08);
+  box-shadow:0 0 0 2px rgba(212,167,44,.08);
 }
 
 .username-note{
   margin-top:6px;
   color:#666;
   font-size:11px;
+  line-height:1.5;
 }
 
 .register-btn{
   width:100%;
   height:53px;
-
   margin-top:5px;
-
   border:none;
-
   border-radius:13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffe082,
-      #d4a72c,
-      #a77b17
-    );
-
+  background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
   color:#080808;
-
   font-size:15px;
-
   font-weight:900;
-
   letter-spacing:.5px;
-
   cursor:pointer;
-
-  box-shadow:
-    0 10px 25px
-    rgba(212,167,44,.16);
+  box-shadow:0 10px 25px rgba(212,167,44,.16);
 }
 
 .register-btn:active{
@@ -207,26 +165,14 @@ input:focus{
 
 .message{
   display:none;
-
   margin-top:15px;
-
   padding:12px;
-
   border-radius:10px;
-
   text-align:center;
-
-  background:
-    rgba(212,167,44,.08);
-
-  border:
-    1px solid
-    rgba(212,167,44,.25);
-
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
   color:#e6c65c;
-
   font-size:13px;
-
   line-height:1.5;
 }
 
@@ -236,17 +182,18 @@ input:focus{
   border-color:rgba(255,80,80,.25);
 }
 
+.message.success{
+  color:#58d88a;
+  background:rgba(88,216,138,.07);
+  border-color:rgba(88,216,138,.25);
+}
+
 .login{
   text-align:center;
-
   margin-top:23px;
-
   padding-top:20px;
-
   border-top:1px solid #222;
-
   color:#777;
-
   font-size:13px;
 }
 
@@ -271,46 +218,15 @@ input:focus{
   color:#444;
   font-size:11px;
 }
+</style></head><body><div class="wrapper">  <div class="brand"><div class="logo">LC</div>
 
-.loading{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
+<h1>LINKCASH</h1>
 
-.spinner{
-  width:15px;
-  height:15px;
-  border:2px solid rgba(0,0,0,.25);
-  border-top-color:#080808;
-  border-radius:50%;
-  animation:spin .7s linear infinite;
-}
+<p>Simple. Secure. Connected.</p>
 
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
-}
+  </div>  <div class="card"><div class="title">
 
-</style></head><body><div class="wrapper">  <!-- BRAND -->  <div class="brand"><div class="logo">
-  LC
-</div>
-
-<h1>
-  LINKCASH
-</h1>
-
-<p>
-  Simple. Secure. Connected.
-</p>
-
-  </div>  <!-- REGISTER CARD -->  <div class="card"><div class="title">
-
-  <h2>
-    Create Account
-  </h2>
+  <h2>Create Account</h2>
 
   <p>
     Create your LINKCASH account to get started.
@@ -326,13 +242,9 @@ input:focus{
   id="refBox"
 >
 
-  <small>
-    INVITED BY
-  </small>
+  <small>INVITED BY</small>
 
-  <strong id="refUsername">
-    —
-  </strong>
+  <strong id="refUsername">—</strong>
 
 </div>
 
@@ -341,13 +253,9 @@ input:focus{
 
 <form id="registerForm">
 
-  <!-- FULL NAME -->
-
   <div class="field">
 
-    <label>
-      Full Name
-    </label>
+    <label>Full Name</label>
 
     <input
       type="text"
@@ -360,13 +268,9 @@ input:focus{
   </div>
 
 
-  <!-- USERNAME -->
-
   <div class="field">
 
-    <label>
-      Username
-    </label>
+    <label>Username</label>
 
     <input
       type="text"
@@ -380,10 +284,7 @@ input:focus{
 
     <div class="username-note">
 
-      Username must be 3–20 characters.
-
-      <br>
-
+      Username must be 3–20 characters.<br>
       Letters, numbers and underscore only.
 
     </div>
@@ -391,13 +292,9 @@ input:focus{
   </div>
 
 
-  <!-- PHONE -->
-
   <div class="field">
 
-    <label>
-      Phone Number
-    </label>
+    <label>Phone Number</label>
 
     <input
       type="tel"
@@ -410,13 +307,9 @@ input:focus{
   </div>
 
 
-  <!-- EMAIL -->
-
   <div class="field">
 
-    <label>
-      Email Address
-    </label>
+    <label>Email Address</label>
 
     <input
       type="email"
@@ -429,13 +322,9 @@ input:focus{
   </div>
 
 
-  <!-- PASSWORD -->
-
   <div class="field">
 
-    <label>
-      Password
-    </label>
+    <label>Password</label>
 
     <input
       type="password"
@@ -449,8 +338,6 @@ input:focus{
   </div>
 
 
-  <!-- REGISTER -->
-
   <button
     type="submit"
     class="register-btn"
@@ -462,15 +349,11 @@ input:focus{
 </form>
 
 
-<!-- MESSAGE -->
-
 <div
   class="message"
   id="message"
 ></div>
 
-
-<!-- LOGIN -->
 
 <div class="login">
 
@@ -482,7 +365,7 @@ input:focus{
 
 </div>
 
-  </div>  <!-- BACK --><a
+  </div><a
 href="index.html"
 class="back"
 
@@ -495,7 +378,7 @@ class="back"
   </div></div><script>
 
 /* =====================================================
-   SUPABASE CONFIGURATION
+   SUPABASE CONFIG
 ===================================================== */
 
 const SUPABASE_URL =
@@ -509,26 +392,6 @@ const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
-  );
-
-
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const form =
-  document.getElementById(
-    "registerForm"
-  );
-
-const message =
-  document.getElementById(
-    "message"
-  );
-
-const registerButton =
-  document.getElementById(
-    "registerButton"
   );
 
 
@@ -552,38 +415,57 @@ const referrer =
 
 if(referrer){
 
-  document.getElementById(
-    "refBox"
-  ).style.display =
-    "block";
+  document.getElementById("refBox")
+    .style.display = "block";
 
-  document.getElementById(
-    "refUsername"
-  ).textContent =
-    "@" + referrer;
+  document.getElementById("refUsername")
+    .textContent = "@" + referrer;
 
 }
 
 
 /* =====================================================
-   MESSAGE FUNCTION
+   ELEMENTS
 ===================================================== */
 
-function showMessage(
-  text,
-  error = false
-){
+const form =
+  document.getElementById("registerForm");
 
-  message.style.display =
-    "block";
+const message =
+  document.getElementById("message");
 
-  message.classList.toggle(
-    "error",
-    error
-  );
+const registerButton =
+  document.getElementById("registerButton");
 
-  message.innerHTML =
-    text;
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function showMessage(text,type=""){
+
+  message.style.display = "block";
+
+  message.className =
+    "message " + type;
+
+  message.innerHTML = text;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
@@ -594,168 +476,26 @@ function showMessage(
 
 function normalizePhone(phone){
 
-  return String(phone)
-    .replace(/\s+/g,"")
-    .replace(/-/g,"");
+  let value =
+    String(phone)
+      .replace(/\s+/g,"")
+      .replace(/-/g,"");
+
+  if(value.startsWith("+255")){
+    return "0" + value.substring(4);
+  }
+
+  if(value.startsWith("255")){
+    return "0" + value.substring(3);
+  }
+
+  return value;
 
 }
 
 
 /* =====================================================
-   VALIDATE PHONE
-===================================================== */
-
-function validPhone(phone){
-
-  const clean =
-    normalizePhone(phone);
-
-  /*
-    Tanzania examples:
-
-    0712345678
-    0755123456
-    +255712345678
-  */
-
-  return (
-    /^0[67]\d{8}$/.test(clean) ||
-    /^\+255[67]\d{8}$/.test(clean)
-  );
-
-}
-
-
-/* =====================================================
-   CHECK USERNAME
-===================================================== */
-
-async function usernameExists(
-  username
-){
-
-  const result =
-    await supabaseClient
-      .from("users")
-      .select("id")
-      .eq("username",username)
-      .limit(1);
-
-  if(result.error){
-
-    throw result.error;
-
-  }
-
-  return (
-    result.data &&
-    result.data.length > 0
-  );
-
-}
-
-
-/* =====================================================
-   CHECK EMAIL
-===================================================== */
-
-async function emailExists(
-  email
-){
-
-  const result =
-    await supabaseClient
-      .from("users")
-      .select("id")
-      .eq("email",email)
-      .limit(1);
-
-  if(result.error){
-
-    throw result.error;
-
-  }
-
-  return (
-    result.data &&
-    result.data.length > 0
-  );
-
-}
-
-
-/* =====================================================
-   CHECK PHONE
-===================================================== */
-
-async function phoneExists(
-  phone
-){
-
-  const result =
-    await supabaseClient
-      .from("users")
-      .select("id")
-      .eq("phone",phone)
-      .limit(1);
-
-  if(result.error){
-
-    throw result.error;
-
-  }
-
-  return (
-    result.data &&
-    result.data.length > 0
-  );
-
-}
-
-
-/* =====================================================
-   FIND REFERRER
-===================================================== */
-
-async function findReferrer(
-  username
-){
-
-  if(!username){
-
-    return null;
-
-  }
-
-  const result =
-    await supabaseClient
-      .from("users")
-      .select("id,username")
-      .eq("username",username)
-      .limit(1);
-
-  if(result.error){
-
-    throw result.error;
-
-  }
-
-  if(
-    !result.data ||
-    result.data.length === 0
-  ){
-
-    return null;
-
-  }
-
-  return result.data[0];
-
-}
-
-
-/* =====================================================
-   SUBMIT
+   FORM SUBMIT
 ===================================================== */
 
 form.addEventListener(
@@ -765,198 +505,168 @@ form.addEventListener(
     event.preventDefault();
 
 
-    /* ---------------------------------------------
-       GET VALUES
-    --------------------------------------------- */
+    registerButton.disabled = true;
 
-    const fullname =
-      document
-        .getElementById("fullname")
-        .value
-        .trim();
+    registerButton.textContent =
+      "CREATING ACCOUNT...";
 
-
-    const username =
-      document
-        .getElementById("username")
-        .value
-        .trim()
-        .toLowerCase();
-
-
-    const phone =
-      normalizePhone(
-        document
-          .getElementById("phone")
-          .value
-          .trim()
-      );
-
-
-    const email =
-      document
-        .getElementById("email")
-        .value
-        .trim()
-        .toLowerCase();
-
-
-    const password =
-      document
-        .getElementById("password")
-        .value;
-
-
-    /* ---------------------------------------------
-       BASIC VALIDATION
-    --------------------------------------------- */
-
-    if(
-      !fullname ||
-      !username ||
-      !phone ||
-      !email ||
-      !password
-    ){
-
-      showMessage(
-        "Please fill in all fields.",
-        true
-      );
-
-      return;
-
-    }
-
-
-    if(
-      username.length < 3 ||
-      username.length > 20
-    ){
-
-      showMessage(
-        "Username must be 3–20 characters.",
-        true
-      );
-
-      return;
-
-    }
-
-
-    const usernamePattern =
-      /^[a-zA-Z0-9_]+$/;
-
-
-    if(
-      !usernamePattern.test(username)
-    ){
-
-      showMessage(
-        "Username can only contain letters, numbers and underscore.",
-        true
-      );
-
-      return;
-
-    }
-
-
-    if(
-      !validPhone(phone)
-    ){
-
-      showMessage(
-        "Enter a valid Tanzania phone number.",
-        true
-      );
-
-      return;
-
-    }
-
-
-    if(
-      password.length < 6
-    ){
-
-      showMessage(
-        "Password must contain at least 6 characters.",
-        true
-      );
-
-      return;
-
-    }
-
-
-    /* ---------------------------------------------
-       LOADING
-    --------------------------------------------- */
-
-    registerButton.disabled =
-      true;
-
-    registerButton.innerHTML =
-
-      `
-        <span class="loading">
-          <span class="spinner"></span>
-          CREATING ACCOUNT...
-        </span>
-      `;
-
-
-    message.style.display =
-      "none";
+    message.style.display = "none";
 
 
     try{
 
+      /* ===============================================
+         READ VALUES
+      =============================================== */
 
-      /* -------------------------------------------
+      const fullname =
+        document.getElementById("fullname")
+          .value
+          .trim();
+
+
+      const username =
+        document.getElementById("username")
+          .value
+          .trim()
+          .toLowerCase();
+
+
+      const phone =
+        normalizePhone(
+          document.getElementById("phone")
+            .value
+        );
+
+
+      const email =
+        document.getElementById("email")
+          .value
+          .trim()
+          .toLowerCase();
+
+
+      const password =
+        document.getElementById("password")
+          .value;
+
+
+      /* ===============================================
+         VALIDATION
+      =============================================== */
+
+      if(
+        !fullname ||
+        !username ||
+        !phone ||
+        !email ||
+        !password
+      ){
+
+        throw new Error(
+          "Please fill in all fields."
+        );
+
+      }
+
+
+      if(
+        username.length < 3 ||
+        username.length > 20
+      ){
+
+        throw new Error(
+          "Username must be 3–20 characters."
+        );
+
+      }
+
+
+      if(
+        !/^[a-zA-Z0-9_]+$/.test(username)
+      ){
+
+        throw new Error(
+          "Username can only contain letters, numbers and underscore."
+        );
+
+      }
+
+
+      if(
+        !/^0[67]\d{8}$/.test(phone)
+      ){
+
+        throw new Error(
+          "Enter a valid Tanzanian phone number, e.g. 0712345678."
+        );
+
+      }
+
+
+      if(password.length < 6){
+
+        throw new Error(
+          "Password must be at least 6 characters."
+        );
+
+      }
+
+
+      /* ===============================================
          CHECK USERNAME
-      ------------------------------------------- */
+      =============================================== */
 
-      if(
-        await usernameExists(
-          username
-        )
-      ){
+      const usernameCheck =
+        await supabaseClient
+          .from("users")
+          .select("id")
+          .eq("username",username)
+          .maybeSingle();
+
+
+      if(usernameCheck.error){
 
         throw new Error(
-          "This username already exists. Please choose another."
+          "Username check failed: " +
+          usernameCheck.error.message
         );
 
       }
 
 
-      /* -------------------------------------------
-         CHECK EMAIL
-      ------------------------------------------- */
-
-      if(
-        await emailExists(
-          email
-        )
-      ){
+      if(usernameCheck.data){
 
         throw new Error(
-          "This email is already registered."
+          "This username already exists."
         );
 
       }
 
 
-      /* -------------------------------------------
+      /* ===============================================
          CHECK PHONE
-      ------------------------------------------- */
+      =============================================== */
 
-      if(
-        await phoneExists(
-          phone
-        )
-      ){
+      const phoneCheck =
+        await supabaseClient
+          .from("users")
+          .select("id")
+          .eq("phone",phone)
+          .maybeSingle();
+
+
+      if(phoneCheck.error){
+
+        throw new Error(
+          "Phone check failed: " +
+          phoneCheck.error.message
+        );
+
+      }
+
+
+      if(phoneCheck.data){
 
         throw new Error(
           "This phone number is already registered."
@@ -965,55 +675,84 @@ form.addEventListener(
       }
 
 
-      /* -------------------------------------------
-         FIND REFERRER
-      ------------------------------------------- */
+      /* ===============================================
+         CHECK EMAIL
+      =============================================== */
 
-      let validReferrer =
-        null;
+      const emailCheck =
+        await supabaseClient
+          .from("users")
+          .select("id")
+          .eq("email",email)
+          .maybeSingle();
+
+
+      if(emailCheck.error){
+
+        throw new Error(
+          "Email check failed: " +
+          emailCheck.error.message
+        );
+
+      }
+
+
+      if(emailCheck.data){
+
+        throw new Error(
+          "This email is already registered."
+        );
+
+      }
+
+
+      /* ===============================================
+         CHECK REFERRER
+      =============================================== */
+
+      let validReferrer = null;
 
 
       if(referrer){
 
-        const refUser =
-          await findReferrer(
-            referrer
+        const refCheck =
+          await supabaseClient
+            .from("users")
+            .select("username")
+            .eq("username",referrer)
+            .maybeSingle();
+
+
+        if(refCheck.error){
+
+          throw new Error(
+            "Referral check failed: " +
+            refCheck.error.message
           );
 
+        }
 
-        if(refUser){
+
+        if(refCheck.data){
 
           validReferrer =
-            refUser.username;
+            refCheck.data.username;
 
         }
 
       }
 
 
-      /* -------------------------------------------
-         CREATE USER ID
-      ------------------------------------------- */
+      /* ===============================================
+         CREATE DATABASE RECORD
+         
+         IMPORTANT:
+         Column names are snake_case.
+      =============================================== */
 
-      const userId =
-        "LC-" +
-        Date.now() +
-        "-" +
-        Math.random()
-          .toString(36)
-          .substring(2,8);
+      const newUser = {
 
-
-      /* -------------------------------------------
-         INSERT INTO SUPABASE
-      ------------------------------------------- */
-
-      const insertData = {
-
-        id:
-          userId,
-
-        fullname:
+        full_name:
           fullname,
 
         username:
@@ -1031,6 +770,9 @@ form.addEventListener(
         referrer:
           validReferrer,
 
+        joined_at:
+          new Date().toISOString(),
+
         balance:
           0,
 
@@ -1040,39 +782,37 @@ form.addEventListener(
         status:
           "pending",
 
-        activationFee:
+        activation_fee:
           14500,
 
-        paymentStatus:
+        payment_status:
           "unpaid",
 
-        paymentMethod:
+        payment_method:
           null,
 
-        paymentReference:
+        payment_reference:
           null
 
       };
 
 
+      /* ===============================================
+         INSERT
+      =============================================== */
+
       const result =
         await supabaseClient
           .from("users")
-          .insert(
-            insertData
-          )
+          .insert(newUser)
           .select()
           .single();
 
 
-      /* -------------------------------------------
-         SUPABASE ERROR
-      ------------------------------------------- */
-
       if(result.error){
 
         console.error(
-          "SUPABASE REGISTER ERROR:",
+          "SUPABASE REGISTRATION ERROR:",
           result.error
         );
 
@@ -1083,20 +823,56 @@ form.addEventListener(
       }
 
 
-      /* -------------------------------------------
-         SAVE LOCAL COPY
-         FOR PENDING DASHBOARD
-      ------------------------------------------- */
+      /* ===============================================
+         CREATED USER
+      =============================================== */
 
-      const newUser =
+      const createdUser =
         result.data;
 
 
+      /* ===============================================
+         SAVE SAFE USER DATA LOCALLY
+      =============================================== */
+
       localStorage.setItem(
         "linkcashUser",
-        JSON.stringify(
-          newUser
-        )
+        JSON.stringify({
+
+          id:
+            createdUser.id,
+
+          full_name:
+            createdUser.full_name,
+
+          username:
+            createdUser.username,
+
+          phone:
+            createdUser.phone,
+
+          email:
+            createdUser.email,
+
+          referrer:
+            createdUser.referrer,
+
+          status:
+            createdUser.status,
+
+          balance:
+            createdUser.balance,
+
+          commission:
+            createdUser.commission,
+
+          activation_fee:
+            createdUser.activation_fee,
+
+          payment_status:
+            createdUser.payment_status
+
+        })
       );
 
 
@@ -1106,98 +882,27 @@ form.addEventListener(
       );
 
 
-      /*
-        Keep a local copy too,
-        so existing parts of the
-        LINKCASH frontend continue
-        working.
-      */
-
-      let localUsers = [];
-
-
-      try{
-
-        localUsers =
-          JSON.parse(
-            localStorage.getItem(
-              "linkcashUsers"
-            ) || "[]"
-          );
-
-
-        if(
-          !Array.isArray(localUsers)
-        ){
-
-          localUsers = [];
-
-        }
-
-      }catch{
-
-        localUsers = [];
-
-      }
-
-
-      localUsers.push(
-        newUser
-      );
-
-
-      localStorage.setItem(
-        "linkcashUsers",
-        JSON.stringify(
-          localUsers
-        )
-      );
-
-
-      /* -------------------------------------------
+      /* ===============================================
          SUCCESS
-      ------------------------------------------- */
+      =============================================== */
 
       showMessage(
-
-        validReferrer
-
-        ?
-
-        `
-          Account created successfully ✓
-          <br>
-          Invited by @${escapeHTML(validReferrer)}
-          <br><br>
-          Your account is waiting for CEO activation.
-          <br>
-          Opening your account...
-        `
-
-        :
-
-        `
-          Account created successfully ✓
-          <br><br>
-          Your account is waiting for CEO activation.
-          <br>
-          Opening your account...
-        `
-
+        "Account created successfully ✓" +
+        "<br><br>" +
+        "Your account is now <b>PENDING</b>." +
+        "<br>" +
+        "The CEO can review your registration.",
+        "success"
       );
 
 
-      /* -------------------------------------------
-         BUTTON
-      ------------------------------------------- */
-
-      registerButton.innerHTML =
+      registerButton.textContent =
         "ACCOUNT CREATED ✓";
 
 
-      /* -------------------------------------------
-         OPEN PENDING DASHBOARD
-      ------------------------------------------- */
+      /* ===============================================
+         GO TO PENDING DASHBOARD
+      =============================================== */
 
       setTimeout(
         function(){
@@ -1206,58 +911,37 @@ form.addEventListener(
             "pending-dashboard.html";
 
         },
-        1200
+        1500
       );
 
 
     }catch(error){
 
       console.error(
-        "REGISTER ERROR:",
+        "REGISTRATION FAILED:",
         error
       );
 
 
       showMessage(
-
-        "Registration failed:<br>" +
+        "Registration failed:<br><br>" +
         escapeHTML(
           error.message ||
-          "Something went wrong."
+          "Unknown error"
         ),
-
-        true
-
+        "error"
       );
 
 
       registerButton.disabled =
         false;
 
-
-      registerButton.innerHTML =
+      registerButton.textContent =
         "CREATE ACCOUNT";
 
     }
 
-  }
-);
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
+  });
 
 </script></body>
 </html>
