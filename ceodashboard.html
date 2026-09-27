@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LINKCASH - CEO Dashboard</title>
 
@@ -363,8 +363,7 @@ body{
 }
 
 .activate-btn,
-.reject-btn,
-.delete-btn{
+.reject-btn{
   flex:1;
   height:40px;
   border-radius:10px;
@@ -383,12 +382,6 @@ body{
   border:1px solid rgba(255,80,80,.25);
   background:rgba(255,80,80,.07);
   color:#ff7777;
-}
-
-.delete-btn{
-  border:1px solid #292929;
-  background:#101010;
-  color:#777;
 }
 
 .empty{
@@ -412,6 +405,7 @@ body{
   margin-top:6px;
   color:#666;
   font-size:10px;
+  line-height:1.5;
 }
 
 .content-form{
@@ -437,6 +431,7 @@ body{
 
 .textarea{
   min-height:100px;
+  resize:vertical;
 }
 
 .save-btn{
@@ -474,6 +469,7 @@ body{
   font-size:9px;
   margin-top:7px;
   word-break:break-all;
+  line-height:1.5;
 }
 
 .content-actions{
@@ -519,6 +515,7 @@ body{
 }
 
 @media(max-width:650px){
+
   .stats{
     grid-template-columns:repeat(2,1fr);
   }
@@ -529,6 +526,7 @@ body{
 }
 
 @media(max-width:400px){
+
   .tabs{
     grid-template-columns:repeat(2,1fr);
   }
@@ -573,10 +571,13 @@ body{
 </section>
 
 <div class="connection">
+
   <div class="dot" id="connectionDot"></div>
+
   <span id="connectionText">
     CONNECTING TO SUPABASE...
   </span>
+
 </div>
 
 
@@ -732,9 +733,7 @@ body{
 
   </div>
 
-  <div id="socialList"
-       class="content-list">
-  </div>
+  <div id="socialList" class="content-list"></div>
 
 </section>
 
@@ -773,9 +772,7 @@ body{
 
   </div>
 
-  <div id="adsList"
-       class="content-list">
-  </div>
+  <div id="adsList" class="content-list"></div>
 
 </section>
 
@@ -816,8 +813,7 @@ body{
       class="input"
       placeholder="Option D">
 
-    <select id="quizAnswer"
-            class="select">
+    <select id="quizAnswer" class="select">
 
       <option value="A">Correct answer: A</option>
       <option value="B">Correct answer: B</option>
@@ -834,9 +830,7 @@ body{
 
   </div>
 
-  <div id="quizList"
-       class="content-list">
-  </div>
+  <div id="quizList" class="content-list"></div>
 
 </section>
 
@@ -870,9 +864,7 @@ body{
 
   </div>
 
-  <div id="gamesList"
-       class="content-list">
-  </div>
+  <div id="gamesList" class="content-list"></div>
 
 </section>
 
@@ -893,7 +885,7 @@ body{
 <script>
 
 /* =========================================
-   SUPABASE CONNECTION
+   SUPABASE
 ========================================= */
 
 const SUPABASE_URL =
@@ -931,10 +923,12 @@ async function testConnection(){
 
     if(error){
 
-      console.error(error);
+      console.error(
+        "SUPABASE CONNECTION ERROR:",
+        error
+      );
 
-      dot.className =
-        "dot error";
+      dot.className = "dot error";
 
       text.textContent =
         "SUPABASE ERROR: " +
@@ -943,8 +937,7 @@ async function testConnection(){
       return false;
     }
 
-    dot.className =
-      "dot online";
+    dot.className = "dot online";
 
     text.textContent =
       "SUPABASE CONNECTED";
@@ -955,20 +948,18 @@ async function testConnection(){
 
     console.error(error);
 
-    dot.className =
-      "dot error";
+    dot.className = "dot error";
 
     text.textContent =
       "SUPABASE CONNECTION FAILED";
 
     return false;
   }
-
 }
 
 
 /* =========================================
-   GET USERS FROM SUPABASE
+   USERS
 ========================================= */
 
 let allUsers = [];
@@ -1002,7 +993,6 @@ async function getUsers(){
   }
 
   return data || [];
-
 }
 
 
@@ -1013,9 +1003,7 @@ async function getUsers(){
 async function loadUsers(){
 
   const container =
-    document.getElementById(
-      "usersList"
-    );
+    document.getElementById("usersList");
 
   container.innerHTML = `
     <div class="empty">
@@ -1042,15 +1030,16 @@ async function loadUsers(){
       <div class="empty">
         <div class="empty-icon">⚠️</div>
         <h3>Supabase Error</h3>
-        <p>${escapeHTML(
-          error.message ||
-          "Could not load users."
-        )}</p>
+        <p>
+          ${escapeHTML(
+            error.message ||
+            "Could not load users."
+          )}
+        </p>
       </div>
     `;
 
   }
-
 }
 
 
@@ -1067,16 +1056,14 @@ function updateStats(){
     allUsers.filter(user =>
       String(
         user.status || "pending"
-      ).toLowerCase()
-      === "pending"
+      ).toLowerCase() === "pending"
     ).length;
 
   const active =
     allUsers.filter(user =>
       String(
         user.status || ""
-      ).toLowerCase()
-      === "active"
+      ).toLowerCase() === "active"
     ).length;
 
   const balance =
@@ -1104,7 +1091,6 @@ function updateStats(){
     "totalBalance"
   ).textContent =
     balance.toLocaleString();
-
 }
 
 
@@ -1135,7 +1121,6 @@ function getInitials(name){
     parts[0][0] +
     parts[1][0]
   ).toUpperCase();
-
 }
 
 
@@ -1151,7 +1136,6 @@ function escapeHTML(value){
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
-
 }
 
 
@@ -1162,15 +1146,11 @@ function escapeHTML(value){
 function renderUsers(){
 
   const container =
-    document.getElementById(
-      "usersList"
-    );
+    document.getElementById("usersList");
 
   const search =
     String(
-      document.getElementById(
-        "userSearch"
-      ).value || ""
+      document.getElementById("userSearch").value || ""
     )
     .trim()
     .toLowerCase();
@@ -1184,10 +1164,8 @@ function renderUsers(){
       users.filter(user =>
         String(
           user.status || ""
-        ).toLowerCase()
-        === "active"
+        ).toLowerCase() === "active"
       );
-
   }
 
   users =
@@ -1214,7 +1192,6 @@ function renderUsers(){
         fullname.includes(search) ||
         phone.includes(search)
       );
-
     });
 
   container.innerHTML = "";
@@ -1225,7 +1202,10 @@ function renderUsers(){
       <div class="empty">
         <div class="empty-icon">👥</div>
         <h3>No registered users found</h3>
-        <p>Users registered in LINKCASH will appear here.</p>
+        <p>
+          Users registered in LINKCASH
+          will appear here.
+        </p>
       </div>
     `;
 
@@ -1239,7 +1219,6 @@ function renderUsers(){
     );
 
   });
-
 }
 
 
@@ -1252,8 +1231,7 @@ function createUserCard(user){
   const card =
     document.createElement("div");
 
-  card.className =
-    "user-card";
+  card.className = "user-card";
 
   const status =
     String(
@@ -1380,8 +1358,9 @@ function createUserCard(user){
 
     ${
       status === "pending"
-      ? `
+      ?
 
+      `
       <div class="actions">
 
         <button
@@ -1397,12 +1376,15 @@ function createUserCard(user){
         </button>
 
       </div>
+      `
+
+      :
+
+      status === "active"
+
+      ?
 
       `
-      :
-      status === "active"
-      ? `
-
       <div class="actions">
 
         <button
@@ -1412,10 +1394,11 @@ function createUserCard(user){
         </button>
 
       </div>
+      `
+
+      :
 
       `
-      : `
-
       <div class="actions">
 
         <button
@@ -1425,19 +1408,17 @@ function createUserCard(user){
         </button>
 
       </div>
-
       `
     }
 
   `;
 
   return card;
-
 }
 
 
 /* =========================================
-   ACTIVATE USER
+   ACTIVATE
 ========================================= */
 
 async function activateUser(id){
@@ -1473,7 +1454,6 @@ async function activateUser(id){
   );
 
   await loadUsers();
-
 }
 
 
@@ -1514,7 +1494,6 @@ async function rejectUser(id){
   );
 
   await loadUsers();
-
 }
 
 
@@ -1524,38 +1503,26 @@ async function rejectUser(id){
 
 function filterUsers(type){
 
-  currentFilter =
-    type;
-
-  openPanel(
-    "users",
-    document.querySelector(
-      ".tab"
-    )
-  );
+  currentFilter = type;
 
   renderUsers();
-
 }
 
 
 /* =========================================
-   PENDING USERS
+   PENDING
 ========================================= */
 
 function renderPending(){
 
   const container =
-    document.getElementById(
-      "pendingList"
-    );
+    document.getElementById("pendingList");
 
   const pending =
     allUsers.filter(user =>
       String(
         user.status || "pending"
-      ).toLowerCase()
-      === "pending"
+      ).toLowerCase() === "pending"
     );
 
   container.innerHTML = "";
@@ -1566,7 +1533,10 @@ function renderPending(){
       <div class="empty">
         <div class="empty-icon">✓</div>
         <h3>No Pending Users</h3>
-        <p>All registered users have been processed.</p>
+        <p>
+          All registered users
+          have been processed.
+        </p>
       </div>
     `;
 
@@ -1580,7 +1550,6 @@ function renderPending(){
     );
 
   });
-
 }
 
 
@@ -1603,7 +1572,6 @@ function getSocial(){
     return [];
 
   }
-
 }
 
 
@@ -1613,7 +1581,6 @@ function saveSocial(data){
     "linkcashSocial",
     JSON.stringify(data)
   );
-
 }
 
 
@@ -1658,7 +1625,6 @@ function addSocial(){
   ).value = "";
 
   renderSocial();
-
 }
 
 
@@ -1674,7 +1640,9 @@ function renderSocial(){
 
   container.innerHTML = "";
 
-  [...data].reverse().forEach(item => {
+  [...data]
+  .reverse()
+  .forEach(item => {
 
     const card =
       document.createElement("div");
@@ -1696,7 +1664,7 @@ function renderSocial(){
 
         <button
           class="small-btn"
-          onclick="window.open('${escapeHTML(item.url)}','_blank')">
+          onclick="openURL(${JSON.stringify(item.url)})">
           OPEN
         </button>
 
@@ -1713,7 +1681,6 @@ function renderSocial(){
     container.appendChild(card);
 
   });
-
 }
 
 
@@ -1728,7 +1695,6 @@ function deleteSocial(id){
   saveSocial(data);
 
   renderSocial();
-
 }
 
 
@@ -1751,7 +1717,6 @@ function getAds(){
     return [];
 
   }
-
 }
 
 
@@ -1761,7 +1726,6 @@ function saveAds(data){
     "linkcashAds",
     JSON.stringify(data)
   );
-
 }
 
 
@@ -1816,7 +1780,6 @@ function addAd(){
   ).value = "";
 
   renderAds();
-
 }
 
 
@@ -1829,7 +1792,8 @@ function renderAds(){
 
   container.innerHTML = "";
 
-  [...getAds()].reverse()
+  [...getAds()]
+  .reverse()
   .forEach(ad => {
 
     const card =
@@ -1852,14 +1816,19 @@ function renderAds(){
 
         ${
           ad.url
-          ? `
+          ?
+
+          `
           <button
             class="small-btn"
-            onclick="window.open('${escapeHTML(ad.url)}','_blank')">
+            onclick="openURL(${JSON.stringify(ad.url)})">
             OPEN
           </button>
           `
-          : ""
+
+          :
+
+          ""
         }
 
         <button
@@ -1875,7 +1844,6 @@ function renderAds(){
     container.appendChild(card);
 
   });
-
 }
 
 
@@ -1890,7 +1858,6 @@ function deleteAd(id){
   saveAds(data);
 
   renderAds();
-
 }
 
 
@@ -1913,7 +1880,6 @@ function getQuiz(){
     return [];
 
   }
-
 }
 
 
@@ -1923,7 +1889,6 @@ function saveQuiz(data){
     "linkcashQuiz",
     JSON.stringify(data)
   );
-
 }
 
 
@@ -1981,9 +1946,12 @@ function addQuiz(){
     id:Date.now(),
     question,
     options:{
-      A,B,C,D
+      A:A,
+      B:B,
+      C:C,
+      D:D
     },
-    answer
+    answer:answer
   });
 
   saveQuiz(quiz);
@@ -1995,7 +1963,6 @@ function addQuiz(){
   );
 
   renderQuiz();
-
 }
 
 
@@ -2008,7 +1975,8 @@ function renderQuiz(){
 
   container.innerHTML = "";
 
-  [...getQuiz()].reverse()
+  [...getQuiz()]
+  .reverse()
   .forEach(item => {
 
     const card =
@@ -2059,7 +2027,6 @@ function renderQuiz(){
     container.appendChild(card);
 
   });
-
 }
 
 
@@ -2074,7 +2041,6 @@ function deleteQuiz(id){
   saveQuiz(data);
 
   renderQuiz();
-
 }
 
 
@@ -2097,7 +2063,6 @@ function getGames(){
     return [];
 
   }
-
 }
 
 
@@ -2107,7 +2072,6 @@ function saveGames(data){
     "linkcashGames",
     JSON.stringify(data)
   );
-
 }
 
 
@@ -2152,7 +2116,6 @@ function addGame(){
   ).value = "";
 
   renderGames();
-
 }
 
 
@@ -2165,7 +2128,8 @@ function renderGames(){
 
   container.innerHTML = "";
 
-  [...getGames()].reverse()
+  [...getGames()]
+  .reverse()
   .forEach(game => {
 
     const card =
@@ -2182,26 +2146,36 @@ function renderGames(){
 
       ${
         game.url
-        ? `
+        ?
+
+        `
         <div class="content-url">
           ${escapeHTML(game.url)}
         </div>
         `
-        : ""
+
+        :
+
+        ""
       }
 
       <div class="content-actions">
 
         ${
           game.url
-          ? `
+          ?
+
+          `
           <button
             class="small-btn"
-            onclick="window.open('${escapeHTML(game.url)}','_blank')">
+            onclick="openURL(${JSON.stringify(game.url)})">
             OPEN
           </button>
           `
-          : ""
+
+          :
+
+          ""
         }
 
         <button
@@ -2217,7 +2191,6 @@ function renderGames(){
     container.appendChild(card);
 
   });
-
 }
 
 
@@ -2232,7 +2205,34 @@ function deleteGame(id){
   saveGames(data);
 
   renderGames();
+}
 
+
+/* =========================================
+   OPEN URL
+========================================= */
+
+function openURL(url){
+
+  if(!url){
+    return;
+  }
+
+  let finalURL = url;
+
+  if(
+    !finalURL.startsWith("http://") &&
+    !finalURL.startsWith("https://")
+  ){
+
+    finalURL =
+      "https://" + finalURL;
+  }
+
+  window.open(
+    finalURL,
+    "_blank"
+  );
 }
 
 
@@ -2289,7 +2289,6 @@ function openPanel(
   if(panelId === "games"){
     renderGames();
   }
-
 }
 
 
@@ -2316,7 +2315,6 @@ function logoutCEO(){
   window.location.replace(
     "login.html"
   );
-
 }
 
 
@@ -2339,7 +2337,6 @@ async function startDashboard(){
   renderAds();
   renderQuiz();
   renderGames();
-
 }
 
 startDashboard();
