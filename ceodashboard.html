@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>LINKCASH - CEO Dashboard</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:#050505;
+  color:#fff;
+  padding-bottom:30px;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar{
+  height:68px;
+  background:#0b0b0b;
+  border-bottom:1px solid #252525;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 17px;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:41px;
+  height:41px;
+  border-radius:12px;
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
+  color:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  font-weight:900;
+}
+
+.brand-name{
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.ceo-badge{
+  padding:8px 12px;
+  border-radius:20px;
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
+  color:#d4a72c;
+  font-size:9px;
+  font-weight:900;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  padding:24px 16px 40px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  margin-bottom:20px;
+}
+
+.header small{
+  color:#777;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.header h1{
+  font-size:25px;
+  margin-top:6px;
+}
+
+.header h1 span{
+  color:#d4a72c;
+}
+
+.header p{
+  color:#666;
+  font-size:11px;
+  margin-top:6px;
+  line-height:1.5;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:22px;
+}
+
+.stat{
+  background:#101010;
+  border:1px solid #282828;
+  border-radius:17px;
+  padding:16px 11px;
+}
+
+.stat-icon{
+  width:35px;
+  height:35px;
+  border-radius:11px;
+  background:#1b1b1b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+}
+
+.stat-value{
+  font-size:21px;
+  font-weight:900;
+}
+
+.stat-name{
+  color:#666;
+  font-size:9px;
+  margin-top:4px;
+}
+
+/* =========================
+   ACTION BAR
+========================= */
+
+.action-bar{
+  display:flex;
+  gap:9px;
+  margin-bottom:17px;
+  overflow-x:auto;
+  padding-bottom:3px;
+}
+
+.action-btn{
+  min-width:105px;
+  height:43px;
+  border-radius:10px;
+  border:1px solid #292929;
+  background:#101010;
+  color:#aaa;
+  font-size:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.action-btn:hover{
+  border-color:#d4a72c;
+  color:#d4a72c;
+}
+
+.refresh-btn{
+  color:#d4a72c;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:20px 0 11px;
+}
+
+.section-title h2{
+  font-size:16px;
+}
+
+.section-title span{
+  color:#d4a72c;
+  font-size:9px;
+}
+
+/* =========================
+   REQUESTS
+========================= */
+
+.requests{
+  display:grid;
+  gap:12px;
+}
+
+.request{
+  background:linear-gradient(
+    145deg,
+    #151515,
+    #0a0a0a
+  );
+  border:1px solid #2b2b2b;
+  border-radius:19px;
+  padding:17px;
+}
+
+.request.pending{
+  border-color:#393329;
+}
+
+.request.approved{
+  border-color:rgba(88,216,138,.25);
+}
+
+.request.rejected{
+  border-color:rgba(255,80,80,.2);
+}
+
+.request-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.user-info{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  min-width:0;
+}
+
+.avatar{
+  width:44px;
+  height:44px;
+  min-width:44px;
+  border-radius:13px;
+  background:#1d1d1d;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+.user-name{
+  font-size:13px;
+  font-weight:bold;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.user-username{
+  color:#666;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.status{
+  padding:7px 9px;
+  border-radius:15px;
+  font-size:8px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.status.pending{
+  color:#d4a72c;
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.2);
+}
+
+.status.approved{
+  color:#58d88a;
+  background:rgba(88,216,138,.08);
+  border:1px solid rgba(88,216,138,.2);
+}
+
+.status.rejected{
+  color:#ff7777;
+  background:rgba(255,80,80,.07);
+  border:1px solid rgba(255,80,80,.18);
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.details{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.detail{
+  background:#090909;
+  border:1px solid #202020;
+  border-radius:11px;
+  padding:11px;
+  min-width:0;
+}
+
+.detail-label{
+  color:#555;
+  font-size:8px;
+  margin-bottom:5px;
+}
+
+.detail-value{
+  color:#ddd;
+  font-size:11px;
+  font-weight:bold;
+  word-break:break-word;
+}
+
+.detail-value.gold{
+  color:#d4a72c;
+}
+
+/* =========================
+   REQUEST ACTIONS
+========================= */
+
+.request-actions{
+  display:flex;
+  gap:8px;
+  margin-top:13px;
+}
+
+.activate-btn,
+.reject-btn,
+.delete-btn{
+  flex:1;
+  height:40px;
+  border-radius:10px;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.activate-btn{
+  border:1px solid rgba(88,216,138,.3);
+  background:rgba(88,216,138,.08);
+  color:#58d88a;
+}
+
+.reject-btn{
+  border:1px solid rgba(255,80,80,.25);
+  background:rgba(255,80,80,.07);
+  color:#ff7777;
+}
+
+.delete-btn{
+  border:1px solid #292929;
+  background:#101010;
+  color:#777;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  display:none;
+  padding:35px 20px;
+  text-align:center;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:18px;
+}
+
+.empty-icon{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.empty h3{
+  font-size:14px;
+}
+
+.empty p{
+  margin-top:6px;
+  color:#666;
+  font-size:10px;
+}
+
+/* =========================
+   USERS
+========================= */
+
+.users-section{
+  margin-top:25px;
+}
+
+.user-card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:14px;
+  margin-bottom:9px;
+}
+
+.user-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.user-card-name{
+  font-size:12px;
+  font-weight:bold;
+}
+
+.user-card-username{
+  color:#666;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.user-status{
+  font-size:8px;
+  font-weight:bold;
+}
+
+.user-status.active{
+  color:#58d88a;
+}
+
+.user-status.pending{
+  color:#d4a72c;
+}
+
+.user-status.rejected{
+  color:#ff7777;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search{
+  width:100%;
+  height:44px;
+  margin-bottom:12px;
+  border-radius:11px;
+  border:1px solid #292929;
+  background:#090909;
+  color:#fff;
+  padding:0 13px;
+  outline:none;
+  font-size:11px;
+}
+
+.search:focus{
+  border-color:#d4a72c;
+}
+
+/* =========================
+   CONTENT MANAGER
+========================= */
+
+.content-section{
+  margin-top:30px;
+}
+
+.content-box{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:19px;
+  padding:17px;
+}
+
+.content-tabs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  margin-bottom:15px;
+}
+
+.content-tab{
+  min-height:42px;
+  border-radius:10px;
+  border:1px solid #292929;
+  background:#090909;
+  color:#888;
+  font-size:9px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.content-tab.active{
+  color:#d4a72c;
+  border-color:rgba(212,167,44,.5);
+  background:rgba(212,167,44,.06);
+}
+
+.content-form{
+  display:grid;
+  gap:10px;
+}
+
+.form-input,
+.form-select,
+.form-textarea{
+  width:100%;
+  border:1px solid #292929;
+  background:#090909;
+  color:#fff;
+  outline:none;
+  border-radius:11px;
+  padding:12px;
+  font-size:11px;
+}
+
+.form-input,
+.form-select{
+  height:44px;
+}
+
+.form-textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+  border-color:#d4a72c;
+}
+
+.form-label{
+  color:#777;
+  font-size:9px;
+  font-weight:bold;
+  margin-bottom:4px;
+}
+
+.form-group{
+  display:grid;
+  gap:5px;
+}
+
+.requirements{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.requirement{
+  border:1px solid #292929;
+  background:#090909;
+  border-radius:11px;
+  padding:11px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.requirement input{
+  accent-color:#d4a72c;
+}
+
+.requirement span{
+  font-size:9px;
+  color:#aaa;
+}
+
+.add-content-btn{
+  width:100%;
+  height:44px;
+  border:none;
+  border-radius:11px;
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
+  color:#050505;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+  margin-top:4px;
+}
+
+.add-content-btn:hover{
+  opacity:.9;
+}
+
+/* =========================
+   CONTENT LIST
+========================= */
+
+.content-list{
+  margin-top:18px;
+  display:grid;
+  gap:10px;
+}
+
+.content-card{
+  background:#090909;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:14px;
+}
+
+.content-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+}
+
+.content-title{
+  font-size:12px;
+  font-weight:900;
+}
+
+.content-platform{
+  color:#d4a72c;
+  font-size:8px;
+  font-weight:900;
+  margin-top:4px;
+}
+
+.content-description{
+  color:#777;
+  font-size:10px;
+  line-height:1.5;
+  margin-top:9px;
+}
+
+.content-link{
+  color:#777;
+  font-size:9px;
+  word-break:break-all;
+  margin-top:8px;
+}
+
+.content-requirements{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:10px;
+}
+
+.req-badge{
+  padding:6px 8px;
+  border-radius:10px;
+  background:rgba(212,167,44,.07);
+  border:1px solid rgba(212,167,44,.15);
+  color:#d4a72c;
+  font-size:7px;
+  font-weight:900;
+}
+
+.content-delete{
+  border:1px solid rgba(255,80,80,.2);
+  background:rgba(255,80,80,.06);
+  color:#ff7777;
+  border-radius:9px;
+  padding:8px 10px;
+  font-size:8px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* =========================
+   PLATFORM ICON
+========================= */
+
+.platform-icon{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  background:#181818;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  flex-shrink:0;
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout{
+  width:100%;
+  height:45px;
+  margin-top:24px;
+  border-radius:11px;
+  border:1px solid #292929;
+  background:#101010;
+  color:#999;
+  font-size:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.logout:hover{
+  color:#fff;
+  border-color:#444;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  text-align:center;
+  margin-top:22px;
+  color:#444;
+  font-size:9px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .stats{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .stat{
+    padding:13px 8px;
+  }
+
+  .stat-value{
+    font-size:18px;
+  }
+
+  .stat-name{
+    font-size:8px;
+  }
+
+  .content-tabs{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:380px){
+
+  .stats{
+    gap:6px;
+  }
+
+  .stat-icon{
+    width:30px;
+    height:30px;
+  }
+
+  .stat-value{
+    font-size:16px;
+  }
+
+  .details{
+    grid-template-columns:1fr;
+  }
+
+  .requirements{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="brand">
+
+    <div class="logo">
+      LC
+    </div>
+
+    <div class="brand-name">
+      LINKCASH
+    </div>
+
+  </div>
+
+  <div class="ceo-badge">
+    CEO PANEL
+  </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<section class="header">
+
+  <small>
+    ADMINISTRATION
+  </small>
+
+  <h1>
+    Welcome,
+    <span>CEO</span>
+  </h1>
+
+  <p>
+    Manage LINKCASH users, payments and
+    platform content from this dashboard.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+  <div class="stat">
+
+    <div class="stat-icon">
+      👥
+    </div>
+
+    <div
+      class="stat-value"
+      id="totalUsers"
+    >
+      0
+    </div>
+
+    <div class="stat-name">
+      TOTAL USERS
+    </div>
+
+  </div>
+
+
+  <div class="stat">
+
+    <div class="stat-icon">
+      ⏳
+    </div>
+
+    <div
+      class="stat-value"
+      id="pendingCount"
+    >
+      0
+    </div>
+
+    <div class="stat-name">
+      PENDING
+    </div>
+
+  </div>
+
+
+  <div class="stat">
+
+    <div class="stat-icon">
+      ✓
+    </div>
+
+    <div
+      class="stat-value"
+      id="activeUsers"
+    >
+      0
+    </div>
+
+    <div class="stat-name">
+      ACTIVE
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ACTION BAR
+========================= -->
+
+<div class="action-bar">
+
+  <button
+    class="action-btn refresh-btn"
+    onclick="loadDashboard()"
+  >
+    ↻ REFRESH
+  </button>
+
+  <button
+    class="action-btn"
+    onclick="showPending()"
+  >
+    PENDING
+  </button>
+
+  <button
+    class="action-btn"
+    onclick="showAllUsers()"
+  >
+    USERS
+  </button>
+
+</div>
+
+
+<!-- =========================
+     PAYMENT REQUESTS
+========================= -->
+
+<section>
+
+  <div class="section-title">
+
+    <h2>
+      Payment Requests
+    </h2>
+
+    <span id="requestLabel">
+      LATEST REQUESTS
+    </span>
+
+  </div>
+
+
+  <div
+    class="requests"
+    id="requests"
+  ></div>
+
+
+  <div
+    class="empty"
+    id="emptyRequests"
+  >
+
+    <div class="empty-icon">
+      ✓
+    </div>
+
+    <h3>
+      No Payment Requests
+    </h3>
+
+    <p>
+      Payment requests submitted by users
+      will appear here.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     REGISTERED USERS
+========================= -->
+
+<section class="users-section">
+
+  <div class="section-title">
+
+    <h2>
+      Registered Users
+    </h2>
+
+    <span>
+      ALL USERS
+    </span>
+
+  </div>
+
+
+  <input
+    class="search"
+    id="userSearch"
+    type="text"
+    placeholder="Search user..."
+    oninput="searchUsers()"
+  >
+
+
+  <div id="usersList"></div>
+
+</section>
+
+
+<!-- =================================================
+     CONTENT MANAGEMENT
+================================================= -->
+
+<section class="content-section">
+
+  <div class="section-title">
+
+    <h2>
+      Content Management
+    </h2>
+
+    <span>
+      CEO CONTROL
+    </span>
+
+  </div>
+
+
+  <div class="content-box">
+
+
+    <!-- PLATFORM TABS -->
+
+    <div class="content-tabs">
+
+      <button
+        class="content-tab active"
+        id="tab-tiktok"
+        onclick="selectContentType('tiktok')"
+      >
+        🎵 TIKTOK
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-youtube"
+        onclick="selectContentType('youtube')"
+      >
+        ▶️ YOUTUBE
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-facebook"
+        onclick="selectContentType('facebook')"
+      >
+        📘 FACEBOOK
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-instagram"
+        onclick="selectContentType('instagram')"
+      >
+        📸 INSTAGRAM
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-ads"
+        onclick="selectContentType('ads')"
+      >
+        📢 ADS
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-quiz"
+        onclick="selectContentType('quiz')"
+      >
+        🧠 QUIZ
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-efootball"
+        onclick="selectContentType('efootball')"
+      >
+        ⚽ EFOOTBALL
+      </button>
+
+      <button
+        class="content-tab"
+        id="tab-cargame"
+        onclick="selectContentType('cargame')"
+      >
+        🏎️ CAR GAME
+      </button>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="content-form">
+
+
+      <div class="form-group">
+
+        <div class="form-label">
+          CONTENT TITLE
+        </div>
+
+        <input
+          class="form-input"
+          id="contentTitle"
+          type="text"
+          placeholder="Example: Follow our TikTok"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <div class="form-label">
+          LINK / URL
+        </div>
+
+        <input
+          class="form-input"
+          id="contentLink"
+          type="url"
+          placeholder="Paste TikTok, YouTube, Facebook or Instagram link"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <div class="form-label">
+          DESCRIPTION
+        </div>
+
+        <textarea
+          class="form-textarea"
+          id="contentDescription"
+          placeholder="Write instructions for users..."
+        ></textarea>
+
+      </div>
+
+
+      <!-- REQUIREMENTS -->
+
+      <div
+        id="socialRequirements"
+      >
+
+        <div class="form-label">
+          USER REQUIREMENTS
+        </div>
+
+        <div class="requirements">
+
+          <label class="requirement">
+
+            <input
+              type="checkbox"
+              id="requireFollow"
+            >
+
+            <span>
+              FOLLOW ACCOUNT
+            </span>
+
+          </label>
+
+
+          <label class="requirement">
+
+            <input
+              type="checkbox"
+              id="requireWatch"
+              checked
+            >
+
+            <span>
+              WATCH VIDEO
+            </span>
+
+          </label>
+
+
+          <label class="requirement">
+
+            <input
+              type="checkbox"
+              id="requireLike"
+            >
+
+            <span>
+              LIKE
+            </span>
+
+          </label>
+
+
+          <label class="requirement">
+
+            <input
+              type="checkbox"
+              id="requireShare"
+            >
+
+            <span>
+              SHARE
+            </span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="add-content-btn"
+        onclick="addContent()"
+      >
+        + ADD CONTENT
+      </button>
+
+    </div>
+
+
+    <!-- CONTENT LIST -->
+
+    <div class="section-title">
+
+      <h2>
+        Published Content
+      </h2>
+
+      <span id="contentCount">
+        0 ITEMS
+      </span>
+
+    </div>
+
+
+    <div
+      class="content-list"
+      id="contentList"
+    ></div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     LOGOUT
+========================= -->
+
+<button
+  class="logout"
+  onclick="logoutCEO()"
+>
+  LOG OUT CEO
+</button>
+
+
+<div class="footer">
+  © 2026 LINKCASH • CEO ADMINISTRATION
+</div>
+
+
+</main>
+
+
+<script>
+
+/* =========================================
+   CEO SECURITY CHECK
+========================================= */
+
+if(
+  localStorage.getItem(
+    "linkcashCEOLoggedIn"
+  ) !== "true"
+){
+
+  window.location.replace(
+    "ceologin.html"
+  );
+
+}
+
+
+/* =========================================
+   GET USERS
+========================================= */
+
+function getUsers(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "linkcashUsers"
+      );
+
+    if(!saved){
+      return [];
+    }
+
+    const users =
+      JSON.parse(saved);
+
+    return Array.isArray(users)
+      ? users
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+/* =========================================
+   SAVE USERS
+========================================= */
+
+function saveUsers(users){
+
+  localStorage.setItem(
+    "linkcashUsers",
+    JSON.stringify(users)
+  );
+
+}
+
+
+/* =========================================
+   GET PAYMENTS
+========================================= */
+
+function getPayments(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "linkcashPayments"
+      );
+
+    if(!saved){
+      return [];
+    }
+
+    const payments =
+      JSON.parse(saved);
+
+    return Array.isArray(payments)
+      ? payments
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+/* =========================================
+   SAVE PAYMENTS
+========================================= */
+
+function savePayments(payments){
+
+  localStorage.setItem(
+    "linkcashPayments",
+    JSON.stringify(payments)
+  );
+
+}
+
+
+/* =========================================
+   UPDATE STATS
+========================================= */
+
+function updateStats(){
+
+  const users =
+    getUsers();
+
+  const payments =
+    getPayments();
+
+
+  const active =
+    users.filter(
+      function(user){
+
+        const status =
+          String(
+            user.status || ""
+          ).toLowerCase();
+
+        return (
+          status === "active" ||
+          status === "activated"
+        );
+
+      }
+    ).length;
+
+
+  const pending =
+    payments.filter(
+      function(payment){
+
+        return String(
+          payment.status || ""
+        ).toLowerCase()
+        === "pending";
+
+      }
+    ).length;
+
+
+  document.getElementById(
+    "totalUsers
