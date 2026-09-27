@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>LINKCASH - CEO Dashboard</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -29,10 +22,7 @@ body{
   padding-bottom:40px;
 }
 
-button,
-input,
-textarea,
-select{
+button,input,textarea,select{
   font-family:inherit;
 }
 
@@ -63,21 +53,11 @@ button{
   width:41px;
   height:41px;
   border-radius:12px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffe082,
-      #d4a72c,
-      #8f6b12
-    );
-
+  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
   color:#050505;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   font-size:14px;
   font-weight:900;
 }
@@ -91,16 +71,9 @@ button{
 .ceo-badge{
   padding:8px 12px;
   border-radius:20px;
-
-  background:
-    rgba(212,167,44,.08);
-
-  border:
-    1px solid
-    rgba(212,167,44,.25);
-
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
   color:#d4a72c;
-
   font-size:9px;
   font-weight:900;
 }
@@ -142,19 +115,11 @@ button{
   display:flex;
   align-items:center;
   gap:8px;
-
   background:#101010;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   border-radius:12px;
-
   padding:11px 13px;
-
   margin-bottom:18px;
-
   font-size:10px;
   color:#777;
 }
@@ -164,15 +129,11 @@ button{
   height:8px;
   border-radius:50%;
   background:#777;
-  flex:none;
 }
 
 .dot.online{
   background:#58d88a;
-
-  box-shadow:
-    0 0 10px
-    rgba(88,216,138,.5);
+  box-shadow:0 0 10px rgba(88,216,138,.5);
 }
 
 .dot.error{
@@ -188,28 +149,19 @@ button{
 
 .stat{
   background:#101010;
-
-  border:
-    1px solid
-    #282828;
-
+  border:1px solid #282828;
   border-radius:17px;
-
   padding:16px 11px;
 }
 
 .stat-icon{
   width:35px;
   height:35px;
-
   border-radius:11px;
-
   background:#1b1b1b;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   margin-bottom:10px;
 }
 
@@ -233,29 +185,18 @@ button{
 
 .tab{
   min-height:42px;
-
   border-radius:11px;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   background:#101010;
-
   color:#aaa;
-
   font-size:9px;
   font-weight:900;
 }
 
-.tab:hover,
 .tab.active{
   border-color:#d4a72c;
-
   color:#d4a72c;
-
-  background:
-    rgba(212,167,44,.07);
+  background:rgba(212,167,44,.07);
 }
 
 .panel{
@@ -270,7 +211,6 @@ button{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   margin:20px 0 11px;
 }
 
@@ -291,73 +231,32 @@ button{
 
 .action-btn{
   flex:1;
-
   height:43px;
-
   border-radius:10px;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   background:#101010;
-
   color:#aaa;
-
   font-size:10px;
   font-weight:bold;
 }
 
-.action-btn:hover{
-  border-color:#d4a72c;
-  color:#d4a72c;
-}
-
 .search{
   width:100%;
-
   border-radius:11px;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   background:#090909;
-
   color:#fff;
-
   padding:13px;
-
   outline:none;
-
   font-size:11px;
-
   margin-bottom:12px;
 }
 
-.search:focus,
-.input:focus,
-.textarea:focus,
-.select:focus{
-  border-color:#d4a72c;
-}
-
 .user-card{
-  background:
-    linear-gradient(
-      145deg,
-      #151515,
-      #0a0a0a
-    );
-
-  border:
-    1px solid
-    #292929;
-
+  background:linear-gradient(145deg,#151515,#0a0a0a);
+  border:1px solid #292929;
   border-radius:18px;
-
   padding:16px;
-
   margin-bottom:11px;
 }
 
@@ -379,17 +278,12 @@ button{
   width:44px;
   height:44px;
   min-width:44px;
-
   border-radius:13px;
-
   background:#1d1d1d;
-
   color:#d4a72c;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   font-weight:900;
 }
 
@@ -406,32 +300,24 @@ button{
 
 .status{
   padding:7px 9px;
-
   border-radius:15px;
-
   font-size:8px;
   font-weight:900;
 }
 
 .status.active{
   color:#58d88a;
-
-  background:
-    rgba(88,216,138,.08);
+  background:rgba(88,216,138,.08);
 }
 
 .status.pending{
   color:#d4a72c;
-
-  background:
-    rgba(212,167,44,.08);
+  background:rgba(212,167,44,.08);
 }
 
 .status.rejected{
   color:#ff7777;
-
-  background:
-    rgba(255,80,80,.07);
+  background:rgba(255,80,80,.07);
 }
 
 .status.unknown{
@@ -441,24 +327,15 @@ button{
 
 .details{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns:repeat(2,1fr);
   gap:8px;
-
   margin-top:14px;
 }
 
 .detail{
   background:#090909;
-
-  border:
-    1px solid
-    #202020;
-
+  border:1px solid #202020;
   border-radius:11px;
-
   padding:11px;
 }
 
@@ -479,10 +356,6 @@ button{
   color:#d4a72c;
 }
 
-.green{
-  color:#58d88a;
-}
-
 .actions{
   display:flex;
   gap:8px;
@@ -492,48 +365,29 @@ button{
 .activate-btn,
 .reject-btn{
   flex:1;
-
   height:40px;
-
   border-radius:10px;
-
   font-size:10px;
   font-weight:900;
 }
 
 .activate-btn{
-  border:
-    1px solid
-    rgba(88,216,138,.3);
-
-  background:
-    rgba(88,216,138,.08);
-
+  border:1px solid rgba(88,216,138,.3);
+  background:rgba(88,216,138,.08);
   color:#58d88a;
 }
 
 .reject-btn{
-  border:
-    1px solid
-    rgba(255,80,80,.25);
-
-  background:
-    rgba(255,80,80,.07);
-
+  border:1px solid rgba(255,80,80,.25);
+  background:rgba(255,80,80,.07);
   color:#ff7777;
 }
 
 .empty{
   padding:38px 20px;
-
   text-align:center;
-
   background:#101010;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   border-radius:18px;
 }
 
@@ -555,13 +409,8 @@ button{
 
 .content-form{
   background:#101010;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   border-radius:18px;
-
   padding:16px;
 }
 
@@ -569,29 +418,14 @@ button{
 .select,
 .textarea{
   width:100%;
-
   border-radius:11px;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   background:#090909;
-
   color:#fff;
-
   padding:12px 13px;
-
   outline:none;
-
   font-size:11px;
-
   margin-bottom:10px;
-}
-
-.select option{
-  background:#111;
-  color:#fff;
 }
 
 .textarea{
@@ -602,39 +436,24 @@ button{
 .save-btn{
   width:100%;
   height:43px;
-
-  border:
-    1px solid
-    rgba(212,167,44,.35);
-
-  background:
-    rgba(212,167,44,.1);
-
+  border:1px solid rgba(212,167,44,.35);
+  background:rgba(212,167,44,.1);
   color:#d4a72c;
-
   border-radius:11px;
-
   font-size:10px;
   font-weight:900;
 }
 
 .content-list{
   margin-top:14px;
-
   display:grid;
-
   gap:10px;
 }
 
 .content-card{
   background:#101010;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   border-radius:15px;
-
   padding:14px;
 }
 
@@ -645,13 +464,9 @@ button{
 
 .content-url{
   color:#777;
-
   font-size:9px;
-
   margin-top:7px;
-
   word-break:break-word;
-
   line-height:1.5;
 }
 
@@ -663,21 +478,12 @@ button{
 
 .small-btn{
   flex:1;
-
   height:35px;
-
   border-radius:9px;
-
-  border:
-    1px solid
-    #292929;
-
+  border:1px solid #292929;
   background:#090909;
-
   color:#aaa;
-
   font-size:9px;
-
   font-weight:bold;
 }
 
@@ -688,52 +494,35 @@ button{
 .logout{
   width:100%;
   height:48px;
-
   margin-top:30px;
-
   border-radius:12px;
-
-  border:
-    1px solid
-    rgba(255,80,80,.3);
-
-  background:
-    rgba(255,80,80,.06);
-
+  border:1px solid rgba(255,80,80,.3);
+  background:rgba(255,80,80,.06);
   color:#ff7777;
-
   font-size:11px;
   font-weight:900;
 }
 
 .footer{
   text-align:center;
-
   margin-top:22px;
-
   color:#444;
-
   font-size:9px;
 }
 
 @media(max-width:700px){
-
   .tabs{
     grid-template-columns:repeat(3,1fr);
   }
-
 }
 
 @media(max-width:650px){
-
   .stats{
     grid-template-columns:repeat(2,1fr);
   }
-
 }
 
 @media(max-width:400px){
-
   .tabs{
     grid-template-columns:repeat(2,1fr);
   }
@@ -745,15 +534,8 @@ button{
   .action-bar{
     flex-wrap:wrap;
   }
-
-  .action-btn{
-    min-width:30%;
-  }
-
 }
-
 </style>
-
 </head>
 
 <body>
@@ -761,15 +543,8 @@ button{
 <header class="topbar">
 
   <div class="brand">
-
-    <div class="logo">
-      LC
-    </div>
-
-    <div class="brand-name">
-      LINKCASH
-    </div>
-
+    <div class="logo">LC</div>
+    <div class="brand-name">LINKCASH</div>
   </div>
 
   <div class="ceo-badge">
@@ -778,15 +553,11 @@ button{
 
 </header>
 
-
 <main class="container">
-
 
 <section class="header">
 
-  <small>
-    ADMINISTRATION
-  </small>
+  <small>ADMINISTRATION</small>
 
   <h1>
     Welcome, <span>CEO</span>
@@ -799,13 +570,9 @@ button{
 
 </section>
 
-
 <div class="connection">
 
-  <div
-    class="dot"
-    id="connectionDot">
-  </div>
+  <div class="dot" id="connectionDot"></div>
 
   <span id="connectionText">
     CONNECTING TO SUPABASE...
@@ -813,365 +580,222 @@ button{
 
 </div>
 
-
 <section class="stats">
 
   <div class="stat">
-
-    <div class="stat-icon">
-      👥
-    </div>
-
-    <div
-      class="stat-value"
-      id="totalUsers">
-      0
-    </div>
-
-    <div class="stat-name">
-      TOTAL USERS
-    </div>
-
+    <div class="stat-icon">👥</div>
+    <div class="stat-value" id="totalUsers">0</div>
+    <div class="stat-name">TOTAL USERS</div>
   </div>
 
-
   <div class="stat">
-
-    <div class="stat-icon">
-      ⏳
-    </div>
-
-    <div
-      class="stat-value"
-      id="pendingCount">
-      0
-    </div>
-
-    <div class="stat-name">
-      PENDING
-    </div>
-
+    <div class="stat-icon">⏳</div>
+    <div class="stat-value" id="pendingCount">0</div>
+    <div class="stat-name">PENDING</div>
   </div>
 
-
   <div class="stat">
-
-    <div class="stat-icon">
-      ✓
-    </div>
-
-    <div
-      class="stat-value"
-      id="activeUsers">
-      0
-    </div>
-
-    <div class="stat-name">
-      ACTIVE
-    </div>
-
+    <div class="stat-icon">✓</div>
+    <div class="stat-value" id="activeUsers">0</div>
+    <div class="stat-name">ACTIVE</div>
   </div>
 
-
   <div class="stat">
-
-    <div class="stat-icon">
-      💰
-    </div>
-
-    <div
-      class="stat-value"
-      id="totalBalance">
-      0
-    </div>
-
-    <div class="stat-name">
-      BALANCE
-    </div>
-
+    <div class="stat-icon">💰</div>
+    <div class="stat-value" id="totalBalance">0</div>
+    <div class="stat-name">BALANCE</div>
   </div>
 
 </section>
 
-
 <div class="tabs">
 
-  <button
-    class="tab active"
+  <button class="tab active"
     onclick="openPanel('users',this)">
     👥 USERS
   </button>
 
-  <button
-    class="tab"
+  <button class="tab"
     onclick="openPanel('pending',this)">
     ⏳ PENDING
   </button>
 
-  <button
-    class="tab"
+  <button class="tab"
     onclick="openPanel('social',this)">
     📱 SOCIAL
   </button>
 
-  <button
-    class="tab"
+  <button class="tab"
     onclick="openPanel('ads',this)">
     📢 ADS
   </button>
 
-  <button
-    class="tab"
+  <button class="tab"
     onclick="openPanel('quiz',this)">
     🧠 QUIZ
   </button>
 
-  <button
-    class="tab"
+  <button class="tab"
     onclick="openPanel('games',this)">
     🎮 GAMES
   </button>
 
 </div>
 
-
 <!-- USERS -->
 
-<section
-  id="users"
-  class="panel active">
+<section id="users" class="panel active">
 
   <div class="action-bar">
 
-    <button
-      class="action-btn"
+    <button class="action-btn"
       onclick="loadUsers()">
       ↻ REFRESH
     </button>
 
-    <button
-      class="action-btn"
+    <button class="action-btn"
       onclick="filterUsers('all')">
       ALL
     </button>
 
-    <button
-      class="action-btn"
+    <button class="action-btn"
       onclick="filterUsers('active')">
       ACTIVE
     </button>
 
   </div>
 
-
   <div class="section-title">
-
-    <h2>
-      Registered Users
-    </h2>
-
-    <span>
-      SUPABASE
-    </span>
-
+    <h2>Registered Users</h2>
+    <span>SUPABASE</span>
   </div>
-
 
   <input
     id="userSearch"
     class="search"
     placeholder="Search username, name or phone..."
-    oninput="renderUsers()"
-  >
-
+    oninput="renderUsers">
 
   <div id="usersList"></div>
 
 </section>
 
-
 <!-- PENDING -->
 
-<section
-  id="pending"
-  class="panel">
+<section id="pending" class="panel">
 
   <div class="section-title">
-
-    <h2>
-      Pending Users
-    </h2>
-
-    <span>
-      WAITING
-    </span>
-
+    <h2>Pending Users</h2>
+    <span>WAITING</span>
   </div>
 
   <div id="pendingList"></div>
 
 </section>
 
-
 <!-- SOCIAL -->
 
-<section
-  id="social"
-  class="panel">
+<section id="social" class="panel">
 
   <div class="section-title">
-
-    <h2>
-      Social Content
-    </h2>
-
-    <span>
-      CEO CONTROL
-    </span>
-
+    <h2>Social Content</h2>
+    <span>CEO CONTROL</span>
   </div>
-
 
   <div class="content-form">
 
     <input
       id="socialTitle"
       class="input"
-      placeholder="Post / video title"
-    >
+      placeholder="Post / video title">
 
     <input
       id="socialURL"
       class="input"
-      placeholder="Paste URL"
-    >
+      placeholder="Paste URL">
 
-    <button
-      class="save-btn"
+    <button class="save-btn"
       onclick="addSocial()">
       + ADD SOCIAL CONTENT
     </button>
 
   </div>
 
-
-  <div
-    id="socialList"
-    class="content-list">
-  </div>
+  <div id="socialList"
+       class="content-list"></div>
 
 </section>
 
-
 <!-- ADS -->
 
-<section
-  id="ads"
-  class="panel">
+<section id="ads" class="panel">
 
   <div class="section-title">
-
-    <h2>
-      Advertisements
-    </h2>
-
-    <span>
-      CEO ADS
-    </span>
-
+    <h2>Advertisements</h2>
+    <span>CEO ADS</span>
   </div>
-
 
   <div class="content-form">
 
     <input
       id="adTitle"
       class="input"
-      placeholder="Ad title"
-    >
+      placeholder="Ad title">
 
     <textarea
       id="adText"
       class="textarea"
-      placeholder="Advertisement description"
-    ></textarea>
+      placeholder="Advertisement description"></textarea>
 
     <input
       id="adURL"
       class="input"
-      placeholder="Ad link"
-    >
+      placeholder="Ad link">
 
-    <button
-      class="save-btn"
+    <button class="save-btn"
       onclick="addAd()">
       + ADD AD
     </button>
 
   </div>
 
-
-  <div
-    id="adsList"
-    class="content-list">
-  </div>
+  <div id="adsList"
+       class="content-list"></div>
 
 </section>
 
-
 <!-- QUIZ -->
 
-<section
-  id="quiz"
-  class="panel">
+<section id="quiz" class="panel">
 
   <div class="section-title">
-
-    <h2>
-      Quiz Manager
-    </h2>
-
-    <span>
-      QUESTIONS
-    </span>
-
+    <h2>Quiz Manager</h2>
+    <span>QUESTIONS</span>
   </div>
-
 
   <div class="content-form">
 
-    <input
-      id="quizQuestion"
+    <input id="quizQuestion"
       class="input"
-      placeholder="Question"
-    >
+      placeholder="Question">
 
-    <input
-      id="quizA"
+    <input id="quizA"
       class="input"
-      placeholder="Option A"
-    >
+      placeholder="Option A">
 
-    <input
-      id="quizB"
+    <input id="quizB"
       class="input"
-      placeholder="Option B"
-    >
+      placeholder="Option B">
 
-    <input
-      id="quizC"
+    <input id="quizC"
       class="input"
-      placeholder="Option C"
-    >
+      placeholder="Option C">
 
-    <input
-      id="quizD"
+    <input id="quizD"
       class="input"
-      placeholder="Option D"
-    >
+      placeholder="Option D">
 
-    <select
-      id="quizAnswer"
+    <select id="quizAnswer"
       class="select">
 
       <option value="A">
@@ -1192,87 +816,59 @@ button{
 
     </select>
 
-
-    <button
-      class="save-btn"
+    <button class="save-btn"
       onclick="addQuiz()">
       + ADD QUIZ QUESTION
     </button>
 
   </div>
 
-
-  <div
-    id="quizList"
-    class="content-list">
-  </div>
+  <div id="quizList"
+       class="content-list"></div>
 
 </section>
 
-
 <!-- GAMES -->
 
-<section
-  id="games"
-  class="panel">
+<section id="games" class="panel">
 
   <div class="section-title">
-
-    <h2>
-      Games
-    </h2>
-
-    <span>
-      CEO CONTROL
-    </span>
-
+    <h2>Games</h2>
+    <span>CEO CONTROL</span>
   </div>
-
 
   <div class="content-form">
 
-    <input
-      id="gameTitle"
+    <input id="gameTitle"
       class="input"
-      placeholder="Game title"
-    >
+      placeholder="Game title">
 
-    <input
-      id="gameURL"
+    <input id="gameURL"
       class="input"
-      placeholder="Game / tournament link"
-    >
+      placeholder="Game / tournament link">
 
-    <button
-      class="save-btn"
+    <button class="save-btn"
       onclick="addGame()">
       + ADD GAME
     </button>
 
   </div>
 
-
-  <div
-    id="gamesList"
-    class="content-list">
-  </div>
+  <div id="gamesList"
+       class="content-list"></div>
 
 </section>
 
-
-<button
-  class="logout"
+<button class="logout"
   onclick="logoutCEO()">
   🚪 LOG OUT CEO
 </button>
-
 
 <div class="footer">
   © 2026 LINKCASH • CEO ADMINISTRATION
 </div>
 
 </main>
-
 
 <script>
 
@@ -1281,33 +877,16 @@ button{
 ===================================================== */
 
 const SUPABASE_URL =
-  "https://vrrglcpixeqnqqdlqtot.supabase.co";
+"https://vrrglcpixeqnqqdlqtot.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_CyKL7kpQ2K5AdosXfebJCg_k-uF8OpV";
+"sb_publishable_CyKL7kpQ2K5AdosXfebJCg_k-uF8OpV";
 
 const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
-
-/* =====================================================
-   COMMISSION SETTINGS
-===================================================== */
-
-const COMMISSION_LEVELS = {
-
-  1: 7000,
-
-  2: 3500,
-
-  3: 2000,
-
-  4: 1000
-
-};
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
 
 /* =====================================================
@@ -1320,7 +899,7 @@ let currentFilter = "all";
 
 
 /* =====================================================
-   ESCAPE HTML
+   ESCAPE
 ===================================================== */
 
 function escapeHTML(value){
@@ -1331,21 +910,6 @@ function escapeHTML(value){
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
-
-}
-
-
-/* =====================================================
-   FORMAT MONEY
-===================================================== */
-
-function formatMoney(amount){
-
-  return Number(
-    amount || 0
-  ).toLocaleString(
-    "en-US"
-  );
 
 }
 
@@ -1368,25 +932,15 @@ async function testConnection(){
 
   try{
 
-    text.textContent =
-      "CONNECTING TO SUPABASE...";
-
-
     const result =
       await supabaseClient
-        .from("users")
-        .select("id")
-        .limit(1);
-
+      .from("users")
+      .select("id")
+      .limit(1);
 
     if(result.error){
 
-      console.error(
-        result.error
-      );
-
-      dot.className =
-        "dot error";
+      dot.className = "dot error";
 
       text.textContent =
         "SUPABASE ERROR: " +
@@ -1394,7 +948,6 @@ async function testConnection(){
 
       return false;
     }
-
 
     dot.className =
       "dot online";
@@ -1413,7 +966,6 @@ async function testConnection(){
       "SUPABASE CONNECTION FAILED";
 
     return false;
-
   }
 
 }
@@ -1427,22 +979,18 @@ async function getUsers(){
 
   const result =
     await supabaseClient
-      .from("users")
-      .select("*")
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      );
-
+    .from("users")
+    .select("*")
+    .order(
+      "created_at",
+      {ascending:false}
+    );
 
   if(result.error){
 
     throw result.error;
 
   }
-
 
   return result.data || [];
 
@@ -1460,33 +1008,18 @@ async function loadUsers(){
       "usersList"
     );
 
-
   container.innerHTML = `
-
     <div class="empty">
-
-      <div class="empty-icon">
-        ⏳
-      </div>
-
-      <h3>
-        Loading Users...
-      </h3>
-
-      <p>
-        Connecting to Supabase.
-      </p>
-
+      <div class="empty-icon">⏳</div>
+      <h3>Loading Users...</h3>
+      <p>Connecting to Supabase.</p>
     </div>
-
   `;
-
 
   try{
 
     allUsers =
       await getUsers();
-
 
     updateStats();
 
@@ -1496,33 +1029,12 @@ async function loadUsers(){
 
   }catch(error){
 
-    console.error(
-      "LOAD USERS:",
-      error
-    );
-
-
     container.innerHTML = `
-
       <div class="empty">
-
-        <div class="empty-icon">
-          ⚠️
-        </div>
-
-        <h3>
-          Supabase Error
-        </h3>
-
-        <p>
-          ${escapeHTML(
-            error.message ||
-            "Could not load users."
-          )}
-        </p>
-
+        <div class="empty-icon">⚠️</div>
+        <h3>Supabase Error</h3>
+        <p>${escapeHTML(error.message)}</p>
       </div>
-
     `;
 
   }
@@ -1531,7 +1043,7 @@ async function loadUsers(){
 
 
 /* =====================================================
-   UPDATE STATS
+   STATS
 ===================================================== */
 
 function updateStats(){
@@ -1539,64 +1051,41 @@ function updateStats(){
   const total =
     allUsers.length;
 
-
   const pending =
-    allUsers.filter(
-      user =>
-        String(
-          user.status ||
-          "pending"
-        ).toLowerCase()
-        === "pending"
+    allUsers.filter(u =>
+      String(u.status || "pending")
+      .toLowerCase() === "pending"
     ).length;
-
 
   const active =
-    allUsers.filter(
-      user =>
-        String(
-          user.status ||
-          ""
-        ).toLowerCase()
-        === "active"
+    allUsers.filter(u =>
+      String(u.status || "")
+      .toLowerCase() === "active"
     ).length;
-
 
   const balance =
     allUsers.reduce(
-      (sum,user) =>
-        sum +
-        Number(
-          user.balance || 0
-        ),
+      (sum,u) =>
+        sum + Number(u.balance || 0),
       0
     );
 
-
   document.getElementById(
     "totalUsers"
-  ).textContent =
-    total;
-
+  ).textContent = total;
 
   document.getElementById(
     "pendingCount"
-  ).textContent =
-    pending;
-
+  ).textContent = pending;
 
   document.getElementById(
     "activeUsers"
-  ).textContent =
-    active;
-
+  ).textContent = active;
 
   document.getElementById(
     "totalBalance"
   ).textContent =
-    formatMoney(
-      balance
-    );
+    balance.toLocaleString();
 
 }
 
@@ -1607,18 +1096,12 @@ function updateStats(){
 
 function getInitials(name){
 
-  if(!name){
-
-    return "U";
-
-  }
-
+  if(!name) return "U";
 
   const parts =
     String(name)
-      .trim()
-      .split(/\s+/);
-
+    .trim()
+    .split(/\s+/);
 
   if(parts.length === 1){
 
@@ -1627,7 +1110,6 @@ function getInitials(name){
       .toUpperCase();
 
   }
-
 
   return (
     parts[0][0] +
@@ -1648,7 +1130,6 @@ function renderUsers(){
       "usersList"
     );
 
-
   const search =
     String(
       document.getElementById(
@@ -1658,104 +1139,70 @@ function renderUsers(){
     .trim()
     .toLowerCase();
 
-
   let users =
     [...allUsers];
 
-
-  if(
-    currentFilter ===
-    "active"
-  ){
+  if(currentFilter === "active"){
 
     users =
-      users.filter(
-        user =>
-          String(
-            user.status || ""
-          ).toLowerCase()
-          === "active"
+      users.filter(u =>
+        String(u.status || "")
+        .toLowerCase() === "active"
       );
 
   }
 
-
   users =
-    users.filter(
-      user => {
+    users.filter(u => {
 
-        const username =
-          String(
-            user.username || ""
-          ).toLowerCase();
+      const username =
+        String(u.username || "")
+        .toLowerCase();
 
+      const fullname =
+        String(
+          u.fullname ||
+          u.full_name ||
+          u.name ||
+          ""
+        ).toLowerCase();
 
-        const fullname =
-          String(
-            user.fullname ||
-            user.full_name ||
-            user.name ||
-            ""
-          ).toLowerCase();
+      const phone =
+        String(u.phone || "")
+        .toLowerCase();
 
+      return (
+        !search ||
+        username.includes(search) ||
+        fullname.includes(search) ||
+        phone.includes(search)
+      );
 
-        const phone =
-          String(
-            user.phone || ""
-          ).toLowerCase();
-
-
-        return (
-          !search ||
-          username.includes(search) ||
-          fullname.includes(search) ||
-          phone.includes(search)
-        );
-
-      }
-    );
-
+    });
 
   container.innerHTML = "";
 
-
-  if(users.length === 0){
+  if(!users.length){
 
     container.innerHTML = `
-
       <div class="empty">
-
-        <div class="empty-icon">
-          👥
-        </div>
-
-        <h3>
-          No registered users found
-        </h3>
-
-        <p>
-          Users registered in LINKCASH
-          will appear here.
-        </p>
-
+        <div class="empty-icon">👥</div>
+        <h3>No users found</h3>
+        <p>Registered users will appear here.</p>
       </div>
-
     `;
 
     return;
 
   }
 
+  users.forEach(user => {
 
-  users.forEach(
-    user => {
+    container.appendChild(
+      createUserCard(user)
+    );
 
-      container.appendChild(
-        createUserCard(user)
-      );
-
-    }
-  );
+  });
 
 }
 
@@ -1767,21 +1214,15 @@ function renderUsers(){
 function createUserCard(user){
 
   const card =
-    document.createElement(
-      "div"
-    );
-
+    document.createElement("div");
 
   card.className =
     "user-card";
 
-
   const status =
     String(
-      user.status ||
-      "pending"
+      user.status || "pending"
     ).toLowerCase();
-
 
   const name =
     user.fullname ||
@@ -1790,32 +1231,18 @@ function createUserCard(user){
     user.username ||
     "Unknown User";
 
-
   const username =
-    user.username ||
-    "-";
-
+    user.username || "-";
 
   const phone =
-    user.phone ||
-    "-";
-
+    user.phone || "-";
 
   const balance =
     Number(
       user.balance || 0
-    );
+    ).toLocaleString();
 
-
-  const commission =
-    Number(
-      user.commission || 0
-    );
-
-
-  let created =
-    "-";
-
+  let created = "-";
 
   if(user.created_at){
 
@@ -1826,93 +1253,63 @@ function createUserCard(user){
 
   }
 
-
   let statusClass =
-    "unknown";
-
-
-  if(
-    status === "active" ||
-    status === "pending" ||
-    status === "rejected"
-  ){
-
-    statusClass =
-      status;
-
-  }
-
+    ["active","pending","rejected"]
+    .includes(status)
+    ? status
+    : "unknown";
 
   let actionHTML = "";
-
 
   if(status === "pending"){
 
     actionHTML = `
-
       <div class="actions">
 
         <button
           class="activate-btn"
-          onclick="activateUser('${escapeHTML(user.id)}')">
-
+          onclick="activateUser(${Number(user.id)})">
           ✓ ACTIVATE
-
         </button>
-
 
         <button
           class="reject-btn"
-          onclick="rejectUser('${escapeHTML(user.id)}')">
-
+          onclick="rejectUser(${Number(user.id)})">
           ✕ REJECT
-
         </button>
 
       </div>
-
     `;
 
-  }
-  else if(status === "active"){
+  }else if(status === "active"){
 
     actionHTML = `
-
       <div class="actions">
 
         <button
           class="reject-btn"
-          onclick="rejectUser('${escapeHTML(user.id)}')">
-
+          onclick="rejectUser(${Number(user.id)})">
           ✕ DEACTIVATE
-
         </button>
 
       </div>
-
     `;
 
-  }
-  else{
+  }else{
 
     actionHTML = `
-
       <div class="actions">
 
         <button
           class="activate-btn"
-          onclick="activateUser('${escapeHTML(user.id)}')">
-
+          onclick="activateUser(${Number(user.id)})">
           ✓ ACTIVATE
-
         </button>
 
       </div>
-
     `;
 
   }
-
 
   card.innerHTML = `
 
@@ -1921,150 +1318,64 @@ function createUserCard(user){
       <div class="user-info">
 
         <div class="avatar">
-
           ${getInitials(name)}
-
         </div>
-
 
         <div>
 
           <div class="user-name">
-
             ${escapeHTML(name)}
-
           </div>
 
-
           <div class="user-username">
-
             @${escapeHTML(username)}
-
           </div>
 
         </div>
 
       </div>
 
-
-      <div
-        class="status ${statusClass}">
-
-        ${escapeHTML(
-          status.toUpperCase()
-        )}
-
+      <div class="status ${statusClass}">
+        ${escapeHTML(status.toUpperCase())}
       </div>
 
     </div>
-
 
     <div class="details">
 
-
       <div class="detail">
-
-        <div class="detail-label">
-          PHONE
-        </div>
-
+        <div class="detail-label">PHONE</div>
         <div class="detail-value">
-
           ${escapeHTML(phone)}
-
         </div>
-
       </div>
 
-
       <div class="detail">
-
-        <div class="detail-label">
-          BALANCE
-        </div>
-
+        <div class="detail-label">BALANCE</div>
         <div class="detail-value gold">
-
-          TZS ${formatMoney(balance)}
-
+          TZS ${balance}
         </div>
-
       </div>
 
-
       <div class="detail">
-
-        <div class="detail-label">
-          COMMISSION
-        </div>
-
-        <div class="detail-value green">
-
-          TZS ${formatMoney(commission)}
-
-        </div>
-
-      </div>
-
-
-      <div class="detail">
-
-        <div class="detail-label">
-          REFERRER
-        </div>
-
+        <div class="detail-label">USERNAME</div>
         <div class="detail-value">
-
-          ${
-            user.referrer
-              ? "@" +
-                escapeHTML(
-                  user.referrer
-                )
-              : "-"
-          }
-
-        </div>
-
-      </div>
-
-
-      <div class="detail">
-
-        <div class="detail-label">
-          USERNAME
-        </div>
-
-        <div class="detail-value">
-
           ${escapeHTML(username)}
-
         </div>
-
       </div>
 
-
       <div class="detail">
-
-        <div class="detail-label">
-          REGISTERED
-        </div>
-
+        <div class="detail-label">REGISTERED</div>
         <div class="detail-value">
-
           ${escapeHTML(created)}
-
         </div>
-
       </div>
 
     </div>
-
 
     ${actionHTML}
 
   `;
-
 
   return card;
 
@@ -2072,490 +1383,157 @@ function createUserCard(user){
 
 
 /* =====================================================
-   FIND UPLINE
-===================================================== */
-
-async function findUplineChain(
-  user
-){
-
-  const chain = [];
-
-  let currentReferrer =
-    String(
-      user.referrer || ""
-    )
-    .trim()
-    .toLowerCase();
-
-
-  const usedUsernames =
-    new Set();
-
-
-  for(
-    let level = 1;
-    level <= 4;
-    level++
-  ){
-
-    if(
-      !currentReferrer
-    ){
-
-      break;
-
-    }
-
-
-    if(
-      usedUsernames.has(
-        currentReferrer
-      )
-    ){
-
-      console.error(
-        "Referral loop detected."
-      );
-
-      break;
-
-    }
-
-
-    usedUsernames.add(
-      currentReferrer
-    );
-
-
-    const result =
-      await supabaseClient
-        .from("users")
-        .select(
-          "id,username,referrer,status,balance,commission,fullname"
-        )
-        .eq(
-          "username",
-          currentReferrer
-        )
-        .maybeSingle();
-
-
-    if(result.error){
-
-      throw result.error;
-
-    }
-
-
-    const upline =
-      result.data;
-
-
-    if(!upline){
-
-      break;
-
-    }
-
-
-    chain.push({
-
-      level:level,
-
-      user:upline,
-
-      reward:
-        COMMISSION_LEVELS[level]
-
-    });
-
-
-    currentReferrer =
-      String(
-        upline.referrer || ""
-      )
-      .trim()
-      .toLowerCase();
-
-  }
-
-
-  return chain;
-
-}
-
-
-/* =====================================================
-   PAY REFERRAL COMMISSIONS
-===================================================== */
-
-async function payReferralCommissions(
-  activatedUser
-){
-
-  console.log(
-    "START COMMISSION PROCESS",
-    activatedUser
-  );
-
-
-  const chain =
-    await findUplineChain(
-      activatedUser
-    );
-
-
-  if(chain.length === 0){
-
-    return {
-
-      paid:[],
-
-      skipped:[],
-
-      total:0
-
-    };
-
-  }
-
-
-  const paid = [];
-
-  const skipped = [];
-
-
-  for(
-    const item of chain
-  ){
-
-    const upline =
-      item.user;
-
-
-    const level =
-      item.level;
-
-
-    const reward =
-      item.reward;
-
-
-    const uplineStatus =
-      String(
-        upline.status || ""
-      ).toLowerCase();
-
-
-    /*
-      PAY ONLY ACTIVE UPLINE
-    */
-
-    if(
-      uplineStatus !==
-      "active"
-    ){
-
-      skipped.push({
-
-        level:level,
-
-        username:
-          upline.username,
-
-        amount:
-          reward,
-
-        reason:
-          "Upline is not active"
-
-      });
-
-      continue;
-
-    }
-
-
-    const oldBalance =
-      Number(
-        upline.balance || 0
-      );
-
-
-    const oldCommission =
-      Number(
-        upline.commission || 0
-      );
-
-
-    const newBalance =
-      oldBalance +
-      reward;
-
-
-    const newCommission =
-      oldCommission +
-      reward;
-
-
-    const updateResult =
-      await supabaseClient
-        .from("users")
-        .update({
-
-          balance:
-            newBalance,
-
-          commission:
-            newCommission
-
-        })
-        .eq(
-          "id",
-          upline.id
-        );
-
-
-    if(updateResult.error){
-
-      throw new Error(
-        "Failed to pay Level " +
-        level +
-        " commission to @" +
-        upline.username +
-        ": " +
-        updateResult.error.message
-      );
-
-    }
-
-
-    paid.push({
-
-      level:level,
-
-      username:
-        upline.username,
-
-      amount:
-        reward
-
-    });
-
-  }
-
-
-  return {
-
-    paid:paid,
-
-    skipped:skipped,
-
-    total:
-      paid.reduce(
-        (sum,item) =>
-          sum +
-          Number(
-            item.amount || 0
-          ),
-        0
-      )
-
-  };
-
-}
-
-
-/* =====================================================
    ACTIVATE USER
+   IMPORTANT:
+   users.id = BIGINT
 ===================================================== */
 
 async function activateUser(id){
 
+  const userId =
+    Number(id);
+
+  if(!Number.isInteger(userId)){
+
+    alert(
+      "Invalid user ID."
+    );
+
+    return;
+
+  }
+
+  const user =
+    allUsers.find(
+      u => Number(u.id) === userId
+    );
+
+  if(!user){
+
+    alert(
+      "User not found."
+    );
+
+    return;
+
+  }
+
   if(
-    !confirm(
-      "Activate this user?\n\n" +
-      "Referral commissions will be calculated automatically."
-    )
+    String(user.status || "")
+    .toLowerCase() === "active"
   ){
+
+    alert(
+      "This user is already active."
+    );
+
+    return;
+
+  }
+
+  const confirmed =
+    confirm(
+      "Activate " +
+      (user.fullname ||
+       user.username ||
+       "this user") +
+      "?\n\n" +
+      "Referral commissions will be distributed automatically."
+    );
+
+  if(!confirmed){
 
     return;
 
   }
 
 
+  /* ================================================
+     DISABLE ALL ACTIVATE BUTTONS
+  ================================================ */
+
+  document
+    .querySelectorAll(".activate-btn")
+    .forEach(btn => {
+      btn.disabled = true;
+      btn.textContent =
+        "ACTIVATING...";
+    });
+
+
   try{
 
-    /*
-      GET CURRENT USER FIRST
-    */
+    /* ==============================================
+       STEP 1
+       ACTIVATE USER
+    ============================================== */
 
-    const userResult =
+    const updateResult =
       await supabaseClient
-        .from("users")
-        .select("*")
-        .eq(
-          "id",
-          id
-        )
-        .maybeSingle();
+      .from("users")
+      .update({
+        status:"active"
+      })
+      .eq(
+        "id",
+        userId
+      );
 
-
-    if(userResult.error){
-
-      throw userResult.error;
-
-    }
-
-
-    const user =
-      userResult.data;
-
-
-    if(!user){
+    if(updateResult.error){
 
       throw new Error(
-        "User not found."
+        "Activation failed: " +
+        updateResult.error.message
       );
 
     }
 
 
-    /*
-      PREVENT DOUBLE ACTIVATION
-    */
+    /* ==============================================
+       STEP 2
+       DISTRIBUTE LEVEL 1-4 COMMISSION
+    ============================================== */
 
-    if(
-      String(
-        user.status || ""
-      ).toLowerCase()
-      === "active"
-    ){
+    const commissionResult =
+      await supabaseClient
+      .rpc(
+        "distribute_referral_commission",
+        {
+          activated_user_id:userId
+        }
+      );
+
+    if(commissionResult.error){
+
+      console.error(
+        "COMMISSION ERROR:",
+        commissionResult.error
+      );
 
       alert(
-        "This user is already active."
+        "User was activated, but referral commission could not be distributed.\n\n" +
+        commissionResult.error.message
       );
+
+      await loadUsers();
 
       return;
 
     }
 
 
-    /*
-      FIRST ACTIVATE USER
-    */
+    /* ==============================================
+       SUCCESS
+    ============================================== */
 
-    const activateResult =
-      await supabaseClient
-        .from("users")
-        .update({
+    alert(
+      "USER ACTIVATED SUCCESSFULLY ✓\n\n" +
+      "Referral commissions have been processed automatically."
+    );
 
-          status:"active"
-
-        })
-        .eq(
-          "id",
-          id
-        )
-        .eq(
-          "status",
-          "pending"
-        );
-
-
-    if(
-      activateResult.error
-    ){
-
-      throw activateResult.error;
-
-    }
-
-
-    /*
-      THEN PAY LEVEL 1-4
-    */
-
-    const commissionResult =
-      await payReferralCommissions(
-        user
-      );
-
-
-    /*
-      RELOAD USERS
-    */
 
     await loadUsers();
 
-
-    /*
-      SHOW RESULT
-    */
-
-    let message =
-      "User activated successfully.\n\n";
-
-
-    if(
-      commissionResult.paid.length > 0
-    ){
-
-      message +=
-        "COMMISSIONS PAID:\n";
-
-
-      commissionResult.paid
-        .forEach(item => {
-
-          message +=
-            "Level " +
-            item.level +
-            " → @" +
-            item.username +
-            " = TZS " +
-            formatMoney(
-              item.amount
-            ) +
-            "\n";
-
-        });
-
-
-      message +=
-        "\nTOTAL PAID: TZS " +
-        formatMoney(
-          commissionResult.total
-        );
-
-    }
-    else{
-
-      message +=
-        "No active upline was found for commission payment.";
-
-    }
-
-
-    if(
-      commissionResult.skipped.length > 0
-    ){
-
-      message +=
-        "\n\nSome levels were skipped because the upline was not active.";
-
-    }
-
-
-    alert(message);
-
-
-    /*
-      LOAD AGAIN SO BALANCES ARE CURRENT
-    */
-
-    await loadUsers();
 
   }catch(error){
 
@@ -2564,13 +1542,9 @@ async function activateUser(id){
       error
     );
 
-
     alert(
-      "Activation failed:\n\n" +
-      (
-        error.message ||
-        "Unknown error"
-      )
+      error.message ||
+      "Activation failed."
     );
 
     await loadUsers();
@@ -2586,30 +1560,35 @@ async function activateUser(id){
 
 async function rejectUser(id){
 
-  if(
-    !confirm(
-      "Set this user as rejected / inactive?"
-    )
-  ){
+  const userId =
+    Number(id);
+
+  if(!Number.isInteger(userId)){
+
+    alert("Invalid user ID.");
 
     return;
 
   }
 
+  if(!confirm(
+    "Set this user as rejected?"
+  )){
+
+    return;
+
+  }
 
   const result =
     await supabaseClient
-      .from("users")
-      .update({
-
-        status:"rejected"
-
-      })
-      .eq(
-        "id",
-        id
-      );
-
+    .from("users")
+    .update({
+      status:"rejected"
+    })
+    .eq(
+      "id",
+      userId
+    );
 
   if(result.error){
 
@@ -2621,12 +1600,6 @@ async function rejectUser(id){
     return;
 
   }
-
-
-  alert(
-    "User status updated."
-  );
-
 
   await loadUsers();
 
@@ -2658,58 +1631,36 @@ function renderPending(){
       "pendingList"
     );
 
-
   const pending =
-    allUsers.filter(
-      user =>
-        String(
-          user.status ||
-          "pending"
-        ).toLowerCase()
-        === "pending"
+    allUsers.filter(u =>
+      String(
+        u.status || "pending"
+      ).toLowerCase() === "pending"
     );
-
 
   container.innerHTML = "";
 
-
-  if(pending.length === 0){
+  if(!pending.length){
 
     container.innerHTML = `
-
       <div class="empty">
-
-        <div class="empty-icon">
-          ✓
-        </div>
-
-        <h3>
-          No Pending Users
-        </h3>
-
-        <p>
-          All registered users
-          have been processed.
-        </p>
-
+        <div class="empty-icon">✓</div>
+        <h3>No Pending Users</h3>
+        <p>All registered users have been processed.</p>
       </div>
-
     `;
 
     return;
 
   }
 
+  pending.forEach(user => {
 
-  pending.forEach(
-    user => {
+    container.appendChild(
+      createUserCard(user)
+    );
 
-      container.appendChild(
-        createUserCard(user)
-      );
-
-    }
-  );
+  });
 
 }
 
@@ -2723,12 +1674,10 @@ function getLocal(key){
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        key
-      ) || "[]"
+      localStorage.getItem(key) || "[]"
     );
 
-  }catch(error){
+  }catch(e){
 
     return [];
 
@@ -2736,11 +1685,7 @@ function getLocal(key){
 
 }
 
-
-function saveLocal(
-  key,
-  data
-){
+function saveLocal(key,data){
 
   localStorage.setItem(
     key,
@@ -2761,17 +1706,12 @@ function addSocial(){
       "socialTitle"
     ).value.trim();
 
-
   const url =
     document.getElementById(
       "socialURL"
     ).value.trim();
 
-
-  if(
-    !title ||
-    !url
-  ){
+  if(!title || !url){
 
     alert(
       "Enter title and URL."
@@ -2781,39 +1721,29 @@ function addSocial(){
 
   }
 
-
   const data =
     getLocal(
       "linkcashSocial"
     );
 
-
   data.push({
-
     id:Date.now(),
-
-    title:title,
-
-    url:url
-
+    title,
+    url
   });
-
 
   saveLocal(
     "linkcashSocial",
     data
   );
 
-
   document.getElementById(
     "socialTitle"
   ).value = "";
 
-
   document.getElementById(
     "socialURL"
   ).value = "";
-
 
   renderSocial();
 
@@ -2827,118 +1757,48 @@ function renderSocial(){
       "socialList"
     );
 
-
   container.innerHTML = "";
 
-
-  [
-    ...getLocal(
-      "linkcashSocial"
-    )
-  ]
+  [...getLocal("linkcashSocial")]
   .reverse()
-  .forEach(
-    item => {
+  .forEach(item => {
 
-      const card =
-        document.createElement(
-          "div"
-        );
+    const card =
+      document.createElement("div");
 
+    card.className =
+      "content-card";
 
-      card.className =
-        "content-card";
+    card.innerHTML = `
 
+      <div class="content-title">
+        ${escapeHTML(item.title)}
+      </div>
 
-      card.innerHTML = `
+      <div class="content-url">
+        ${escapeHTML(item.url)}
+      </div>
 
-        <div class="content-title">
+      <div class="content-actions">
 
-          ${escapeHTML(
-            item.title
-          )}
+        <button
+          class="small-btn"
+          onclick="openSafeURL('${escapeHTML(item.url)}')">
+          OPEN
+        </button>
 
-        </div>
+        <button
+          class="small-btn delete"
+          onclick="deleteSocial(${item.id})">
+          DELETE
+        </button>
 
+      </div>
+    `;
 
-        <div class="content-url">
+    container.appendChild(card);
 
-          ${escapeHTML(
-            item.url
-          )}
-
-        </div>
-
-
-        <div class="content-actions">
-
-          <button
-            class="small-btn"
-            onclick="openSafeURL('${escapeHTML(item.url)}')">
-
-            OPEN
-
-          </button>
-
-
-          <button
-            class="small-btn delete"
-            onclick="deleteSocial(${item.id})">
-
-            DELETE
-
-          </button>
-
-        </div>
-
-      `;
-
-
-      container.appendChild(
-        card
-      );
-
-    }
-  );
-
-}
-
-
-function openSafeURL(url){
-
-  try{
-
-    const parsed =
-      new URL(url);
-
-
-    if(
-      parsed.protocol !== "http:" &&
-      parsed.protocol !== "https:"
-    ){
-
-      alert(
-        "Only HTTP/HTTPS links are allowed."
-      );
-
-      return;
-
-    }
-
-
-    window.open(
-      parsed.href,
-      "_blank",
-      "noopener,noreferrer"
-    );
-
-  }catch(error){
-
-    alert(
-      "Invalid URL."
-    );
-
-  }
+  });
 
 }
 
@@ -2946,20 +1806,13 @@ function openSafeURL(url){
 function deleteSocial(id){
 
   const data =
-    getLocal(
-      "linkcashSocial"
-    )
-    .filter(
-      item =>
-        item.id !== id
-    );
-
+    getLocal("linkcashSocial")
+    .filter(x => x.id !== id);
 
   saveLocal(
     "linkcashSocial",
     data
   );
-
 
   renderSocial();
 
@@ -2977,69 +1830,50 @@ function addAd(){
       "adTitle"
     ).value.trim();
 
-
   const text =
     document.getElementById(
       "adText"
     ).value.trim();
-
 
   const url =
     document.getElementById(
       "adURL"
     ).value.trim();
 
-
   if(!title){
 
-    alert(
-      "Enter ad title."
-    );
+    alert("Enter ad title.");
 
     return;
 
   }
 
+  const data =
+    getLocal("linkcashAds");
 
-  const ads =
-    getLocal(
-      "linkcashAds"
-    );
-
-
-  ads.push({
-
+  data.push({
     id:Date.now(),
-
-    title:title,
-
-    text:text,
-
-    url:url
-
+    title,
+    text,
+    url
   });
-
 
   saveLocal(
     "linkcashAds",
-    ads
+    data
   );
-
 
   document.getElementById(
     "adTitle"
   ).value = "";
 
-
   document.getElementById(
     "adText"
   ).value = "";
 
-
   document.getElementById(
     "adURL"
   ).value = "";
-
 
   renderAds();
 
@@ -3053,87 +1887,55 @@ function renderAds(){
       "adsList"
     );
 
-
   container.innerHTML = "";
 
-
-  [
-    ...getLocal(
-      "linkcashAds"
-    )
-  ]
+  [...getLocal("linkcashAds")]
   .reverse()
-  .forEach(
-    ad => {
+  .forEach(ad => {
 
-      const card =
-        document.createElement(
-          "div"
-        );
+    const card =
+      document.createElement("div");
 
+    card.className =
+      "content-card";
 
-      card.className =
-        "content-card";
+    card.innerHTML = `
 
+      <div class="content-title">
+        ${escapeHTML(ad.title)}
+      </div>
 
-      card.innerHTML = `
+      <div class="content-url">
+        ${escapeHTML(ad.text)}
+      </div>
 
-        <div class="content-title">
+      <div class="content-actions">
 
-          ${escapeHTML(
-            ad.title
-          )}
+        ${
+          ad.url
+          ? `
+            <button
+              class="small-btn"
+              onclick="openSafeURL('${escapeHTML(ad.url)}')">
+              OPEN
+            </button>
+          `
+          : ""
+        }
 
-        </div>
+        <button
+          class="small-btn delete"
+          onclick="deleteAd(${ad.id})">
+          DELETE
+        </button>
 
+      </div>
 
-        <div class="content-url">
+    `;
 
-          ${escapeHTML(
-            ad.text
-          )}
+    container.appendChild(card);
 
-        </div>
-
-
-        <div class="content-actions">
-
-          ${
-            ad.url
-            ? `
-
-              <button
-                class="small-btn"
-                onclick="openSafeURL('${escapeHTML(ad.url)}')">
-
-                OPEN
-
-              </button>
-
-            `
-            : ""
-          }
-
-
-          <button
-            class="small-btn delete"
-            onclick="deleteAd(${ad.id})">
-
-            DELETE
-
-          </button>
-
-        </div>
-
-      `;
-
-
-      container.appendChild(
-        card
-      );
-
-    }
-  );
+  });
 
 }
 
@@ -3141,20 +1943,13 @@ function renderAds(){
 function deleteAd(id){
 
   const data =
-    getLocal(
-      "linkcashAds"
-    )
-    .filter(
-      ad =>
-        ad.id !== id
-    );
-
+    getLocal("linkcashAds")
+    .filter(x => x.id !== id);
 
   saveLocal(
     "linkcashAds",
     data
   );
-
 
   renderAds();
 
@@ -3172,44 +1967,32 @@ function addQuiz(){
       "quizQuestion"
     ).value.trim();
 
-
   const A =
     document.getElementById(
       "quizA"
     ).value.trim();
-
 
   const B =
     document.getElementById(
       "quizB"
     ).value.trim();
 
-
   const C =
     document.getElementById(
       "quizC"
     ).value.trim();
-
 
   const D =
     document.getElementById(
       "quizD"
     ).value.trim();
 
-
   const answer =
     document.getElementById(
       "quizAnswer"
     ).value;
 
-
-  if(
-    !question ||
-    !A ||
-    !B ||
-    !C ||
-    !D
-  ){
+  if(!question || !A || !B || !C || !D){
 
     alert(
       "Fill all quiz fields."
@@ -3219,50 +2002,33 @@ function addQuiz(){
 
   }
 
+  const data =
+    getLocal("linkcashQuiz");
 
-  const quiz =
-    getLocal(
-      "linkcashQuiz"
-    );
-
-
-  quiz.push({
+  data.push({
 
     id:Date.now(),
 
-    question:question,
+    question,
 
     options:{
-
-      A:A,
-
-      B:B,
-
-      C:C,
-
-      D:D
-
+      A,B,C,D
     },
 
-    answer:answer
+    answer
 
   });
 
-
   saveLocal(
     "linkcashQuiz",
-    quiz
+    data
   );
 
-
-  document.querySelectorAll(
-    "#quiz input"
-  )
-  .forEach(
-    input =>
-      input.value = ""
-  );
-
+  document
+    .querySelectorAll("#quiz input")
+    .forEach(
+      input => input.value = ""
+    );
 
   renderQuiz();
 
@@ -3276,111 +2042,60 @@ function renderQuiz(){
       "quizList"
     );
 
-
   container.innerHTML = "";
 
-
-  [
-    ...getLocal(
-      "linkcashQuiz"
-    )
-  ]
+  [...getLocal("linkcashQuiz")]
   .reverse()
-  .forEach(
-    item => {
+  .forEach(item => {
 
-      const card =
-        document.createElement(
-          "div"
-        );
+    const card =
+      document.createElement("div");
 
+    card.className =
+      "content-card";
 
-      card.className =
-        "content-card";
+    card.innerHTML = `
 
+      <div class="content-title">
+        ${escapeHTML(item.question)}
+      </div>
 
-      card.innerHTML = `
+      <div class="content-url">
+        A: ${escapeHTML(item.options.A)}
+      </div>
 
-        <div class="content-title">
+      <div class="content-url">
+        B: ${escapeHTML(item.options.B)}
+      </div>
 
-          ${escapeHTML(
-            item.question
-          )}
+      <div class="content-url">
+        C: ${escapeHTML(item.options.C)}
+      </div>
 
-        </div>
+      <div class="content-url">
+        D: ${escapeHTML(item.options.D)}
+      </div>
 
+      <div class="content-url">
+        Correct answer:
+        ${escapeHTML(item.answer)}
+      </div>
 
-        <div class="content-url">
+      <div class="content-actions">
 
-          A:
-          ${escapeHTML(
-            item.options.A
-          )}
+        <button
+          class="small-btn delete"
+          onclick="deleteQuiz(${item.id})">
+          DELETE
+        </button>
 
-        </div>
+      </div>
 
+    `;
 
-        <div class="content-url">
+    container.appendChild(card);
 
-          B:
-          ${escapeHTML(
-            item.options.B
-          )}
-
-        </div>
-
-
-        <div class="content-url">
-
-          C:
-          ${escapeHTML(
-            item.options.C
-          )}
-
-        </div>
-
-
-        <div class="content-url">
-
-          D:
-          ${escapeHTML(
-            item.options.D
-          )}
-
-        </div>
-
-
-        <div class="content-url">
-
-          Correct answer:
-          ${escapeHTML(
-            item.answer
-          )}
-
-        </div>
-
-
-        <div class="content-actions">
-
-          <button
-            class="small-btn delete"
-            onclick="deleteQuiz(${item.id})">
-
-            DELETE
-
-          </button>
-
-        </div>
-
-      `;
-
-
-      container.appendChild(
-        card
-      );
-
-    }
-  );
+  });
 
 }
 
@@ -3388,20 +2103,13 @@ function renderQuiz(){
 function deleteQuiz(id){
 
   const data =
-    getLocal(
-      "linkcashQuiz"
-    )
-    .filter(
-      item =>
-        item.id !== id
-    );
-
+    getLocal("linkcashQuiz")
+    .filter(x => x.id !== id);
 
   saveLocal(
     "linkcashQuiz",
     data
   );
-
 
   renderQuiz();
 
@@ -3419,12 +2127,10 @@ function addGame(){
       "gameTitle"
     ).value.trim();
 
-
   const url =
     document.getElementById(
       "gameURL"
     ).value.trim();
-
 
   if(!title){
 
@@ -3436,39 +2142,27 @@ function addGame(){
 
   }
 
+  const data =
+    getLocal("linkcashGames");
 
-  const games =
-    getLocal(
-      "linkcashGames"
-    );
-
-
-  games.push({
-
+  data.push({
     id:Date.now(),
-
-    title:title,
-
-    url:url
-
+    title,
+    url
   });
-
 
   saveLocal(
     "linkcashGames",
-    games
+    data
   );
-
 
   document.getElementById(
     "gameTitle"
   ).value = "";
 
-
   document.getElementById(
     "gameURL"
   ).value = "";
-
 
   renderGames();
 
@@ -3482,95 +2176,61 @@ function renderGames(){
       "gamesList"
     );
 
-
   container.innerHTML = "";
 
-
-  [
-    ...getLocal(
-      "linkcashGames"
-    )
-  ]
+  [...getLocal("linkcashGames")]
   .reverse()
-  .forEach(
-    game => {
+  .forEach(game => {
 
-      const card =
-        document.createElement(
-          "div"
-        );
+    const card =
+      document.createElement("div");
 
+    card.className =
+      "content-card";
 
-      card.className =
-        "content-card";
+    card.innerHTML = `
 
+      <div class="content-title">
+        ${escapeHTML(game.title)}
+      </div>
 
-      card.innerHTML = `
+      ${
+        game.url
+        ? `
+          <div class="content-url">
+            ${escapeHTML(game.url)}
+          </div>
+        `
+        : ""
+      }
 
-        <div class="content-title">
-
-          ${escapeHTML(
-            game.title
-          )}
-
-        </div>
-
+      <div class="content-actions">
 
         ${
           game.url
           ? `
-
-            <div class="content-url">
-
-              ${escapeHTML(
-                game.url
-              )}
-
-            </div>
-
+            <button
+              class="small-btn"
+              onclick="openSafeURL('${escapeHTML(game.url)}')">
+              OPEN
+            </button>
           `
           : ""
         }
 
+        <button
+          class="small-btn delete"
+          onclick="deleteGame(${game.id})">
+          DELETE
+        </button>
 
-        <div class="content-actions">
+      </div>
 
-          ${
-            game.url
-            ? `
+    `;
 
-              <button
-                class="small-btn"
-                onclick="openSafeURL('${escapeHTML(game.url)}')">
+    container.appendChild(card);
 
-                OPEN
-
-              </button>
-
-            `
-            : ""
-          }
-
-
-          <button
-            class="small-btn delete"
-            onclick="deleteGame(${game.id})">
-
-            DELETE
-
-          </button>
-
-        </div>
-
-      `;
-
-
-      container.appendChild(
-        card
-      );
-
-    }
-  );
+  });
 
 }
 
@@ -3578,22 +2238,54 @@ function renderGames(){
 function deleteGame(id){
 
   const data =
-    getLocal(
-      "linkcashGames"
-    )
-    .filter(
-      game =>
-        game.id !== id
-    );
-
+    getLocal("linkcashGames")
+    .filter(x => x.id !== id);
 
   saveLocal(
     "linkcashGames",
     data
   );
 
-
   renderGames();
+
+}
+
+
+/* =====================================================
+   SAFE URL
+===================================================== */
+
+function openSafeURL(url){
+
+  try{
+
+    const parsed =
+      new URL(url);
+
+    if(
+      parsed.protocol !== "http:" &&
+      parsed.protocol !== "https:"
+    ){
+
+      alert(
+        "Only HTTP/HTTPS links are allowed."
+      );
+
+      return;
+
+    }
+
+    window.open(
+      parsed.href,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+  }catch(e){
+
+    alert("Invalid URL.");
+
+  }
 
 }
 
@@ -3602,138 +2294,99 @@ function deleteGame(id){
    PANELS
 ===================================================== */
 
-function openPanel(
-  panelId,
-  button
-){
+function openPanel(panelId,button){
 
   document
-    .querySelectorAll(
-      ".panel"
-    )
+    .querySelectorAll(".panel")
     .forEach(
-      panel =>
-        panel.classList.remove(
-          "active"
-        )
+      p => p.classList.remove("active")
     );
-
 
   document
-    .querySelectorAll(
-      ".tab"
-    )
+    .querySelectorAll(".tab")
     .forEach(
-      tab =>
-        tab.classList.remove(
-          "active"
-        )
+      t => t.classList.remove("active")
     );
-
 
   const panel =
     document.getElementById(
       panelId
     );
 
-
   if(panel){
 
-    panel.classList.add(
-      "active"
-    );
+    panel.classList.add("active");
 
   }
-
 
   if(button){
 
-    button.classList.add(
-      "active"
-    );
+    button.classList.add("active");
 
   }
 
-
-  if(
-    panelId === "pending"
-  ){
-
+  if(panelId === "pending"){
     renderPending();
-
   }
 
-
-  if(
-    panelId === "social"
-  ){
-
+  if(panelId === "social"){
     renderSocial();
-
   }
 
-
-  if(
-    panelId === "ads"
-  ){
-
+  if(panelId === "ads"){
     renderAds();
-
   }
 
-
-  if(
-    panelId === "quiz"
-  ){
-
+  if(panelId === "quiz"){
     renderQuiz();
-
   }
 
-
-  if(
-    panelId === "games"
-  ){
-
+  if(panelId === "games"){
     renderGames();
-
   }
 
 }
 
 
 /* =====================================================
-   LOGOUT CEO
+   LOGOUT
 ===================================================== */
 
 function logoutCEO(){
 
-  if(
-    !confirm(
-      "Are you sure you want to logout CEO?"
-    )
-  ){
+  if(!confirm(
+    "Are you sure you want to logout CEO?"
+  )){
 
     return;
 
   }
 
-
   localStorage.removeItem(
     "linkcashCEOLoggedIn"
   );
 
-
   localStorage.removeItem(
     "linkcashCEO"
   );
-
 
   window.location.replace(
     "login.html"
   );
 
 }
+
+
+/* =====================================================
+   SEARCH FIX
+===================================================== */
+
+document
+  .getElementById("userSearch")
+  .addEventListener(
+    "input",
+    renderUsers
+  );
 
 
 /* =====================================================
@@ -3745,16 +2398,13 @@ async function startDashboard(){
   const connected =
     await testConnection();
 
-
   if(!connected){
 
     return;
 
   }
 
-
   await loadUsers();
-
 
   renderSocial();
 
@@ -3766,10 +2416,9 @@ async function startDashboard(){
 
 }
 
-
 startDashboard();
 
 </script>
 
 </body>
-   </html>
+</html>
