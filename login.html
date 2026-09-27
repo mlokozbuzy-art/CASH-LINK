@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#050505">
-
 <title>LINKCASH - Secure Login</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -19,13 +16,7 @@
 
 body{
     min-height:100vh;
-    background:
-        radial-gradient(
-            circle at top,
-            #1c1607 0,
-            #090909 32%,
-            #050505 65%
-        );
+    background:radial-gradient(circle at top,#1c1607 0,#090909 32%,#050505 65%);
     color:#fff;
     display:flex;
     align-items:center;
@@ -43,9 +34,7 @@ body{
     border:1px solid #292929;
     border-radius:28px;
     padding:30px 22px 24px;
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.65),
-        inset 0 1px rgba(255,255,255,.03);
+    box-shadow:0 25px 80px rgba(0,0,0,.65);
 }
 
 .brand{
@@ -58,19 +47,13 @@ body{
     height:64px;
     margin:0 auto 15px;
     border-radius:18px;
-    background:linear-gradient(
-        145deg,
-        #ffe082,
-        #d4a72c,
-        #8f6b12
-    );
+    background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
     color:#050505;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:18px;
     font-weight:900;
-    box-shadow:0 10px 30px rgba(212,167,44,.16);
 }
 
 .brand h1{
@@ -126,9 +109,6 @@ body{
 }
 
 .field-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
     margin-bottom:7px;
 }
 
@@ -153,7 +133,6 @@ input{
     padding:0 45px 0 14px;
     outline:none;
     font-size:12px;
-    transition:.2s;
 }
 
 input::placeholder{
@@ -187,10 +166,6 @@ input:focus{
     color:#777;
     cursor:pointer;
     font-size:14px;
-}
-
-.password-toggle:hover{
-    color:#d4a72c;
 }
 
 .options{
@@ -228,25 +203,11 @@ input:focus{
     height:51px;
     border:1px solid #d4a72c;
     border-radius:12px;
-    background:linear-gradient(
-        135deg,
-        rgba(255,224,130,.16),
-        rgba(212,167,44,.07)
-    );
+    background:linear-gradient(135deg,rgba(255,224,130,.16),rgba(212,167,44,.07));
     color:#d4a72c;
     font-size:11px;
     font-weight:900;
     cursor:pointer;
-    transition:.2s;
-}
-
-.login-btn:hover{
-    background:rgba(212,167,44,.16);
-    box-shadow:0 8px 25px rgba(212,167,44,.08);
-}
-
-.login-btn:active{
-    transform:scale(.98);
 }
 
 .login-btn.loading{
@@ -308,24 +269,16 @@ input:focus{
 }
 
 @keyframes pulse{
-    0%,100%{
-        opacity:.3;
-    }
-    50%{
-        opacity:1;
-    }
+    0%,100%{opacity:.3}
+    50%{opacity:1}
 }
 
 @media(max-width:360px){
-
     .login-card{
         padding:25px 17px 21px;
     }
-
 }
-
 </style>
-
 </head>
 
 <body>
@@ -336,17 +289,11 @@ input:focus{
 
 <div class="brand">
 
-<div class="logo">
-LC
-</div>
+<div class="logo">LC</div>
 
-<h1>
-Welcome Back
-</h1>
+<h1>Welcome Back</h1>
 
-<p>
-Secure access to your LINKCASH account
-</p>
+<p>Secure access to your LINKCASH account</p>
 
 <div class="secure-badge">
 🔒 SECURE LOGIN
@@ -354,26 +301,14 @@ Secure access to your LINKCASH account
 
 </div>
 
+<div id="message" class="message"></div>
 
-<div
-id="message"
-class="message"
-></div>
-
-
-<form
-id="loginForm"
-autocomplete="on"
->
+<form id="loginForm" autocomplete="on">
 
 <div class="field">
 
 <div class="field-head">
-
-<label for="username">
-USERNAME
-</label>
-
+<label for="username">USERNAME</label>
 </div>
 
 <div class="input-wrap">
@@ -388,23 +323,16 @@ maxlength="50"
 required
 >
 
-<div class="input-icon">
-👤
-</div>
+<div class="input-icon">👤</div>
 
 </div>
 
 </div>
-
 
 <div class="field">
 
 <div class="field-head">
-
-<label for="password">
-PASSWORD
-</label>
-
+<label for="password">PASSWORD</label>
 </div>
 
 <div class="input-wrap">
@@ -424,27 +352,19 @@ type="button"
 class="password-toggle"
 id="togglePassword"
 aria-label="Show password"
->
-👁
-</button>
+>👁</button>
 
 </div>
 
 </div>
-
 
 <div class="options">
 
 <label class="remember">
 
-<input
-type="checkbox"
-id="remember"
->
+<input type="checkbox" id="remember">
 
-<span>
-Remember me
-</span>
+<span>Remember me</span>
 
 </label>
 
@@ -458,7 +378,6 @@ Forgot password?
 
 </div>
 
-
 <button
 type="submit"
 class="login-btn"
@@ -469,25 +388,17 @@ LOGIN TO LINKCASH
 
 </form>
 
-
 <div class="divider">
 
 <span></span>
-
-<small>
-LINKCASH
-</small>
-
+<small>LINKCASH</small>
 <span></span>
 
 </div>
 
-
 <div class="register-box">
 
-<p>
-Don't have a LINKCASH account?
-</p>
+<p>Don't have a LINKCASH account?</p>
 
 <a href="register.html">
 CREATE ACCOUNT
@@ -497,26 +408,20 @@ CREATE ACCOUNT
 
 </div>
 
-
 <div class="footer">
-
 © 2026 LINKCASH<br>
-
 Member access portal
-
 </div>
 
 </div>
-
 
 <script>
 
 /* =========================================
-   CEO ACCOUNT
+   CEO
 ========================================= */
 
 const CEO_USERNAME = "ceo";
-
 const CEO_PASSWORD = "CEO12345";
 
 
@@ -569,9 +474,7 @@ function hideMessage(){
 
 
 /* =========================================
-   GET ACCOUNT
-   REGISTER.HTML SAVES:
-   linkcashAccount
+   GET REGISTERED ACCOUNT
 ========================================= */
 
 function getAccount(){
@@ -579,14 +482,10 @@ function getAccount(){
     try{
 
         const data =
-            localStorage.getItem(
-                "linkcashAccount"
-            );
+            localStorage.getItem("linkcashAccount");
 
         if(!data){
-
             return null;
-
         }
 
         const account =
@@ -598,17 +497,11 @@ function getAccount(){
         ){
 
             return null;
-
         }
 
         return account;
 
     }catch(error){
-
-        console.log(
-            "Account read error:",
-            error
-        );
 
         return null;
 
@@ -618,64 +511,42 @@ function getAccount(){
 
 
 /* =========================================
-   FIND USER
+   FIND REGISTERED USER
 ========================================= */
 
-function findUser(
-    username,
-    password
-){
+function findUser(username,password){
 
     const account =
         getAccount();
 
     if(!account){
-
         return null;
-
     }
 
-
     const savedUsername =
-        String(
-            account.username || ""
-        )
+        String(account.username || "")
         .trim()
         .toLowerCase();
-
 
     const enteredUsername =
-        String(
-            username || ""
-        )
+        String(username || "")
         .trim()
         .toLowerCase();
 
-
     const savedPassword =
-        String(
-            account.password || ""
-        );
-
+        String(account.password || "");
 
     const enteredPassword =
-        String(
-            password || ""
-        );
-
+        String(password || "");
 
     if(
-        savedUsername ===
-        enteredUsername
-        &&
-        savedPassword ===
-        enteredPassword
+        savedUsername === enteredUsername &&
+        savedPassword === enteredPassword
     ){
 
         return account;
 
     }
-
 
     return null;
 
@@ -693,43 +564,27 @@ function loginCEO(username){
         "true"
     );
 
-
     localStorage.setItem(
         "linkcashCEO",
         JSON.stringify({
-
-            username:
-                CEO_USERNAME,
-
-            role:
-                "ceo",
-
-            loginAt:
-                new Date().toISOString()
-
+            username:CEO_USERNAME,
+            role:"ceo",
+            loginAt:new Date().toISOString()
         })
     );
-
 
     localStorage.setItem(
         "linkcashLoggedIn",
         "true"
     );
 
-
     localStorage.setItem(
         "linkcashLoggedInUser",
         JSON.stringify({
-
-            username:
-                username,
-
-            role:
-                "ceo"
-
+            username:username,
+            role:"ceo"
         })
     );
-
 
     window.location.replace(
         "ceodashboard.html"
@@ -744,37 +599,20 @@ function loginCEO(username){
 
 function loginUser(user){
 
-    /*
-       SAVE CURRENT USER
-    */
-
-    localStorage.setItem(
-        "linkcashLoggedIn",
-        "true"
-    );
-
-
     localStorage.setItem(
         "linkcashLoggedInUser",
         JSON.stringify(user)
     );
-
 
     localStorage.setItem(
         "linkcashUser",
         JSON.stringify(user)
     );
 
-
-    /*
-       KEEP ACCOUNT RECORD
-    */
-
     localStorage.setItem(
         "linkcashAccount",
         JSON.stringify(user)
     );
-
 
     const status =
         String(
@@ -789,16 +627,19 @@ function loginUser(user){
     ===================================== */
 
     if(
-        status === "active"
-        ||
+        status === "active" ||
         status === "activated"
     ){
+
+        localStorage.setItem(
+            "linkcashLoggedIn",
+            "true"
+        );
 
         showMessage(
             "Login successful. Opening dashboard...",
             "success"
         );
-
 
         setTimeout(function(){
 
@@ -808,55 +649,38 @@ function loginUser(user){
 
         },500);
 
-
         return;
-
     }
 
 
     /* =====================================
-       REJECTED
+       PENDING OR REJECTED
+       GO TO EXACT FILE:
+       pending-dashboard.html
     ===================================== */
 
-    if(
-        status === "rejected"
-    ){
-
-        showMessage(
-            "Your account requires attention. Opening account status...",
-            "error"
-        );
-
-
-        setTimeout(function(){
-
-            window.location.replace(
-                "pending.html"
-            );
-
-        },700);
-
-
-        return;
-
-    }
-
-
-    /* =====================================
-       PENDING
-    ===================================== */
-
-    showMessage(
-        "Your account is still pending activation...",
-        "success"
+    localStorage.removeItem(
+        "linkcashLoggedIn"
     );
 
+    localStorage.setItem(
+        "linkcashPendingUser",
+        JSON.stringify(user)
+    );
+
+    showMessage(
+        status === "rejected"
+        ? "Your account requires attention. Opening account status..."
+        : "Your account is still pending activation...",
+        status === "rejected"
+        ? "error"
+        : "success"
+    );
 
     setTimeout(function(){
 
-        window.location.replace(
-            "pending.html"
-        );
+        window.location.href =
+            "./pending-dashboard.html";
 
     },700);
 
@@ -864,7 +688,7 @@ function loginUser(user){
 
 
 /* =========================================
-   LOGIN FORM
+   LOGIN
 ========================================= */
 
 loginForm.addEventListener(
@@ -875,18 +699,12 @@ loginForm.addEventListener(
 
         hideMessage();
 
-
         const username =
             usernameInput.value.trim();
-
 
         const password =
             passwordInput.value;
 
-
-        /* =================================
-           VALIDATE USERNAME
-        ================================= */
 
         if(!username){
 
@@ -898,13 +716,8 @@ loginForm.addEventListener(
             usernameInput.focus();
 
             return;
-
         }
 
-
-        /* =================================
-           VALIDATE PASSWORD
-        ================================= */
 
         if(!password){
 
@@ -916,18 +729,10 @@ loginForm.addEventListener(
             passwordInput.focus();
 
             return;
-
         }
 
 
-        /* =================================
-           LOADING
-        ================================= */
-
-        loginBtn.classList.add(
-            "loading"
-        );
-
+        loginBtn.classList.add("loading");
 
         loginBtn.innerHTML =
             '<span class="loading-dot">●</span> SIGNING IN...';
@@ -941,18 +746,14 @@ loginForm.addEventListener(
             ================================= */
 
             if(
-                username.toLowerCase()
-                ===
-                CEO_USERNAME.toLowerCase()
-                &&
-                password ===
-                CEO_PASSWORD
+                username.toLowerCase() ===
+                CEO_USERNAME.toLowerCase() &&
+                password === CEO_PASSWORD
             ){
 
                 loginCEO(username);
 
                 return;
-
             }
 
 
@@ -967,29 +768,21 @@ loginForm.addEventListener(
                 );
 
 
-            /* =================================
-               ACCOUNT NOT FOUND
-            ================================= */
-
             if(!user){
 
                 loginBtn.classList.remove(
                     "loading"
                 );
 
-
                 loginBtn.textContent =
                     "LOGIN TO LINKCASH";
-
 
                 showMessage(
                     "Username or password is incorrect.",
                     "error"
                 );
 
-
                 return;
-
             }
 
 
@@ -997,9 +790,7 @@ loginForm.addEventListener(
                REMEMBER USERNAME
             ================================= */
 
-            if(
-                remember.checked
-            ){
+            if(remember.checked){
 
                 localStorage.setItem(
                     "linkcashRememberedUsername",
@@ -1015,12 +806,7 @@ loginForm.addEventListener(
             }
 
 
-            /* =================================
-               LOGIN
-            ================================= */
-
             loginUser(user);
-
 
         },350);
 
@@ -1039,15 +825,12 @@ document
     function(){
 
         if(
-            passwordInput.type ===
-            "password"
+            passwordInput.type === "password"
         ){
 
-            passwordInput.type =
-                "text";
+            passwordInput.type = "text";
 
-            this.textContent =
-                "🙈";
+            this.textContent = "🙈";
 
             this.setAttribute(
                 "aria-label",
@@ -1056,11 +839,9 @@ document
 
         }else{
 
-            passwordInput.type =
-                "password";
+            passwordInput.type = "password";
 
-            this.textContent =
-                "👁";
+            this.textContent = "👁";
 
             this.setAttribute(
                 "aria-label",
@@ -1097,7 +878,6 @@ const remembered =
     localStorage.getItem(
         "linkcashRememberedUsername"
     );
-
 
 if(remembered){
 
