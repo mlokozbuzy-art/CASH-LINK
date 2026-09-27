@@ -1,1 +1,1603 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LINKCASH - Pending Dashboard</title>
 
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:#050505;
+  color:#fff;
+  padding-bottom:40px;
+}
+
+.topbar{
+  height:68px;
+  background:#0b0b0b;
+  border-bottom:1px solid #252525;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+  color:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+.brand-name{
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.pending-badge{
+  padding:8px 11px;
+  border-radius:20px;
+  color:#d4a72c;
+  background:rgba(212,167,44,.08);
+  border:1px solid rgba(212,167,44,.25);
+  font-size:9px;
+  font-weight:900;
+}
+
+.container{
+  width:100%;
+  max-width:480px;
+  margin:auto;
+  padding:22px 15px 35px;
+}
+
+.welcome{
+  margin-bottom:18px;
+}
+
+.welcome small{
+  color:#777;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.welcome h1{
+  margin-top:6px;
+  font-size:24px;
+}
+
+.welcome h1 span{
+  color:#d4a72c;
+}
+
+.welcome p{
+  color:#666;
+  font-size:11px;
+  line-height:1.5;
+  margin-top:7px;
+}
+
+/* PAYMENT CARD */
+
+.payment-card{
+  background:linear-gradient(145deg,#171717,#0b0b0b);
+  border:1px solid #292929;
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:15px;
+}
+
+.payment-title{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.payment-icon{
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  background:rgba(212,167,44,.09);
+  border:1px solid rgba(212,167,44,.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#d4a72c;
+  font-size:20px;
+}
+
+.payment-title h2{
+  font-size:15px;
+}
+
+.payment-title p{
+  color:#666;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.amount-box{
+  margin-top:17px;
+  background:#080808;
+  border:1px solid #252525;
+  border-radius:14px;
+  padding:15px;
+  text-align:center;
+}
+
+.amount-label{
+  color:#666;
+  font-size:9px;
+}
+
+.amount{
+  margin-top:6px;
+  color:#d4a72c;
+  font-size:27px;
+  font-weight:900;
+}
+
+/* OPERATOR */
+
+.label{
+  display:block;
+  color:#999;
+  font-size:10px;
+  margin-bottom:7px;
+}
+
+.operator-select{
+  width:100%;
+  height:48px;
+  border-radius:12px;
+  background:#090909;
+  color:#fff;
+  border:1px solid #292929;
+  padding:0 12px;
+  outline:none;
+  font-size:11px;
+}
+
+.operator-select:focus{
+  border-color:#d4a72c;
+}
+
+/* BANNER */
+
+.operator-banner{
+  display:none;
+  margin-top:13px;
+  border-radius:17px;
+  overflow:hidden;
+  min-height:150px;
+  position:relative;
+  border:1px solid #303030;
+}
+
+.operator-banner.show{
+  display:block;
+}
+
+.banner-bg{
+  position:absolute;
+  inset:0;
+  opacity:.18;
+  font-size:90px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.banner-content{
+  position:relative;
+  z-index:2;
+  padding:18px;
+}
+
+.banner-logo{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:rgba(255,255,255,.92);
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.banner-content h3{
+  font-size:14px;
+}
+
+.banner-content p{
+  color:#ddd;
+  font-size:10px;
+  line-height:1.55;
+  margin-top:6px;
+}
+
+/* COLORS */
+
+.yas{
+  background:linear-gradient(135deg,#102c16,#071008);
+}
+
+.mpesa{
+  background:linear-gradient(135deg,#082d18,#07130b);
+}
+
+.airtel{
+  background:linear-gradient(135deg,#3a0909,#100505);
+}
+
+.halo{
+  background:linear-gradient(135deg,#202b08,#0c1004);
+}
+
+.ttcl{
+  background:linear-gradient(135deg,#071c36,#050b15);
+}
+
+/* METHODS */
+
+.methods{
+  display:none;
+  margin-top:15px;
+}
+
+.methods.show{
+  display:block;
+}
+
+.method-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.method{
+  min-height:74px;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:14px;
+  padding:12px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.method.active{
+  border-color:#d4a72c;
+  background:rgba(212,167,44,.06);
+}
+
+.method:active{
+  transform:scale(.97);
+}
+
+.method-icon{
+  color:#d4a72c;
+  font-size:18px;
+}
+
+.method h4{
+  font-size:10px;
+  margin-top:6px;
+}
+
+.method p{
+  color:#666;
+  font-size:8px;
+  margin-top:3px;
+}
+
+/* INSTRUCTIONS */
+
+.instructions{
+  display:none;
+  margin-top:12px;
+  background:#090909;
+  border:1px solid #282828;
+  border-radius:15px;
+  padding:15px;
+}
+
+.instructions.show{
+  display:block;
+}
+
+.instructions h3{
+  color:#d4a72c;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.step{
+  display:flex;
+  gap:9px;
+  margin-bottom:10px;
+}
+
+.step:last-child{
+  margin-bottom:0;
+}
+
+.step-number{
+  width:25px;
+  height:25px;
+  min-width:25px;
+  border-radius:8px;
+  background:#191919;
+  color:#d4a72c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:9px;
+  font-weight:900;
+}
+
+.step-text{
+  color:#bbb;
+  font-size:10px;
+  line-height:1.45;
+}
+
+.pay-number{
+  margin-top:12px;
+  padding:12px;
+  border-radius:11px;
+  background:rgba(212,167,44,.07);
+  border:1px solid rgba(212,167,44,.2);
+}
+
+.pay-number small{
+  display:block;
+  color:#777;
+  font-size:8px;
+}
+
+.pay-number strong{
+  display:block;
+  color:#d4a72c;
+  font-size:17px;
+  margin-top:4px;
+}
+
+/* CONFIRM PAYMENT */
+
+.confirm-box{
+  margin-top:18px;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:18px;
+  padding:17px;
+}
+
+.confirm-box h2{
+  font-size:15px;
+}
+
+.confirm-box > p{
+  color:#666;
+  font-size:9px;
+  line-height:1.5;
+  margin-top:5px;
+  margin-bottom:15px;
+}
+
+.field{
+  margin-bottom:12px;
+}
+
+.field label{
+  display:block;
+  color:#999;
+  font-size:9px;
+  margin-bottom:6px;
+}
+
+.field input,
+.field textarea{
+  width:100%;
+  background:#070707;
+  border:1px solid #292929;
+  border-radius:11px;
+  color:#fff;
+  outline:none;
+  padding:12px;
+  font-size:11px;
+}
+
+.field input{
+  height:45px;
+}
+
+.field textarea{
+  min-height:90px;
+  resize:none;
+}
+
+.field input:focus,
+.field textarea:focus{
+  border-color:#d4a72c;
+}
+
+.submit{
+  width:100%;
+  height:48px;
+  margin-top:3px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
+  color:#080808;
+  font-size:11px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.submit:active{
+  transform:scale(.98);
+}
+
+.submit:disabled{
+  opacity:.45;
+}
+
+/* STATUS */
+
+.status-box{
+  display:none;
+  margin-top:13px;
+  padding:14px;
+  border-radius:12px;
+  background:rgba(212,167,44,.07);
+  border:1px solid rgba(212,167,44,.2);
+  color:#d4a72c;
+  font-size:10px;
+  line-height:1.5;
+  text-align:center;
+}
+
+.status-box.show{
+  display:block;
+}
+
+.note{
+  margin-top:15px;
+  padding:13px;
+  border-radius:12px;
+  background:#0d0d0d;
+  border:1px solid #202020;
+  color:#666;
+  font-size:9px;
+  line-height:1.5;
+  text-align:center;
+}
+
+.logout{
+  width:100%;
+  height:45px;
+  margin-top:17px;
+  border-radius:11px;
+  border:1px solid #292929;
+  background:#101010;
+  color:#999;
+  font-weight:bold;
+  font-size:10px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:22px;
+  color:#444;
+  font-size:9px;
+}
+
+@media(max-width:380px){
+  .method-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="brand">
+
+    <div class="logo">LC</div>
+
+    <div class="brand-name">
+      LINKCASH
+    </div>
+
+  </div>
+
+  <div class="pending-badge">
+    PENDING
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <div class="welcome">
+
+    <small>ACCOUNT ACTIVATION</small>
+
+    <h1>
+      Karibu <span>LINKCASH</span>
+    </h1>
+
+    <p>
+      Chagua mtandao unaotaka kutumia kulipia
+      activation fee yako.
+    </p>
+
+  </div>
+
+
+  <div class="payment-card">
+
+    <div class="payment-title">
+
+      <div class="payment-icon">
+        TSh
+      </div>
+
+      <div>
+        <h2>Activation Payment</h2>
+        <p>Malipo ya kuanzisha akaunti</p>
+      </div>
+
+    </div>
+
+
+    <div class="amount-box">
+
+      <div class="amount-label">
+        ACTIVATION FEE
+      </div>
+
+      <div class="amount">
+        TSh 14,500
+      </div>
+
+    </div>
+
+
+    <div style="margin-top:17px">
+
+      <label class="label">
+        MOBILE OPERATOR
+      </label>
+
+      <select
+        class="operator-select"
+        id="operator"
+        onchange="selectOperator()"
+      >
+
+        <option value="">
+          Chagua mtandao wa kulipia
+        </option>
+
+        <option value="yas">
+          MIXx BY YAS
+        </option>
+
+        <option value="mpesa">
+          M-PESA
+        </option>
+
+        <option value="airtel">
+          AIRTEL MONEY
+        </option>
+
+        <option value="halo">
+          HALOPESA
+        </option>
+
+        <option value="ttcl">
+          TTCL T-PESA
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div
+      id="operatorBanner"
+      class="operator-banner"
+    >
+
+      <div
+        id="bannerBg"
+        class="banner-bg"
+      ></div>
+
+      <div class="banner-content">
+
+        <div
+          id="bannerLogo"
+          class="banner-logo"
+        >
+          $
+        </div>
+
+        <h3 id="bannerTitle">
+          MTANDAO
+        </h3>
+
+        <p id="bannerDescription">
+          Chagua mtandao kuona maelekezo.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="methods"
+      class="methods"
+    >
+
+      <label class="label">
+        CHAGUA NJIA YA KULIPIA
+      </label>
+
+      <div class="method-grid">
+
+        <div
+          class="method"
+          id="ussdMethod"
+          onclick="chooseMethod('ussd')"
+        >
+
+          <div class="method-icon">
+            #
+          </div>
+
+          <h4>USSD</h4>
+
+          <p>
+            Tumia menu ya simu
+          </p>
+
+        </div>
+
+
+        <div
+          class="method"
+          id="mobileMethod"
+          onclick="chooseMethod('mobile')"
+        >
+
+          <div class="method-icon">
+            ◉
+          </div>
+
+          <h4>SIM MENU</h4>
+
+          <p>
+            Tumia huduma ya simu
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="instructions"
+      class="instructions"
+    >
+
+      <h3 id="instructionTitle">
+        MAELEKEZO YA MALIPO
+      </h3>
+
+      <div id="steps"></div>
+
+      <div class="pay-number">
+
+        <small>
+          LIPA NAMBA / ACCOUNT
+        </small>
+
+        <strong id="paymentNumber">
+          -
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CONFIRM PAYMENT -->
+
+  <div class="confirm-box">
+
+    <h2>
+      Thibitisha Malipo
+    </h2>
+
+    <p>
+      Baada ya kufanya malipo ya TSh 14,500,
+      jaza taarifa za muamala hapa chini
+      kisha tuma kwa CEO kwa ajili ya uhakiki.
+    </p>
+
+
+    <div class="field">
+
+      <label>
+        NAMBA ILIYOTUMIKA KULIPIA
+      </label>
+
+      <input
+        id="paidPhone"
+        type="tel"
+        placeholder="Mfano 07XXXXXXXX"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        MAJINA
+      </label>
+
+      <input
+        id="paidName"
+        type="text"
+        placeholder="Majina yaliyotumika kulipia"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        MESSAGE YA MUAMALA
+      </label>
+
+      <textarea
+        id="transactionMessage"
+        placeholder="Bandika message/SMS ya muamala hapa..."
+      ></textarea>
+
+    </div>
+
+
+    <button
+      class="submit"
+      id="submitBtn"
+      onclick="submitPayment()"
+    >
+      SUBMIT TO CEO
+    </button>
+
+
+    <div
+      class="status-box"
+      id="statusBox"
+    >
+      Malipo yako yamewasilishwa kwa CEO
+      na yako kwenye hali ya kusubiri uthibitisho.
+    </div>
+
+  </div>
+
+
+  <div class="note">
+
+    <strong>USALAMA:</strong>
+    Usitume PIN yako, password au OTP kwa mtu yeyote.
+    PIN inatumika kwenye simu yako wakati wa kuthibitisha
+    malipo pekee.
+
+  </div>
+
+
+  <button
+    class="logout"
+    onclick="logoutUser()"
+  >
+    LOG OUT
+  </button>
+
+
+  <div class="footer">
+    © 2026 LINKCASH
+  </div>
+
+</main>
+
+
+<script>
+
+/* =========================================
+   SETTINGS
+========================================= */
+
+const ACTIVATION_FEE = 14500;
+
+
+/*
+  WEKA NAMBA ZAKO HALISI HAPA.
+  USIACHE NAMBA ZA MFANO KAMA HUJAZIWEKA.
+*/
+
+const PAYMENT_ACCOUNTS = {
+
+  yas:{
+    number:"WEKA_LIPA_NAMBA_YAS",
+    name:"MIXx BY YAS",
+    logo:"YAS",
+    className:"yas",
+    description:
+      "Tumia MIXx by Yas kufanya malipo ya activation fee."
+  },
+
+  mpesa:{
+    number:"WEKA_LIPA_NAMBA_MPESA",
+    name:"M-PESA",
+    logo:"M",
+    className:"mpesa",
+    description:
+      "Tumia M-Pesa kufanya malipo ya activation fee."
+  },
+
+  airtel:{
+    number:"WEKA_LIPA_NAMBA_AIRTEL",
+    name:"AIRTEL MONEY",
+    logo:"A",
+    className:"airtel",
+    description:
+      "Tumia Airtel Money kufanya malipo ya activation fee."
+  },
+
+  halo:{
+    number:"WEKA_LIPA_NAMBA_HALOPESA",
+    name:"HALOPESA",
+    logo:"H",
+    className:"halo",
+    description:
+      "Tumia HaloPesa kufanya malipo ya activation fee."
+  },
+
+  ttcl:{
+    number:"WEKA_LIPA_NAMBA_TTCL",
+    name:"TTCL T-PESA",
+    logo:"T",
+    className:"ttcl",
+    description:
+      "Tumia T-PESA kufanya malipo ya activation fee."
+  }
+
+};
+
+
+let selectedOperator = "";
+
+let selectedMethod = "";
+
+
+/* =========================================
+   GET ACCOUNT
+========================================= */
+
+function getAccount(){
+
+  try{
+
+    const data =
+      localStorage.getItem(
+        "linkcashAccount"
+      );
+
+    return data
+      ? JSON.parse(data)
+      : null;
+
+  }catch(error){
+
+    return null;
+
+  }
+
+}
+
+
+/* =========================================
+   SELECT OPERATOR
+========================================= */
+
+function selectOperator(){
+
+  selectedOperator =
+    document.getElementById(
+      "operator"
+    ).value;
+
+  selectedMethod = "";
+
+
+  document
+    .getElementById("methods")
+    .classList.remove("show");
+
+
+  document
+    .getElementById("instructions")
+    .classList.remove("show");
+
+
+  document
+    .querySelectorAll(".method")
+    .forEach(function(item){
+
+      item.classList.remove("active");
+
+    });
+
+
+  if(!selectedOperator){
+
+    document
+      .getElementById("operatorBanner")
+      .classList.remove("show");
+
+    return;
+
+  }
+
+
+  const data =
+    PAYMENT_ACCOUNTS[
+      selectedOperator
+    ];
+
+
+  const banner =
+    document.getElementById(
+      "operatorBanner"
+    );
+
+
+  banner.className =
+    "operator-banner show " +
+    data.className;
+
+
+  document.getElementById(
+    "bannerBg"
+  ).textContent =
+    data.name;
+
+
+  document.getElementById(
+    "bannerLogo"
+  ).textContent =
+    data.logo;
+
+
+  document.getElementById(
+    "bannerTitle"
+  ).textContent =
+    data.name;
+
+
+  document.getElementById(
+    "bannerDescription"
+  ).textContent =
+    data.description;
+
+
+  document.getElementById(
+    "methods"
+  ).classList.add("show");
+
+}
+
+
+/* =========================================
+   CHOOSE METHOD
+========================================= */
+
+function chooseMethod(method){
+
+  if(!selectedOperator){
+
+    return;
+
+  }
+
+
+  selectedMethod = method;
+
+
+  document
+    .querySelectorAll(".method")
+    .forEach(function(item){
+
+      item.classList.remove("active");
+
+    });
+
+
+  if(method === "ussd"){
+
+    document
+      .getElementById("ussdMethod")
+      .classList.add("active");
+
+  }else{
+
+    document
+      .getElementById("mobileMethod")
+      .classList.add("active");
+
+  }
+
+
+  showInstructions();
+
+}
+
+
+/* =========================================
+   INSTRUCTIONS
+========================================= */
+
+function showInstructions(){
+
+  const data =
+    PAYMENT_ACCOUNTS[
+      selectedOperator
+    ];
+
+
+  const steps =
+    document.getElementById(
+      "steps"
+    );
+
+
+  let html = "";
+
+
+  if(selectedOperator === "yas"){
+
+    html += step(
+      "1",
+      "Piga *150*01# kwenye simu yako."
+    );
+
+    html += step(
+      "2",
+      "Chagua huduma ya kutuma au kulipia kulingana na aina ya akaunti uliyopewa."
+    );
+
+    html += step(
+      "3",
+      "Ingiza namba ya malipo/account iliyoonyeshwa hapa chini."
+    );
+
+    html += step(
+      "4",
+      "Weka kiasi cha TSh 14,500."
+    );
+
+    html += step(
+      "5",
+      "Kagua taarifa za malipo kisha thibitisha kwa PIN yako."
+    );
+
+  }
+
+
+  if(selectedOperator === "mpesa"){
+
+    html += step(
+      "1",
+      "Piga *150*00# kwenye simu yako."
+    );
+
+    html += step(
+      "2",
+      "Chagua huduma ya M-Pesa inayohusiana na malipo."
+    );
+
+    html += step(
+      "3",
+      "Ingiza namba ya malipo/account iliyoonyeshwa hapa chini."
+    );
+
+    html += step(
+      "4",
+      "Weka TSh 14,500."
+    );
+
+    html += step(
+      "5",
+      "Kagua taarifa na thibitisha kwa PIN yako."
+    );
+
+  }
+
+
+  if(selectedOperator === "airtel"){
+
+    html += step(
+      "1",
+      "Piga *150*60# kwenye simu yako."
+    );
+
+    html += step(
+      "2",
+      "Chagua huduma ya malipo inayohusika."
+    );
+
+    html += step(
+      "3",
+      "Ingiza namba ya malipo/account."
+    );
+
+    html += step(
+      "4",
+      "Ingiza kiasi cha TSh 14,500."
+    );
+
+    html += step(
+      "5",
+      "Kagua taarifa na thibitisha kwa PIN yako."
+    );
+
+  }
+
+
+  if(selectedOperator === "halo"){
+
+    html += step(
+      "1",
+      "Piga *150*88# kwenye simu yako."
+    );
+
+    html += step(
+      "2",
+      "Chagua huduma ya kulipia bili/malipo."
+    );
+
+    html += step(
+      "3",
+      "Ingiza namba ya malipo/account."
+    );
+
+    html += step(
+      "4",
+      "Weka kiasi cha TSh 14,500."
+    );
+
+    html += step(
+      "5",
+      "Thibitisha muamala kwa PIN yako."
+    );
+
+  }
+
+
+  if(selectedOperator === "ttcl"){
+
+    html += step(
+      "1",
+      "Piga *150*71# kwenye simu yako."
+    );
+
+    html += step(
+      "2",
+      "Chagua huduma ya T-PESA ya kulipia."
+    );
+
+    html += step(
+      "3",
+      "Ingiza namba ya malipo/account."
+    );
+
+    html += step(
+      "4",
+      "Ingiza kiasi cha TSh 14,500."
+    );
+
+    html += step(
+      "5",
+      "Kagua taarifa na thibitisha kwa PIN yako."
+    );
+
+  }
+
+
+  steps.innerHTML = html;
+
+
+  document.getElementById(
+    "instructionTitle"
+  ).textContent =
+    "MAELEKEZO • " +
+    data.name;
+
+
+  document.getElementById(
+    "paymentNumber"
+  ).textContent =
+    data.number;
+
+
+  document
+    .getElementById("instructions")
+    .classList.add("show");
+
+}
+
+
+function step(number,text){
+
+  return `
+
+    <div class="step">
+
+      <div class="step-number">
+        ${number}
+      </div>
+
+      <div class="step-text">
+        ${escapeHTML(text)}
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================
+   ESCAPE
+========================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================
+   SUBMIT PAYMENT TO CEO
+========================================= */
+
+function submitPayment(){
+
+  const account =
+    getAccount();
+
+
+  if(!selectedOperator){
+
+    alert(
+      "Tafadhali chagua MOBILE OPERATOR kwanza."
+    );
+
+    return;
+
+  }
+
+
+  if(!selectedMethod){
+
+    alert(
+      "Tafadhali chagua njia ya kulipia."
+    );
+
+    return;
+
+  }
+
+
+  const phone =
+    document.getElementById(
+      "paidPhone"
+    ).value.trim();
+
+
+  const names =
+    document.getElementById(
+      "paidName"
+    ).value.trim();
+
+
+  const message =
+    document.getElementById(
+      "transactionMessage"
+    ).value.trim();
+
+
+  if(!phone){
+
+    alert(
+      "Tafadhali weka namba iliyotumika kulipia."
+    );
+
+    return;
+
+  }
+
+
+  if(!names){
+
+    alert(
+      "Tafadhali weka majina."
+    );
+
+    return;
+
+  }
+
+
+  if(!message){
+
+    alert(
+      "Tafadhali weka message ya muamala."
+    );
+
+    return;
+
+  }
+
+
+  const username =
+    account &&
+    account.username
+      ? account.username
+      : "unknown";
+
+
+  const fullname =
+    account &&
+    account.fullname
+      ? account.fullname
+      : names;
+
+
+  const payment = {
+
+    id:
+      "PAY-" +
+      Date.now() +
+      "-" +
+      Math.random()
+        .toString(36)
+        .substring(2,8),
+
+    username:
+      username,
+
+    fullname:
+      fullname,
+
+    phone:
+      phone,
+
+    paidName:
+      names,
+
+    method:
+      PAYMENT_ACCOUNTS[
+        selectedOperator
+      ].name,
+
+    paymentMethod:
+      selectedMethod,
+
+    amount:
+      ACTIVATION_FEE,
+
+    paymentAccount:
+      PAYMENT_ACCOUNTS[
+        selectedOperator
+      ].number,
+
+    transaction:
+      message,
+
+    transactionMessage:
+      message,
+
+    status:
+      "pending",
+
+    submittedAt:
+      new Date().toISOString()
+
+  };
+
+
+  let payments = [];
+
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "linkcashPayments"
+      );
+
+    payments =
+      saved
+        ? JSON.parse(saved)
+        : [];
+
+    if(!Array.isArray(payments)){
+      payments = [];
+    }
+
+  }catch(error){
+
+    payments = [];
+
+  }
+
+
+  /*
+    AUTO SAVE PAYMENT
+  */
+
+  payments.push(payment);
+
+
+  localStorage.setItem(
+    "linkcashPayments",
+    JSON.stringify(payments)
+  );
+
+
+  /*
+    KEEP USER PENDING
+  */
+
+  if(account){
+
+    const updatedAccount = {
+
+      ...account,
+
+      status:"pending",
+
+      paymentStatus:"pending",
+
+      paymentMethod:
+        payment.method,
+
+      paymentReference:
+        message,
+
+      activationFee:
+        ACTIVATION_FEE,
+
+      submittedAt:
+        payment.submittedAt
+
+    };
+
+
+    localStorage.setItem(
+      "linkcashAccount",
+      JSON.stringify(
+        updatedAccount
+      )
+    );
+
+  }
+
+
+  /*
+    SHOW SUCCESS
+  */
+
+  document
+    .getElementById("statusBox")
+    .classList.add("show");
+
+
+  document.getElementById(
+    "statusBox"
+  ).textContent =
+    "Malipo ya TSh 14,500 yamewasilishwa kwa CEO. Akaunti yako ipo kwenye hali ya PENDING mpaka malipo yatakapothibitishwa.";
+
+
+  document.getElementById(
+    "submitBtn"
+  ).disabled = true;
+
+
+  document.getElementById(
+    "submitBtn"
+  ).textContent =
+    "PAYMENT SUBMITTED";
+
+
+  window.scrollTo({
+    top:document.body.scrollHeight,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logoutUser(){
+
+  localStorage.removeItem(
+    "linkcashLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "linkcashUser"
+  );
+
+  window.location.href =
+    "login.html";
+
+}
+
+</script>
+
+</body>
+  </html>
