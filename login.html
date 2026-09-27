@@ -43,20 +43,14 @@ body{
   height:70px;
   margin:auto;
   border-radius:20px;
-  background:linear-gradient(
-    145deg,
-    #ffe082,
-    #d4a72c,
-    #8f6b12
-  );
+  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
   display:flex;
   align-items:center;
   justify-content:center;
   color:#090909;
   font-size:24px;
   font-weight:900;
-  box-shadow:
-    0 0 25px rgba(212,167,44,.25);
+  box-shadow:0 0 25px rgba(212,167,44,.25);
 }
 
 .brand h1{
@@ -76,8 +70,7 @@ body{
   border:1px solid #292929;
   border-radius:24px;
   padding:28px 22px;
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.6);
+  box-shadow:0 25px 70px rgba(0,0,0,.6);
 }
 
 .title{
@@ -124,8 +117,7 @@ input::placeholder{
 
 input:focus{
   border-color:#d4a72c;
-  box-shadow:
-    0 0 0 2px rgba(212,167,44,.08);
+  box-shadow:0 0 0 2px rgba(212,167,44,.08);
 }
 
 .password-wrap{
@@ -155,13 +147,7 @@ input:focus{
   margin-top:5px;
   border:none;
   border-radius:13px;
-  background:
-    linear-gradient(
-      135deg,
-      #ffe082,
-      #d4a72c,
-      #a77b17
-    );
+  background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
   color:#080808;
   font-size:15px;
   font-weight:900;
@@ -265,8 +251,7 @@ input:focus{
 
 .connection-dot.online{
   background:#58d88a;
-  box-shadow:
-    0 0 8px rgba(88,216,138,.5);
+  box-shadow:0 0 8px rgba(88,216,138,.5);
 }
 
 .connection-dot.error{
@@ -274,7 +259,6 @@ input:focus{
 }
 
 </style>
-
 </head>
 
 <body>
@@ -289,9 +273,7 @@ input:focus{
 
     <h1>LINKCASH</h1>
 
-    <p>
-      Simple. Secure. Connected.
-    </p>
+    <p>Simple. Secure. Connected.</p>
 
   </div>
 
@@ -300,9 +282,7 @@ input:focus{
 
     <div class="title">
 
-      <h2>
-        Welcome Back
-      </h2>
+      <h2>Welcome Back</h2>
 
       <p>
         Login to your LINKCASH account.
@@ -311,16 +291,11 @@ input:focus{
     </div>
 
 
-    <form
-      id="loginForm"
-      novalidate
-    >
+    <form id="loginForm" novalidate>
 
       <div class="field">
 
-        <label>
-          Username
-        </label>
+        <label>Username</label>
 
         <input
           type="text"
@@ -335,9 +310,7 @@ input:focus{
 
       <div class="field">
 
-        <label>
-          Password
-        </label>
+        <label>Password</label>
 
         <div class="password-wrap">
 
@@ -375,16 +348,16 @@ input:focus{
 
     <div
       class="message"
-      id="message"
-    ></div>
+      id="message">
+    </div>
 
 
     <div class="connection">
 
       <div
         class="connection-dot"
-        id="connectionDot"
-      ></div>
+        id="connectionDot">
+      </div>
 
       <span id="connectionText">
         CHECKING SUPABASE...
@@ -406,10 +379,7 @@ input:focus{
   </div>
 
 
-  <a
-    href="index.html"
-    class="back"
-  >
+  <a href="index.html" class="back">
     ← Back to Home
   </a>
 
@@ -432,7 +402,6 @@ const SUPABASE_URL =
 
 const SUPABASE_KEY =
 "sb_publishable_CyKL7kpQ2K5AdosXfebJCg_k-uF8OpV";
-
 
 const supabaseClient =
 window.supabase.createClient(
@@ -471,7 +440,32 @@ document.getElementById("connectionText");
 
 
 /* =========================================
-   SHOW / HIDE PASSWORD
+   CLEAR OLD SESSION
+========================================= */
+
+function clearOldSessions(){
+
+  localStorage.removeItem(
+    "linkcashCEOLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "linkcashCEO"
+  );
+
+  localStorage.removeItem(
+    "linkcashLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "linkcashUser"
+  );
+
+}
+
+
+/* =========================================
+   SHOW PASSWORD
 ========================================= */
 
 showPassword.addEventListener(
@@ -505,10 +499,7 @@ showPassword.addEventListener(
    MESSAGE
 ========================================= */
 
-function showMessage(
-  text,
-  type
-){
+function showMessage(text,type){
 
   message.className =
     "message " + type;
@@ -537,7 +528,7 @@ function clearMessage(){
 
 
 /* =========================================
-   CONNECTION CHECK
+   CONNECTION
 ========================================= */
 
 async function checkConnection(){
@@ -559,9 +550,7 @@ async function checkConnection(){
       connectionText.textContent =
         "DATABASE CONNECTION ERROR";
 
-      console.error(
-        result.error
-      );
+      console.error(result.error);
 
       return false;
 
@@ -600,54 +589,48 @@ async function checkConnection(){
 
 function saveUser(user){
 
+  const role =
+    String(
+      user.role || "user"
+    )
+    .trim()
+    .toLowerCase();
+
+
+  const status =
+    String(
+      user.status || "pending"
+    )
+    .trim()
+    .toLowerCase();
+
+
   const cleanUser = {
 
-    id:
-      user.id || "",
+    id:user.id || "",
 
-    fullname:
-      user.fullname ||
-      "",
+    username:user.username || "",
 
-    username:
-      user.username ||
-      "",
+    fullname:user.fullname || "",
 
-    phone:
-      user.phone ||
-      "",
+    phone:user.phone || "",
 
-    email:
-      user.email ||
-      "",
+    email:user.email || "",
 
-    role:
-      String(
-        user.role || "user"
-      )
-      .trim()
-      .toLowerCase(),
+    role:role,
+
+    status:status,
+
+    balance:Number(
+      user.balance || 0
+    ),
+
+    commission:Number(
+      user.commission || 0
+    ),
 
     referrer:
-      user.referrer ||
-      null,
-
-    status:
-      String(
-        user.status || "pending"
-      )
-      .trim()
-      .toLowerCase(),
-
-    balance:
-      Number(
-        user.balance || 0
-      ),
-
-    commission:
-      Number(
-        user.commission || 0
-      )
+      user.referrer || null
 
   };
 
@@ -661,6 +644,42 @@ function saveUser(user){
   localStorage.setItem(
     "linkcashLoggedIn",
     "true"
+  );
+
+}
+
+
+/* =========================================
+   SAVE CEO SESSION
+========================================= */
+
+function saveCEOSession(user){
+
+  localStorage.setItem(
+    "linkcashCEOLoggedIn",
+    "true"
+  );
+
+
+  localStorage.setItem(
+    "linkcashCEO",
+    JSON.stringify({
+
+      id:user.id,
+
+      username:user.username,
+
+      fullname:user.fullname,
+
+      role:"ceo",
+
+      status:String(
+        user.status || ""
+      )
+      .trim()
+      .toLowerCase()
+
+    })
   );
 
 }
@@ -695,18 +714,16 @@ form.addEventListener(
 
     clearMessage();
 
+
     const username =
       usernameInput.value
       .trim()
       .toLowerCase();
 
+
     const password =
       passwordInput.value;
 
-
-    /* ==============================
-       VALIDATION
-    ============================== */
 
     if(!username){
 
@@ -744,10 +761,14 @@ form.addEventListener(
 
     try{
 
-
-      /* ==============================
-         FIND USER
-      ============================== */
+      /*
+       * MUHIMU:
+       * CEO credentials hazijawekwa
+       * hard-coded hapa.
+       *
+       * Mfumo unasoma role kutoka
+       * public.users.
+       */
 
       const result =
         await supabaseClient
@@ -775,10 +796,6 @@ form.addEventListener(
       }
 
 
-      /* ==============================
-         USER NOT FOUND
-      ============================== */
-
       if(!result.data){
 
         throw new Error(
@@ -792,9 +809,9 @@ form.addEventListener(
         result.data;
 
 
-      /* ==============================
-         PASSWORD CHECK
-      ============================== */
+      /* =========================
+         PASSWORD
+      ========================= */
 
       if(
         String(user.password || "") !==
@@ -808,9 +825,9 @@ form.addEventListener(
       }
 
 
-      /* ==============================
-         NORMALIZE ROLE
-      ============================== */
+      /* =========================
+         ROLE
+      ========================= */
 
       const role =
         String(
@@ -820,9 +837,9 @@ form.addEventListener(
         .toLowerCase();
 
 
-      /* ==============================
-         NORMALIZE STATUS
-      ============================== */
+      /* =========================
+         STATUS
+      ========================= */
 
       const status =
         String(
@@ -832,22 +849,19 @@ form.addEventListener(
         .toLowerCase();
 
 
-      /* ==============================
-         SAVE USER
-      ============================== */
+      /*
+       * Save fresh database data.
+       */
 
       saveUser(user);
 
 
-      /* ==============================
+      /* =================================================
          CEO
-      ============================== */
+         ONLY role = ceo can enter CEO dashboard
+      ================================================= */
 
       if(role === "ceo"){
-
-        /*
-         * CEO lazima awe active.
-         */
 
         if(
           status !== "active" &&
@@ -871,37 +885,7 @@ form.addEventListener(
         }
 
 
-        /*
-         * Hifadhi CEO session
-         */
-
-        localStorage.setItem(
-          "linkcashCEOLoggedIn",
-          "true"
-        );
-
-
-        localStorage.setItem(
-          "linkcashCEO",
-          JSON.stringify({
-
-            id:
-              user.id,
-
-            username:
-              user.username,
-
-            fullname:
-              user.fullname,
-
-            role:
-              "ceo",
-
-            status:
-              status
-
-          })
-        );
+        saveCEOSession(user);
 
 
         showMessage(
@@ -911,7 +895,7 @@ form.addEventListener(
 
 
         button.textContent =
-          "LOGIN SUCCESSFUL ✓";
+          "CEO DASHBOARD ✓";
 
 
         setTimeout(
@@ -931,16 +915,18 @@ form.addEventListener(
       }
 
 
-      /* ==============================
+      /* =================================================
          NORMAL USER
-      ============================== */
+         Any role other than ceo
+         can NEVER go to CEO dashboard
+      ================================================= */
 
       clearCEOSession();
 
 
-      /* ==============================
+      /* =========================
          REJECTED
-      ============================== */
+      ========================= */
 
       if(status === "rejected"){
 
@@ -948,7 +934,6 @@ form.addEventListener(
           "Your account has been rejected. Please contact LINKCASH support.",
           "rejected"
         );
-
 
         button.disabled = false;
 
@@ -960,9 +945,9 @@ form.addEventListener(
       }
 
 
-      /* ==============================
+      /* =========================
          PENDING
-      ============================== */
+      ========================= */
 
       if(
         status === "pending" ||
@@ -976,7 +961,6 @@ form.addEventListener(
           "Your account is waiting for CEO approval.",
           "pending"
         );
-
 
         button.textContent =
           "ACCOUNT PENDING";
@@ -993,15 +977,14 @@ form.addEventListener(
           900
         );
 
-
         return;
 
       }
 
 
-      /* ==============================
-         ACTIVE NORMAL USER
-      ============================== */
+      /* =========================
+         ACTIVE USER
+      ========================= */
 
       if(
         status === "active" ||
@@ -1029,15 +1012,14 @@ form.addEventListener(
           700
         );
 
-
         return;
 
       }
 
 
-      /* ==============================
+      /* =========================
          UNKNOWN STATUS
-      ============================== */
+      ========================= */
 
       showMessage(
         "Your account is waiting for approval.",
@@ -1090,6 +1072,8 @@ form.addEventListener(
 /* =========================================
    START
 ========================================= */
+
+clearOldSessions();
 
 checkConnection();
 
