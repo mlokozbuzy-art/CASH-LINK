@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>LINKCASH</title>
-
-<style>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LINKCASH - Home</title><style>
 *{
   box-sizing:border-box;
   margin:0;
@@ -21,24 +15,18 @@ body{
   color:#fff;
 }
 
-/* =========================
-   HEADER
-========================= */
-
-header{
-  height:70px;
-  background:#0b0b0b;
-  border-bottom:1px solid #242424;
-
+/* TOPBAR */
+.topbar{
+  height:68px;
+  padding:0 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  padding:0 18px;
-
+  background:#0b0b0b;
+  border-bottom:1px solid #252525;
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:10;
 }
 
 .brand{
@@ -50,113 +38,63 @@ header{
 .logo{
   width:42px;
   height:42px;
-
   border-radius:12px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffe082,
-      #d4a72c,
-      #8f6b12
-    );
-
-  color:#050505;
-
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
+  color:#080808;
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size:15px;
+  font-size:14px;
   font-weight:900;
+  box-shadow:0 0 18px rgba(212,167,44,.18);
 }
 
 .brand-name{
   font-size:17px;
   font-weight:900;
-  letter-spacing:2px;
+  letter-spacing:1.8px;
 }
 
-.menu-btn{
-  width:42px;
-  height:42px;
-
-  border:1px solid #292929;
-  border-radius:11px;
-
-  background:#111;
-  color:#d4a72c;
-
-  font-size:20px;
-
-  cursor:pointer;
-}
-
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero{
-  min-height:calc(100vh - 70px);
-
+  min-height:calc(100vh - 68px);
   display:flex;
   align-items:center;
   justify-content:center;
-
-  text-align:center;
-
-  padding:50px 20px 70px;
-
-  position:relative;
-  overflow:hidden;
-}
-
-.hero::before{
-  content:"";
-
-  position:absolute;
-
-  width:350px;
-  height:350px;
-
-  border-radius:50%;
-
-  background:rgba(212,167,44,.07);
-
-  filter:blur(70px);
-
-  top:10%;
-  left:50%;
-
-  transform:translateX(-50%);
+  padding:35px 18px 50px;
 }
 
 .hero-content{
   width:100%;
-  max-width:650px;
-
-  position:relative;
-  z-index:2;
+  max-width:850px;
+  text-align:center;
 }
 
-.small-title{
+/* BADGE */
+.badge{
+  display:inline-block;
+  padding:8px 13px;
+  border-radius:20px;
+  border:1px solid rgba(212,167,44,.28);
+  background:rgba(212,167,44,.07);
   color:#d4a72c;
-
-  font-size:11px;
+  font-size:9px;
   font-weight:900;
-
-  letter-spacing:3px;
-
-  margin-bottom:15px;
+  letter-spacing:1.2px;
+  margin-bottom:20px;
 }
 
+/* TITLE */
 .hero h1{
   font-size:48px;
   line-height:1.05;
-
   letter-spacing:2px;
-
-  margin-bottom:18px;
+  font-weight:900;
 }
 
 .hero h1 span{
@@ -164,791 +102,252 @@ header{
 }
 
 .hero p{
-  max-width:520px;
-
-  margin:0 auto;
-
-  color:#888;
-
-  font-size:15px;
+  max-width:570px;
+  margin:18px auto 0;
+  color:#777;
+  font-size:14px;
   line-height:1.7;
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
+/* BUTTONS */
 .buttons{
   display:flex;
-
   justify-content:center;
-
-  gap:12px;
-
-  margin-top:30px;
-
-  flex-wrap:wrap;
+  gap:11px;
+  margin-top:28px;
 }
 
 .btn{
   min-width:145px;
-
-  height:50px;
-
+  height:48px;
   padding:0 22px;
-
   border-radius:12px;
-
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
-
   cursor:pointer;
-
   text-decoration:none;
-
   display:flex;
   align-items:center;
   justify-content:center;
+  transition:.2s;
 }
 
-.btn-primary{
-  background:
-    linear-gradient(
-      135deg,
-      #ffe082,
-      #d4a72c,
-      #a77b17
-    );
-
-  color:#070707;
-
+.btn-login{
+  background:linear-gradient(
+    135deg,
+    #ffe082,
+    #d4a72c,
+    #a77b17
+  );
+  color:#080808;
   border:none;
 }
 
-.btn-secondary{
+.btn-register{
   background:#101010;
-
   color:#d4a72c;
-
-  border:1px solid #3b321b;
+  border:1px solid #39301b;
 }
 
 .btn:hover{
   transform:translateY(-2px);
+  filter:brightness(1.08);
 }
 
-/* =========================
-   FEATURES
-========================= */
-
+/* FEATURES */
 .features{
-  padding:0 18px 70px;
-}
-
-.features-container{
-  max-width:950px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:25px;
-}
-
-.section-title small{
-  color:#d4a72c;
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:2px;
-}
-
-.section-title h2{
-  font-size:25px;
-  margin-top:7px;
-}
-
-.section-title p{
-  color:#666;
-  font-size:12px;
-  margin-top:7px;
-}
-
-.feature-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:12px;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;
+  margin:45px auto 0;
+  max-width:700px;
 }
 
 .feature{
-  background:
-    linear-gradient(
-      145deg,
-      #151515,
-      #0b0b0b
-    );
-
-  border:1px solid #282828;
-
-  border-radius:18px;
-
-  padding:22px 16px;
-
-  text-align:center;
+  background:#101010;
+  border:1px solid #252525;
+  border-radius:17px;
+  padding:20px 13px;
 }
 
 .feature-icon{
-  width:48px;
-  height:48px;
-
-  margin:0 auto 14px;
-
-  border-radius:14px;
-
-  background:#19160d;
-
-  border:1px solid #332b16;
-
+  width:38px;
+  height:38px;
+  margin:0 auto 11px;
+  border-radius:11px;
+  background:#181818;
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size:21px;
+  font-size:17px;
 }
 
 .feature h3{
-  font-size:14px;
-  margin-bottom:7px;
+  font-size:11px;
+  margin-bottom:6px;
 }
 
 .feature p{
-  color:#666;
-  font-size:10px;
-  line-height:1.6;
+  margin:0;
+  font-size:9px;
+  line-height:1.5;
+  color:#606060;
 }
 
-/* =========================
-   HOW IT WORKS
-========================= */
-
-.how{
-  padding:20px 18px 70px;
-}
-
-.steps{
-  max-width:700px;
-
-  margin:auto;
-
-  display:grid;
-
-  gap:10px;
-}
-
-.step{
-  display:flex;
-
-  align-items:center;
-
-  gap:15px;
-
-  background:#101010;
-
-  border:1px solid #292929;
-
-  border-radius:15px;
-
-  padding:15px;
-}
-
-.step-number{
-  width:40px;
-  height:40px;
-
-  min-width:40px;
-
-  border-radius:12px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffe082,
-      #d4a72c
-    );
-
-  color:#080808;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:13px;
-  font-weight:900;
-}
-
-.step h3{
-  font-size:13px;
-  margin-bottom:4px;
-}
-
-.step p{
-  color:#666;
-  font-size:10px;
-}
-
-/* =========================
-   CTA
-========================= */
-
-.cta{
-  padding:0 18px 60px;
-}
-
-.cta-box{
-  max-width:850px;
-
-  margin:auto;
-
+/* FOOTER */
+.footer{
+  margin-top:45px;
+  color:#3f3f3f;
+  font-size:9px;
   text-align:center;
-
-  background:
-    linear-gradient(
-      145deg,
-      #17150f,
-      #0d0d0d
-    );
-
-  border:1px solid #3b321b;
-
-  border-radius:22px;
-
-  padding:35px 20px;
 }
 
-.cta-box h2{
-  font-size:23px;
-  margin-bottom:9px;
-}
+/* MOBILE */
+@media(max-width:600px){
 
-.cta-box p{
-  color:#777;
-  font-size:11px;
-  line-height:1.6;
-  margin-bottom:20px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  border-top:1px solid #202020;
-
-  padding:25px 18px;
-
-  text-align:center;
-
-  color:#444;
-
-  font-size:10px;
-}
-
-.footer-brand{
-  color:#d4a72c;
-
-  font-size:12px;
-  font-weight:900;
-
-  letter-spacing:2px;
-
-  margin-bottom:7px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:650px){
+  .hero{
+    padding-top:30px;
+  }
 
   .hero h1{
     font-size:38px;
   }
 
   .hero p{
-    font-size:13px;
-  }
-
-  .feature-grid{
-    grid-template-columns:1fr;
-  }
-
-  .feature{
-    text-align:left;
-
-    display:flex;
-    align-items:center;
-    gap:14px;
-  }
-
-  .feature-icon{
-    margin:0;
-    min-width:48px;
-  }
-
-  .feature h3{
-    margin-bottom:4px;
-  }
-
-}
-
-@media(max-width:400px){
-
-  .hero{
-    padding-top:40px;
-  }
-
-  .hero h1{
-    font-size:33px;
+    font-size:12px;
   }
 
   .buttons{
     flex-direction:column;
+    max-width:300px;
+    margin-left:auto;
+    margin-right:auto;
   }
 
   .btn{
     width:100%;
   }
 
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-  <div class="brand">
-
-    <div class="logo">
-      LC
-    </div>
-
-    <div class="brand-name">
-      LINKCASH
-    </div>
-
-  </div>
-
-  <button class="menu-btn" onclick="scrollToFeatures()">
-    ☰
-  </button>
-
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div class="small-title">
-      WELCOME TO LINKCASH
-    </div>
-
-    <h1>
-      Connect.<br>
-      <span>Earn.</span> Grow.
-    </h1>
-
-    <p>
-      Welcome to LINKCASH, a simple platform
-      designed to connect people with rewarding
-      online activities and opportunities.
-    </p>
-
-
-    <div class="buttons">
-
-      <a
-        href="register.html"
-        class="btn btn-primary"
-      >
-        CREATE ACCOUNT
-      </a>
-
-      <a
-        href="login.html"
-        class="btn btn-secondary"
-      >
-        LOGIN
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FEATURES
-========================= -->
-
-<section
-  class="features"
-  id="features"
->
-
-  <div class="features-container">
-
-    <div class="section-title">
-
-      <small>
-        LINKCASH PLATFORM
-      </small>
-
-      <h2>
-        What You Can Do
-      </h2>
-
-      <p>
-        Explore the main activities available on LINKCASH.
-      </p>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          💰
-        </div>
-
-        <div>
-
-          <h3>
-            Earn
-          </h3>
-
-          <p>
-            Complete available activities
-            and earn rewards.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          👥
-        </div>
-
-        <div>
-
-          <h3>
-            Connect
-          </h3>
-
-          <p>
-            Build your network and
-            connect with other users.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          📱
-        </div>
-
-        <div>
-
-          <h3>
-            Social Tasks
-          </h3>
-
-          <p>
-            Discover social activities
-            available on the platform.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          🧠
-        </div>
-
-        <div>
-
-          <h3>
-            Quizzes
-          </h3>
-
-          <p>
-            Take quizzes and participate
-            in available challenges.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          🎮
-        </div>
-
-        <div>
-
-          <h3>
-            Games
-          </h3>
-
-          <p>
-            Enjoy selected games and
-            activities.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          📢
-        </div>
-
-        <div>
-
-          <h3>
-            Advertisements
-          </h3>
-
-          <p>
-            Explore promotional activities
-            available on LINKCASH.
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     HOW IT WORKS
-========================= -->
-
-<section class="how">
-
-  <div class="section-title">
-
-    <small>
-      GET STARTED
-    </small>
-
-    <h2>
-      How It Works
-    </h2>
-
-    <p>
-      Start using LINKCASH in a few simple steps.
-    </p>
-
-  </div>
-
-
-  <div class="steps">
-
-
-    <div class="step">
-
-      <div class="step-number">
-        01
-      </div>
-
-      <div>
-
-        <h3>
-          Create Your Account
-        </h3>
-
-        <p>
-          Register for your LINKCASH account.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        02
-      </div>
-
-      <div>
-
-        <h3>
-          Access Your Dashboard
-        </h3>
-
-        <p>
-          Manage your account and activities.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        03
-      </div>
-
-      <div>
-
-        <h3>
-          Complete Activities
-        </h3>
-
-        <p>
-          Participate in available LINKCASH activities.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        04
-      </div>
-
-      <div>
-
-        <h3>
-          Track Your Progress
-        </h3>
-
-        <p>
-          View your account activity and rewards.
-        </p>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta">
-
-  <div class="cta-box">
-
-    <h2>
-      Ready to Join LINKCASH?
-    </h2>
-
-    <p>
-      Create your account and start exploring
-      the LINKCASH platform.
-    </p>
-
-    <a
-      href="register.html"
-      class="btn btn-primary"
-      style="display:inline-flex"
-    >
-      GET STARTED
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-  <div class="footer-brand">
-    LINKCASH
-  </div>
-
-  <div>
-    Simple. Secure. Connected.
-  </div>
-
-  <br>
-
-  © 2026 LINKCASH
-
-</footer>
-
-
-<script>
-
-function scrollToFeatures(){
-
-  document
-    .getElementById("features")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+  .features{
+    grid-template-columns:1fr;
+    max-width:300px;
+  }
 
 }
 
-</script>
+@media(max-width:380px){
 
-</body>
+  .hero h1{
+    font-size:33px;
+  }
+
+}
+</style></head><body><!-- TOP BAR --><header class="topbar">  <div class="brand"><div class="logo">
+  LC
+</div>
+
+<div class="brand-name">
+  LINKCASH
+</div>
+
+  </div></header><!-- HERO --><main class="hero">  <div class="hero-content"><div class="badge">
+  WELCOME TO LINKCASH
+</div>
+
+<h1>
+  Earn More.<br>
+  <span>Connect More.</span>
+</h1>
+
+<p>
+  Welcome to LINKCASH, a simple platform
+  designed to connect users with earning
+  opportunities, tasks and rewards.
+</p>
+
+
+<!-- BUTTONS -->
+<div class="buttons">
+
+  <a
+    href="login.html"
+    class="btn btn-login"
+  >
+    LOGIN
+  </a>
+
+  <a
+    href="register.html"
+    class="btn btn-register"
+  >
+    CREATE ACCOUNT
+  </a>
+
+</div>
+
+
+<!-- FEATURES -->
+<div class="features">
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      💰
+    </div>
+
+    <h3>
+      EARN
+    </h3>
+
+    <p>
+      Complete available activities
+      and earn rewards.
+    </p>
+
+  </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      🔗
+    </div>
+
+    <h3>
+      CONNECT
+    </h3>
+
+    <p>
+      Build your LINKCASH network
+      and grow together.
+    </p>
+
+  </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      ⚡
+    </div>
+
+    <h3>
+      SIMPLE
+    </h3>
+
+    <p>
+      Easy-to-use platform with
+      a clean experience.
+    </p>
+
+  </div>
+
+</div>
+
+
+<div class="footer">
+  © 2026 LINKCASH • All Rights Reserved
+</div>
+
+  </div></main></body>
 </html>
