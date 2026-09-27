@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>LINKCASH - Dashboard</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -44,7 +53,12 @@ body{
   width:41px;
   height:41px;
   border-radius:12px;
-  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
   color:#050505;
   display:flex;
   align-items:center;
@@ -110,7 +124,11 @@ body{
 }
 
 .balance-card{
-  background:linear-gradient(145deg,#1a1a1a,#0b0b0b);
+  background:linear-gradient(
+    145deg,
+    #1a1a1a,
+    #0b0b0b
+  );
   border:1px solid #3a3a3a;
   border-radius:23px;
   padding:22px;
@@ -156,7 +174,11 @@ body{
   border:none;
   border-radius:11px;
   padding:11px 19px;
-  background:linear-gradient(135deg,#ffe082,#d4a72c);
+  background:linear-gradient(
+    135deg,
+    #ffe082,
+    #d4a72c
+  );
   color:#080808;
   font-weight:900;
   font-size:12px;
@@ -215,12 +237,14 @@ body{
   margin-top:4px;
 }
 
-/* =========================
-   MY TEAM BOX
-========================= */
+/* TEAM BOX */
 
 .team-box{
-  background:linear-gradient(145deg,#151515,#0b0b0b);
+  background:linear-gradient(
+    145deg,
+    #151515,
+    #0b0b0b
+  );
   border:1px solid #2c2c2c;
   border-radius:20px;
   padding:18px;
@@ -311,9 +335,7 @@ body{
   font-size:10px;
 }
 
-/* =========================
-   TEAM PAGE
-========================= */
+/* TEAM PAGE */
 
 .team-page{
   display:none;
@@ -363,7 +385,11 @@ body{
 }
 
 .team-total-card{
-  background:linear-gradient(145deg,#1a1a1a,#0b0b0b);
+  background:linear-gradient(
+    145deg,
+    #1a1a1a,
+    #0b0b0b
+  );
   border:1px solid #333;
   border-radius:20px;
   padding:19px;
@@ -422,7 +448,9 @@ body{
 
 .level-card.active{
   border-color:#d4a72c;
-  box-shadow:0 0 0 1px rgba(212,167,44,.12);
+  box-shadow:
+    0 0 0 1px
+    rgba(212,167,44,.12);
 }
 
 .level-number{
@@ -520,9 +548,7 @@ body{
   line-height:1.6;
 }
 
-/* =========================
-   LINK
-========================= */
+/* LINK */
 
 .link-card{
   background:#101010;
@@ -566,6 +592,7 @@ body{
   padding:9px 12px;
   font-weight:900;
   font-size:10px;
+  cursor:pointer;
 }
 
 .share-btn{
@@ -577,6 +604,7 @@ body{
   background:transparent;
   color:#d4a72c;
   font-weight:bold;
+  cursor:pointer;
 }
 
 /* SOCIAL */
@@ -801,6 +829,25 @@ body{
   background:#d4a72c;
   color:#080808;
   font-weight:900;
+  cursor:pointer;
+}
+
+.status-box{
+  margin-top:15px;
+  padding:12px;
+  border-radius:11px;
+  background:#171717;
+  border:1px solid #292929;
+  font-size:11px;
+  color:#aaa;
+}
+
+.status-active{
+  color:#58d88a;
+}
+
+.status-pending{
+  color:#e0b83e;
 }
 
 @media(max-width:360px){
@@ -816,8 +863,11 @@ body{
   .social-text{
     display:none;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
@@ -825,11 +875,15 @@ body{
 <header class="topbar">
 
   <div class="brand">
-    <div class="logo">LC</div>
+
+    <div class="logo">
+      LC
+    </div>
 
     <div class="brand-name">
       LINKCASH
     </div>
+
   </div>
 
   <div class="top-actions">
@@ -855,23 +909,29 @@ body{
 
 <main class="container">
 
-<!-- =========================
-     HOME PAGE
-========================= -->
-
-<div id="homePage" class="home-page">
+<div
+  id="homePage"
+  class="home-page"
+>
 
   <section class="welcome">
 
-    <small>WELCOME BACK</small>
+    <small>
+      WELCOME BACK
+    </small>
 
     <h1>
+
       Hello,
-      <span id="username">User</span>
+
+      <span id="username">
+        User
+      </span>
+
     </h1>
 
     <p>
-      Grow your team and earn through your affiliate network.
+      Grow your team and manage your LINKCASH account.
     </p>
 
   </section>
@@ -901,8 +961,11 @@ body{
 
     <div class="balance-bottom">
 
-      <div class="earnings">
-        + TZS 0.00 this month
+      <div
+        class="earnings"
+        id="monthlyEarnings"
+      >
+        + TZS 0.00
       </div>
 
       <button
@@ -919,9 +982,13 @@ body{
 
   <div class="section-title">
 
-    <h2>Performance</h2>
+    <h2>
+      Performance
+    </h2>
 
-    <span>Affiliate</span>
+    <span>
+      Affiliate
+    </span>
 
   </div>
 
@@ -930,7 +997,9 @@ body{
 
     <div class="stat">
 
-      <div class="stat-icon">👥</div>
+      <div class="stat-icon">
+        👥
+      </div>
 
       <div
         class="stat-value"
@@ -948,7 +1017,9 @@ body{
 
     <div class="stat">
 
-      <div class="stat-icon">👨‍👩‍👧</div>
+      <div class="stat-icon">
+        👨‍👩‍👧
+      </div>
 
       <div
         class="stat-value"
@@ -966,7 +1037,9 @@ body{
 
     <div class="stat">
 
-      <div class="stat-icon">📈</div>
+      <div class="stat-icon">
+        📈
+      </div>
 
       <div
         class="stat-value"
@@ -984,13 +1057,15 @@ body{
   </section>
 
 
-  <!-- MY TEAM BOX ONLY -->
-
   <div class="section-title">
 
-    <h2>My Team</h2>
+    <h2>
+      My Team
+    </h2>
 
-    <span>Network</span>
+    <span>
+      Network
+    </span>
 
   </div>
 
@@ -1015,7 +1090,7 @@ body{
           </div>
 
           <div class="team-box-subtitle">
-            View your team network
+            View your 4-level team network
           </div>
 
         </div>
@@ -1055,11 +1130,11 @@ body{
   </section>
 
 
-  <!-- AFFILIATE LINK -->
-
   <div class="section-title">
 
-    <h2>My Affiliate Link</h2>
+    <h2>
+      My Affiliate Link
+    </h2>
 
   </div>
 
@@ -1098,13 +1173,15 @@ body{
   </section>
 
 
-  <!-- SOCIAL -->
-
   <div class="section-title">
 
-    <h2>Promote & Earn</h2>
+    <h2>
+      Promote & Earn
+    </h2>
 
-    <span>Social Media</span>
+    <span>
+      Social Media
+    </span>
 
   </div>
 
@@ -1117,7 +1194,9 @@ body{
       onclick="promote('TikTok',event)"
     >
 
-      <div class="social-icon">♪</div>
+      <div class="social-icon">
+        ♪
+      </div>
 
       <div class="social-name">
         TikTok
@@ -1136,7 +1215,9 @@ body{
       onclick="promote('YouTube',event)"
     >
 
-      <div class="social-icon">▶</div>
+      <div class="social-icon">
+        ▶
+      </div>
 
       <div class="social-name">
         YouTube
@@ -1155,7 +1236,9 @@ body{
       onclick="promote('Facebook',event)"
     >
 
-      <div class="social-icon">f</div>
+      <div class="social-icon">
+        f
+      </div>
 
       <div class="social-name">
         Facebook
@@ -1170,18 +1253,48 @@ body{
   </section>
 
 
-  <!-- ACTIVITY -->
-
   <div class="section-title">
 
-    <h2>Recent Activity</h2>
-
-    <span>Activity</span>
+    <h2>
+      Account Status
+    </h2>
 
   </div>
 
 
   <section class="activity">
+
+    <div class="activity-item">
+
+      <div class="activity-left">
+
+        <div class="activity-icon">
+          👤
+        </div>
+
+        <div>
+
+          <div class="activity-name">
+            Account
+          </div>
+
+          <div class="activity-date">
+            Current account status
+          </div>
+
+        </div>
+
+      </div>
+
+      <div
+        class="activity-amount"
+        id="accountStatus"
+      >
+        —
+      </div>
+
+    </div>
+
 
     <div class="activity-item">
 
@@ -1237,7 +1350,10 @@ body{
 
       </div>
 
-      <div class="activity-amount">
+      <div
+        class="activity-amount"
+        id="activityCommission"
+      >
         TZS 0
       </div>
 
@@ -1248,9 +1364,7 @@ body{
 </div>
 
 
-<!-- =========================
-     MY TEAM PAGE
-========================= -->
+<!-- TEAM PAGE -->
 
 <div
   id="teamPage"
@@ -1272,7 +1386,7 @@ body{
     </h2>
 
     <p>
-      Manage and view your 4-level team network.
+      Your 4-level team network.
     </p>
 
   </div>
@@ -1306,8 +1420,6 @@ body{
   </section>
 
 
-  <!-- ONLY LEVELS -->
-
   <div class="levels">
 
     <div
@@ -1321,7 +1433,7 @@ body{
       </div>
 
       <div class="level-name">
-        Level 1
+        Direct Members
       </div>
 
       <div
@@ -1417,7 +1529,13 @@ body{
       LEVEL 1
     </div>
 
-    <div id="teamMembers"></div>
+    <div id="teamMembers">
+
+      <div class="empty-team">
+        Loading team...
+      </div>
+
+    </div>
 
   </div>
 
@@ -1497,7 +1615,7 @@ body{
 </nav>
 
 
-<!-- PROFILE MODAL -->
+<!-- PROFILE -->
 
 <div
   class="modal"
@@ -1508,7 +1626,9 @@ body{
 
     <div class="modal-title">
 
-      <h2>My Profile</h2>
+      <h2>
+        My Profile
+      </h2>
 
       <button
         class="close"
@@ -1584,6 +1704,19 @@ body{
     </div>
 
 
+    <div class="status-box">
+
+      Account status:
+
+      <strong
+        id="profileStatus"
+      >
+        —
+      </strong>
+
+    </div>
+
+
     <button
       class="modal-submit"
       style="margin-top:18px"
@@ -1597,7 +1730,7 @@ body{
 </div>
 
 
-<!-- WITHDRAW MODAL -->
+<!-- WITHDRAW -->
 
 <div
   class="modal"
@@ -1608,7 +1741,9 @@ body{
 
     <div class="modal-title">
 
-      <h2>Withdraw Commission</h2>
+      <h2>
+        Withdraw Commission
+      </h2>
 
       <button
         class="close"
@@ -1637,6 +1772,7 @@ body{
       type="number"
       id="withdrawAmount"
       placeholder="Amount in TZS"
+      min="1"
     >
 
 
@@ -1654,162 +1790,457 @@ body{
 
 <script>
 
-/* ================================
-   LOGIN PROTECTION
-================================ */
+/* =====================================================
+   SUPABASE
+===================================================== */
+
+const SUPABASE_URL =
+  "https://vrrglcpixeqnqqdlqtot.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_CyKL7kpQ2K5AdosXfebJCg_k-uF8OpV";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+/* =====================================================
+   SESSION
+===================================================== */
 
 if(
-  localStorage.getItem("linkcashLoggedIn") !== "true"
+  localStorage.getItem(
+    "linkcashLoggedIn"
+  ) !== "true"
 ){
-  window.location.href="login.html";
-}
 
-
-/* ================================
-   CURRENT USER
-================================ */
-
-let currentUser=null;
-
-const savedUser=
-  localStorage.getItem("linkcashUser");
-
-if(savedUser){
-
-  try{
-    currentUser=JSON.parse(savedUser);
-  }catch{
-    currentUser=null;
-  }
+  window.location.href =
+    "login.html";
 
 }
+
+
+let currentUser = null;
+
+try{
+
+  currentUser =
+    JSON.parse(
+      localStorage.getItem(
+        "linkcashUser"
+      ) || "null"
+    );
+
+}catch{
+
+  currentUser = null;
+
+}
+
 
 if(!currentUser){
-  window.location.href="login.html";
+
+  localStorage.removeItem(
+    "linkcashLoggedIn"
+  );
+
+  window.location.href =
+    "login.html";
+
 }
 
 
-/* ================================
-   USERS DATABASE
-================================ */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-let users=[];
+let users = [];
 
-const savedUsers=
-  localStorage.getItem("linkcashUsers");
+let levels = {
+  1:[],
+  2:[],
+  3:[],
+  4:[]
+};
 
-if(savedUsers){
+let balance = 0;
 
-  try{
 
-    users=JSON.parse(savedUsers);
+/* =====================================================
+   SAFE HTML
+===================================================== */
 
-    if(!Array.isArray(users)){
-      users=[];
-    }
+function escapeHTML(value){
 
-  }catch{
-    users=[];
+  return String(
+    value ?? ""
+  )
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
+
+}
+
+
+/* =====================================================
+   LOAD CURRENT USER FROM SUPABASE
+===================================================== */
+
+async function loadCurrentUser(){
+
+  const username =
+    String(
+      currentUser.username || ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  if(!username){
+
+    logout();
+
+    return;
+
   }
 
+
+  const result =
+    await supabaseClient
+    .from("users")
+    .select(`
+      id,
+      fullname,
+      username,
+      phone,
+      email,
+      referrer,
+      joined_at,
+      balance,
+      commission,
+      status,
+      activation_fee,
+      payment_status
+    `)
+    .eq("username",username)
+    .maybeSingle();
+
+
+  if(result.error){
+
+    console.error(
+      "CURRENT USER ERROR:",
+      result.error
+    );
+
+    alert(
+      "Unable to load your account: "+
+      result.error.message
+    );
+
+    return;
+
+  }
+
+
+  if(!result.data){
+
+    alert(
+      "Your account could not be found."
+    );
+
+    logout();
+
+    return;
+
+  }
+
+
+  currentUser =
+    result.data;
+
+
+  localStorage.setItem(
+    "linkcashUser",
+    JSON.stringify(
+      currentUser
+    )
+  );
+
+
+  const status =
+    String(
+      currentUser.status || ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  /*
+    If CEO has not activated the account,
+    send user back to pending page.
+  */
+
+  if(
+    status !== "active" &&
+    status !== "activated"
+  ){
+
+    window.location.href =
+      "pending-dashboard.html";
+
+    return;
+
+  }
+
+
+  renderUser();
+
+  await loadUsers();
+
+  buildTeam();
+
 }
 
 
-/* ================================
-   CURRENT USERNAME
-================================ */
+/* =====================================================
+   RENDER USER
+===================================================== */
 
-const currentUsername=
-  String(
-    currentUser.username || ""
-  ).toLowerCase();
+function renderUser(){
 
-
-/* ================================
-   WELCOME
-================================ */
-
-document.getElementById(
-  "username"
-).textContent=
-  currentUser.fullname
-  ? currentUser.fullname.split(" ")[0]
-  : currentUsername;
+  const firstName =
+    String(
+      currentUser.fullname || ""
+    )
+    .trim()
+    .split(/\s+/)[0];
 
 
-/* ================================
-   PROFILE
-================================ */
-
-document.getElementById(
-  "profileName"
-).textContent=
-  currentUser.fullname || "—";
-
-document.getElementById(
-  "profileUsername"
-).textContent=
-  currentUser.username || "—";
-
-document.getElementById(
-  "profilePhone"
-).textContent=
-  currentUser.phone || "—";
-
-document.getElementById(
-  "profileEmail"
-).textContent=
-  currentUser.email || "—";
+  document.getElementById(
+    "username"
+  ).textContent =
+    firstName ||
+    currentUser.username ||
+    "User";
 
 
-/* ================================
-   BALANCE
-================================ */
+  document.getElementById(
+    "profileName"
+  ).textContent =
+    currentUser.fullname ||
+    "—";
 
-const balance=
-  Number(
-    currentUser.balance || 0
-  );
 
-document.getElementById(
-  "balance"
-).textContent=
-  balance.toLocaleString(
-    undefined,
-    {
-      minimumFractionDigits:2,
-      maximumFractionDigits:2
+  document.getElementById(
+    "profileUsername"
+  ).textContent =
+    currentUser.username ||
+    "—";
+
+
+  document.getElementById(
+    "profilePhone"
+  ).textContent =
+    currentUser.phone ||
+    "—";
+
+
+  document.getElementById(
+    "profileEmail"
+  ).textContent =
+    currentUser.email ||
+    "—";
+
+
+  const status =
+    String(
+      currentUser.status || "pending"
+    )
+    .trim()
+    .toLowerCase();
+
+
+  const statusElement =
+    document.getElementById(
+      "profileStatus"
+    );
+
+
+  if(
+    status === "active" ||
+    status === "activated"
+  ){
+
+    statusElement.textContent =
+      "ACTIVE ✓";
+
+    statusElement.className =
+      "status-active";
+
+  }else{
+
+    statusElement.textContent =
+      status.toUpperCase();
+
+    statusElement.className =
+      "status-pending";
+
+  }
+
+
+  balance =
+    Number(
+      currentUser.balance ??
+      currentUser.commission ??
+      0
+    );
+
+
+  if(!Number.isFinite(balance)){
+    balance = 0;
+  }
+
+
+  document.getElementById(
+    "balance"
+  ).textContent =
+    balance.toLocaleString(
+      undefined,
+      {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      }
+    );
+
+
+  document.getElementById(
+    "activityCommission"
+  ).textContent =
+    "TZS "+
+    balance.toLocaleString();
+
+
+  /*
+    Commission field is shown as monthly
+    display for now.
+  */
+
+  const commission =
+    Number(
+      currentUser.commission || 0
+    );
+
+
+  document.getElementById(
+    "monthlyEarnings"
+  ).textContent =
+    "+ TZS "+
+    commission.toLocaleString();
+
+
+  createAffiliateLink();
+
+}
+
+
+/* =====================================================
+   LOAD USERS FROM SUPABASE
+===================================================== */
+
+async function loadUsers(){
+
+  const result =
+    await supabaseClient
+    .from("users")
+    .select(`
+      id,
+      fullname,
+      username,
+      phone,
+      email,
+      referrer,
+      joined_at,
+      balance,
+      commission,
+      status
+    `);
+
+
+  if(result.error){
+
+    console.error(
+      "USERS LOAD ERROR:",
+      result.error
+    );
+
+    alert(
+      "Unable to load team: "+
+      result.error.message
+    );
+
+    users = [];
+
+    return;
+
+  }
+
+
+  users =
+    Array.isArray(
+      result.data
+    )
+    ? result.data
+    : [];
+
+}
+
+
+/* =====================================================
+   FIND DIRECT MEMBERS
+===================================================== */
+
+function getDirectMembers(
+  parentUsername
+){
+
+  const parent =
+    String(
+      parentUsername || ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  return users.filter(
+    user => {
+
+      return String(
+        user.referrer || ""
+      )
+      .trim()
+      .toLowerCase()
+      ===
+      parent;
+
     }
   );
 
-
-/* ================================
-   DIRECT MEMBERS
-================================ */
-
-function getDirectMembers(parentUsername){
-
-  return users.filter(
-    user =>
-      String(
-        user.referrer || ""
-      ).toLowerCase()
-      ===
-      String(
-        parentUsername || ""
-      ).toLowerCase()
-  );
-
 }
 
 
-/* ================================
+/* =====================================================
    BUILD 4 LEVELS
-================================ */
+===================================================== */
 
-function buildLevels(username){
+function buildTeam(){
 
-  const levels={
+  levels = {
     1:[],
     2:[],
     3:[],
@@ -1817,20 +2248,34 @@ function buildLevels(username){
   };
 
 
-  /* LEVEL 1 */
+  const username =
+    String(
+      currentUser.username || ""
+    )
+    .trim()
+    .toLowerCase();
 
-  levels[1]=
-    getDirectMembers(username);
+
+  /*
+    LEVEL 1
+  */
+
+  levels[1] =
+    getDirectMembers(
+      username
+    );
 
 
-  /* LEVEL 2 */
+  /*
+    LEVEL 2
+  */
 
   levels[1].forEach(
-    person => {
+    member => {
 
       levels[2].push(
         ...getDirectMembers(
-          person.username
+          member.username
         )
       );
 
@@ -1838,14 +2283,16 @@ function buildLevels(username){
   );
 
 
-  /* LEVEL 3 */
+  /*
+    LEVEL 3
+  */
 
   levels[2].forEach(
-    person => {
+    member => {
 
       levels[3].push(
         ...getDirectMembers(
-          person.username
+          member.username
         )
       );
 
@@ -1853,14 +2300,16 @@ function buildLevels(username){
   );
 
 
-  /* LEVEL 4 */
+  /*
+    LEVEL 4
+  */
 
   levels[3].forEach(
-    person => {
+    member => {
 
       levels[4].push(
         ...getDirectMembers(
-          person.username
+          member.username
         )
       );
 
@@ -1868,125 +2317,183 @@ function buildLevels(username){
   );
 
 
-  return levels;
+  updateTeamNumbers();
+
+  showLevel(1);
 
 }
 
 
-const levels=
-  buildLevels(
-    currentUsername
-  );
+/* =====================================================
+   TEAM NUMBERS
+===================================================== */
+
+function updateTeamNumbers(){
+
+  const total =
+    levels[1].length +
+    levels[2].length +
+    levels[3].length +
+    levels[4].length;
 
 
-/* ================================
-   TOTALS
-================================ */
-
-const totalTeam=
-  levels[1].length+
-  levels[2].length+
-  levels[3].length+
-  levels[4].length;
+  document.getElementById(
+    "teamTotal"
+  ).textContent =
+    total;
 
 
-document.getElementById(
-  "teamTotal"
-).textContent=
-  totalTeam;
+  document.getElementById(
+    "homeTeamTotal"
+  ).textContent =
+    total;
 
 
-document.getElementById(
-  "homeTeamTotal"
-).textContent=
-  totalTeam;
+  document.getElementById(
+    "myTeam"
+  ).textContent =
+    total;
 
 
-document.getElementById(
-  "myTeam"
-).textContent=
-  totalTeam;
+  document.getElementById(
+    "referrals"
+  ).textContent =
+    levels[1].length;
 
 
-document.getElementById(
-  "referrals"
-).textContent=
-  levels[1].length;
+  document.getElementById(
+    "activityTeam"
+  ).textContent =
+    total;
 
 
-document.getElementById(
-  "activityTeam"
-).textContent=
-  totalTeam;
+  document.getElementById(
+    "levelCount1"
+  ).textContent =
+    levels[1].length;
 
 
-/* ================================
-   LEVEL COUNTS
-================================ */
-
-document.getElementById(
-  "levelCount1"
-).textContent=
-  levels[1].length;
-
-document.getElementById(
-  "levelCount2"
-).textContent=
-  levels[2].length;
-
-document.getElementById(
-  "levelCount3"
-).textContent=
-  levels[3].length;
-
-document.getElementById(
-  "levelCount4"
-).textContent=
-  levels[4].length;
+  document.getElementById(
+    "levelCount2"
+  ).textContent =
+    levels[2].length;
 
 
-/* ================================
-   CONVERSION
-================================ */
-
-const conversion=
-  levels[1].length > 0
-  ? "100%"
-  : "0%";
-
-document.getElementById(
-  "conversion"
-).textContent=
-  conversion;
+  document.getElementById(
+    "levelCount3"
+  ).textContent =
+    levels[3].length;
 
 
-/* ================================
+  document.getElementById(
+    "levelCount4"
+  ).textContent =
+    levels[4].length;
+
+
+  /*
+    Conversion:
+    direct registered members vs
+    direct members with active status.
+  */
+
+  const direct =
+    levels[1];
+
+
+  if(direct.length === 0){
+
+    document.getElementById(
+      "conversion"
+    ).textContent =
+      "0%";
+
+  }else{
+
+    const active =
+      direct.filter(
+        member => {
+
+          const status =
+            String(
+              member.status || ""
+            )
+            .trim()
+            .toLowerCase();
+
+          return (
+            status === "active" ||
+            status === "activated"
+          );
+
+        }
+      ).length;
+
+
+    const percentage =
+      Math.round(
+        (
+          active /
+          direct.length
+        ) * 100
+      );
+
+
+    document.getElementById(
+      "conversion"
+    ).textContent =
+      percentage+"%";
+
+  }
+
+}
+
+
+/* =====================================================
    AFFILIATE LINK
-================================ */
+===================================================== */
 
-const baseURL=
-  window.location.origin+
-  window.location.pathname.replace(
-    "dashboard.html",
-    ""
-  );
+function createAffiliateLink(){
 
-const affiliateLink=
-  baseURL+
-  "register.html?ref="+
-  encodeURIComponent(
-    currentUsername
-  );
-
-document.getElementById(
-  "affiliateLink"
-).textContent=
-  affiliateLink;
+  const username =
+    String(
+      currentUser.username || ""
+    )
+    .trim()
+    .toLowerCase();
 
 
-/* ================================
-   OPEN MY TEAM
-================================ */
+  const path =
+    window.location.pathname;
+
+
+  const folder =
+    path.substring(
+      0,
+      path.lastIndexOf("/") + 1
+    );
+
+
+  const link =
+    window.location.origin +
+    folder +
+    "register.html?ref=" +
+    encodeURIComponent(
+      username
+    );
+
+
+  document.getElementById(
+    "affiliateLink"
+  ).textContent =
+    link;
+
+}
+
+
+/* =====================================================
+   OPEN TEAM
+===================================================== */
 
 function openTeamPage(){
 
@@ -1994,27 +2501,31 @@ function openTeamPage(){
     .getElementById("homePage")
     .classList.add("hide");
 
+
   document
     .getElementById("teamPage")
     .classList.add("show");
 
+
   document
     .getElementById("homeNav")
     .classList.remove("active");
+
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
 
+
   showLevel(1);
 
 }
 
 
-/* ================================
-   CLOSE MY TEAM
-================================ */
+/* =====================================================
+   CLOSE TEAM
+===================================================== */
 
 function closeTeamPage(){
 
@@ -2022,13 +2533,16 @@ function closeTeamPage(){
     .getElementById("teamPage")
     .classList.remove("show");
 
+
   document
     .getElementById("homePage")
     .classList.remove("hide");
 
+
   document
     .getElementById("homeNav")
     .classList.add("active");
+
 
   window.scrollTo({
     top:0,
@@ -2038,15 +2552,16 @@ function closeTeamPage(){
 }
 
 
-/* ================================
-   LEVEL SELECT
-================================ */
+/* =====================================================
+   SHOW LEVEL
+===================================================== */
 
-let selectedLevel=1;
+let selectedLevel = 1;
 
 function showLevel(level){
 
-  selectedLevel=level;
+  selectedLevel =
+    Number(level);
 
 
   for(
@@ -2077,35 +2592,41 @@ function showLevel(level){
 
   document.getElementById(
     "teamListTitle"
-  ).textContent=
+  ).textContent =
     "LEVEL "+level;
 
 
   renderMembers(
-    levels[level]
+    levels[level] || []
   );
 
 }
 
 
-/* ================================
+/* =====================================================
    RENDER MEMBERS
-================================ */
+===================================================== */
 
-function renderMembers(members){
+function renderMembers(
+  members
+){
 
-  const container=
+  const container =
     document.getElementById(
       "teamMembers"
     );
 
 
-  container.innerHTML="";
+  container.innerHTML =
+    "";
 
 
-  if(members.length===0){
+  if(
+    !members ||
+    members.length === 0
+  ){
 
-    container.innerHTML=`
+    container.innerHTML = `
 
       <div class="empty-team">
 
@@ -2123,63 +2644,85 @@ function renderMembers(members){
   members.forEach(
     member => {
 
-      const name=
+      const name =
         member.fullname ||
         member.username ||
         "User";
 
 
-      const firstLetter=
+      const firstLetter =
         name
-          .charAt(0)
-          .toUpperCase();
+        .charAt(0)
+        .toUpperCase();
 
 
-      let date="";
+      let date = "—";
 
 
-      if(member.joinedAt){
+      if(
+        member.joined_at
+      ){
 
-        const d=
+        const d =
           new Date(
-            member.joinedAt
+            member.joined_at
           );
 
-        if(!isNaN(d)){
-          date=
+
+        if(
+          !isNaN(
+            d.getTime()
+          )
+        ){
+
+          date =
             d.toLocaleDateString();
+
         }
 
       }
 
 
-      const item=
+      const item =
         document.createElement(
           "div"
         );
 
 
-      item.className="member";
+      item.className =
+        "member";
 
 
-      item.innerHTML=`
+      item.innerHTML = `
 
         <div class="member-left">
 
           <div class="member-avatar">
-            ${firstLetter}
+
+            ${escapeHTML(
+              firstLetter
+            )}
+
           </div>
+
 
           <div>
 
             <div class="member-name">
-              ${escapeHTML(name)}
+
+              ${escapeHTML(
+                name
+              )}
+
             </div>
 
+
             <div class="member-username">
+
               @${escapeHTML(
                 member.username || ""
               )}
+
             </div>
 
           </div>
@@ -2194,7 +2737,7 @@ function renderMembers(members){
           <br>
 
           ${escapeHTML(
-            date || "—"
+            date
           )}
 
         </div>
@@ -2212,21 +2755,9 @@ function renderMembers(members){
 }
 
 
-function escapeHTML(value){
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* ================================
+/* =====================================================
    HOME
-================================ */
+===================================================== */
 
 function goHome(event){
 
@@ -2237,9 +2768,9 @@ function goHome(event){
 }
 
 
-/* ================================
+/* =====================================================
    TEAM NAV
-================================ */
+===================================================== */
 
 function openTeamFromNav(event){
 
@@ -2250,9 +2781,9 @@ function openTeamFromNav(event){
 }
 
 
-/* ================================
+/* =====================================================
    LINK NAV
-================================ */
+===================================================== */
 
 function scrollToLink(event){
 
@@ -2262,7 +2793,8 @@ function scrollToLink(event){
   if(
     document
       .getElementById("teamPage")
-      .classList.contains("show")
+      .classList
+      .contains("show")
   ){
 
     closeTeamPage();
@@ -2270,76 +2802,96 @@ function scrollToLink(event){
   }
 
 
-  setTimeout(() => {
+  setTimeout(
+    () => {
 
-    document
-      .querySelector(".link-card")
-      .scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-      });
+      document
+        .querySelector(".link-card")
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
 
-  },100);
+    },
+    100
+  );
 
 }
 
 
-/* ================================
-   COPY LINK
-================================ */
+/* =====================================================
+   COPY
+===================================================== */
 
-function copyLink(){
+async function copyLink(){
 
-  const link=
+  const link =
     document.getElementById(
       "affiliateLink"
     ).textContent;
 
 
-  if(navigator.clipboard){
+  try{
 
-    navigator.clipboard
-      .writeText(link)
-      .then(
-        () =>
-          alert(
-            "Affiliate link copied!"
-          )
+    await navigator.clipboard
+      .writeText(
+        link
       );
 
-  }else{
 
-    alert(link);
+    alert(
+      "Affiliate link copied!"
+    );
+
+  }catch{
+
+    alert(
+      link
+    );
 
   }
 
 }
 
 
-/* ================================
+/* =====================================================
    SHARE
-================================ */
+===================================================== */
 
-function shareLink(){
+async function shareLink(){
 
-  const link=
+  const link =
     document.getElementById(
       "affiliateLink"
     ).textContent;
 
 
-  if(navigator.share){
+  if(
+    navigator.share
+  ){
 
-    navigator.share({
+    try{
 
-      title:"Join LINKCASH",
+      await navigator.share({
 
-      text:
-        "Join LINKCASH using my affiliate link.",
+        title:
+          "Join LINKCASH",
 
-      url:link
+        text:
+          "Join LINKCASH using my affiliate link.",
 
-    });
+        url:
+          link
+
+      });
+
+    }catch(error){
+
+      console.log(
+        "Share cancelled."
+      );
+
+    }
 
   }else{
 
@@ -2350,73 +2902,97 @@ function shareLink(){
 }
 
 
-/* ================================
-   SOCIAL
-================================ */
+/* =====================================================
+   PROMOTE
+===================================================== */
 
-function promote(platform,event){
+function promote(
+  platform,
+  event
+){
 
   event.preventDefault();
 
 
-  const link=
+  const link =
     document.getElementById(
       "affiliateLink"
     ).textContent;
 
 
-  if(platform==="Facebook"){
+  if(
+    navigator.share
+  ){
 
-    if(navigator.share){
+    navigator.share({
 
-      navigator.share({
+      title:
+        "Join LINKCASH",
 
-        title:"Join LINKCASH",
+      text:
+        "Join LINKCASH using my affiliate link on "+
+        platform+".",
 
-        text:
-          "Join LINKCASH using my affiliate link.",
+      url:
+        link
 
-        url:link
-
-      });
-
-    }else{
-
-      copyLink();
-
-    }
+    });
 
     return;
 
   }
 
 
-  alert(
-    "Copy your LINKCASH affiliate link and share it on "+
-    platform+
-    ":\n\n"+
-    link
-  );
+  copyLink();
 
 }
 
 
-/* ================================
+/* =====================================================
+   PROFILE
+===================================================== */
+
+function openProfile(){
+
+  document.getElementById(
+    "profileModal"
+  ).style.display =
+    "flex";
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+function closeModal(id){
+
+  document.getElementById(
+    id
+  ).style.display =
+    "none";
+
+}
+
+
+/* =====================================================
    WITHDRAW
-================================ */
+===================================================== */
 
 function openWithdraw(){
 
   document.getElementById(
     "withdrawModal"
-  ).style.display="flex";
+  ).style.display =
+    "flex";
 
 }
 
 
-function submitWithdraw(){
+async function submitWithdraw(){
 
-  const amount=
+  const amount =
     Number(
       document.getElementById(
         "withdrawAmount"
@@ -2424,7 +3000,10 @@ function submitWithdraw(){
     );
 
 
-  if(!amount || amount<=0){
+  if(
+    !amount ||
+    amount <= 0
+  ){
 
     alert(
       "Enter a valid withdrawal amount."
@@ -2435,7 +3014,9 @@ function submitWithdraw(){
   }
 
 
-  if(amount>balance){
+  if(
+    amount > balance
+  ){
 
     alert(
       "Insufficient balance."
@@ -2446,8 +3027,57 @@ function submitWithdraw(){
   }
 
 
+  /*
+    This assumes you have a withdrawals table.
+
+    If the table does not exist yet,
+    the user will get a clear message.
+  */
+
+  const result =
+    await supabaseClient
+    .from("withdrawals")
+    .insert({
+
+      user_id:
+        currentUser.id,
+
+      username:
+        currentUser.username,
+
+      amount:
+        amount,
+
+      status:
+        "pending",
+
+      created_at:
+        new Date().toISOString()
+
+    });
+
+
+  if(result.error){
+
+    console.error(
+      "WITHDRAW ERROR:",
+      result.error
+    );
+
+
+    alert(
+      "Withdrawal request failed:\n"+
+      result.error.message
+    );
+
+
+    return;
+
+  }
+
+
   alert(
-    "Withdrawal request received.\n\n"+
+    "Withdrawal request submitted ✓\n\n"+
     "Amount: TZS "+
     amount.toLocaleString()
   );
@@ -2455,7 +3085,8 @@ function submitWithdraw(){
 
   document.getElementById(
     "withdrawAmount"
-  ).value="";
+  ).value =
+    "";
 
 
   closeModal(
@@ -2465,35 +3096,9 @@ function submitWithdraw(){
 }
 
 
-/* ================================
-   PROFILE
-================================ */
-
-function openProfile(){
-
-  document.getElementById(
-    "profileModal"
-  ).style.display="flex";
-
-}
-
-
-/* ================================
-   CLOSE MODAL
-================================ */
-
-function closeModal(id){
-
-  document.getElementById(
-    id
-  ).style.display="none";
-
-}
-
-
-/* ================================
+/* =====================================================
    NOTIFICATION
-================================ */
+===================================================== */
 
 function showNotification(){
 
@@ -2504,9 +3109,9 @@ function showNotification(){
 }
 
 
-/* ================================
+/* =====================================================
    LOGOUT
-================================ */
+===================================================== */
 
 function logout(){
 
@@ -2514,16 +3119,48 @@ function logout(){
     "linkcashLoggedIn"
   );
 
+
   localStorage.removeItem(
     "linkcashUser"
   );
 
-  window.location.href=
+
+  window.location.href =
     "login.html";
 
 }
 
+
+/* =====================================================
+   CLOSE MODAL BY OUTSIDE CLICK
+===================================================== */
+
+document.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target.classList
+        .contains("modal")
+    ){
+
+      event.target.style.display =
+        "none";
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadCurrentUser();
+
 </script>
 
 </body>
-</html>
+
+  </html>
