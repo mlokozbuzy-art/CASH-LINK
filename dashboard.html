@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LINKCASH - Dashboard</title>
 
 <style>
-
-/* =========================
-   RESET
-========================= */
 
 *{
     box-sizing:border-box;
@@ -28,40 +22,36 @@ body{
     padding-bottom:30px;
 }
 
-
 /* =========================
-   TOP BAR
+   HEADER
 ========================= */
 
-.topbar{
-    height:68px;
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
 
-    background:#0b0b0b;
-
+    background:rgba(5,5,5,.96);
     border-bottom:1px solid #242424;
+
+    padding:15px 18px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:0 17px;
-
-    position:sticky;
-    top:0;
-    z-index:100;
 }
 
-.brand{
+.header-left{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:11px;
 }
 
 .logo{
-    width:41px;
-    height:41px;
+    width:43px;
+    height:43px;
 
-    border-radius:12px;
+    border-radius:13px;
 
     background:linear-gradient(
         145deg,
@@ -70,54 +60,52 @@ body{
         #8f6b12
     );
 
-    color:#070707;
+    color:#080808;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:14px;
+    font-size:16px;
     font-weight:900;
 }
 
 .brand-name{
-    font-size:16px;
+    font-size:18px;
     font-weight:900;
+    letter-spacing:2px;
+}
 
-    letter-spacing:1.5px;
+.header-sub{
+    color:#777;
+    font-size:9px;
+    margin-top:3px;
 }
 
 .menu-btn{
-    width:40px;
-    height:40px;
-
-    border-radius:11px;
-
-    background:#151515;
+    width:42px;
+    height:42px;
 
     border:1px solid #292929;
+    border-radius:12px;
 
+    background:#101010;
     color:#d4a72c;
 
-    font-size:19px;
-
+    font-size:20px;
     cursor:pointer;
 }
 
-
 /* =========================
-   CONTAINER
+   MAIN
 ========================= */
 
 .container{
     width:100%;
-    max-width:900px;
-
+    max-width:480px;
     margin:auto;
-
-    padding:23px 16px 40px;
+    padding:20px 16px;
 }
-
 
 /* =========================
    WELCOME
@@ -128,33 +116,18 @@ body{
 }
 
 .welcome small{
-    color:#666;
-
-    font-size:10px;
-
-    letter-spacing:1px;
+    color:#777;
+    font-size:12px;
 }
 
 .welcome h1{
-    margin-top:6px;
-
+    margin-top:5px;
     font-size:25px;
 }
 
-.welcome h1 span{
+.welcome span{
     color:#d4a72c;
 }
-
-.welcome p{
-    margin-top:6px;
-
-    color:#777;
-
-    font-size:11px;
-
-    line-height:1.5;
-}
-
 
 /* =========================
    BALANCE CARD
@@ -163,177 +136,83 @@ body{
 .balance-card{
     background:
         linear-gradient(
-            135deg,
-            #17130a,
-            #0c0c0c
+            145deg,
+            #171717,
+            #0d0d0d
         );
 
-    border:1px solid rgba(212,167,44,.28);
+    border:1px solid #292929;
 
-    border-radius:21px;
+    border-radius:22px;
 
-    padding:21px;
-
-    margin-bottom:14px;
+    padding:22px;
 
     box-shadow:
-        0 18px 45px rgba(0,0,0,.35);
+        0 18px 50px rgba(0,0,0,.5);
+
+    position:relative;
+    overflow:hidden;
 }
 
-.balance-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.balance-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    right:-70px;
+    top:-70px;
+
+    border-radius:50%;
+
+    background:rgba(212,167,44,.08);
 }
 
 .balance-label{
-    color:#8b8b8b;
-
-    font-size:10px;
-
-    letter-spacing:.8px;
-}
-
-.balance-icon{
-    width:38px;
-    height:38px;
-
-    border-radius:12px;
-
-    background:rgba(212,167,44,.10);
-
-    border:1px solid rgba(212,167,44,.18);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:#d4a72c;
-
-    font-size:17px;
+    color:#888;
+    font-size:12px;
 }
 
 .balance{
-    margin-top:9px;
+    margin-top:8px;
 
-    font-size:30px;
-
+    font-size:32px;
     font-weight:900;
 
-    letter-spacing:.5px;
+    letter-spacing:1px;
 }
 
-.balance span{
+.balance-symbol{
     color:#d4a72c;
 }
 
 .balance-bottom{
+    margin-top:18px;
+
     display:flex;
+    justify-content:space-between;
 
-    gap:8px;
-
-    margin-top:13px;
-}
-
-.mini-balance{
-    flex:1;
-
-    background:#0a0a0a;
-
-    border:1px solid #222;
-
-    border-radius:11px;
-
-    padding:10px;
-}
-
-.mini-label{
-    color:#555;
-
-    font-size:8px;
-
-    margin-bottom:5px;
-}
-
-.mini-value{
-    color:#ddd;
-
+    color:#777;
     font-size:11px;
-
-    font-weight:bold;
 }
 
-
-/* =========================
-   QUICK ACTIONS
-========================= */
-
-.quick-actions{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:9px;
-
-    margin-bottom:18px;
+.balance-bottom strong{
+    color:#ddd;
 }
-
-.action{
-    min-height:82px;
-
-    background:#101010;
-
-    border:1px solid #292929;
-
-    border-radius:15px;
-
-    color:#fff;
-
-    display:flex;
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.action:hover{
-    border-color:#d4a72c;
-
-    background:#151208;
-}
-
-.action-icon{
-    font-size:20px;
-}
-
-.action-text{
-    color:#aaa;
-
-    font-size:9px;
-
-    font-weight:bold;
-}
-
 
 /* =========================
    SECTION TITLE
 ========================= */
 
 .section-title{
+    margin-top:24px;
+    margin-bottom:12px;
+
     display:flex;
-
-    align-items:center;
-
     justify-content:space-between;
-
-    margin:21px 0 11px;
+    align-items:center;
 }
 
 .section-title h2{
@@ -341,52 +220,45 @@ body{
 }
 
 .section-title span{
-    color:#d4a72c;
-
-    font-size:9px;
-
-    font-weight:bold;
+    color:#666;
+    font-size:10px;
 }
-
 
 /* =========================
-   TASK CARDS
+   QUICK ACTIONS
 ========================= */
 
-.tasks{
+.grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:10px;
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
 }
 
-.task{
+.box{
     background:#101010;
 
-    border:1px solid #292929;
+    border:1px solid #282828;
 
-    border-radius:16px;
+    border-radius:17px;
 
-    padding:16px;
+    padding:18px 14px;
+
+    min-height:100px;
 
     cursor:pointer;
 
     transition:.2s;
 }
 
-.task:hover{
-    border-color:#d4a72c;
-
-    transform:translateY(-1px);
+.box:active{
+    transform:scale(.97);
 }
 
-.task-icon{
-    width:39px;
-    height:39px;
+.box-icon{
+    width:38px;
+    height:38px;
 
-    border-radius:12px;
+    border-radius:11px;
 
     background:#181818;
 
@@ -394,66 +266,51 @@ body{
     align-items:center;
     justify-content:center;
 
+    color:#d4a72c;
+
     font-size:18px;
 
     margin-bottom:12px;
 }
 
-.task h3{
+.box h3{
     font-size:13px;
 }
 
-.task p{
-    margin-top:5px;
-
+.box p{
     color:#666;
-
-    font-size:9px;
-
-    line-height:1.4;
-}
-
-.task-reward{
-    margin-top:13px;
-
-    color:#d4a72c;
-
     font-size:10px;
-
-    font-weight:bold;
+    margin-top:5px;
 }
-
 
 /* =========================
-   TEAM CARD
+   MY TEAM
 ========================= */
 
-.team-card{
+.team-box{
     background:#101010;
 
     border:1px solid #292929;
 
-    border-radius:17px;
+    border-radius:19px;
 
-    padding:16px;
+    overflow:hidden;
+}
+
+.team-main{
+    padding:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
     cursor:pointer;
 }
 
-.team-top{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-}
-
 .team-left{
     display:flex;
-
     align-items:center;
-
-    gap:11px;
+    gap:12px;
 }
 
 .team-icon{
@@ -462,619 +319,402 @@ body{
 
     border-radius:13px;
 
-    background:#181818;
+    background:rgba(212,167,44,.09);
+
+    border:1px solid rgba(212,167,44,.20);
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:19px;
+    color:#d4a72c;
+    font-size:18px;
 }
 
-.team-name{
-    font-size:13px;
-
-    font-weight:bold;
+.team-main h3{
+    font-size:14px;
 }
 
-.team-sub{
+.team-main p{
     color:#666;
-
-    font-size:9px;
-
+    font-size:10px;
     margin-top:4px;
 }
 
-.team-count{
-    color:#d4a72c;
+.arrow{
+    color:#777;
+    font-size:20px;
 
-    font-size:18px;
-
-    font-weight:900;
+    transition:.2s;
 }
 
-
-/* =========================
-   ACTIVITY
-========================= */
-
-.activity{
-    background:#101010;
-
-    border:1px solid #292929;
-
-    border-radius:17px;
-
-    overflow:hidden;
+.team-box.open .arrow{
+    transform:rotate(90deg);
 }
 
-.activity-item{
+/* LEVELS */
+
+.levels{
+    display:none;
+
+    border-top:1px solid #222;
+
+    padding:10px;
+}
+
+.team-box.open .levels{
+    display:block;
+}
+
+.level{
     display:flex;
-
     align-items:center;
-
-    gap:11px;
+    justify-content:space-between;
 
     padding:14px;
 
-    border-bottom:1px solid #202020;
+    margin-bottom:7px;
+
+    background:#080808;
+
+    border:1px solid #222;
+
+    border-radius:13px;
+
+    cursor:pointer;
 }
 
-.activity-item:last-child{
-    border-bottom:none;
+.level:last-child{
+    margin-bottom:0;
 }
 
-.activity-icon{
+.level-left{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.level-number{
     width:35px;
     height:35px;
 
     border-radius:10px;
 
-    background:#181818;
+    background:#171717;
+
+    color:#d4a72c;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:15px;
-}
-
-.activity-info{
-    flex:1;
-}
-
-.activity-title{
     font-size:11px;
-
-    font-weight:bold;
+    font-weight:900;
 }
 
-.activity-time{
-    margin-top:4px;
-
-    color:#555;
-
-    font-size:8px;
+.level h4{
+    font-size:12px;
 }
 
-.activity-amount{
-    color:#58d88a;
-
-    font-size:10px;
-
-    font-weight:bold;
+.level p{
+    color:#666;
+    font-size:9px;
+    margin-top:3px;
 }
 
+.level-count{
+    color:#aaa;
+    font-size:11px;
+}
 
 /* =========================
-   BOTTOM NAV
+   SOCIAL MEDIA
 ========================= */
 
-.bottom-nav{
-    position:fixed;
+.social-grid{
+    display:grid;
 
-    left:50%;
+    grid-template-columns:repeat(4,1fr);
 
-    bottom:13px;
+    gap:9px;
+}
 
-    transform:translateX(-50%);
+.social{
+    background:#101010;
 
-    width:calc(100% - 30px);
+    border:1px solid #292929;
 
-    max-width:520px;
+    border-radius:15px;
 
-    height:65px;
+    padding:14px 5px;
 
-    background:#0c0c0c;
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    transition:.2s;
+}
+
+.social:active{
+    transform:scale(.95);
+}
+
+.social-icon{
+    font-size:20px;
+    margin-bottom:7px;
+}
+
+.social span{
+    font-size:9px;
+    color:#aaa;
+}
+
+/* =========================
+   ACCOUNT
+========================= */
+
+.account-box{
+    background:#101010;
 
     border:1px solid #292929;
 
     border-radius:18px;
 
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    z-index:200;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.65);
+    padding:16px;
 }
 
-.nav-item{
-    border:none;
-
-    background:none;
-
-    color:#666;
-
-    cursor:pointer;
-
+.account-row{
     display:flex;
-
-    flex-direction:column;
-
     align-items:center;
+    justify-content:space-between;
 
-    justify-content:center;
+    padding:12px 0;
 
-    gap:5px;
+    border-bottom:1px solid #202020;
 }
 
-.nav-item.active{
-    color:#d4a72c;
+.account-row:last-child{
+    border-bottom:none;
 }
 
-.nav-icon{
-    font-size:18px;
+.account-row span:first-child{
+    color:#777;
+    font-size:11px;
 }
 
-.nav-text{
-    font-size:8px;
-
-    font-weight:bold;
+.account-row span:last-child{
+    color:#ddd;
+    font-size:11px;
 }
-
 
 /* =========================
-   MENU
+   LOGOUT
 ========================= */
-
-.menu{
-    position:fixed;
-
-    top:0;
-    right:-290px;
-
-    width:280px;
-    height:100vh;
-
-    background:#0d0d0d;
-
-    border-left:1px solid #292929;
-
-    z-index:500;
-
-    padding:25px 18px;
-
-    transition:.3s;
-}
-
-.menu.open{
-    right:0;
-}
-
-.menu-close{
-    width:38px;
-    height:38px;
-
-    border-radius:11px;
-
-    background:#151515;
-
-    border:1px solid #292929;
-
-    color:#aaa;
-
-    cursor:pointer;
-
-    float:right;
-}
-
-.menu h2{
-    clear:both;
-
-    padding-top:28px;
-
-    font-size:19px;
-}
-
-.menu p{
-    color:#666;
-
-    font-size:10px;
-
-    margin-top:5px;
-
-    margin-bottom:20px;
-}
-
-.menu-link{
-    width:100%;
-
-    height:45px;
-
-    margin-bottom:8px;
-
-    border-radius:11px;
-
-    background:#121212;
-
-    border:1px solid #242424;
-
-    color:#aaa;
-
-    text-align:left;
-
-    padding:0 13px;
-
-    cursor:pointer;
-
-    font-size:10px;
-
-    font-weight:bold;
-}
-
-.menu-link:hover{
-    color:#d4a72c;
-
-    border-color:#d4a72c;
-}
 
 .logout{
+    width:100%;
+    height:48px;
+
+    margin-top:20px;
+
+    border:1px solid #3a2222;
+
+    border-radius:13px;
+
+    background:#120909;
+
     color:#ff7777;
 
-    margin-top:15px;
-}
+    font-weight:bold;
 
+    cursor:pointer;
+}
 
 /* =========================
-   RESPONSIVE
+   FOOTER
 ========================= */
 
-@media(max-width:600px){
+.footer{
+    text-align:center;
 
-    .tasks{
-        grid-template-columns:1fr 1fr;
-    }
+    margin-top:25px;
 
-}
+    color:#444;
 
-@media(max-width:380px){
-
-    .container{
-        padding-left:12px;
-        padding-right:12px;
-    }
-
-    .tasks{
-        grid-template-columns:1fr;
-    }
-
-    .quick-actions{
-        gap:6px;
-    }
-
-    .balance{
-        font-size:25px;
-    }
-
+    font-size:10px;
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 
-<!-- =========================
-     TOP BAR
-========================= -->
+<!-- HEADER -->
 
-<header class="topbar">
+<header class="header">
 
-    <div class="brand">
+    <div class="header-left">
 
         <div class="logo">
             LC
         </div>
 
-        <div class="brand-name">
-            LINKCASH
+        <div>
+            <div class="brand-name">
+                LINKCASH
+            </div>
+
+            <div class="header-sub">
+                MEMBER DASHBOARD
+            </div>
         </div>
 
     </div>
 
-
-    <button
-        class="menu-btn"
-        onclick="openMenu()"
-    >
-        ☰
+    <button class="menu-btn" onclick="scrollToAccount()">
+        ⋮
     </button>
 
 </header>
 
 
-
 <main class="container">
 
 
-    <!-- =====================
-         WELCOME
-    ====================== -->
+    <!-- WELCOME -->
 
-    <section class="welcome">
+    <div class="welcome">
 
         <small>
-            MEMBER DASHBOARD
+            Welcome back
         </small>
 
         <h1>
-            Welcome, <span>User</span>
+            Hello, <span id="userName">Member</span> 👋
         </h1>
-
-        <p>
-            Complete tasks, earn rewards and grow your LINKCASH account.
-        </p>
-
-    </section>
-
-
-
-    <!-- =====================
-         BALANCE
-    ====================== -->
-
-    <section class="balance-card">
-
-        <div class="balance-top">
-
-            <div class="balance-label">
-                AVAILABLE BALANCE
-            </div>
-
-            <div class="balance-icon">
-                💰
-            </div>
-
-        </div>
-
-
-        <div class="balance">
-            TZS <span id="balance">0</span>
-        </div>
-
-
-        <div class="balance-bottom">
-
-            <div class="mini-balance">
-
-                <div class="mini-label">
-                    TOTAL EARNED
-                </div>
-
-                <div class="mini-value">
-                    TZS <span id="earned">0</span>
-                </div>
-
-            </div>
-
-
-            <div class="mini-balance">
-
-                <div class="mini-label">
-                    TEAM BONUS
-                </div>
-
-                <div class="mini-value">
-                    TZS <span id="teamBonus">0</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================
-         QUICK ACTIONS
-    ====================== -->
-
-    <div class="quick-actions">
-
-        <button
-            class="action"
-            onclick="showNotice('Withdraw feature coming soon.')"
-        >
-
-            <div class="action-icon">
-                💸
-            </div>
-
-            <div class="action-text">
-                WITHDRAW
-            </div>
-
-        </button>
-
-
-        <button
-            class="action"
-            onclick="showNotice('Deposit feature coming soon.')"
-        >
-
-            <div class="action-icon">
-                💳
-            </div>
-
-            <div class="action-text">
-                DEPOSIT
-            </div>
-
-        </button>
-
-
-        <button
-            class="action"
-            onclick="showNotice('Invite system coming soon.')"
-        >
-
-            <div class="action-icon">
-                🔗
-            </div>
-
-            <div class="action-text">
-                INVITE
-            </div>
-
-        </button>
 
     </div>
 
 
+    <!-- BALANCE -->
 
-    <!-- =====================
-         EARN
-    ====================== -->
+    <div class="balance-card">
+
+        <div class="balance-label">
+            Available Balance
+        </div>
+
+        <div class="balance">
+            <span class="balance-symbol">TSh</span>
+            <span id="balance">0</span>
+        </div>
+
+        <div class="balance-bottom">
+
+            <span>
+                Account status
+            </span>
+
+            <strong>
+                ACTIVE
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUICK ACTIONS -->
 
     <div class="section-title">
 
         <h2>
-            Earn Money
+            Quick Access
         </h2>
 
         <span>
-            AVAILABLE
+            LINKCASH
         </span>
 
     </div>
 
 
-    <section class="tasks">
+    <div class="grid">
 
+        <div class="box" onclick="showNotice('Transactions')">
 
-        <div
-            class="task"
-            onclick="showNotice('Social tasks coming soon.')"
-        >
-
-            <div class="task-icon">
-                📱
+            <div class="box-icon">
+                ↔
             </div>
 
             <h3>
-                Social Tasks
+                Transactions
             </h3>
 
             <p>
-                Complete social media tasks.
+                View your activity
             </p>
-
-            <div class="task-reward">
-                EARN TZS
-            </div>
 
         </div>
 
 
+        <div class="box" onclick="showNotice('Earnings')">
 
-        <div
-            class="task"
-            onclick="showNotice('Advertisement tasks coming soon.')"
-        >
-
-            <div class="task-icon">
-                📢
+            <div class="box-icon">
+                ₮
             </div>
 
             <h3>
-                Watch Ads
+                Earnings
             </h3>
 
             <p>
-                Watch advertisements and earn.
+                View your earnings
             </p>
-
-            <div class="task-reward">
-                EARN TZS
-            </div>
 
         </div>
 
 
+        <div class="box" onclick="showNotice('Profile')">
 
-        <div
-            class="task"
-            onclick="showNotice('Quiz system coming soon.')"
-        >
-
-            <div class="task-icon">
-                🧠
+            <div class="box-icon">
+                ◉
             </div>
 
             <h3>
-                Quiz
+                My Profile
             </h3>
 
             <p>
-                Answer quizzes and earn rewards.
+                Account information
             </p>
-
-            <div class="task-reward">
-                EARN TZS
-            </div>
 
         </div>
 
 
+        <div class="box" onclick="openTeam()">
 
-        <div
-            class="task"
-            onclick="showNotice('Games coming soon.')"
-        >
-
-            <div class="task-icon">
-                🎮
+            <div class="box-icon">
+                ◎
             </div>
 
             <h3>
-                Games
+                My Team
             </h3>
 
             <p>
-                Play available games and earn.
+                View your levels
             </p>
-
-            <div class="task-reward">
-                EARN TZS
-            </div>
 
         </div>
 
-
-    </section>
-
+    </div>
 
 
-    <!-- =====================
-         MY TEAM
-    ====================== -->
+    <!-- MY TEAM -->
 
     <div class="section-title">
 
@@ -1083,386 +723,482 @@ body{
         </h2>
 
         <span>
-            NETWORK
+            LEVELS
         </span>
 
     </div>
 
 
-    <div
-        class="team-card"
-        onclick="showNotice('My Team page coming soon.')"
-    >
+    <div class="team-box" id="teamBox">
 
-        <div class="team-top">
+        <div class="team-main" onclick="toggleTeam()">
 
             <div class="team-left">
 
                 <div class="team-icon">
-                    👥
+                    ◎
                 </div>
 
                 <div>
 
-                    <div class="team-name">
+                    <h3>
                         My Team
-                    </div>
+                    </h3>
 
-                    <div class="team-sub">
-                        View your invited members
-                    </div>
+                    <p>
+                        View team levels
+                    </p>
 
                 </div>
 
             </div>
 
-
-            <div class="team-count">
-                0
+            <div class="arrow">
+                ›
             </div>
+
+        </div>
+
+
+        <div class="levels">
+
+
+            <div class="level" onclick="openLevel(1)">
+
+                <div class="level-left">
+
+                    <div class="level-number">
+                        1
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            LEVEL 1
+                        </h4>
+
+                        <p>
+                            Direct team
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="level-count">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="level" onclick="openLevel(2)">
+
+                <div class="level-left">
+
+                    <div class="level-number">
+                        2
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            LEVEL 2
+                        </h4>
+
+                        <p>
+                            Team network
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="level-count">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="level" onclick="openLevel(3)">
+
+                <div class="level-left">
+
+                    <div class="level-number">
+                        3
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            LEVEL 3
+                        </h4>
+
+                        <p>
+                            Team network
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="level-count">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="level" onclick="openLevel(4)">
+
+                <div class="level-left">
+
+                    <div class="level-number">
+                        4
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            LEVEL 4
+                        </h4>
+
+                        <p>
+                            Team network
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="level-count">
+                    0
+                </div>
+
+            </div>
+
 
         </div>
 
     </div>
 
 
-
-    <!-- =====================
-         ACTIVITY
-    ====================== -->
+    <!-- SOCIAL MEDIA -->
 
     <div class="section-title">
 
         <h2>
-            Recent Activity
+            Follow LINKCASH
         </h2>
 
         <span>
-            LAST 24H
+            SOCIAL
         </span>
 
     </div>
 
 
-    <div class="activity">
+    <div class="social-grid">
 
 
-        <div class="activity-item">
+        <a
+            class="social"
+            href="#"
+            onclick="socialNotice('TikTok')"
+        >
 
-            <div class="activity-icon">
-                👋
+            <div class="social-icon">
+                ♪
             </div>
 
-            <div class="activity-info">
+            <span>
+                TikTok
+            </span>
 
-                <div class="activity-title">
-                    Welcome to LINKCASH
-                </div>
+        </a>
 
-                <div class="activity-time">
-                    Just now
-                </div>
 
+        <a
+            class="social"
+            href="#"
+            onclick="socialNotice('YouTube')"
+        >
+
+            <div class="social-icon">
+                ▶
             </div>
 
-            <div class="activity-amount">
-                —
+            <span>
+                YouTube
+            </span>
+
+        </a>
+
+
+        <a
+            class="social"
+            href="#"
+            onclick="socialNotice('Facebook')"
+        >
+
+            <div class="social-icon">
+                f
             </div>
+
+            <span>
+                Facebook
+            </span>
+
+        </a>
+
+
+        <a
+            class="social"
+            href="#"
+            onclick="socialNotice('Instagram')"
+        >
+
+            <div class="social-icon">
+                ◎
+            </div>
+
+            <span>
+                Instagram
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+    <!-- ACCOUNT -->
+
+    <div class="section-title">
+
+        <h2>
+            Account
+        </h2>
+
+    </div>
+
+
+    <div class="account-box" id="accountBox">
+
+        <div class="account-row">
+
+            <span>
+                Username
+            </span>
+
+            <span id="accountUsername">
+                -
+            </span>
 
         </div>
 
 
-        <div class="activity-item">
+        <div class="account-row">
 
-            <div class="activity-icon">
-                💰
-            </div>
+            <span>
+                Phone
+            </span>
 
-            <div class="activity-info">
-
-                <div class="activity-title">
-                    No transactions yet
-                </div>
-
-                <div class="activity-time">
-                    Start earning to see activity
-                </div>
-
-            </div>
-
-            <div class="activity-amount">
-                —
-            </div>
+            <span id="accountPhone">
+                -
+            </span>
 
         </div>
 
 
+        <div class="account-row">
+
+            <span>
+                Status
+            </span>
+
+            <span>
+                Active
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGOUT -->
+
+    <button
+        class="logout"
+        onclick="logout()"
+    >
+        LOG OUT
+    </button>
+
+
+    <div class="footer">
+        © 2026 LINKCASH
     </div>
 
 
 </main>
 
 
-
-<!-- =========================
-     SIDE MENU
-========================= -->
-
-<aside
-    class="menu"
-    id="sideMenu"
->
-
-    <button
-        class="menu-close"
-        onclick="closeMenu()"
-    >
-        ✕
-    </button>
-
-
-    <h2>
-        LINKCASH
-    </h2>
-
-    <p>
-        Account Menu
-    </p>
-
-
-    <button
-        class="menu-link"
-        onclick="showNotice('Profile page coming soon.')"
-    >
-        👤 MY PROFILE
-    </button>
-
-
-    <button
-        class="menu-link"
-        onclick="showNotice('Transaction history coming soon.')"
-    >
-        📜 TRANSACTIONS
-    </button>
-
-
-    <button
-        class="menu-link"
-        onclick="showNotice('My Team page coming soon.')"
-    >
-        👥 MY TEAM
-    </button>
-
-
-    <button
-        class="menu-link"
-        onclick="showNotice('Settings coming soon.')"
-    >
-        ⚙️ SETTINGS
-    </button>
-
-
-    <button
-        class="menu-link logout"
-        onclick="logout()"
-    >
-        🚪 LOG OUT
-    </button>
-
-</aside>
-
-
-
-<!-- =========================
-     BOTTOM NAV
-========================= -->
-
-<nav class="bottom-nav">
-
-
-    <button
-        class="nav-item active"
-        onclick="setNav(this)"
-    >
-
-        <div class="nav-icon">
-            🏠
-        </div>
-
-        <div class="nav-text">
-            HOME
-        </div>
-
-    </button>
-
-
-    <button
-        class="nav-item"
-        onclick="showNotice('Tasks page coming soon.')"
-    >
-
-        <div class="nav-icon">
-            ⚡
-        </div>
-
-        <div class="nav-text">
-            TASKS
-        </div>
-
-    </button>
-
-
-    <button
-        class="nav-item"
-        onclick="showNotice('Wallet page coming soon.')"
-    >
-
-        <div class="nav-icon">
-            💰
-        </div>
-
-        <div class="nav-text">
-            WALLET
-        </div>
-
-    </button>
-
-
-    <button
-        class="nav-item"
-        onclick="openMenu()"
-    >
-
-        <div class="nav-icon">
-            👤
-        </div>
-
-        <div class="nav-text">
-            ACCOUNT
-        </div>
-
-    </button>
-
-
-</nav>
-
-
-
 <script>
 
-/* =========================
-   SIDE MENU
-========================= */
+/* =====================================
+   LOAD ACCOUNT
+===================================== */
 
-function openMenu(){
-
-    document
-        .getElementById("sideMenu")
-        .classList
-        .add("open");
-
-}
+const savedAccount =
+    localStorage.getItem("linkcashAccount");
 
 
-function closeMenu(){
+if(savedAccount){
 
-    document
-        .getElementById("sideMenu")
-        .classList
-        .remove("open");
+    try{
 
-}
+        const account =
+            JSON.parse(savedAccount);
 
+        document.getElementById(
+            "userName"
+        ).textContent =
+            account.fullname || "Member";
 
-/* =========================
-   NOTICE
-========================= */
+        document.getElementById(
+            "accountUsername"
+        ).textContent =
+            account.username || "-";
 
-function showNotice(text){
+        document.getElementById(
+            "accountPhone"
+        ).textContent =
+            account.phone || "-";
 
-    alert(text);
+    }catch(error){
 
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-function setNav(button){
-
-    document
-        .querySelectorAll(".nav-item")
-        .forEach(function(item){
-
-            item.classList.remove("active");
-
-        });
-
-
-    button.classList.add("active");
-
-}
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-function logout(){
-
-    const confirmLogout =
-        confirm(
-            "Are you sure you want to logout?"
+        console.log(
+            "Account data error"
         );
 
-
-    if(!confirmLogout){
-        return;
     }
 
+}
 
-    /*
-     * Kwa sasa hakuna database.
-     * Baadaye tutaongeza session system.
-     */
 
-    localStorage.removeItem(
-        "linkcashUser"
+/* =====================================
+   TEAM
+===================================== */
+
+function toggleTeam(){
+
+    const team =
+        document.getElementById("teamBox");
+
+    team.classList.toggle("open");
+
+}
+
+
+function openTeam(){
+
+    const team =
+        document.getElementById("teamBox");
+
+    team.classList.add("open");
+
+    team.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* =====================================
+   LEVEL
+===================================== */
+
+function openLevel(level){
+
+    alert(
+        "LEVEL " + level +
+        " is ready for your team members."
     );
+
+}
+
+
+/* =====================================
+   QUICK ACCESS
+===================================== */
+
+function showNotice(name){
+
+    alert(
+        name +
+        " section is ready."
+    );
+
+}
+
+
+/* =====================================
+   SOCIAL
+===================================== */
+
+function socialNotice(name){
+
+    event.preventDefault();
+
+    alert(
+        name +
+        " link will be added here."
+    );
+
+}
+
+
+/* =====================================
+   ACCOUNT
+===================================== */
+
+function scrollToAccount(){
+
+    document.getElementById(
+        "accountBox"
+    ).scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* =====================================
+   LOGOUT
+===================================== */
+
+function logout(){
 
     localStorage.removeItem(
         "linkcashLoggedIn"
     );
 
+    localStorage.removeItem(
+        "linkcashUser"
+    );
 
     window.location.href =
         "login.html";
 
 }
 
-
-/* =========================
-   DEMO DATA
-========================= */
-
-document.getElementById(
-    "balance"
-).textContent = "0";
-
-
-document.getElementById(
-    "earned"
-).textContent = "0";
-
-
-document.getElementById(
-    "teamBonus"
-).textContent = "0";
-
 </script>
 
-
 </body>
+</html>
 
-      </html>
+Muhimu: hii dashboard inasoma jina, username na namba ya simu kutoka "linkcashAccount" ambayo "register.html" yako tayari inahifadhi. Ili login iwe salama zaidi, "login.html" yako inapaswa kuthibitisha hizo taarifa kisha kuweka "linkcashLoggedIn = "true"" kabla ya kupeleka hapa.
