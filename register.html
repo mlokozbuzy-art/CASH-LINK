@@ -1,102 +1,633 @@
-<script>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LINKCASH - Create Account</title><style>
 
-/* =========================
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#050505;
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.wrapper{
+    width:100%;
+    max-width:430px;
+}
+
+/* BRAND */
+
+.brand{
+    text-align:center;
+    margin-bottom:24px;
+}
+
+.logo{
+    width:68px;
+    height:68px;
+    margin:auto;
+
+    border-radius:19px;
+
+    background:linear-gradient(
+        145deg,
+        #ffe082,
+        #d4a72c,
+        #8f6b12
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#080808;
+
+    font-size:23px;
+    font-weight:900;
+}
+
+.brand h1{
+    margin-top:12px;
+
+    font-size:27px;
+
+    letter-spacing:3px;
+
+    color:#fff;
+}
+
+.brand p{
+    margin-top:7px;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+/* CARD */
+
+.card{
+    background:#101010;
+
+    border:1px solid #292929;
+
+    border-radius:23px;
+
+    padding:27px 22px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65);
+}
+
+.title{
+    margin-bottom:21px;
+}
+
+.title h2{
+    font-size:22px;
+
+    color:#fff;
+
+    margin-bottom:7px;
+}
+
+.title p{
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.5;
+}
+
+/* FIELDS */
+
+.field{
+    margin-bottom:15px;
+}
+
+.field label{
+    display:block;
+
+    color:#ccc;
+
+    font-size:13px;
+
+    margin-bottom:7px;
+}
+
+input{
+    width:100%;
+
+    height:49px;
+
+    background:#070707;
+
+    border:1px solid #292929;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    outline:none;
+
+    padding:0 14px;
+
+    font-size:14px;
+}
+
+input::placeholder{
+    color:#555;
+}
+
+input:focus{
+    border-color:#d4a72c;
+
+    box-shadow:
+        0 0 0 2px rgba(212,167,44,.08);
+}
+
+/* PASSWORD */
+
+.password-wrap{
+    position:relative;
+}
+
+.password-wrap input{
+    padding-right:60px;
+}
+
+.show-password{
+    position:absolute;
+
+    right:11px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    border:none;
+
+    background:none;
+
+    color:#d4a72c;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* BUTTON */
+
+.register-btn{
+    width:100%;
+
+    height:52px;
+
+    margin-top:4px;
+
+    border:none;
+
+    border-radius:13px;
+
+    background:linear-gradient(
+        135deg,
+        #ffe082,
+        #d4a72c,
+        #a77b17
+    );
+
+    color:#080808;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.register-btn:active{
+    transform:scale(.98);
+}
+
+/* MESSAGE */
+
+.message{
+    display:none;
+
+    margin-top:14px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+.message.success{
+    display:block;
+
+    color:#62df91;
+
+    background:rgba(40,180,100,.08);
+
+    border:1px solid rgba(40,180,100,.25);
+}
+
+.message.error{
+    display:block;
+
+    color:#ff7777;
+
+    background:rgba(220,60,60,.08);
+
+    border:1px solid rgba(220,60,60,.25);
+}
+
+/* LOGIN */
+
+.login{
+    text-align:center;
+
+    margin-top:21px;
+
+    padding-top:19px;
+
+    border-top:1px solid #222;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+.login a{
+    color:#e0b83e;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+/* BACK */
+
+.back{
+    display:block;
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:#666;
+
+    text-decoration:none;
+
+    font-size:12px;
+}
+
+.back:hover{
+    color:#d4a72c;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+
+    margin-top:17px;
+
+    color:#444;
+
+    font-size:10px;
+}
+
+</style></head><body><div class="wrapper"><!-- BRAND -->
+
+<div class="brand">
+
+    <div class="logo">
+        LC
+    </div>
+
+    <h1>
+        LINKCASH
+    </h1>
+
+    <p>
+        Create your account
+    </p>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card">
+
+
+    <div class="title">
+
+        <h2>
+            Create Account
+        </h2>
+
+        <p>
+            Join LINKCASH and get started.
+        </p>
+
+    </div>
+
+
+    <form id="registerForm">
+
+
+        <!-- FULL NAME -->
+
+        <div class="field">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="fullname"
+                placeholder="Enter your full name"
+                required
+            >
+
+        </div>
+
+
+        <!-- USERNAME -->
+
+        <div class="field">
+
+            <label>
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Choose a username"
+                required
+            >
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="field">
+
+            <label>
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="field">
+
+            <label>
+                Password
+            </label>
+
+            <div class="password-wrap">
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+                <button
+                    type="button"
+                    class="show-password"
+                    id="showPassword"
+                >
+                    SHOW
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <div class="field">
+
+            <label>
+                Confirm Password
+            </label>
+
+            <div class="password-wrap">
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+                <button
+                    type="button"
+                    class="show-password"
+                    id="showConfirmPassword"
+                >
+                    SHOW
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button
+            type="submit"
+            class="register-btn"
+            id="registerBtn"
+        >
+            CREATE ACCOUNT
+        </button>
+
+    </form>
+
+
+    <!-- MESSAGE -->
+
+    <div
+        id="message"
+        class="message"
+    ></div>
+
+
+    <!-- LOGIN -->
+
+    <div class="login">
+
+        Already have an account?
+
+        <a href="login.html">
+            Log In
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- BACK -->
+
+<a
+    href="index.html"
+    class="back"
+>
+    ← Back to Home
+</a>
+
+
+<div class="footer">
+    © 2026 LINKCASH
+</div>
+
+</div><script>
+
+/* =====================================
    ELEMENTS
-========================= */
+===================================== */
 
 const form =
-document.getElementById("registerForm");
+    document.getElementById("registerForm");
 
 const fullname =
-document.getElementById("fullname");
+    document.getElementById("fullname");
 
 const username =
-document.getElementById("username");
+    document.getElementById("username");
 
 const phone =
-document.getElementById("phone");
+    document.getElementById("phone");
 
 const password =
-document.getElementById("password");
+    document.getElementById("password");
 
 const confirmPassword =
-document.getElementById("confirmPassword");
+    document.getElementById("confirmPassword");
 
 const registerBtn =
-document.getElementById("registerBtn");
+    document.getElementById("registerBtn");
 
 const message =
-document.getElementById("message");
+    document.getElementById("message");
 
 const showPassword =
-document.getElementById("showPassword");
+    document.getElementById("showPassword");
 
 const showConfirmPassword =
-document.getElementById("showConfirmPassword");
+    document.getElementById("showConfirmPassword");
 
 
-/* =========================
+/* =====================================
    SHOW PASSWORD
-========================= */
+===================================== */
 
-showPassword.addEventListener("click", function(){
+showPassword.onclick = function(){
 
     if(password.type === "password"){
 
         password.type = "text";
+
         showPassword.textContent = "HIDE";
 
     }else{
 
         password.type = "password";
+
         showPassword.textContent = "SHOW";
 
     }
 
-});
+};
 
 
-/* =========================
+/* =====================================
    SHOW CONFIRM PASSWORD
-========================= */
+===================================== */
 
-showConfirmPassword.addEventListener("click", function(){
+showConfirmPassword.onclick = function(){
 
     if(confirmPassword.type === "password"){
 
         confirmPassword.type = "text";
+
         showConfirmPassword.textContent = "HIDE";
 
     }else{
 
         confirmPassword.type = "password";
+
         showConfirmPassword.textContent = "SHOW";
 
     }
 
-});
+};
 
 
-/* =========================
+/* =====================================
    MESSAGE
-========================= */
+===================================== */
 
 function showMessage(text,type){
 
-    message.className = "message " + type;
-    message.textContent = text;
-    message.style.display = "block";
+    message.className =
+        "message " + type;
+
+    message.textContent =
+        text;
+
+    message.style.display =
+        "block";
 
 }
 
 
-/* =========================
+/* =====================================
    REGISTER
-========================= */
+===================================== */
 
-form.addEventListener("submit", function(event){
+form.onsubmit = function(event){
 
     event.preventDefault();
+
 
     const name =
         fullname.value.trim();
@@ -114,9 +645,7 @@ form.addEventListener("submit", function(event){
         confirmPassword.value;
 
 
-    /* =========================
-       VALIDATION
-    ========================= */
+    /* NAME */
 
     if(!name){
 
@@ -126,10 +655,12 @@ form.addEventListener("submit", function(event){
         );
 
         fullname.focus();
-        return;
 
+        return;
     }
 
+
+    /* USERNAME */
 
     if(!user){
 
@@ -139,10 +670,12 @@ form.addEventListener("submit", function(event){
         );
 
         username.focus();
-        return;
 
+        return;
     }
 
+
+    /* PHONE */
 
     if(!number){
 
@@ -152,10 +685,12 @@ form.addEventListener("submit", function(event){
         );
 
         phone.focus();
-        return;
 
+        return;
     }
 
+
+    /* PASSWORD */
 
     if(!pass){
 
@@ -165,10 +700,12 @@ form.addEventListener("submit", function(event){
         );
 
         password.focus();
-        return;
 
+        return;
     }
 
+
+    /* PASSWORD LENGTH */
 
     if(pass.length < 6){
 
@@ -178,10 +715,12 @@ form.addEventListener("submit", function(event){
         );
 
         password.focus();
-        return;
 
+        return;
     }
 
+
+    /* CONFIRM */
 
     if(pass !== confirm){
 
@@ -191,75 +730,36 @@ form.addEventListener("submit", function(event){
         );
 
         confirmPassword.focus();
+
         return;
-
     }
 
 
-    /* =========================
-       CHECK EXISTING ACCOUNT
-    ========================= */
-
-    const existingAccount =
-        localStorage.getItem("linkcashAccount");
-
-    if(existingAccount){
-
-        try{
-
-            const oldAccount =
-                JSON.parse(existingAccount);
-
-            if(
-                oldAccount.username === user
-            ){
-
-                showMessage(
-                    "Username already exists. Please choose another.",
-                    "error"
-                );
-
-                username.focus();
-                return;
-
-            }
-
-        }catch(error){
-
-            localStorage.removeItem(
-                "linkcashAccount"
-            );
-
-        }
-
-    }
-
-
-    /* =========================
+    /* =====================================
        CREATE ACCOUNT
-    ========================= */
+    ===================================== */
 
     const account = {
 
-        fullname: name,
+        fullname:name,
 
-        username: user,
+        username:user,
 
-        phone: number,
+        phone:number,
 
-        password: pass,
+        password:pass,
+
+        status:"active",
 
         createdAt:
-            new Date().toISOString(),
-
-        status: "active"
+            new Date().toISOString()
 
     };
 
 
-    /* =========================
-       SAVE ACCOUNT
-    ========================= */
+    /* =====================================
+       SAVE
+    ===================================== */
 
     localStorage.setItem(
         "linkcashAccount",
@@ -267,9 +767,7 @@ form.addEventListener("submit", function(event){
     );
 
 
-    /* =========================
-       SAVE LOGIN STATE
-    ========================= */
+    /* CLEAR LOGIN */
 
     localStorage.removeItem(
         "linkcashLoggedIn"
@@ -280,9 +778,7 @@ form.addEventListener("submit", function(event){
     );
 
 
-    /* =========================
-       SUCCESS
-    ========================= */
+    /* SUCCESS */
 
     registerBtn.disabled = true;
 
@@ -291,14 +787,12 @@ form.addEventListener("submit", function(event){
 
 
     showMessage(
-        "Account created successfully ✓ Redirecting to login...",
+        "Account created successfully ✓",
         "success"
     );
 
 
-    /* =========================
-       GO TO LOGIN
-    ========================= */
+    /* GO LOGIN */
 
     setTimeout(function(){
 
@@ -307,6 +801,11 @@ form.addEventListener("submit", function(event){
 
     },1000);
 
-});
+};
 
-</script>
+</script></body></html>
+```Baada ya kuweka hii, usiweke "<script>" nyingine chini yake. Hii ni "register.html" kamili.
+
+Mtiririko utakuwa:
+
+"index.html" → CREATE ACCOUNT → "register.html" → account inahifadhiwa → "login.html" → login successful → "dashboard.html".
