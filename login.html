@@ -10,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -42,14 +43,20 @@ body{
   height:70px;
   margin:auto;
   border-radius:20px;
-  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
   display:flex;
   align-items:center;
   justify-content:center;
   color:#090909;
   font-size:24px;
   font-weight:900;
-  box-shadow:0 0 25px rgba(212,167,44,.25);
+  box-shadow:
+    0 0 25px rgba(212,167,44,.25);
 }
 
 .brand h1{
@@ -69,7 +76,8 @@ body{
   border:1px solid #292929;
   border-radius:24px;
   padding:28px 22px;
-  box-shadow:0 25px 70px rgba(0,0,0,.6);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.6);
 }
 
 .title{
@@ -116,7 +124,8 @@ input::placeholder{
 
 input:focus{
   border-color:#d4a72c;
-  box-shadow:0 0 0 2px rgba(212,167,44,.08);
+  box-shadow:
+    0 0 0 2px rgba(212,167,44,.08);
 }
 
 .password-wrap{
@@ -146,7 +155,13 @@ input:focus{
   margin-top:5px;
   border:none;
   border-radius:13px;
-  background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #d4a72c,
+      #a77b17
+    );
   color:#080808;
   font-size:15px;
   font-weight:900;
@@ -250,12 +265,14 @@ input:focus{
 
 .connection-dot.online{
   background:#58d88a;
-  box-shadow:0 0 8px rgba(88,216,138,.5);
+  box-shadow:
+    0 0 8px rgba(88,216,138,.5);
 }
 
 .connection-dot.error{
   background:#ff5555;
 }
+
 </style>
 
 </head>
@@ -272,7 +289,9 @@ input:focus{
 
     <h1>LINKCASH</h1>
 
-    <p>Simple. Secure. Connected.</p>
+    <p>
+      Simple. Secure. Connected.
+    </p>
 
   </div>
 
@@ -281,7 +300,9 @@ input:focus{
 
     <div class="title">
 
-      <h2>Welcome Back</h2>
+      <h2>
+        Welcome Back
+      </h2>
 
       <p>
         Login to your LINKCASH account.
@@ -290,11 +311,16 @@ input:focus{
     </div>
 
 
-    <form id="loginForm" novalidate>
+    <form
+      id="loginForm"
+      novalidate
+    >
 
       <div class="field">
 
-        <label>Username</label>
+        <label>
+          Username
+        </label>
 
         <input
           type="text"
@@ -309,7 +335,9 @@ input:focus{
 
       <div class="field">
 
-        <label>Password</label>
+        <label>
+          Password
+        </label>
 
         <div class="password-wrap">
 
@@ -378,7 +406,10 @@ input:focus{
   </div>
 
 
-  <a href="index.html" class="back">
+  <a
+    href="index.html"
+    class="back"
+  >
     ← Back to Home
   </a>
 
@@ -401,6 +432,7 @@ const SUPABASE_URL =
 
 const SUPABASE_KEY =
 "sb_publishable_CyKL7kpQ2K5AdosXfebJCg_k-uF8OpV";
+
 
 const supabaseClient =
 window.supabase.createClient(
@@ -439,33 +471,44 @@ document.getElementById("connectionText");
 
 
 /* =========================================
-   SHOW PASSWORD
+   SHOW / HIDE PASSWORD
 ========================================= */
 
-showPassword.addEventListener("click",function(){
+showPassword.addEventListener(
+  "click",
+  function(){
 
-  if(passwordInput.type === "password"){
+    if(
+      passwordInput.type === "password"
+    ){
 
-    passwordInput.type = "text";
+      passwordInput.type = "text";
 
-    showPassword.textContent = "HIDE";
+      showPassword.textContent =
+        "HIDE";
 
-  }else{
+    }else{
 
-    passwordInput.type = "password";
+      passwordInput.type =
+        "password";
 
-    showPassword.textContent = "SHOW";
+      showPassword.textContent =
+        "SHOW";
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================================
    MESSAGE
 ========================================= */
 
-function showMessage(text,type){
+function showMessage(
+  text,
+  type
+){
 
   message.className =
     "message " + type;
@@ -501,13 +544,14 @@ async function checkConnection(){
 
   try{
 
-    const { error } =
+    const result =
       await supabaseClient
       .from("users")
       .select("id")
       .limit(1);
 
-    if(error){
+
+    if(result.error){
 
       connectionDot.className =
         "connection-dot error";
@@ -515,17 +559,23 @@ async function checkConnection(){
       connectionText.textContent =
         "DATABASE CONNECTION ERROR";
 
-      console.error(error);
+      console.error(
+        result.error
+      );
 
-      return;
+      return false;
 
     }
+
 
     connectionDot.className =
       "connection-dot online";
 
     connectionText.textContent =
       "SUPABASE CONNECTED";
+
+    return true;
+
 
   }catch(error){
 
@@ -536,6 +586,8 @@ async function checkConnection(){
       "SUPABASE CONNECTION FAILED";
 
     console.error(error);
+
+    return false;
 
   }
 
@@ -555,7 +607,6 @@ function saveUser(user){
 
     fullname:
       user.fullname ||
-      user.full_name ||
       "",
 
     username:
@@ -569,6 +620,13 @@ function saveUser(user){
     email:
       user.email ||
       "",
+
+    role:
+      String(
+        user.role || "user"
+      )
+      .trim()
+      .toLowerCase(),
 
     referrer:
       user.referrer ||
@@ -599,9 +657,27 @@ function saveUser(user){
     JSON.stringify(cleanUser)
   );
 
+
   localStorage.setItem(
     "linkcashLoggedIn",
     "true"
+  );
+
+}
+
+
+/* =========================================
+   CLEAR CEO SESSION
+========================================= */
+
+function clearCEOSession(){
+
+  localStorage.removeItem(
+    "linkcashCEOLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "linkcashCEO"
   );
 
 }
@@ -612,310 +688,403 @@ function saveUser(user){
 ========================================= */
 
 form.addEventListener(
-"submit",
-async function(event){
+  "submit",
+  async function(event){
 
-  event.preventDefault();
+    event.preventDefault();
 
-  clearMessage();
+    clearMessage();
 
-  const username =
-    usernameInput.value
-    .trim()
-    .toLowerCase();
-
-  const password =
-    passwordInput.value;
-
-
-  /* ==============================
-     VALIDATION
-  ============================== */
-
-  if(!username){
-
-    showMessage(
-      "Please enter your username.",
-      "error"
-    );
-
-    usernameInput.focus();
-
-    return;
-  }
-
-
-  if(!password){
-
-    showMessage(
-      "Please enter your password.",
-      "error"
-    );
-
-    passwordInput.focus();
-
-    return;
-  }
-
-
-  button.disabled = true;
-
-  button.textContent =
-    "LOGGING IN...";
-
-
-  try{
-
-
-    /* ==============================
-       CEO LOGIN
-    ============================== */
-
-    if(
-      username === "ceo" &&
-      password === "CEO@2026"
-    ){
-
-      localStorage.setItem(
-        "linkcashCEOLoggedIn",
-        "true"
-      );
-
-      localStorage.setItem(
-        "linkcashCEO",
-        JSON.stringify({
-          username:"CEO",
-          role:"CEO"
-        })
-      );
-
-
-      showMessage(
-        "CEO login successful ✓",
-        "success"
-      );
-
-      button.textContent =
-        "LOGIN SUCCESSFUL ✓";
-
-
-      setTimeout(function(){
-
-        window.location.href =
-          "ceodashboard.html";
-
-      },600);
-
-
-      return;
-    }
-
-
-    /* ==============================
-       SEARCH USER
-    ============================== */
-
-    const result =
-      await supabaseClient
-      .from("users")
-      .select("*")
-      .eq("username",username)
-      .maybeSingle();
-
-
-    if(result.error){
-
-      console.error(
-        "SUPABASE ERROR:",
-        result.error
-      );
-
-      throw new Error(
-        "Database error: " +
-        result.error.message
-      );
-
-    }
-
-
-    /* ==============================
-       USER NOT FOUND
-    ============================== */
-
-    if(!result.data){
-
-      throw new Error(
-        "Incorrect username or password."
-      );
-
-    }
-
-
-    const user =
-      result.data;
-
-
-    /* ==============================
-       PASSWORD
-    ============================== */
-
-    if(
-      String(user.password || "") !==
-      String(password)
-    ){
-
-      throw new Error(
-        "Incorrect username or password."
-      );
-
-    }
-
-
-    /* ==============================
-       STATUS
-    ============================== */
-
-    const status =
-      String(
-        user.status || "pending"
-      )
+    const username =
+      usernameInput.value
       .trim()
       .toLowerCase();
 
+    const password =
+      passwordInput.value;
+
 
     /* ==============================
-       REJECTED
+       VALIDATION
     ============================== */
 
-    if(status === "rejected"){
+    if(!username){
+
+      showMessage(
+        "Please enter your username.",
+        "error"
+      );
+
+      usernameInput.focus();
+
+      return;
+
+    }
+
+
+    if(!password){
+
+      showMessage(
+        "Please enter your password.",
+        "error"
+      );
+
+      passwordInput.focus();
+
+      return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+      "LOGGING IN...";
+
+
+    try{
+
+
+      /* ==============================
+         FIND USER
+      ============================== */
+
+      const result =
+        await supabaseClient
+        .from("users")
+        .select("*")
+        .eq(
+          "username",
+          username
+        )
+        .maybeSingle();
+
+
+      if(result.error){
+
+        console.error(
+          "SUPABASE ERROR:",
+          result.error
+        );
+
+        throw new Error(
+          "Database error: " +
+          result.error.message
+        );
+
+      }
+
+
+      /* ==============================
+         USER NOT FOUND
+      ============================== */
+
+      if(!result.data){
+
+        throw new Error(
+          "Incorrect username or password."
+        );
+
+      }
+
+
+      const user =
+        result.data;
+
+
+      /* ==============================
+         PASSWORD CHECK
+      ============================== */
+
+      if(
+        String(user.password || "") !==
+        String(password)
+      ){
+
+        throw new Error(
+          "Incorrect username or password."
+        );
+
+      }
+
+
+      /* ==============================
+         NORMALIZE ROLE
+      ============================== */
+
+      const role =
+        String(
+          user.role || "user"
+        )
+        .trim()
+        .toLowerCase();
+
+
+      /* ==============================
+         NORMALIZE STATUS
+      ============================== */
+
+      const status =
+        String(
+          user.status || "pending"
+        )
+        .trim()
+        .toLowerCase();
+
+
+      /* ==============================
+         SAVE USER
+      ============================== */
 
       saveUser(user);
 
+
+      /* ==============================
+         CEO
+      ============================== */
+
+      if(role === "ceo"){
+
+        /*
+         * CEO lazima awe active.
+         */
+
+        if(
+          status !== "active" &&
+          status !== "activated"
+        ){
+
+          clearCEOSession();
+
+          showMessage(
+            "CEO account is not active.",
+            "error"
+          );
+
+          button.disabled = false;
+
+          button.textContent =
+            "LOGIN";
+
+          return;
+
+        }
+
+
+        /*
+         * Hifadhi CEO session
+         */
+
+        localStorage.setItem(
+          "linkcashCEOLoggedIn",
+          "true"
+        );
+
+
+        localStorage.setItem(
+          "linkcashCEO",
+          JSON.stringify({
+
+            id:
+              user.id,
+
+            username:
+              user.username,
+
+            fullname:
+              user.fullname,
+
+            role:
+              "ceo",
+
+            status:
+              status
+
+          })
+        );
+
+
+        showMessage(
+          "CEO login successful ✓",
+          "success"
+        );
+
+
+        button.textContent =
+          "LOGIN SUCCESSFUL ✓";
+
+
+        setTimeout(
+          function(){
+
+            window.location.replace(
+              "ceodashboard.html"
+            );
+
+          },
+          700
+        );
+
+
+        return;
+
+      }
+
+
+      /* ==============================
+         NORMAL USER
+      ============================== */
+
+      clearCEOSession();
+
+
+      /* ==============================
+         REJECTED
+      ============================== */
+
+      if(status === "rejected"){
+
+        showMessage(
+          "Your account has been rejected. Please contact LINKCASH support.",
+          "rejected"
+        );
+
+
+        button.disabled = false;
+
+        button.textContent =
+          "LOGIN";
+
+        return;
+
+      }
+
+
+      /* ==============================
+         PENDING
+      ============================== */
+
+      if(
+        status === "pending" ||
+        status === "payment_pending" ||
+        status === "inactive" ||
+        status === "non-active" ||
+        status === "not_activated"
+      ){
+
+        showMessage(
+          "Your account is waiting for CEO approval.",
+          "pending"
+        );
+
+
+        button.textContent =
+          "ACCOUNT PENDING";
+
+
+        setTimeout(
+          function(){
+
+            window.location.replace(
+              "pending-dashboard.html"
+            );
+
+          },
+          900
+        );
+
+
+        return;
+
+      }
+
+
+      /* ==============================
+         ACTIVE NORMAL USER
+      ============================== */
+
+      if(
+        status === "active" ||
+        status === "activated"
+      ){
+
+        showMessage(
+          "Login successful ✓",
+          "success"
+        );
+
+
+        button.textContent =
+          "LOGIN SUCCESSFUL ✓";
+
+
+        setTimeout(
+          function(){
+
+            window.location.replace(
+              "dashboard.html"
+            );
+
+          },
+          700
+        );
+
+
+        return;
+
+      }
+
+
+      /* ==============================
+         UNKNOWN STATUS
+      ============================== */
+
       showMessage(
-        "Your account has been rejected. Please contact LINKCASH support.",
-        "rejected"
+        "Your account is waiting for approval.",
+        "pending"
       );
+
+
+      button.textContent =
+        "ACCOUNT PENDING";
+
+
+      setTimeout(
+        function(){
+
+          window.location.replace(
+            "pending-dashboard.html"
+          );
+
+        },
+        900
+      );
+
+
+    }catch(error){
+
+      console.error(
+        "LOGIN ERROR:",
+        error
+      );
+
+
+      showMessage(
+        error.message ||
+        "Login failed. Please try again.",
+        "error"
+      );
+
 
       button.disabled = false;
 
       button.textContent =
         "LOGIN";
 
-      return;
     }
-
-
-    /* ==============================
-       PENDING
-    ============================== */
-
-    if(
-      status === "pending" ||
-      status === "payment_pending" ||
-      status === "inactive" ||
-      status === "non-active" ||
-      status === "not_activated"
-    ){
-
-      saveUser(user);
-
-      showMessage(
-        "Your account is waiting for CEO approval.",
-        "pending"
-      );
-
-      button.textContent =
-        "ACCOUNT PENDING";
-
-
-      setTimeout(function(){
-
-        window.location.href =
-          "pending-dashboard.html";
-
-      },900);
-
-
-      return;
-    }
-
-
-    /* ==============================
-       ACTIVE
-    ============================== */
-
-    if(
-      status === "active" ||
-      status === "activated"
-    ){
-
-      saveUser(user);
-
-      showMessage(
-        "Login successful ✓",
-        "success"
-      );
-
-      button.textContent =
-        "LOGIN SUCCESSFUL ✓";
-
-
-      setTimeout(function(){
-
-        window.location.href =
-          "dashboard.html";
-
-      },700);
-
-
-      return;
-    }
-
-
-    /* ==============================
-       UNKNOWN STATUS
-    ============================== */
-
-    saveUser(user);
-
-    showMessage(
-      "Your account is waiting for approval.",
-      "pending"
-    );
-
-    button.textContent =
-      "ACCOUNT PENDING";
-
-
-    setTimeout(function(){
-
-      window.location.href =
-        "pending-dashboard.html";
-
-    },900);
-
-
-  }catch(error){
-
-    console.error(
-      "LOGIN ERROR:",
-      error
-    );
-
-    showMessage(
-      error.message ||
-      "Login failed. Please try again.",
-      "error"
-    );
-
-    button.disabled = false;
-
-    button.textContent =
-      "LOGIN";
 
   }
-
-});
+);
 
 
 /* =========================================
