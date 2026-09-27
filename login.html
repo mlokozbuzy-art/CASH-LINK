@@ -43,14 +43,24 @@ body{
   height:70px;
   margin:auto;
   border-radius:20px;
-  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   color:#090909;
   font-size:24px;
   font-weight:900;
-  box-shadow:0 0 25px rgba(212,167,44,.25);
+
+  box-shadow:
+    0 0 25px rgba(212,167,44,.25);
 }
 
 .brand h1{
@@ -70,7 +80,9 @@ body{
   border:1px solid #292929;
   border-radius:24px;
   padding:28px 22px;
-  box-shadow:0 25px 70px rgba(0,0,0,.6);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.6);
 }
 
 .title{
@@ -102,12 +114,17 @@ body{
 input{
   width:100%;
   height:50px;
+
   background:#070707;
+
   border:1px solid #292929;
   border-radius:12px;
+
   color:#fff;
   outline:none;
+
   padding:0 15px;
+
   font-size:14px;
 }
 
@@ -117,7 +134,9 @@ input::placeholder{
 
 input:focus{
   border-color:#d4a72c;
-  box-shadow:0 0 0 2px rgba(212,167,44,.08);
+
+  box-shadow:
+    0 0 0 2px rgba(212,167,44,.08);
 }
 
 .password-wrap{
@@ -130,27 +149,45 @@ input:focus{
 
 .show-password{
   position:absolute;
+
   right:12px;
   top:50%;
+
   transform:translateY(-50%);
+
   background:none;
   border:none;
+
   color:#d4a72c;
+
   font-size:12px;
   font-weight:bold;
+
   cursor:pointer;
 }
 
 .login-btn{
   width:100%;
   height:53px;
+
   margin-top:5px;
+
   border:none;
   border-radius:13px;
-  background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #d4a72c,
+      #a77b17
+    );
+
   color:#080808;
+
   font-size:15px;
   font-weight:900;
+
   cursor:pointer;
 }
 
@@ -165,93 +202,132 @@ input:focus{
 
 .message{
   display:none;
+
   margin-top:15px;
+
   padding:13px;
+
   border-radius:10px;
+
   text-align:center;
+
   font-size:12px;
   line-height:1.5;
 }
 
 .message.success{
   display:block;
+
   background:rgba(40,180,100,.10);
+
   border:1px solid rgba(40,180,100,.3);
+
   color:#62df91;
 }
 
 .message.error{
   display:block;
+
   background:rgba(220,60,60,.10);
+
   border:1px solid rgba(220,60,60,.3);
+
   color:#ff7777;
 }
 
 .message.pending{
   display:block;
+
   background:rgba(212,167,44,.08);
+
   border:1px solid rgba(212,167,44,.25);
+
   color:#e6c65c;
 }
 
 .message.rejected{
   display:block;
+
   background:rgba(220,60,60,.10);
+
   border:1px solid rgba(220,60,60,.3);
+
   color:#ff7777;
 }
 
 .register{
   text-align:center;
+
   margin-top:23px;
   padding-top:20px;
+
   border-top:1px solid #222;
+
   color:#777;
   font-size:13px;
 }
 
 .register a{
   color:#e0b83e;
+
   text-decoration:none;
+
   font-weight:bold;
 }
 
 .back{
   display:block;
+
   text-align:center;
+
   margin-top:18px;
+
   color:#686868;
+
   text-decoration:none;
+
   font-size:12px;
 }
 
 .footer{
   text-align:center;
+
   margin-top:18px;
+
   color:#444;
+
   font-size:11px;
 }
 
 .connection{
   display:flex;
+
   justify-content:center;
   align-items:center;
+
   gap:7px;
+
   margin-top:13px;
+
   color:#555;
+
   font-size:9px;
 }
 
 .connection-dot{
   width:7px;
   height:7px;
+
   border-radius:50%;
+
   background:#777;
 }
 
 .connection-dot.online{
   background:#58d88a;
-  box-shadow:0 0 8px rgba(88,216,138,.5);
+
+  box-shadow:
+    0 0 8px rgba(88,216,138,.5);
 }
 
 .connection-dot.error{
@@ -259,11 +335,14 @@ input:focus{
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="wrapper">
+
+  <!-- BRAND -->
 
   <div class="brand">
 
@@ -271,18 +350,26 @@ input:focus{
       LC
     </div>
 
-    <h1>LINKCASH</h1>
+    <h1>
+      LINKCASH
+    </h1>
 
-    <p>Simple. Secure. Connected.</p>
+    <p>
+      Simple. Secure. Connected.
+    </p>
 
   </div>
 
+
+  <!-- LOGIN CARD -->
 
   <div class="card">
 
     <div class="title">
 
-      <h2>Welcome Back</h2>
+      <h2>
+        Welcome Back
+      </h2>
 
       <p>
         Login to your LINKCASH account.
@@ -291,11 +378,18 @@ input:focus{
     </div>
 
 
-    <form id="loginForm" novalidate>
+    <form
+      id="loginForm"
+      novalidate
+    >
+
+      <!-- USERNAME -->
 
       <div class="field">
 
-        <label>Username</label>
+        <label>
+          Username
+        </label>
 
         <input
           type="text"
@@ -308,9 +402,13 @@ input:focus{
       </div>
 
 
+      <!-- PASSWORD -->
+
       <div class="field">
 
-        <label>Password</label>
+        <label>
+          Password
+        </label>
 
         <div class="password-wrap">
 
@@ -335,6 +433,8 @@ input:focus{
       </div>
 
 
+      <!-- LOGIN -->
+
       <button
         type="submit"
         class="login-btn"
@@ -346,25 +446,31 @@ input:focus{
     </form>
 
 
+    <!-- MESSAGE -->
+
     <div
       class="message"
-      id="message">
-    </div>
+      id="message"
+    ></div>
 
+
+    <!-- CONNECTION -->
 
     <div class="connection">
 
       <div
         class="connection-dot"
-        id="connectionDot">
-      </div>
+        id="connectionDot"
+      ></div>
 
       <span id="connectionText">
-        CHECKING SUPABASE...
+        CHECKING DATABASE...
       </span>
 
     </div>
 
+
+    <!-- REGISTER -->
 
     <div class="register">
 
@@ -379,10 +485,17 @@ input:focus{
   </div>
 
 
-  <a href="index.html" class="back">
+  <!-- BACK -->
+
+  <a
+    href="index.html"
+    class="back"
+  >
     ← Back to Home
   </a>
 
+
+  <!-- FOOTER -->
 
   <div class="footer">
     © 2026 LINKCASH
@@ -393,15 +506,16 @@ input:focus{
 
 <script>
 
-/* =========================================
-   SUPABASE
-========================================= */
+/* =====================================================
+   SUPABASE CONFIGURATION
+===================================================== */
 
 const SUPABASE_URL =
 "https://vrrglcpixeqnqqdlqtot.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_CyKL7kpQ2K5AdosXfebJCg_k-uF8OpV";
+"sb_publishable_CyKL7kpQ2K5AdosXfebCGjc_k-uF8OpV";
+
 
 const supabaseClient =
 window.supabase.createClient(
@@ -410,9 +524,9 @@ window.supabase.createClient(
 );
 
 
-/* =========================================
+/* =====================================================
    ELEMENTS
-========================================= */
+===================================================== */
 
 const form =
 document.getElementById("loginForm");
@@ -423,13 +537,13 @@ document.getElementById("username");
 const passwordInput =
 document.getElementById("password");
 
-const button =
+const loginButton =
 document.getElementById("loginBtn");
 
 const message =
 document.getElementById("message");
 
-const showPassword =
+const showPasswordButton =
 document.getElementById("showPassword");
 
 const connectionDot =
@@ -439,36 +553,11 @@ const connectionText =
 document.getElementById("connectionText");
 
 
-/* =========================================
-   CLEAR OLD SESSION
-========================================= */
+/* =====================================================
+   SHOW / HIDE PASSWORD
+===================================================== */
 
-function clearOldSessions(){
-
-  localStorage.removeItem(
-    "linkcashCEOLoggedIn"
-  );
-
-  localStorage.removeItem(
-    "linkcashCEO"
-  );
-
-  localStorage.removeItem(
-    "linkcashLoggedIn"
-  );
-
-  localStorage.removeItem(
-    "linkcashUser"
-  );
-
-}
-
-
-/* =========================================
-   SHOW PASSWORD
-========================================= */
-
-showPassword.addEventListener(
+showPasswordButton.addEventListener(
   "click",
   function(){
 
@@ -476,9 +565,10 @@ showPassword.addEventListener(
       passwordInput.type === "password"
     ){
 
-      passwordInput.type = "text";
+      passwordInput.type =
+        "text";
 
-      showPassword.textContent =
+      showPasswordButton.textContent =
         "HIDE";
 
     }else{
@@ -486,7 +576,7 @@ showPassword.addEventListener(
       passwordInput.type =
         "password";
 
-      showPassword.textContent =
+      showPasswordButton.textContent =
         "SHOW";
 
     }
@@ -495,11 +585,14 @@ showPassword.addEventListener(
 );
 
 
-/* =========================================
+/* =====================================================
    MESSAGE
-========================================= */
+===================================================== */
 
-function showMessage(text,type){
+function showMessage(
+  text,
+  type
+){
 
   message.className =
     "message " + type;
@@ -527,107 +620,77 @@ function clearMessage(){
 }
 
 
-/* =========================================
-   CONNECTION
-========================================= */
+/* =====================================================
+   CLEAR OLD SESSIONS
+===================================================== */
 
-async function checkConnection(){
+function clearSessions(){
 
-  try{
+  localStorage.removeItem(
+    "linkcashCEOLoggedIn"
+  );
 
-    const result =
-      await supabaseClient
-      .from("users")
-      .select("id")
-      .limit(1);
+  localStorage.removeItem(
+    "linkcashCEO"
+  );
 
+  localStorage.removeItem(
+    "linkcashLoggedIn"
+  );
 
-    if(result.error){
-
-      connectionDot.className =
-        "connection-dot error";
-
-      connectionText.textContent =
-        "DATABASE CONNECTION ERROR";
-
-      console.error(result.error);
-
-      return false;
-
-    }
-
-
-    connectionDot.className =
-      "connection-dot online";
-
-    connectionText.textContent =
-      "SUPABASE CONNECTED";
-
-    return true;
-
-
-  }catch(error){
-
-    connectionDot.className =
-      "connection-dot error";
-
-    connectionText.textContent =
-      "SUPABASE CONNECTION FAILED";
-
-    console.error(error);
-
-    return false;
-
-  }
+  localStorage.removeItem(
+    "linkcashUser"
+  );
 
 }
 
 
-/* =========================================
+/* =====================================================
    SAVE USER
-========================================= */
+===================================================== */
 
 function saveUser(user){
 
-  const role =
-    String(
-      user.role || "user"
-    )
-    .trim()
-    .toLowerCase();
-
-
-  const status =
-    String(
-      user.status || "pending"
-    )
-    .trim()
-    .toLowerCase();
-
-
   const cleanUser = {
 
-    id:user.id || "",
+    id:
+      user.id,
 
-    username:user.username || "",
+    username:
+      user.username || "",
 
-    fullname:user.fullname || "",
+    fullname:
+      user.fullname || "",
 
-    phone:user.phone || "",
+    phone:
+      user.phone || "",
 
-    email:user.email || "",
+    email:
+      user.email || "",
 
-    role:role,
+    role:
+      String(
+        user.role || "user"
+      )
+      .trim()
+      .toLowerCase(),
 
-    status:status,
+    status:
+      String(
+        user.status || "pending"
+      )
+      .trim()
+      .toLowerCase(),
 
-    balance:Number(
-      user.balance || 0
-    ),
+    balance:
+      Number(
+        user.balance || 0
+      ),
 
-    commission:Number(
-      user.commission || 0
-    ),
+    commission:
+      Number(
+        user.commission || 0
+      ),
 
     referrer:
       user.referrer || null
@@ -649,62 +712,62 @@ function saveUser(user){
 }
 
 
-/* =========================================
-   SAVE CEO SESSION
-========================================= */
+/* =====================================================
+   DATABASE CONNECTION
+===================================================== */
 
-function saveCEOSession(user){
+async function checkConnection(){
 
-  localStorage.setItem(
-    "linkcashCEOLoggedIn",
-    "true"
-  );
+  try{
+
+    const result =
+      await supabaseClient
+      .from("users")
+      .select("id")
+      .limit(1);
 
 
-  localStorage.setItem(
-    "linkcashCEO",
-    JSON.stringify({
+    if(result.error){
 
-      id:user.id,
+      connectionDot.className =
+        "connection-dot error";
 
-      username:user.username,
+      connectionText.textContent =
+        "DATABASE CONNECTION ERROR";
 
-      fullname:user.fullname,
+      console.error(
+        result.error
+      );
 
-      role:"ceo",
+      return;
 
-      status:String(
-        user.status || ""
-      )
-      .trim()
-      .toLowerCase()
+    }
 
-    })
-  );
+
+    connectionDot.className =
+      "connection-dot online";
+
+    connectionText.textContent =
+      "DATABASE CONNECTED";
+
+  }catch(error){
+
+    connectionDot.className =
+      "connection-dot error";
+
+    connectionText.textContent =
+      "DATABASE CONNECTION FAILED";
+
+    console.error(error);
+
+  }
 
 }
 
 
-/* =========================================
-   CLEAR CEO SESSION
-========================================= */
-
-function clearCEOSession(){
-
-  localStorage.removeItem(
-    "linkcashCEOLoggedIn"
-  );
-
-  localStorage.removeItem(
-    "linkcashCEO"
-  );
-
-}
-
-
-/* =========================================
+/* =====================================================
    LOGIN
-========================================= */
+===================================================== */
 
 form.addEventListener(
   "submit",
@@ -714,16 +777,27 @@ form.addEventListener(
 
     clearMessage();
 
+    /*
+     * Muhimu:
+     * Ondoa session za zamani kabla ya login mpya.
+     * Hii inazuia account ya zamani kubaki kama CEO.
+     */
+
+    clearSessions();
+
 
     const username =
       usernameInput.value
       .trim()
       .toLowerCase();
 
-
     const password =
       passwordInput.value;
 
+
+    /* =================================================
+       VALIDATION
+    ================================================= */
 
     if(!username){
 
@@ -753,33 +827,36 @@ form.addEventListener(
     }
 
 
-    button.disabled = true;
+    loginButton.disabled =
+      true;
 
-    button.textContent =
+    loginButton.textContent =
       "LOGGING IN...";
 
 
     try{
 
-      /*
-       * MUHIMU:
-       * CEO credentials hazijawekwa
-       * hard-coded hapa.
-       *
-       * Mfumo unasoma role kutoka
-       * public.users.
-       */
+
+      /* =================================================
+         FIND ACCOUNT
+      ================================================= */
 
       const result =
         await supabaseClient
         .from("users")
-        .select("*")
+        .select(
+          "id,username,fullname,phone,password,status,balance,commission,referrer,email,role"
+        )
         .eq(
           "username",
           username
         )
         .maybeSingle();
 
+
+      /* =================================================
+         DATABASE ERROR
+      ================================================= */
 
       if(result.error){
 
@@ -796,10 +873,14 @@ form.addEventListener(
       }
 
 
+      /* =================================================
+         USER NOT FOUND
+      ================================================= */
+
       if(!result.data){
 
         throw new Error(
-          "Incorrect username or password."
+          "Username or password is incorrect."
         );
 
       }
@@ -809,9 +890,9 @@ form.addEventListener(
         result.data;
 
 
-      /* =========================
-         PASSWORD
-      ========================= */
+      /* =================================================
+         PASSWORD CHECK
+      ================================================= */
 
       if(
         String(user.password || "") !==
@@ -819,15 +900,15 @@ form.addEventListener(
       ){
 
         throw new Error(
-          "Incorrect username or password."
+          "Username or password is incorrect."
         );
 
       }
 
 
-      /* =========================
-         ROLE
-      ========================= */
+      /* =================================================
+         NORMALIZE ROLE
+      ================================================= */
 
       const role =
         String(
@@ -837,9 +918,9 @@ form.addEventListener(
         .toLowerCase();
 
 
-      /* =========================
-         STATUS
-      ========================= */
+      /* =================================================
+         NORMALIZE STATUS
+      ================================================= */
 
       const status =
         String(
@@ -849,35 +930,55 @@ form.addEventListener(
         .toLowerCase();
 
 
-      /*
-       * Save fresh database data.
-       */
+      console.log(
+        "LOGIN USER:",
+        user.username
+      );
+
+      console.log(
+        "ROLE:",
+        role
+      );
+
+      console.log(
+        "STATUS:",
+        status
+      );
+
+
+      /* =================================================
+         SAVE CURRENT USER
+      ================================================= */
 
       saveUser(user);
 
 
       /* =================================================
          CEO
-         ONLY role = ceo can enter CEO dashboard
+         ONLY role = ceo
       ================================================= */
 
       if(role === "ceo"){
 
+        /*
+         * CEO lazima awe active.
+         */
+
         if(
-          status !== "active" &&
-          status !== "activated"
+          status !== "active"
         ){
 
-          clearCEOSession();
+          clearSessions();
 
           showMessage(
             "CEO account is not active.",
             "error"
           );
 
-          button.disabled = false;
+          loginButton.disabled =
+            false;
 
-          button.textContent =
+          loginButton.textContent =
             "LOGIN";
 
           return;
@@ -885,7 +986,37 @@ form.addEventListener(
         }
 
 
-        saveCEOSession(user);
+        /*
+         * CEO SESSION
+         */
+
+        localStorage.setItem(
+          "linkcashCEOLoggedIn",
+          "true"
+        );
+
+
+        localStorage.setItem(
+          "linkcashCEO",
+          JSON.stringify({
+
+            id:
+              user.id,
+
+            username:
+              user.username,
+
+            fullname:
+              user.fullname,
+
+            role:
+              "ceo",
+
+            status:
+              status
+
+          })
+        );
 
 
         showMessage(
@@ -894,8 +1025,8 @@ form.addEventListener(
         );
 
 
-        button.textContent =
-          "CEO DASHBOARD ✓";
+        loginButton.textContent =
+          "LOGIN SUCCESSFUL ✓";
 
 
         setTimeout(
@@ -916,28 +1047,32 @@ form.addEventListener(
 
 
       /* =================================================
-         NORMAL USER
-         Any role other than ceo
-         can NEVER go to CEO dashboard
+         IMPORTANT SECURITY RULE
+         
+         KAMA SI CEO:
+         HAIWEZI kwenda ceodashboard.html
       ================================================= */
 
       clearCEOSession();
 
 
-      /* =========================
-         REJECTED
-      ========================= */
+      /* =================================================
+         REJECTED USER
+      ================================================= */
 
       if(status === "rejected"){
+
+        clearSessions();
 
         showMessage(
           "Your account has been rejected. Please contact LINKCASH support.",
           "rejected"
         );
 
-        button.disabled = false;
+        loginButton.disabled =
+          false;
 
-        button.textContent =
+        loginButton.textContent =
           "LOGIN";
 
         return;
@@ -945,9 +1080,9 @@ form.addEventListener(
       }
 
 
-      /* =========================
-         PENDING
-      ========================= */
+      /* =================================================
+         PENDING USER
+      ================================================= */
 
       if(
         status === "pending" ||
@@ -962,7 +1097,8 @@ form.addEventListener(
           "pending"
         );
 
-        button.textContent =
+
+        loginButton.textContent =
           "ACCOUNT PENDING";
 
 
@@ -977,18 +1113,18 @@ form.addEventListener(
           900
         );
 
+
         return;
 
       }
 
 
-      /* =========================
-         ACTIVE USER
-      ========================= */
+      /* =================================================
+         ACTIVE NORMAL USER
+      ================================================= */
 
       if(
-        status === "active" ||
-        status === "activated"
+        status === "active"
       ){
 
         showMessage(
@@ -997,12 +1133,22 @@ form.addEventListener(
         );
 
 
-        button.textContent =
+        loginButton.textContent =
           "LOGIN SUCCESSFUL ✓";
 
 
         setTimeout(
           function(){
+
+            /*
+             * NORMAL USER ALWAYS GOES HERE.
+             *
+             * Hata kama user ameandika:
+             * ceo
+             *
+             * haendi CEO dashboard mpaka
+             * database role yake iwe ceo.
+             */
 
             window.location.replace(
               "dashboard.html"
@@ -1012,14 +1158,17 @@ form.addEventListener(
           700
         );
 
+
         return;
 
       }
 
 
-      /* =========================
+      /* =================================================
          UNKNOWN STATUS
-      ========================= */
+      ================================================= */
+
+      clearSessions();
 
       showMessage(
         "Your account is waiting for approval.",
@@ -1027,7 +1176,7 @@ form.addEventListener(
       );
 
 
-      button.textContent =
+      loginButton.textContent =
         "ACCOUNT PENDING";
 
 
@@ -1058,9 +1207,10 @@ form.addEventListener(
       );
 
 
-      button.disabled = false;
+      loginButton.disabled =
+        false;
 
-      button.textContent =
+      loginButton.textContent =
         "LOGIN";
 
     }
@@ -1069,11 +1219,9 @@ form.addEventListener(
 );
 
 
-/* =========================================
+/* =====================================================
    START
-========================================= */
-
-clearOldSessions();
+===================================================== */
 
 checkConnection();
 
