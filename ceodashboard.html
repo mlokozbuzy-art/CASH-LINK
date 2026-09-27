@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>LINKCASH - CEO Dashboard</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -20,7 +23,10 @@ body{
   padding-bottom:40px;
 }
 
-button,input,textarea,select{
+button,
+input,
+textarea,
+select{
   font-family:inherit;
 }
 
@@ -32,10 +38,13 @@ button{
   height:68px;
   background:#0b0b0b;
   border-bottom:1px solid #252525;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   padding:0 17px;
+
   position:sticky;
   top:0;
   z-index:1000;
@@ -50,12 +59,23 @@ button{
 .logo{
   width:41px;
   height:41px;
+
   border-radius:12px;
-  background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe082,
+      #d4a72c,
+      #8f6b12
+    );
+
   color:#050505;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:14px;
   font-weight:900;
 }
@@ -68,10 +88,15 @@ button{
 
 .ceo-badge{
   padding:8px 12px;
+
   border-radius:20px;
+
   background:rgba(212,167,44,.08);
+
   border:1px solid rgba(212,167,44,.25);
+
   color:#d4a72c;
+
   font-size:9px;
   font-weight:900;
 }
@@ -79,7 +104,9 @@ button{
 .container{
   width:100%;
   max-width:900px;
+
   margin:auto;
+
   padding:24px 16px 40px;
 }
 
@@ -105,7 +132,9 @@ button{
 .header p{
   color:#666;
   font-size:11px;
+
   margin-top:6px;
+
   line-height:1.5;
 }
 
@@ -113,141 +142,169 @@ button{
   display:flex;
   align-items:center;
   gap:8px;
+
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:12px;
+
   padding:11px 13px;
+
   margin-bottom:18px;
+
   font-size:10px;
+
   color:#777;
 }
 
 .dot{
   width:8px;
   height:8px;
+
   border-radius:50%;
+
   background:#58d88a;
-  box-shadow:0 0 10px rgba(88,216,138,.5);
+
+  box-shadow:
+    0 0 10px rgba(88,216,138,.5);
 }
 
-/* ================================
-   FIVE MAIN BOXES
-================================ */
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:11px;
+
   margin-bottom:20px;
 }
 
 .stat{
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:18px;
+
   padding:18px 15px;
+
   min-height:125px;
+
   position:relative;
+
   overflow:hidden;
 }
 
 .stat::after{
   content:"";
+
   position:absolute;
+
   width:75px;
   height:75px;
+
   right:-30px;
   top:-30px;
+
   border-radius:50%;
-  background:rgba(212,167,44,.06);
+
+  background:
+    rgba(212,167,44,.06);
 }
 
 .stat-icon{
   width:40px;
   height:40px;
+
   border-radius:12px;
+
   background:#1b1b1b;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   margin-bottom:12px;
+
   font-size:18px;
 }
 
 .stat-value{
   font-size:25px;
   font-weight:900;
-  color:#fff;
 }
 
 .stat-name{
   color:#777;
+
   font-size:9px;
+
   margin-top:5px;
+
   font-weight:bold;
+
   letter-spacing:.5px;
 }
 
 .stat-sub{
   color:#d4a72c;
+
   font-size:9px;
+
   margin-top:5px;
 }
 
-/* Fifth box */
 .stat:nth-child(5){
   grid-column:1 / -1;
 }
 
-@media(min-width:501px){
-  .stat:nth-child(5){
-    grid-column:auto;
-  }
 
-  .stats{
-    grid-template-columns:repeat(5,1fr);
-  }
-
-  .stat{
-    min-height:145px;
-    padding:16px 12px;
-  }
-
-  .stat-value{
-    font-size:22px;
-  }
-
-  .stat-name{
-    font-size:8px;
-  }
-}
-
-/* ================================
+/* =========================
    TABS
-================================ */
+========================= */
 
 .tabs{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:8px;
+
   margin-bottom:18px;
 }
 
 .tab{
   min-height:45px;
+
   border-radius:11px;
+
   border:1px solid #292929;
+
   background:#101010;
+
   color:#aaa;
+
   font-size:9px;
+
   font-weight:900;
 }
 
 .tab.active,
 .tab:hover{
   border-color:#d4a72c;
+
   color:#d4a72c;
-  background:rgba(212,167,44,.07);
+
+  background:
+    rgba(212,167,44,.07);
 }
 
 .panel{
@@ -258,10 +315,18 @@ button{
   display:block;
 }
 
+
+/* =========================
+   TITLES
+========================= */
+
 .section-title{
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   margin:20px 0 11px;
 }
 
@@ -271,47 +336,118 @@ button{
 
 .section-title span{
   color:#d4a72c;
+
   font-size:9px;
 }
 
+
+/* =========================
+   ACTION BAR
+========================= */
+
 .action-bar{
   display:flex;
+
   gap:9px;
+
   margin-bottom:17px;
 }
 
 .action-btn{
   flex:1;
+
   height:43px;
+
   border-radius:10px;
+
   border:1px solid #292929;
+
   background:#101010;
+
   color:#aaa;
+
   font-size:10px;
+
   font-weight:bold;
 }
 
 .action-btn:hover{
   border-color:#d4a72c;
+
   color:#d4a72c;
 }
 
-.search{
-  width:100%;
-  border-radius:11px;
-  border:1px solid #292929;
-  background:#090909;
-  color:#fff;
-  padding:13px;
-  outline:none;
-  font-size:11px;
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-wrap{
+  display:flex;
+
+  gap:8px;
+
   margin-bottom:12px;
 }
 
+.search{
+  flex:1;
+
+  width:100%;
+
+  border-radius:11px;
+
+  border:1px solid #292929;
+
+  background:#090909;
+
+  color:#fff;
+
+  padding:13px;
+
+  outline:none;
+
+  font-size:11px;
+}
+
+.search:focus{
+  border-color:#d4a72c;
+}
+
+.clear-search{
+  width:90px;
+
+  border-radius:11px;
+
+  border:1px solid #292929;
+
+  background:#101010;
+
+  color:#aaa;
+
+  font-size:9px;
+
+  font-weight:900;
+}
+
+.clear-search:hover{
+  color:#d4a72c;
+
+  border-color:#d4a72c;
+}
+
+
+/* =========================
+   FORMS
+========================= */
+
 .content-form{
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:18px;
+
   padding:16px;
 }
 
@@ -319,129 +455,186 @@ button{
 .select,
 .textarea{
   width:100%;
+
   border-radius:11px;
+
   border:1px solid #292929;
+
   background:#090909;
+
   color:#fff;
+
   padding:12px 13px;
+
   outline:none;
+
   font-size:11px;
+
   margin-bottom:10px;
 }
 
 .input:focus,
 .select:focus,
-.textarea:focus,
-.search:focus{
+.textarea:focus{
   border-color:#d4a72c;
 }
 
 .select option{
   background:#111;
+
   color:#fff;
 }
 
 .textarea{
   min-height:100px;
+
   resize:vertical;
 }
 
 .save-btn{
   width:100%;
+
   min-height:43px;
-  border:1px solid rgba(212,167,44,.35);
-  background:rgba(212,167,44,.1);
+
+  border:1px solid
+    rgba(212,167,44,.35);
+
+  background:
+    rgba(212,167,44,.1);
+
   color:#d4a72c;
+
   border-radius:11px;
+
   font-size:10px;
+
   font-weight:900;
 }
 
 .save-btn:hover{
-  background:rgba(212,167,44,.17);
+  background:
+    rgba(212,167,44,.17);
 }
+
+
+/* =========================
+   CARDS
+========================= */
 
 .user-card,
 .content-card,
 .payment-card,
 .withdraw-card{
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:16px;
+
   padding:14px;
+
   margin-bottom:10px;
 }
 
 .user-top{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:10px;
 }
 
 .user-name{
   font-size:13px;
+
   font-weight:bold;
 }
 
 .user-username{
   color:#666;
+
   font-size:9px;
+
   margin-top:4px;
 }
 
 .status{
   padding:7px 9px;
+
   border-radius:15px;
+
   font-size:8px;
+
   font-weight:900;
 }
 
 .status.active,
 .status.approved{
   color:#58d88a;
-  background:rgba(88,216,138,.08);
+
+  background:
+    rgba(88,216,138,.08);
 }
 
 .status.pending{
   color:#d4a72c;
-  background:rgba(212,167,44,.08);
+
+  background:
+    rgba(212,167,44,.08);
 }
 
 .status.rejected{
   color:#ff7777;
-  background:rgba(255,80,80,.07);
+
+  background:
+    rgba(255,80,80,.07);
 }
 
 .status.processing{
   color:#65a9ff;
-  background:rgba(101,169,255,.08);
+
+  background:
+    rgba(101,169,255,.08);
 }
 
 .details{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:8px;
+
   margin-top:13px;
 }
 
 .detail{
   background:#090909;
+
   border:1px solid #202020;
+
   border-radius:10px;
+
   padding:10px;
 }
 
 .detail-label{
   color:#555;
+
   font-size:8px;
+
   margin-bottom:5px;
 }
 
 .detail-value{
   color:#ddd;
+
   font-size:10px;
+
   font-weight:bold;
+
   word-break:break-word;
 }
 
@@ -449,9 +642,16 @@ button{
   color:#d4a72c;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .actions{
   display:flex;
+
   gap:8px;
+
   margin-top:12px;
 }
 
@@ -460,44 +660,74 @@ button{
 .approve-btn,
 .process-btn{
   flex:1;
+
   min-height:38px;
+
   border-radius:10px;
+
   font-size:9px;
+
   font-weight:900;
 }
 
 .activate-btn,
 .approve-btn{
-  border:1px solid rgba(88,216,138,.3);
-  background:rgba(88,216,138,.08);
+  border:
+    1px solid rgba(88,216,138,.3);
+
+  background:
+    rgba(88,216,138,.08);
+
   color:#58d88a;
 }
 
 .reject-btn{
-  border:1px solid rgba(255,80,80,.25);
-  background:rgba(255,80,80,.07);
+  border:
+    1px solid rgba(255,80,80,.25);
+
+  background:
+    rgba(255,80,80,.07);
+
   color:#ff7777;
 }
 
 .process-btn{
-  border:1px solid rgba(101,169,255,.3);
-  background:rgba(101,169,255,.08);
+  border:
+    1px solid rgba(101,169,255,.3);
+
+  background:
+    rgba(101,169,255,.08);
+
   color:#65a9ff;
+}
+
+button.loading{
+  opacity:.65;
+
+  pointer-events:none;
 }
 
 .small-btn{
   flex:1;
+
   min-height:36px;
+
   border-radius:9px;
+
   border:1px solid #292929;
+
   background:#090909;
+
   color:#aaa;
+
   font-size:9px;
+
   font-weight:bold;
 }
 
 .small-btn:hover{
   border-color:#d4a72c;
+
   color:#d4a72c;
 }
 
@@ -505,56 +735,88 @@ button{
   color:#ff7777;
 }
 
+
+/* =========================
+   CONTENT
+========================= */
+
 .video-card{
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:18px;
+
   padding:14px;
+
   margin-top:12px;
 }
 
 .video-title,
 .content-title{
   font-size:13px;
+
   font-weight:900;
+
   margin-bottom:10px;
 }
 
 .video-frame{
   width:100%;
+
   aspect-ratio:16/9;
+
   border:0;
+
   border-radius:13px;
+
   background:#000;
+
   display:block;
 }
 
 .video-link,
 .content-url{
   color:#777;
+
   font-size:9px;
+
   margin-top:7px;
+
   word-break:break-all;
+
   line-height:1.5;
 }
 
 .video-actions,
 .content-actions{
   display:flex;
+
   gap:8px;
+
   margin-top:11px;
 }
 
+
+/* =========================
+   EMPTY
+========================= */
+
 .empty{
   padding:38px 20px;
+
   text-align:center;
+
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:18px;
 }
 
 .empty-icon{
   font-size:30px;
+
   margin-bottom:10px;
 }
 
@@ -564,39 +826,97 @@ button{
 
 .empty p{
   margin-top:6px;
+
   color:#666;
+
   font-size:10px;
+
   line-height:1.5;
 }
 
+
+/* =========================
+   LOGOUT
+========================= */
+
 .logout{
   width:100%;
+
   height:48px;
+
   margin-top:30px;
+
   border-radius:12px;
-  border:1px solid rgba(255,80,80,.3);
-  background:rgba(255,80,80,.06);
+
+  border:
+    1px solid rgba(255,80,80,.3);
+
+  background:
+    rgba(255,80,80,.06);
+
   color:#ff7777;
+
   font-size:11px;
+
   font-weight:900;
 }
 
 .footer{
   text-align:center;
+
   margin-top:22px;
+
   color:#444;
+
   font-size:9px;
 }
 
-@media(max-width:700px){
-  .tabs{
-    grid-template-columns:repeat(2,1fr);
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(min-width:501px){
+
+  .stats{
+    grid-template-columns:
+      repeat(5,1fr);
   }
+
+  .stat{
+    min-height:145px;
+
+    padding:16px 12px;
+  }
+
+  .stat-value{
+    font-size:22px;
+  }
+
+  .stat-name{
+    font-size:8px;
+  }
+
+  .stat:nth-child(5){
+    grid-column:auto;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .tabs{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
 }
 
 @media(max-width:500px){
+
   .stats{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .stat{
@@ -606,9 +926,11 @@ button{
   .stat:nth-child(5){
     grid-column:1 / -1;
   }
+
 }
 
 @media(max-width:400px){
+
   .details{
     grid-template-columns:1fr;
   }
@@ -616,526 +938,1317 @@ button{
   .action-bar{
     flex-wrap:wrap;
   }
+
+  .actions{
+    flex-direction:column;
+  }
+
+  .search-wrap{
+    flex-direction:column;
+  }
+
+  .clear-search{
+    width:100%;
+  }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
+
 <header class="topbar">
+
   <div class="brand">
-    <div class="logo">LC</div>
-    <div class="brand-name">LINKCASH</div>
+
+    <div class="logo">
+      LC
+    </div>
+
+    <div class="brand-name">
+      LINKCASH
+    </div>
+
   </div>
 
-  <div class="ceo-badge">CEO PANEL</div>
+  <div class="ceo-badge">
+    CEO PANEL
+  </div>
+
 </header>
+
 
 <main class="container">
 
+
 <section class="header">
-  <small>ADMINISTRATION</small>
-  <h1>Welcome, <span>CEO</span></h1>
-  <p>Manage users, payments, withdrawals and platform content.</p>
+
+  <small>
+    ADMINISTRATION
+  </small>
+
+  <h1>
+    Welcome, <span>CEO</span>
+  </h1>
+
+  <p>
+    Manage users, payments, withdrawals and platform content.
+  </p>
+
 </section>
 
+
 <div class="connection">
+
   <div class="dot"></div>
-  <span>LINKCASH LOCAL SYSTEM • ONLINE</span>
+
+  <span>
+    LINKCASH LOCAL SYSTEM • ONLINE
+  </span>
+
 </div>
+
+
+<!-- =========================
+     STATS
+========================= -->
 
 <section class="stats">
 
   <div class="stat">
-    <div class="stat-icon">👥</div>
-    <div class="stat-value" id="totalUsers">0</div>
-    <div class="stat-name">TOTAL USERS</div>
+
+    <div class="stat-icon">
+      👥
+    </div>
+
+    <div
+      class="stat-value"
+      id="totalUsers">
+      0
+    </div>
+
+    <div class="stat-name">
+      TOTAL USERS
+    </div>
+
   </div>
 
-  <div class="stat">
-    <div class="stat-icon">⏳</div>
-    <div class="stat-value" id="pendingCount">0</div>
-    <div class="stat-name">PENDING</div>
-  </div>
 
   <div class="stat">
-    <div class="stat-icon">💳</div>
-    <div class="stat-value" id="paymentCount">0</div>
-    <div class="stat-name">PAYMENT</div>
+
+    <div class="stat-icon">
+      ⏳
+    </div>
+
+    <div
+      class="stat-value"
+      id="pendingCount">
+      0
+    </div>
+
+    <div class="stat-name">
+      PENDING
+    </div>
+
   </div>
 
-  <div class="stat">
-    <div class="stat-icon">🟢</div>
-    <div class="stat-value" id="activeCount">0</div>
-    <div class="stat-name">ACTIVE USERS</div>
-  </div>
 
   <div class="stat">
-    <div class="stat-icon">💸</div>
-    <div class="stat-value" id="submittedCount">0</div>
-    <div class="stat-name">WITHDRAW</div>
+
+    <div class="stat-icon">
+      💳
+    </div>
+
+    <div
+      class="stat-value"
+      id="paymentCount">
+      0
+    </div>
+
+    <div class="stat-name">
+      PAYMENT
+    </div>
+
+  </div>
+
+
+  <div class="stat">
+
+    <div class="stat-icon">
+      🟢
+    </div>
+
+    <div
+      class="stat-value"
+      id="activeCount">
+      0
+    </div>
+
+    <div class="stat-name">
+      ACTIVE USERS
+    </div>
+
+  </div>
+
+
+  <div class="stat">
+
+    <div class="stat-icon">
+      💸
+    </div>
+
+    <div
+      class="stat-value"
+      id="submittedCount">
+      0
+    </div>
+
+    <div class="stat-name">
+      WITHDRAW
+    </div>
+
   </div>
 
 </section>
+
+
+<!-- =========================
+     TABS
+========================= -->
 
 <div class="tabs">
 
-<button class="tab active" onclick="openPanel('users',this)">
-👥 USERS
-</button>
+  <button
+    class="tab active"
+    onclick="openPanel('users',this)">
+    👥 USERS
+  </button>
 
-<button class="tab" onclick="openPanel('payments',this)">
-💳 PAYMENTS
-</button>
+  <button
+    class="tab"
+    onclick="openPanel('payments',this)">
+    💳 PAYMENTS
+  </button>
 
-<button class="tab" onclick="openPanel('withdrawals',this)">
-💸 WITHDRAW
-</button>
+  <button
+    class="tab"
+    onclick="openPanel('withdrawals',this)">
+    💸 WITHDRAW
+  </button>
 
-<button class="tab" onclick="openPanel('videos',this)">
-🎥 VIDEOS
-</button>
+  <button
+    class="tab"
+    onclick="openPanel('videos',this)">
+    🎥 VIDEOS
+  </button>
 
-<button class="tab" onclick="openPanel('ads',this)">
-📢 ADS
-</button>
+  <button
+    class="tab"
+    onclick="openPanel('ads',this)">
+    📢 ADS
+  </button>
 
-<button class="tab" onclick="openPanel('quiz',this)">
-🧠 QUIZ
-</button>
+  <button
+    class="tab"
+    onclick="openPanel('quiz',this)">
+    🧠 QUIZ
+  </button>
 
-<button class="tab" onclick="openPanel('games',this)">
-🎮 GAMES
-</button>
+  <button
+    class="tab"
+    onclick="openPanel('games',this)">
+    🎮 GAMES
+  </button>
 
 </div>
 
-<section id="users" class="panel active">
+
+<!-- =========================
+     USERS
+========================= -->
+
+<section
+  id="users"
+  class="panel active">
+
 
 <div class="action-bar">
 
-<button class="action-btn" onclick="loadUsers()">
-↻ REFRESH
-</button>
+  <button
+    class="action-btn"
+    onclick="refreshUsers()">
+    ↻ REFRESH
+  </button>
 
-<button class="action-btn" onclick="filterUsers('all')">
-ALL
-</button>
+  <button
+    class="action-btn"
+    onclick="filterUsers('all')">
+    ALL
+  </button>
 
-<button class="action-btn" onclick="filterUsers('active')">
-ACTIVE
-</button>
+  <button
+    class="action-btn"
+    onclick="filterUsers('active')">
+    ACTIVE
+  </button>
+
+  <button
+    class="action-btn"
+    onclick="filterUsers('pending')">
+    PENDING
+  </button>
 
 </div>
+
 
 <div class="section-title">
-<h2>Registered Users</h2>
-<span>LOCAL</span>
+
+  <h2>
+    Registered Users
+  </h2>
+
+  <span>
+    LOCAL
+  </span>
+
 </div>
 
-<input
-id="userSearch"
-class="search"
-placeholder="Search username, name or phone..."
-oninput="renderUsers">
+
+<div class="search-wrap">
+
+  <input
+    id="userSearch"
+    class="search"
+    placeholder="Search username, name or phone..."
+    oninput="renderUsers()">
+
+  <button
+    class="clear-search"
+    onclick="clearSearch()">
+    CLEAR
+  </button>
+
+</div>
+
 
 <div id="usersList"></div>
 
+
 </section>
 
-<section id="payments" class="panel">
+
+<!-- =========================
+     PAYMENTS
+========================= -->
+
+<section
+  id="payments"
+  class="panel">
 
 <div class="section-title">
-<h2>Payment Requests</h2>
-<span>ACTIVATION</span>
+
+  <h2>
+    Payment Requests
+  </h2>
+
+  <span>
+    ACTIVATION
+  </span>
+
 </div>
 
 <div id="paymentsList"></div>
 
 </section>
 
-<section id="withdrawals" class="panel">
+
+<!-- =========================
+     WITHDRAWALS
+========================= -->
+
+<section
+  id="withdrawals"
+  class="panel">
 
 <div class="section-title">
-<h2>Submitted Withdrawal Requests</h2>
-<span>CEO CONTROL</span>
+
+  <h2>
+    Submitted Withdrawal Requests
+  </h2>
+
+  <span>
+    CEO CONTROL
+  </span>
+
 </div>
 
 <div id="withdrawalsList"></div>
 
 </section>
 
-<section id="videos" class="panel">
+
+<!-- =========================
+     VIDEOS
+========================= -->
+
+<section
+  id="videos"
+  class="panel">
 
 <div class="section-title">
-<h2>Video Manager</h2>
-<span>ALL PLATFORMS</span>
+
+  <h2>
+    Video Manager
+  </h2>
+
+  <span>
+    ALL PLATFORMS
+  </span>
+
 </div>
+
 
 <div class="content-form">
 
-<input id="videoTitle" class="input" placeholder="Video title">
+<input
+  id="videoTitle"
+  class="input"
+  placeholder="Video title">
 
-<select id="videoPlatform" class="select">
-<option value="youtube">YouTube</option>
-<option value="facebook">Facebook</option>
-<option value="instagram">Instagram</option>
-<option value="tiktok">TikTok</option>
-<option value="other">Other</option>
+
+<select
+  id="videoPlatform"
+  class="select">
+
+  <option value="youtube">
+    YouTube
+  </option>
+
+  <option value="facebook">
+    Facebook
+  </option>
+
+  <option value="instagram">
+    Instagram
+  </option>
+
+  <option value="tiktok">
+    TikTok
+  </option>
+
+  <option value="other">
+    Other
+  </option>
+
 </select>
 
-<input id="videoURL" class="input" placeholder="Paste video URL">
 
-<button class="save-btn" onclick="addVideo()">
-+ ADD VIDEO
+<input
+  id="videoURL"
+  class="input"
+  placeholder="Paste video URL">
+
+
+<button
+  class="save-btn"
+  onclick="addVideo()">
+
+  + ADD VIDEO
+
 </button>
 
 </div>
+
 
 <div id="videosList"></div>
 
 </section>
 
-<section id="ads" class="panel">
+
+<!-- =========================
+     ADS
+========================= -->
+
+<section
+  id="ads"
+  class="panel">
 
 <div class="section-title">
-<h2>User Dashboard Ads</h2>
-<span>CEO ADS</span>
+
+  <h2>
+    User Dashboard Ads
+  </h2>
+
+  <span>
+    CEO ADS
+  </span>
+
 </div>
+
 
 <div class="content-form">
 
-<input id="adTitle" class="input" placeholder="Advertisement title">
+<input
+  id="adTitle"
+  class="input"
+  placeholder="Advertisement title">
 
-<textarea id="adText" class="textarea" placeholder="Advertisement description"></textarea>
 
-<select id="adPlatform" class="select">
-<option value="youtube">YouTube</option>
-<option value="facebook">Facebook</option>
-<option value="instagram">Instagram</option>
-<option value="tiktok">TikTok</option>
-<option value="website">Website</option>
-<option value="other">Other</option>
+<textarea
+  id="adText"
+  class="textarea"
+  placeholder="Advertisement description">
+</textarea>
+
+
+<select
+  id="adPlatform"
+  class="select">
+
+  <option value="youtube">
+    YouTube
+  </option>
+
+  <option value="facebook">
+    Facebook
+  </option>
+
+  <option value="instagram">
+    Instagram
+  </option>
+
+  <option value="tiktok">
+    TikTok
+  </option>
+
+  <option value="website">
+    Website
+  </option>
+
+  <option value="other">
+    Other
+  </option>
+
 </select>
 
-<input id="adURL" class="input" placeholder="Ad link">
 
-<input id="adImage" class="input" placeholder="Optional image URL">
+<input
+  id="adURL"
+  class="input"
+  placeholder="Ad link">
 
-<button class="save-btn" onclick="addAd()">
-+ PUBLISH AD TO USER DASHBOARD
+
+<input
+  id="adImage"
+  class="input"
+  placeholder="Optional image URL">
+
+
+<button
+  class="save-btn"
+  onclick="addAd()">
+
+  + PUBLISH AD TO USER DASHBOARD
+
 </button>
 
 </div>
+
 
 <div id="adsList"></div>
 
 </section>
 
-<section id="quiz" class="panel">
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<section
+  id="quiz"
+  class="panel">
 
 <div class="section-title">
-<h2>Quiz Manager</h2>
-<span>QUESTIONS</span>
+
+  <h2>
+    Quiz Manager
+  </h2>
+
+  <span>
+    QUESTIONS
+  </span>
+
 </div>
+
 
 <div class="content-form">
 
-<input id="quizQuestion" class="input" placeholder="Question">
+<input
+  id="quizQuestion"
+  class="input"
+  placeholder="Question">
 
-<input id="quizA" class="input" placeholder="Option A">
 
-<input id="quizB" class="input" placeholder="Option B">
+<input
+  id="quizA"
+  class="input"
+  placeholder="Option A">
 
-<input id="quizC" class="input" placeholder="Option C">
 
-<input id="quizD" class="input" placeholder="Option D">
+<input
+  id="quizB"
+  class="input"
+  placeholder="Option B">
 
-<select id="quizAnswer" class="select">
-<option value="A">Correct answer: A</option>
-<option value="B">Correct answer: B</option>
-<option value="C">Correct answer: C</option>
-<option value="D">Correct answer: D</option>
+
+<input
+  id="quizC"
+  class="input"
+  placeholder="Option C">
+
+
+<input
+  id="quizD"
+  class="input"
+  placeholder="Option D">
+
+
+<select
+  id="quizAnswer"
+  class="select">
+
+  <option value="A">
+    Correct answer: A
+  </option>
+
+  <option value="B">
+    Correct answer: B
+  </option>
+
+  <option value="C">
+    Correct answer: C
+  </option>
+
+  <option value="D">
+    Correct answer: D
+  </option>
+
 </select>
 
-<button class="save-btn" onclick="addQuiz()">
-+ ADD QUIZ QUESTION
+
+<button
+  class="save-btn"
+  onclick="addQuiz()">
+
+  + ADD QUIZ QUESTION
+
 </button>
 
 </div>
+
 
 <div id="quizList"></div>
 
 </section>
 
-<section id="games" class="panel">
+
+<!-- =========================
+     GAMES
+========================= -->
+
+<section
+  id="games"
+  class="panel">
 
 <div class="section-title">
-<h2>Games</h2>
-<span>CEO CONTROL</span>
+
+  <h2>
+    Games
+  </h2>
+
+  <span>
+    CEO CONTROL
+  </span>
+
 </div>
+
 
 <div class="content-form">
 
-<input id="gameTitle" class="input" placeholder="Game title">
+<input
+  id="gameTitle"
+  class="input"
+  placeholder="Game title">
 
-<input id="gameURL" class="input" placeholder="Game / tournament link">
 
-<button class="save-btn" onclick="addGame()">
-+ ADD GAME
+<input
+  id="gameURL"
+  class="input"
+  placeholder="Game / tournament link">
+
+
+<button
+  class="save-btn"
+  onclick="addGame()">
+
+  + ADD GAME
+
 </button>
 
 </div>
+
 
 <div id="gamesList"></div>
 
 </section>
 
-<button class="logout" onclick="logoutCEO()">
-🚪 LOG OUT CEO
+
+<button
+  class="logout"
+  onclick="logoutCEO()">
+
+  🚪 LOG OUT CEO
+
 </button>
 
+
 <div class="footer">
-© 2026 LINKCASH • CEO ADMINISTRATION
+  © 2026 LINKCASH • CEO ADMINISTRATION
 </div>
+
 
 </main>
 
+
 <script>
 
+
+/* =================================================
+   BASIC STORAGE
+================================================= */
+
 function getLocal(key){
+
   try{
-    return JSON.parse(localStorage.getItem(key) || "[]");
-  }catch(e){
+
+    return JSON.parse(
+      localStorage.getItem(key) || "[]"
+    );
+
+  }catch(error){
+
     return [];
+
   }
+
 }
+
 
 function saveLocal(key,data){
-  localStorage.setItem(key,JSON.stringify(data));
+
+  localStorage.setItem(
+    key,
+    JSON.stringify(data)
+  );
+
 }
+
 
 function escapeHTML(value){
+
   return String(value ?? "")
-  .replaceAll("&","&amp;")
-  .replaceAll("<","&lt;")
-  .replaceAll(">","&gt;")
-  .replaceAll('"',"&quot;")
-  .replaceAll("'","&#039;");
+
+    .replaceAll("&","&amp;")
+
+    .replaceAll("<","&lt;")
+
+    .replaceAll(">","&gt;")
+
+    .replaceAll('"',"&quot;")
+
+    .replaceAll("'","&#039;");
+
 }
 
+
+/* =================================================
+   USERS
+================================================= */
+
 let allUsers=[];
+
 let currentFilter="all";
+
 
 function getUsers(){
 
   const accounts=[];
 
-  [
-    "linkcashAccount",
-    "linkcashUsers"
-  ].forEach(key=>{
+  const keys=[
+    "linkcashUsers",
+    "linkcashAccount"
+  ];
 
-    const raw=localStorage.getItem(key);
+  keys.forEach(key=>{
+
+    const raw=
+      localStorage.getItem(key);
 
     if(!raw)return;
 
     try{
 
-      const data=JSON.parse(raw);
+      const data=
+        JSON.parse(raw);
 
       if(Array.isArray(data)){
-        data.forEach(u=>accounts.push(u));
+
+        data.forEach(user=>{
+
+          if(user){
+            accounts.push(user);
+          }
+
+        });
+
       }else{
-        accounts.push(data);
+
+        if(data){
+          accounts.push(data);
+        }
+
       }
 
-    }catch(e){}
+    }catch(error){}
 
   });
 
+
   const unique={};
+
 
   accounts.forEach(user=>{
 
-    if(user && user.username){
-      unique[user.username]=user;
+    if(
+      user &&
+      user.username
+    ){
+
+      unique[
+        String(user.username).toLowerCase()
+      ]=user;
+
     }
 
   });
 
+
   return Object.values(unique);
+
 }
 
-function getAccount(){
 
-  try{
-    return JSON.parse(
-      localStorage.getItem("linkcashAccount")
-    );
-  }catch(e){
-    return null;
+function findUser(username){
+
+  return allUsers.find(
+    user=>
+      String(user.username)
+      .toLowerCase()
+      ===
+      String(username)
+      .toLowerCase()
+  );
+
+}
+
+
+/* =================================================
+   IMPORTANT USER SAVE
+================================================= */
+
+function saveUser(user){
+
+  if(
+    !user ||
+    !user.username
+  ){
+
+    return false;
+
   }
 
+
+  const username=
+    String(user.username);
+
+
+  /*
+     ALWAYS maintain linkcashUsers
+  */
+
+  let users=
+    getLocal("linkcashUsers");
+
+
+  if(!Array.isArray(users)){
+
+    users=[];
+
+  }
+
+
+  const index=
+    users.findIndex(
+      item=>
+        String(item.username)
+        .toLowerCase()
+        ===
+        username.toLowerCase()
+    );
+
+
+  if(index>=0){
+
+    users[index]={
+      ...users[index],
+      ...user
+    };
+
+  }else{
+
+    users.push(user);
+
+  }
+
+
+  saveLocal(
+    "linkcashUsers",
+    users
+  );
+
+
+  /*
+     If CEO is operating on the
+     same browser as this account,
+     update linkcashAccount too.
+  */
+
+  try{
+
+    const account=
+      JSON.parse(
+        localStorage.getItem(
+          "linkcashAccount"
+        )
+      );
+
+
+    if(
+      account &&
+      String(account.username)
+      .toLowerCase()
+      ===
+      username.toLowerCase()
+    ){
+
+      localStorage.setItem(
+        "linkcashAccount",
+        JSON.stringify({
+          ...account,
+          ...user
+        })
+      );
+
+    }
+
+  }catch(error){}
+
+
+  return true;
+
 }
+
+
+/* =================================================
+   LOAD USERS
+================================================= */
 
 function loadUsers(){
 
-  allUsers=getUsers();
+  allUsers=
+    getUsers();
 
   updateStats();
+
   renderUsers();
+
   renderPendingPayments();
+
   renderWithdrawals();
 
 }
 
+
+/* =================================================
+   REFRESH
+================================================= */
+
+function refreshUsers(){
+
+  const button=
+    document.querySelector(
+      ".action-btn"
+    );
+
+  allUsers=
+    getUsers();
+
+  updateStats();
+
+  renderUsers();
+
+  renderPendingPayments();
+
+  renderWithdrawals();
+
+}
+
+
+/* =================================================
+   STATS
+================================================= */
+
 function updateStats(){
 
-  const pending=allUsers.filter(u=>
-    String(u.status||"pending").toLowerCase()==="pending"
-  ).length;
+  const pending=
+    allUsers.filter(
+      user=>
+        String(
+          user.status || "pending"
+        ).toLowerCase()
+        ===
+        "pending"
+    ).length;
 
-  const active=allUsers.filter(u=>
-    String(u.status||"").toLowerCase()==="active"
-  ).length;
 
-  const payments=getPaymentRequests()
-  .filter(p=>
-    String(p.status||"pending").toLowerCase()==="pending"
-  ).length;
+  const active=
+    allUsers.filter(
+      user=>
+        String(
+          user.status || ""
+        ).toLowerCase()
+        ===
+        "active"
+    ).length;
 
-  const withdrawals=getWithdrawals()
-  .filter(w=>
-    String(w.status||"pending").toLowerCase()==="pending"
-  ).length;
 
-  document.getElementById("totalUsers").textContent=
+  const payments=
+    getPaymentRequests()
+    .filter(
+      payment=>
+        String(
+          payment.status || "pending"
+        ).toLowerCase()
+        ===
+        "pending"
+    ).length;
+
+
+  const withdrawals=
+    getWithdrawals()
+    .filter(
+      withdrawal=>
+        String(
+          withdrawal.status || "pending"
+        ).toLowerCase()
+        ===
+        "pending"
+    ).length;
+
+
+  document.getElementById(
+    "totalUsers"
+  ).textContent=
     allUsers.length;
 
-  document.getElementById("pendingCount").textContent=
+
+  document.getElementById(
+    "pendingCount"
+  ).textContent=
     pending;
 
-  document.getElementById("activeCount").textContent=
+
+  document.getElementById(
+    "activeCount"
+  ).textContent=
     active;
 
-  document.getElementById("paymentCount").textContent=
+
+  document.getElementById(
+    "paymentCount"
+  ).textContent=
     payments;
 
-  document.getElementById("submittedCount").textContent=
+
+  document.getElementById(
+    "submittedCount"
+  ).textContent=
     withdrawals;
 
 }
 
+
+/* =================================================
+   FILTER
+================================================= */
+
 function filterUsers(type){
 
-  currentFilter=type;
+  currentFilter=
+    type;
+
   renderUsers();
 
 }
 
+
+/* =================================================
+   SEARCH
+================================================= */
+
+function clearSearch(){
+
+  const search=
+    document.getElementById(
+      "userSearch"
+    );
+
+  search.value="";
+
+  currentFilter="all";
+
+  renderUsers();
+
+  search.focus();
+
+}
+
+
 function renderUsers(){
 
   const container=
-    document.getElementById("usersList");
-
-  const search=String(
-    document.getElementById("userSearch").value||""
-  ).trim().toLowerCase();
-
-  let users=[...allUsers];
-
-  if(currentFilter==="active"){
-
-    users=users.filter(user=>
-      String(user.status||"").toLowerCase()==="active"
+    document.getElementById(
+      "usersList"
     );
+
+
+  const search=
+    String(
+      document.getElementById(
+        "userSearch"
+      ).value || ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  let users=[
+    ...allUsers
+  ];
+
+
+  /*
+     FILTER
+  */
+
+  if(
+    currentFilter==="active"
+  ){
+
+    users=
+      users.filter(
+        user=>
+          String(
+            user.status || ""
+          ).toLowerCase()
+          ===
+          "active"
+      );
 
   }
 
-  users=users.filter(user=>{
 
-    const username=
-      String(user.username||"").toLowerCase();
+  if(
+    currentFilter==="pending"
+  ){
 
-    const name=
-      String(
-        user.fullname||
-        user.full_name||
-        user.name||
-        ""
-      ).toLowerCase();
+    users=
+      users.filter(
+        user=>
+          String(
+            user.status || "pending"
+          ).toLowerCase()
+          ===
+          "pending"
+      );
 
-    const phone=
-      String(user.phone||"").toLowerCase();
+  }
 
-    return !search ||
-      username.includes(search) ||
-      name.includes(search) ||
-      phone.includes(search);
 
-  });
+  /*
+     SEARCH
+  */
+
+  if(search){
+
+    users=
+      users.filter(
+        user=>{
+
+          const username=
+            String(
+              user.username || ""
+            ).toLowerCase();
+
+
+          const name=
+            String(
+              user.fullname ||
+              user.full_name ||
+              user.name ||
+              ""
+            ).toLowerCase();
+
+
+          const phone=
+            String(
+              user.phone || ""
+            ).toLowerCase();
+
+
+          return (
+            username.includes(search)
+            ||
+            name.includes(search)
+            ||
+            phone.includes(search)
+          );
+
+        }
+      );
+
+  }
+
 
   container.innerHTML="";
+
 
   if(!users.length){
 
     container.innerHTML=`
+
       <div class="empty">
-        <div class="empty-icon">👥</div>
-        <h3>No Users Found</h3>
-        <p>Registered users will appear here.</p>
+
+        <div class="empty-icon">
+          🔎
+        </div>
+
+        <h3>
+          No Users Found
+        </h3>
+
+        <p>
+          Try another username, name or phone number.
+        </p>
+
       </div>
+
     `;
 
     return;
+
   }
+
 
   users.forEach(user=>{
 
-    const card=document.createElement("div");
+    const card=
+      document.createElement(
+        "div"
+      );
 
-    card.className="user-card";
+
+    card.className=
+      "user-card";
+
 
     const status=
-      String(user.status||"pending").toLowerCase();
+      String(
+        user.status || "pending"
+      ).toLowerCase();
+
 
     const name=
-      user.fullname||
-      user.full_name||
-      user.name||
-      user.username||
+      user.fullname ||
+      user.full_name ||
+      user.name ||
+      user.username ||
       "Unknown User";
 
-    const username=user.username||"-";
-    const phone=user.phone||"-";
+
+    const username=
+      user.username || "-";
+
+
+    const phone=
+      user.phone || "-";
+
 
     const balance=
-      Number(user.balance||0).toLocaleString();
+      Number(
+        user.balance || 0
+      ).toLocaleString();
+
 
     let action="";
 
-    if(status==="pending"){
+
+    if(
+      status==="pending"
+    ){
 
       action=`
+
         <div class="actions">
 
           <button
             class="activate-btn"
-            onclick="activateSpecificUser('${escapeHTML(username)}')">
+            data-username="${escapeHTML(username)}"
+            onclick="activateSpecificUser(this.dataset.username,this)">
+
             ✓ ACTIVATE
+
           </button>
+
 
           <button
             class="reject-btn"
-            onclick="rejectSpecificUser('${escapeHTML(username)}')">
+            data-username="${escapeHTML(username)}"
+            onclick="rejectSpecificUser(this.dataset.username,this)">
+
             ✕ REJECT
+
           </button>
 
         </div>
+
       `;
 
     }
+
 
     card.innerHTML=`
 
@@ -1153,32 +2266,52 @@ function renderUsers(){
 
         </div>
 
+
         <div class="status ${escapeHTML(status)}">
-          ${escapeHTML(status.toUpperCase())}
+
+          ${escapeHTML(
+            status.toUpperCase()
+          )}
+
         </div>
 
       </div>
+
 
       <div class="details">
 
         <div class="detail">
-          <div class="detail-label">PHONE</div>
+
+          <div class="detail-label">
+            PHONE
+          </div>
+
           <div class="detail-value">
             ${escapeHTML(phone)}
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="detail-label">BALANCE</div>
+
+          <div class="detail-label">
+            BALANCE
+          </div>
+
           <div class="detail-value gold">
             TZS ${balance}
           </div>
+
         </div>
 
       </div>
 
+
       ${action}
+
     `;
+
 
     container.appendChild(card);
 
@@ -1186,144 +2319,300 @@ function renderUsers(){
 
 }
 
-function findUser(username){
 
-  return allUsers.find(
-    u=>String(u.username)===String(username)
+/* =================================================
+   ACTIVATE USER
+================================================= */
+
+function activateSpecificUser(
+  username,
+  button
+){
+
+  const user=
+    findUser(username);
+
+
+  if(!user){
+
+    alert(
+      "User was not found."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    String(user.status || "")
+    .toLowerCase()
+    ===
+    "active"
+  ){
+
+    alert(
+      "This user is already active."
+    );
+
+    return;
+
+  }
+
+
+  if(button){
+
+    button.classList.add(
+      "loading"
+    );
+
+    button.textContent=
+      "ACTIVATING...";
+
+  }
+
+
+  /*
+     Update user
+  */
+
+  user.status=
+    "active";
+
+  user.activationStatus=
+    "active";
+
+  user.paymentStatus=
+    "paid";
+
+  user.activatedAt=
+    new Date().toISOString();
+
+
+  /*
+     Save user permanently
+  */
+
+  const saved=
+    saveUser(user);
+
+
+  if(!saved){
+
+    if(button){
+
+      button.classList.remove(
+        "loading"
+      );
+
+      button.textContent=
+        "✓ ACTIVATE";
+
+    }
+
+    alert(
+      "Activation failed."
+    );
+
+    return;
+
+  }
+
+
+  /*
+     Payment sync
+  */
+
+  updatePaymentStatus(
+    username,
+    "approved"
+  );
+
+
+  /*
+     Refresh everything
+  */
+
+  allUsers=
+    getUsers();
+
+
+  updateStats();
+
+  renderUsers();
+
+  renderPendingPayments();
+
+
+  alert(
+    "User activated successfully."
   );
 
 }
 
-function saveUser(user){
 
-  const username=user.username;
+/* =================================================
+   REJECT USER
+================================================= */
 
-  let account;
+function rejectSpecificUser(
+  username,
+  button
+){
+
+  const user=
+    findUser(username);
+
+
+  if(!user){
+
+    alert(
+      "User was not found."
+    );
+
+    return;
+
+  }
+
+
+  if(button){
+
+    button.classList.add(
+      "loading"
+    );
+
+    button.textContent=
+      "REJECTING...";
+
+  }
+
+
+  user.status=
+    "rejected";
+
+  user.activationStatus=
+    "rejected";
+
+  user.paymentStatus=
+    "rejected";
+
+
+  saveUser(user);
+
+
+  updatePaymentStatus(
+    username,
+    "rejected"
+  );
+
+
+  allUsers=
+    getUsers();
+
+
+  updateStats();
+
+  renderUsers();
+
+  renderPendingPayments();
+
+
+  alert(
+    "User rejected."
+  );
+
+}
+
+
+/* =================================================
+   PAYMENT REQUESTS
+================================================= */
+
+function getAccount(){
 
   try{
-    account=JSON.parse(
-      localStorage.getItem("linkcashAccount")
-    );
-  }catch(e){
-    account=null;
-  }
 
-  if(account && account.username===username){
-
-    localStorage.setItem(
-      "linkcashAccount",
-      JSON.stringify(user)
+    return JSON.parse(
+      localStorage.getItem(
+        "linkcashAccount"
+      )
     );
 
-  }
+  }catch(error){
 
-  let users=getLocal("linkcashUsers");
-
-  if(users.length){
-
-    const index=users.findIndex(
-      u=>u.username===username
-    );
-
-    if(index>=0){
-      users[index]=user;
-    }else{
-      users.push(user);
-    }
-
-    saveLocal("linkcashUsers",users);
+    return null;
 
   }
 
 }
 
-function activateSpecificUser(username){
-
-  const user=findUser(username);
-
-  if(!user)return;
-
-  user.status="active";
-  user.activationStatus="active";
-  user.paymentStatus="paid";
-
-  saveUser(user);
-
-  updatePaymentStatus(username,"approved");
-
-  alert("User activated successfully.");
-
-  loadUsers();
-
-}
-
-function rejectSpecificUser(username){
-
-  const user=findUser(username);
-
-  if(!user)return;
-
-  user.status="rejected";
-  user.activationStatus="rejected";
-
-  saveUser(user);
-
-  updatePaymentStatus(username,"rejected");
-
-  alert("User rejected.");
-
-  loadUsers();
-
-}
 
 function getPaymentRequests(){
 
-  let data=getLocal("linkcashPayments");
+  let data=
+    getLocal(
+      "linkcashPayments"
+    );
+
+
+  /*
+     Compatibility with old
+     single-account system
+  */
 
   if(!data.length){
 
-    const account=getAccount();
+    const account=
+      getAccount();
 
-    if(account && (
-      account.paymentReference ||
-      account.transactionId ||
-      account.reference ||
-      account.paymentStatus
-    )){
+
+    if(
+      account &&
+      (
+        account.paymentReference ||
+        account.transactionId ||
+        account.reference ||
+        account.paymentStatus
+      )
+    ){
 
       data=[{
 
         id:Date.now(),
 
         username:
-          account.username||"-",
+          account.username || "-",
 
         fullname:
-          account.fullname||
-          account.name||
+          account.fullname ||
+          account.name ||
           "-",
 
         phone:
-          account.phone||"-",
+          account.phone || "-",
 
         amount:
-          account.activationFee||14500,
+          account.activationFee ||
+          14500,
 
         reference:
-          account.paymentReference||
-          account.transactionId||
-          account.reference||
+          account.paymentReference ||
+          account.transactionId ||
+          account.reference ||
           "-",
 
         method:
-          account.paymentMethod||
-          account.method||
+          account.paymentMethod ||
+          account.method ||
           "-",
 
         status:
           account.paymentStatus==="paid"
-          ?"pending":
-          account.paymentStatus||"pending",
+          ?
+          "pending"
+          :
+          account.paymentStatus ||
+          "pending",
 
         createdAt:
           new Date().toISOString()
@@ -1334,41 +2623,77 @@ function getPaymentRequests(){
 
   }
 
+
   return data;
 
 }
 
+
 function renderPendingPayments(){
 
   const container=
-    document.getElementById("paymentsList");
+    document.getElementById(
+      "paymentsList"
+    );
 
-  const payments=getPaymentRequests()
-  .filter(p=>
-    String(p.status||"pending").toLowerCase()==="pending"
-  );
+
+  const payments=
+    getPaymentRequests()
+    .filter(
+      payment=>
+        String(
+          payment.status ||
+          "pending"
+        ).toLowerCase()
+        ===
+        "pending"
+    );
+
 
   container.innerHTML="";
+
 
   if(!payments.length){
 
     container.innerHTML=`
+
       <div class="empty">
-        <div class="empty-icon">✓</div>
-        <h3>No Payment Requests</h3>
-        <p>Users who submit activation payments will appear here.</p>
+
+        <div class="empty-icon">
+          ✓
+        </div>
+
+        <h3>
+          No Payment Requests
+        </h3>
+
+        <p>
+          Users who submit activation payments will appear here.
+        </p>
+
       </div>
+
     `;
 
     return;
 
   }
 
-  payments.reverse().forEach(payment=>{
 
-    const card=document.createElement("div");
+  payments
+  .slice()
+  .reverse()
+  .forEach(payment=>{
 
-    card.className="payment-card";
+    const card=
+      document.createElement(
+        "div"
+      );
+
+
+    card.className=
+      "payment-card";
+
 
     card.innerHTML=`
 
@@ -1377,19 +2702,26 @@ function renderPendingPayments(){
         <div>
 
           <div class="user-name">
+
             ${escapeHTML(
-              payment.fullname||
-              payment.name||
-              payment.username||
+              payment.fullname ||
+              payment.name ||
+              payment.username ||
               "User"
             )}
+
           </div>
 
           <div class="user-username">
-            @${escapeHTML(payment.username||"-")}
+
+            @${escapeHTML(
+              payment.username || "-"
+            )}
+
           </div>
 
         </div>
+
 
         <div class="status pending">
           PENDING
@@ -1397,54 +2729,100 @@ function renderPendingPayments(){
 
       </div>
 
+
       <div class="details">
 
         <div class="detail">
-          <div class="detail-label">PHONE</div>
+
+          <div class="detail-label">
+            PHONE
+          </div>
+
           <div class="detail-value">
-            ${escapeHTML(payment.phone||"-")}
+            ${escapeHTML(
+              payment.phone || "-"
+            )}
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="detail-label">AMOUNT</div>
+
+          <div class="detail-label">
+            AMOUNT
+          </div>
+
           <div class="detail-value gold">
-            TZS ${Number(payment.amount||14500).toLocaleString()}
+
+            TZS ${Number(
+              payment.amount || 14500
+            ).toLocaleString()}
+
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="detail-label">METHOD</div>
+
+          <div class="detail-label">
+            METHOD
+          </div>
+
           <div class="detail-value">
-            ${escapeHTML(payment.method||"-")}
+
+            ${escapeHTML(
+              payment.method || "-"
+            )}
+
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="detail-label">REFERENCE</div>
-          <div class="detail-value gold">
-            ${escapeHTML(payment.reference||"-")}
+
+          <div class="detail-label">
+            REFERENCE
           </div>
+
+          <div class="detail-value gold">
+
+            ${escapeHTML(
+              payment.reference || "-"
+            )}
+
+          </div>
+
         </div>
 
       </div>
+
 
       <div class="actions">
 
         <button
           class="approve-btn"
-          onclick="approvePayment(${payment.id})">
+          onclick="approvePayment(${Number(payment.id)})">
+
           ✓ APPROVE & ACTIVATE
+
         </button>
+
 
         <button
           class="reject-btn"
-          onclick="rejectPayment(${payment.id})">
+          onclick="rejectPayment(${Number(payment.id)})">
+
           ✕ REJECT
+
         </button>
 
       </div>
+
     `;
+
 
     container.appendChild(card);
 
@@ -1452,23 +2830,46 @@ function renderPendingPayments(){
 
 }
 
-function updatePaymentStatus(username,status){
+
+/* =================================================
+   UPDATE PAYMENT
+================================================= */
+
+function updatePaymentStatus(
+  username,
+  status
+){
 
   const payments=
-    getLocal("linkcashPayments");
+    getLocal(
+      "linkcashPayments"
+    );
+
 
   let changed=false;
 
-  payments.forEach(payment=>{
 
-    if(String(payment.username)===String(username)){
+  payments.forEach(
+    payment=>{
 
-      payment.status=status;
-      changed=true;
+      if(
+        String(payment.username)
+        .toLowerCase()
+        ===
+        String(username)
+        .toLowerCase()
+      ){
+
+        payment.status=
+          status;
+
+        changed=true;
+
+      }
 
     }
+  );
 
-  });
 
   if(changed){
 
@@ -1481,82 +2882,182 @@ function updatePaymentStatus(username,status){
 
 }
 
+
+/* =================================================
+   APPROVE PAYMENT
+================================================= */
+
 function approvePayment(id){
 
   const payments=
-    getLocal("linkcashPayments");
+    getLocal(
+      "linkcashPayments"
+    );
 
-  const payment=payments.find(
-    p=>String(p.id)===String(id)
-  );
 
-  if(!payment)return;
+  const payment=
+    payments.find(
+      p=>
+        String(p.id)
+        ===
+        String(id)
+    );
 
-  payment.status="approved";
+
+  if(!payment){
+
+    alert(
+      "Payment request not found."
+    );
+
+    return;
+
+  }
+
+
+  payment.status=
+    "approved";
 
   payment.approvedAt=
     new Date().toISOString();
 
+
   saveLocal(
     "linkcashPayments",
     payments
   );
 
+
   const user=
-    findUser(payment.username);
+    findUser(
+      payment.username
+    );
+
 
   if(user){
 
-    user.status="active";
-    user.activationStatus="active";
-    user.paymentStatus="paid";
+    user.status=
+      "active";
+
+    user.activationStatus=
+      "active";
+
+    user.paymentStatus=
+      "paid";
+
+    user.activatedAt=
+      new Date().toISOString();
+
 
     saveUser(user);
 
   }
 
-  alert("Payment approved. User activated.");
 
-  loadUsers();
+  allUsers=
+    getUsers();
+
+
+  updateStats();
+
+  renderUsers();
+
+  renderPendingPayments();
+
+
+  alert(
+    "Payment approved. User activated."
+  );
 
 }
+
+
+/* =================================================
+   REJECT PAYMENT
+================================================= */
 
 function rejectPayment(id){
 
   const payments=
-    getLocal("linkcashPayments");
+    getLocal(
+      "linkcashPayments"
+    );
 
-  const payment=payments.find(
-    p=>String(p.id)===String(id)
-  );
 
-  if(!payment)return;
+  const payment=
+    payments.find(
+      p=>
+        String(p.id)
+        ===
+        String(id)
+    );
 
-  payment.status="rejected";
+
+  if(!payment){
+
+    alert(
+      "Payment request not found."
+    );
+
+    return;
+
+  }
+
+
+  payment.status=
+    "rejected";
+
 
   saveLocal(
     "linkcashPayments",
     payments
   );
 
+
   const user=
-    findUser(payment.username);
+    findUser(
+      payment.username
+    );
+
 
   if(user){
 
-    user.status="rejected";
-    user.activationStatus="rejected";
-    user.paymentStatus="rejected";
+    user.status=
+      "rejected";
+
+    user.activationStatus=
+      "rejected";
+
+    user.paymentStatus=
+      "rejected";
+
 
     saveUser(user);
 
   }
 
-  alert("Payment rejected.");
 
-  loadUsers();
+  allUsers=
+    getUsers();
+
+
+  updateStats();
+
+  renderUsers();
+
+  renderPendingPayments();
+
+
+  alert(
+    "Payment rejected."
+  );
 
 }
+
+
+/* =================================================
+   WITHDRAWALS
+================================================= */
 
 function getWithdrawals(){
 
@@ -1566,6 +3067,7 @@ function getWithdrawals(){
 
 }
 
+
 function renderWithdrawals(){
 
   const container=
@@ -1573,33 +3075,64 @@ function renderWithdrawals(){
       "withdrawalsList"
     );
 
+
   const withdrawals=
     getWithdrawals()
-    .filter(w=>
-      String(w.status||"pending").toLowerCase()==="pending"
+    .filter(
+      item=>
+        String(
+          item.status ||
+          "pending"
+        ).toLowerCase()
+        ===
+        "pending"
     );
 
+
   container.innerHTML="";
+
 
   if(!withdrawals.length){
 
     container.innerHTML=`
+
       <div class="empty">
-        <div class="empty-icon">📤</div>
-        <h3>No Submitted Requests</h3>
-        <p>Withdrawal requests from users will appear here.</p>
+
+        <div class="empty-icon">
+          📤
+        </div>
+
+        <h3>
+          No Submitted Requests
+        </h3>
+
+        <p>
+          Withdrawal requests from users will appear here.
+        </p>
+
       </div>
+
     `;
 
     return;
 
   }
 
-  withdrawals.reverse().forEach(withdrawal=>{
 
-    const card=document.createElement("div");
+  withdrawals
+  .slice()
+  .reverse()
+  .forEach(withdrawal=>{
 
-    card.className="withdraw-card";
+    const card=
+      document.createElement(
+        "div"
+      );
+
+
+    card.className=
+      "withdraw-card";
+
 
     card.innerHTML=`
 
@@ -1608,21 +3141,26 @@ function renderWithdrawals(){
         <div>
 
           <div class="user-name">
+
             ${escapeHTML(
-              withdrawal.fullname||
-              withdrawal.name||
-              withdrawal.username||
+              withdrawal.fullname ||
+              withdrawal.name ||
+              withdrawal.username ||
               "User"
             )}
+
           </div>
 
           <div class="user-username">
+
             @${escapeHTML(
-              withdrawal.username||"-"
+              withdrawal.username || "-"
             )}
+
           </div>
 
         </div>
+
 
         <div class="status pending">
           PENDING
@@ -1630,73 +3168,116 @@ function renderWithdrawals(){
 
       </div>
 
+
       <div class="details">
 
         <div class="detail">
-          <div class="detail-label">AMOUNT</div>
+
+          <div class="detail-label">
+            AMOUNT
+          </div>
+
           <div class="detail-value gold">
+
             TZS ${Number(
-              withdrawal.amount||0
+              withdrawal.amount || 0
             ).toLocaleString()}
+
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="detail-label">METHOD</div>
+
+          <div class="detail-label">
+            METHOD
+          </div>
+
           <div class="detail-value">
+
             ${escapeHTML(
-              withdrawal.method||
-              withdrawal.network||
+              withdrawal.method ||
+              withdrawal.network ||
               "-"
             )}
+
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="detail-label">NUMBER</div>
+
+          <div class="detail-label">
+            NUMBER
+          </div>
+
           <div class="detail-value">
+
             ${escapeHTML(
-              withdrawal.phone||
-              withdrawal.number||
-              withdrawal.phoneNumber||
+              withdrawal.phone ||
+              withdrawal.number ||
+              withdrawal.phoneNumber ||
               "-"
             )}
+
           </div>
+
         </div>
 
+
         <div class="detail">
-          <div class="detail-label">REQUEST ID</div>
-          <div class="detail-value">
-            ${escapeHTML(
-              withdrawal.id||"-"
-            )}
+
+          <div class="detail-label">
+            REQUEST ID
           </div>
+
+          <div class="detail-value">
+
+            ${escapeHTML(
+              withdrawal.id || "-"
+            )}
+
+          </div>
+
         </div>
 
       </div>
+
 
       <div class="actions">
 
         <button
           class="approve-btn"
           onclick="approveWithdrawal('${escapeHTML(String(withdrawal.id))}')">
+
           ✓ APPROVE
+
         </button>
+
 
         <button
           class="process-btn"
           onclick="processWithdrawal('${escapeHTML(String(withdrawal.id))}')">
+
           ↻ PROCESSING
+
         </button>
+
 
         <button
           class="reject-btn"
           onclick="rejectWithdrawal('${escapeHTML(String(withdrawal.id))}')">
+
           ✕ REJECT
+
         </button>
 
       </div>
+
     `;
+
 
     container.appendChild(card);
 
@@ -1704,31 +3285,54 @@ function renderWithdrawals(){
 
 }
 
-function updateWithdrawal(id,status){
+
+function updateWithdrawal(
+  id,
+  status
+){
 
   const data=
-    getLocal("linkcashWithdrawals");
+    getLocal(
+      "linkcashWithdrawals"
+    );
 
-  const index=data.findIndex(
-    w=>String(w.id)===String(id)
-  );
 
-  if(index<0)return;
+  const index=
+    data.findIndex(
+      item=>
+        String(item.id)
+        ===
+        String(id)
+    );
 
-  data[index].status=status;
+
+  if(index<0){
+
+    return;
+
+  }
+
+
+  data[index].status=
+    status;
+
 
   data[index].updatedAt=
     new Date().toISOString();
+
 
   saveLocal(
     "linkcashWithdrawals",
     data
   );
 
+
   renderWithdrawals();
+
   updateStats();
 
 }
+
 
 function approveWithdrawal(id){
 
@@ -1737,9 +3341,12 @@ function approveWithdrawal(id){
     "approved"
   );
 
-  alert("Withdrawal approved.");
+  alert(
+    "Withdrawal approved."
+  );
 
 }
+
 
 function processWithdrawal(id){
 
@@ -1754,6 +3361,7 @@ function processWithdrawal(id){
 
 }
 
+
 function rejectWithdrawal(id){
 
   updateWithdrawal(
@@ -1761,15 +3369,24 @@ function rejectWithdrawal(id){
     "rejected"
   );
 
-  alert("Withdrawal rejected.");
+  alert(
+    "Withdrawal rejected."
+  );
 
 }
+
+
+/* =================================================
+   VIDEOS
+================================================= */
 
 function getYouTubeID(url){
 
   try{
 
-    const parsed=new URL(url);
+    const parsed=
+      new URL(url);
+
 
     if(
       parsed.hostname.includes(
@@ -1778,12 +3395,16 @@ function getYouTubeID(url){
     ){
 
       if(
-        parsed.pathname==="/watch"
+        parsed.pathname ===
+        "/watch"
       ){
 
-        return parsed.searchParams.get("v");
+        return parsed
+          .searchParams
+          .get("v");
 
       }
+
 
       if(
         parsed.pathname.startsWith(
@@ -1791,9 +3412,12 @@ function getYouTubeID(url){
         )
       ){
 
-        return parsed.pathname.split("/")[2];
+        return parsed
+          .pathname
+          .split("/")[2];
 
       }
+
 
       if(
         parsed.pathname.startsWith(
@@ -1801,52 +3425,74 @@ function getYouTubeID(url){
         )
       ){
 
-        return parsed.pathname.split("/")[2];
+        return parsed
+          .pathname
+          .split("/")[2];
 
       }
 
     }
 
+
     if(
-      parsed.hostname==="youtu.be"
+      parsed.hostname ===
+      "youtu.be"
     ){
 
-      return parsed.pathname.replace(
-        "/",
-        ""
-      );
+      return parsed
+        .pathname
+        .replace(
+          "/",
+          ""
+        );
 
     }
 
-  }catch(e){}
+  }catch(error){}
+
 
   return null;
 
 }
 
-function getVideoEmbed(url,platform){
+
+function getVideoEmbed(
+  url,
+  platform
+){
 
   const youtubeID=
     getYouTubeID(url);
 
+
   if(youtubeID){
 
     return `
+
       <iframe
+
         class="video-frame"
+
         src="https://www.youtube.com/embed/${encodeURIComponent(youtubeID)}"
+
         title="LINKCASH Video"
+
         allowfullscreen>
+
       </iframe>
+
     `;
 
   }
 
+
   if(
-    /\.(mp4|webm|ogg)(\?.*)?$/i.test(url)
+    /\.(mp4|webm|ogg)(\?.*)?$/i
+    .test(url)
   ){
 
     return `
+
       <video
         class="video-frame"
         controls
@@ -1856,11 +3502,14 @@ function getVideoEmbed(url,platform){
           src="${escapeHTML(url)}">
 
       </video>
+
     `;
 
   }
 
+
   return `
+
     <div style="
       background:#080808;
       border:1px solid #222;
@@ -1872,7 +3521,7 @@ function getVideoEmbed(url,platform){
     ">
 
       🎥 ${escapeHTML(
-        platform||"SOCIAL"
+        platform || "SOCIAL"
       ).toUpperCase()}
 
       <br><br>
@@ -1880,13 +3529,17 @@ function getVideoEmbed(url,platform){
       <button
         class="small-btn"
         onclick="openSafeURL('${escapeHTML(url)}')">
+
         OPEN VIDEO
+
       </button>
 
     </div>
+
   `;
 
 }
+
 
 function addVideo(){
 
@@ -1895,15 +3548,18 @@ function addVideo(){
       "videoTitle"
     ).value.trim();
 
+
   const platform=
     document.getElementById(
       "videoPlatform"
     ).value;
 
+
   const url=
     document.getElementById(
       "videoURL"
     ).value.trim();
+
 
   if(!title){
 
@@ -1915,6 +3571,7 @@ function addVideo(){
 
   }
 
+
   if(!url){
 
     alert(
@@ -1925,9 +3582,12 @@ function addVideo(){
 
   }
 
+
   try{
 
-    const parsed=new URL(url);
+    const parsed=
+      new URL(url);
+
 
     if(
       parsed.protocol!=="http:" &&
@@ -1942,7 +3602,7 @@ function addVideo(){
 
     }
 
-  }catch(e){
+  }catch(error){
 
     alert(
       "Please enter a valid URL."
@@ -1952,36 +3612,49 @@ function addVideo(){
 
   }
 
+
   const videos=
-    getLocal("linkcashVideos");
+    getLocal(
+      "linkcashVideos"
+    );
+
 
   videos.push({
 
     id:Date.now(),
+
     title,
+
     platform,
+
     url,
+
     createdAt:
       new Date().toISOString()
 
   });
+
 
   saveLocal(
     "linkcashVideos",
     videos
   );
 
+
   document.getElementById(
     "videoTitle"
   ).value="";
+
 
   document.getElementById(
     "videoURL"
   ).value="";
 
+
   renderVideos();
 
 }
+
 
 function renderVideos(){
 
@@ -1990,34 +3663,56 @@ function renderVideos(){
       "videosList"
     );
 
-  const videos=[
-    ...getLocal(
-      "linkcashVideos"
-    )
-  ].reverse();
+
+  const videos=
+    [
+      ...getLocal(
+        "linkcashVideos"
+      )
+    ].reverse();
+
 
   container.innerHTML="";
+
 
   if(!videos.length){
 
     container.innerHTML=`
+
       <div class="empty">
-        <div class="empty-icon">🎥</div>
-        <h3>No Videos Yet</h3>
-        <p>Add YouTube, Facebook, Instagram or TikTok content.</p>
+
+        <div class="empty-icon">
+          🎥
+        </div>
+
+        <h3>
+          No Videos Yet
+        </h3>
+
+        <p>
+          Add YouTube, Facebook, Instagram or TikTok content.
+        </p>
+
       </div>
+
     `;
 
     return;
 
   }
 
+
   videos.forEach(video=>{
 
     const card=
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
-    card.className="video-card";
+
+    card.className=
+      "video-card";
+
 
     card.innerHTML=`
 
@@ -2025,44 +3720,62 @@ function renderVideos(){
         ${escapeHTML(video.title)}
       </div>
 
+
       <div style="
         color:#d4a72c;
         font-size:9px;
         font-weight:bold;
         margin-bottom:10px;
       ">
+
         ${escapeHTML(
           String(
-            video.platform||"other"
+            video.platform ||
+            "other"
           ).toUpperCase()
         )}
+
       </div>
+
 
       ${getVideoEmbed(
         video.url,
         video.platform
       )}
 
+
       <div class="video-link">
-        ${escapeHTML(video.url)}
+
+        ${escapeHTML(
+          video.url
+        )}
+
       </div>
+
 
       <div class="video-actions">
 
         <button
           class="small-btn"
           onclick="openSafeURL('${escapeHTML(video.url)}')">
+
           OPEN
+
         </button>
+
 
         <button
           class="small-btn delete"
-          onclick="deleteVideo(${video.id})">
+          onclick="deleteVideo(${Number(video.id)})">
+
           DELETE
+
         </button>
 
       </div>
+
     `;
+
 
     container.appendChild(card);
 
@@ -2070,29 +3783,46 @@ function renderVideos(){
 
 }
 
+
 function deleteVideo(id){
 
   if(
     !confirm(
       "Delete this video?"
     )
-  )return;
+  ){
+
+    return;
+
+  }
+
 
   const videos=
-    getLocal("linkcashVideos")
-    .filter(video=>
-      String(video.id)!==
-      String(id)
+    getLocal(
+      "linkcashVideos"
+    )
+    .filter(
+      video=>
+        String(video.id)
+        !==
+        String(id)
     );
+
 
   saveLocal(
     "linkcashVideos",
     videos
   );
 
+
   renderVideos();
 
 }
+
+
+/* =================================================
+   ADS
+================================================= */
 
 function addAd(){
 
@@ -2101,25 +3831,30 @@ function addAd(){
       "adTitle"
     ).value.trim();
 
+
   const text=
     document.getElementById(
       "adText"
     ).value.trim();
+
 
   const platform=
     document.getElementById(
       "adPlatform"
     ).value;
 
+
   const url=
     document.getElementById(
       "adURL"
     ).value.trim();
 
+
   const image=
     document.getElementById(
       "adImage"
     ).value.trim();
+
 
   if(!title){
 
@@ -2131,83 +3866,70 @@ function addAd(){
 
   }
 
-  if(url){
-
-    try{
-
-      const parsed=
-        new URL(url);
-
-      if(
-        parsed.protocol!=="http:" &&
-        parsed.protocol!=="https:"
-      ){
-
-        alert(
-          "Invalid advertisement URL."
-        );
-
-        return;
-
-      }
-
-    }catch(e){
-
-      alert(
-        "Please enter a valid advertisement URL."
-      );
-
-      return;
-
-    }
-
-  }
 
   const ads=
-    getLocal("linkcashAds");
+    getLocal(
+      "linkcashAds"
+    );
+
 
   ads.push({
 
     id:Date.now(),
+
     title,
+
     text,
+
     platform,
+
     url,
+
     image,
+
     active:true,
+
     createdAt:
       new Date().toISOString()
 
   });
+
 
   saveLocal(
     "linkcashAds",
     ads
   );
 
+
   document.getElementById(
     "adTitle"
   ).value="";
+
 
   document.getElementById(
     "adText"
   ).value="";
 
+
   document.getElementById(
     "adURL"
   ).value="";
+
 
   document.getElementById(
     "adImage"
   ).value="";
 
+
   renderAds();
+
 
   alert(
     "Advertisement published to user dashboard."
   );
 
 }
+
 
 function renderAds(){
 
@@ -2216,34 +3938,56 @@ function renderAds(){
       "adsList"
     );
 
-  const ads=[
-    ...getLocal(
-      "linkcashAds"
-    )
-  ].reverse();
+
+  const ads=
+    [
+      ...getLocal(
+        "linkcashAds"
+      )
+    ].reverse();
+
 
   container.innerHTML="";
+
 
   if(!ads.length){
 
     container.innerHTML=`
+
       <div class="empty">
-        <div class="empty-icon">📢</div>
-        <h3>No Ads Yet</h3>
-        <p>Ads published here can be displayed on the user dashboard.</p>
+
+        <div class="empty-icon">
+          📢
+        </div>
+
+        <h3>
+          No Ads Yet
+        </h3>
+
+        <p>
+          Ads published here can be displayed on the user dashboard.
+        </p>
+
       </div>
+
     `;
 
     return;
 
   }
 
+
   ads.forEach(ad=>{
 
     const card=
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
-    card.className="content-card";
+
+    card.className=
+      "content-card";
+
 
     card.innerHTML=`
 
@@ -2251,22 +3995,32 @@ function renderAds(){
         ${escapeHTML(ad.title)}
       </div>
 
+
       <div style="
         color:#d4a72c;
         font-size:9px;
         font-weight:bold;
         margin-bottom:8px;
       ">
+
         ${escapeHTML(
           String(
-            ad.platform||"other"
+            ad.platform ||
+            "other"
           ).toUpperCase()
         )}
+
       </div>
 
+
       <div class="content-url">
-        ${escapeHTML(ad.text||"")}
+
+        ${escapeHTML(
+          ad.text || ""
+        )}
+
       </div>
+
 
       ${
         ad.image
@@ -2282,8 +4036,10 @@ function renderAds(){
           "
           onerror="this.style.display='none'">
         `
-        :""
+        :
+        ""
       }
+
 
       <div class="content-actions">
 
@@ -2294,26 +4050,43 @@ function renderAds(){
           <button
             class="small-btn"
             onclick="openSafeURL('${escapeHTML(ad.url)}')">
+
             OPEN
+
           </button>
           `
-          :""
+          :
+          ""
         }
+
 
         <button
           class="small-btn"
-          onclick="toggleAd(${ad.id})">
-          ${ad.active===false?"ENABLE":"DISABLE"}
+          onclick="toggleAd(${Number(ad.id)})">
+
+          ${
+            ad.active===false
+            ?
+            "ENABLE"
+            :
+            "DISABLE"
+          }
+
         </button>
+
 
         <button
           class="small-btn delete"
-          onclick="deleteAd(${ad.id})">
+          onclick="deleteAd(${Number(ad.id)})">
+
           DELETE
+
         </button>
 
       </div>
+
     `;
+
 
     container.appendChild(card);
 
@@ -2321,48 +4094,74 @@ function renderAds(){
 
 }
 
+
 function toggleAd(id){
 
   const ads=
-    getLocal("linkcashAds");
+    getLocal(
+      "linkcashAds"
+    );
+
 
   const ad=
     ads.find(
       item=>
-        String(item.id)===String(id)
+        String(item.id)
+        ===
+        String(id)
     );
 
-  if(!ad)return;
+
+  if(!ad){
+
+    return;
+
+  }
+
 
   ad.active=
     ad.active===false;
 
+
   saveLocal(
     "linkcashAds",
     ads
   );
 
+
   renderAds();
 
 }
+
 
 function deleteAd(id){
 
   const ads=
-    getLocal("linkcashAds")
-    .filter(ad=>
-      String(ad.id)!==
-      String(id)
+    getLocal(
+      "linkcashAds"
+    )
+    .filter(
+      ad=>
+        String(ad.id)
+        !==
+        String(id)
     );
+
 
   saveLocal(
     "linkcashAds",
     ads
   );
 
+
   renderAds();
 
 }
+
+
+/* =================================================
+   QUIZ
+================================================= */
 
 function addQuiz(){
 
@@ -2371,36 +4170,42 @@ function addQuiz(){
       "quizQuestion"
     ).value.trim();
 
+
   const A=
     document.getElementById(
       "quizA"
     ).value.trim();
+
 
   const B=
     document.getElementById(
       "quizB"
     ).value.trim();
 
+
   const C=
     document.getElementById(
       "quizC"
     ).value.trim();
+
 
   const D=
     document.getElementById(
       "quizD"
     ).value.trim();
 
+
   const answer=
     document.getElementById(
       "quizAnswer"
     ).value;
 
+
   if(
-    !question||
-    !A||
-    !B||
-    !C||
+    !question ||
+    !A ||
+    !B ||
+    !C ||
     !D
   ){
 
@@ -2412,10 +4217,12 @@ function addQuiz(){
 
   }
 
+
   const quiz=
     getLocal(
       "linkcashQuiz"
     );
+
 
   quiz.push({
 
@@ -2434,22 +4241,27 @@ function addQuiz(){
 
   });
 
+
   saveLocal(
     "linkcashQuiz",
     quiz
   );
 
+
   document
-  .querySelectorAll(
-    "#quiz input"
-  )
-  .forEach(input=>
-    input.value=""
-  );
+    .querySelectorAll(
+      "#quiz input"
+    )
+    .forEach(
+      input=>
+        input.value=""
+    );
+
 
   renderQuiz();
 
 }
+
 
 function renderQuiz(){
 
@@ -2458,7 +4270,9 @@ function renderQuiz(){
       "quizList"
     );
 
+
   container.innerHTML="";
+
 
   [
     ...getLocal(
@@ -2469,18 +4283,25 @@ function renderQuiz(){
   .forEach(item=>{
 
     const card=
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     card.className=
       "content-card";
 
+
     card.innerHTML=`
 
       <div class="content-title">
+
         ${escapeHTML(
           item.question
         )}
+
       </div>
+
 
       <div class="content-url">
         A: ${escapeHTML(
@@ -2488,11 +4309,13 @@ function renderQuiz(){
         )}
       </div>
 
+
       <div class="content-url">
         B: ${escapeHTML(
           item.options.B
         )}
       </div>
+
 
       <div class="content-url">
         C: ${escapeHTML(
@@ -2500,29 +4323,38 @@ function renderQuiz(){
         )}
       </div>
 
+
       <div class="content-url">
         D: ${escapeHTML(
           item.options.D
         )}
       </div>
 
+
       <div class="content-url">
+
         Correct answer:
         ${escapeHTML(
           item.answer
         )}
+
       </div>
+
 
       <div class="content-actions">
 
         <button
           class="small-btn delete"
-          onclick="deleteQuiz(${item.id})">
+          onclick="deleteQuiz(${Number(item.id)})">
+
           DELETE
+
         </button>
 
       </div>
+
     `;
+
 
     container.appendChild(card);
 
@@ -2530,25 +4362,35 @@ function renderQuiz(){
 
 }
 
+
 function deleteQuiz(id){
 
   const data=
     getLocal(
       "linkcashQuiz"
     )
-    .filter(item=>
-      String(item.id)!==
-      String(id)
+    .filter(
+      item=>
+        String(item.id)
+        !==
+        String(id)
     );
+
 
   saveLocal(
     "linkcashQuiz",
     data
   );
 
+
   renderQuiz();
 
 }
+
+
+/* =================================================
+   GAMES
+================================================= */
 
 function addGame(){
 
@@ -2557,10 +4399,12 @@ function addGame(){
       "gameTitle"
     ).value.trim();
 
+
   const url=
     document.getElementById(
       "gameURL"
     ).value.trim();
+
 
   if(!title){
 
@@ -2572,35 +4416,44 @@ function addGame(){
 
   }
 
+
   const games=
     getLocal(
       "linkcashGames"
     );
 
+
   games.push({
 
     id:Date.now(),
+
     title,
+
     url
 
   });
+
 
   saveLocal(
     "linkcashGames",
     games
   );
 
+
   document.getElementById(
     "gameTitle"
   ).value="";
+
 
   document.getElementById(
     "gameURL"
   ).value="";
 
+
   renderGames();
 
 }
+
 
 function renderGames(){
 
@@ -2609,7 +4462,9 @@ function renderGames(){
       "gamesList"
     );
 
+
   container.innerHTML="";
+
 
   [
     ...getLocal(
@@ -2620,29 +4475,42 @@ function renderGames(){
   .forEach(game=>{
 
     const card=
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     card.className=
       "content-card";
 
+
     card.innerHTML=`
 
       <div class="content-title">
+
         ${escapeHTML(
           game.title
         )}
+
       </div>
+
 
       ${
         game.url
         ?
         `
         <div class="content-url">
-          ${escapeHTML(game.url)}
+
+          ${escapeHTML(
+            game.url
+          )}
+
         </div>
         `
-        :""
+        :
+        ""
       }
+
 
       <div class="content-actions">
 
@@ -2653,20 +4521,28 @@ function renderGames(){
           <button
             class="small-btn"
             onclick="openSafeURL('${escapeHTML(game.url)}')">
+
             OPEN
+
           </button>
           `
-          :""
+          :
+          ""
         }
+
 
         <button
           class="small-btn delete"
-          onclick="deleteGame(${game.id})">
+          onclick="deleteGame(${Number(game.id)})">
+
           DELETE
+
         </button>
 
       </div>
+
     `;
+
 
     container.appendChild(card);
 
@@ -2674,25 +4550,35 @@ function renderGames(){
 
 }
 
+
 function deleteGame(id){
 
   const data=
     getLocal(
       "linkcashGames"
     )
-    .filter(game=>
-      String(game.id)!==
-      String(id)
+    .filter(
+      game=>
+        String(game.id)
+        !==
+        String(id)
     );
+
 
   saveLocal(
     "linkcashGames",
     data
   );
 
+
   renderGames();
 
 }
+
+
+/* =================================================
+   SAFE URL
+================================================= */
 
 function openSafeURL(url){
 
@@ -2700,6 +4586,7 @@ function openSafeURL(url){
 
     const parsed=
       new URL(url);
+
 
     if(
       parsed.protocol!=="http:" &&
@@ -2714,13 +4601,14 @@ function openSafeURL(url){
 
     }
 
+
     window.open(
       parsed.href,
       "_blank",
       "noopener,noreferrer"
     );
 
-  }catch(e){
+  }catch(error){
 
     alert(
       "Invalid URL."
@@ -2730,31 +4618,45 @@ function openSafeURL(url){
 
 }
 
+
+/* =================================================
+   PANELS
+================================================= */
+
 function openPanel(
   panelId,
   button
 ){
 
   document
-  .querySelectorAll(".panel")
-  .forEach(panel=>
-    panel.classList.remove(
-      "active"
+    .querySelectorAll(
+      ".panel"
     )
-  );
+    .forEach(
+      panel=>
+        panel.classList.remove(
+          "active"
+        )
+    );
+
 
   document
-  .querySelectorAll(".tab")
-  .forEach(tab=>
-    tab.classList.remove(
-      "active"
+    .querySelectorAll(
+      ".tab"
     )
-  );
+    .forEach(
+      tab=>
+        tab.classList.remove(
+          "active"
+        )
+    );
+
 
   const panel=
     document.getElementById(
       panelId
     );
+
 
   if(panel){
 
@@ -2764,6 +4666,7 @@ function openPanel(
 
   }
 
+
   if(button){
 
     button.classList.add(
@@ -2772,35 +4675,69 @@ function openPanel(
 
   }
 
+
   if(panelId==="users"){
+
+    /*
+       Re-read users every time
+       CEO returns to USERS tab.
+    */
+
+    allUsers=
+      getUsers();
+
     renderUsers();
+
   }
+
 
   if(panelId==="payments"){
+
     renderPendingPayments();
+
   }
+
 
   if(panelId==="withdrawals"){
+
     renderWithdrawals();
+
   }
+
 
   if(panelId==="videos"){
+
     renderVideos();
+
   }
+
 
   if(panelId==="ads"){
+
     renderAds();
+
   }
+
 
   if(panelId==="quiz"){
+
     renderQuiz();
+
   }
 
+
   if(panelId==="games"){
+
     renderGames();
+
   }
 
 }
+
+
+/* =================================================
+   CEO LOGOUT
+================================================= */
 
 function logoutCEO(){
 
@@ -2814,13 +4751,16 @@ function logoutCEO(){
 
   }
 
+
   localStorage.removeItem(
     "linkcashCEOLoggedIn"
   );
 
+
   localStorage.removeItem(
     "linkcashCEO"
   );
+
 
   window.location.replace(
     "login.html"
@@ -2828,9 +4768,24 @@ function logoutCEO(){
 
 }
 
+
+/* =================================================
+   START
+================================================= */
+
 function startDashboard(){
 
-  loadUsers();
+  allUsers=
+    getUsers();
+
+
+  updateStats();
+
+  renderUsers();
+
+  renderPendingPayments();
+
+  renderWithdrawals();
 
   renderVideos();
 
@@ -2840,9 +4795,8 @@ function startDashboard(){
 
   renderGames();
 
-  updateStats();
-
 }
+
 
 startDashboard();
 
