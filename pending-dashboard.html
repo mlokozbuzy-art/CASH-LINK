@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050505">
 <title>LINKCASH - Pending Dashboard</title>
 
 <style>
@@ -185,8 +186,6 @@ body{
   border-color:#d4a72c;
 }
 
-/* BANNER */
-
 .operator-banner{
   display:none;
   margin-top:13px;
@@ -205,11 +204,12 @@ body{
   position:absolute;
   inset:0;
   opacity:.18;
-  font-size:90px;
+  font-size:70px;
   font-weight:900;
   display:flex;
   align-items:center;
   justify-content:center;
+  overflow:hidden;
 }
 
 .banner-content{
@@ -242,8 +242,6 @@ body{
   line-height:1.55;
   margin-top:6px;
 }
-
-/* COLORS */
 
 .yas{
   background:linear-gradient(135deg,#102c16,#071008);
@@ -387,6 +385,7 @@ body{
   color:#d4a72c;
   font-size:17px;
   margin-top:4px;
+  word-break:break-word;
 }
 
 /* CONFIRM PAYMENT */
@@ -488,6 +487,44 @@ body{
   display:block;
 }
 
+/* ACCOUNT INFO */
+
+.account-info{
+  margin-top:15px;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:17px;
+  padding:15px;
+}
+
+.account-info h3{
+  font-size:13px;
+  margin-bottom:11px;
+}
+
+.account-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid #202020;
+  font-size:9px;
+}
+
+.account-row:last-child{
+  border-bottom:none;
+}
+
+.account-row span:first-child{
+  color:#666;
+}
+
+.account-row span:last-child{
+  color:#ddd;
+  text-align:right;
+  word-break:break-word;
+}
+
 .note{
   margin-top:15px;
   padding:13px;
@@ -532,13 +569,11 @@ body{
 <header class="topbar">
 
   <div class="brand">
-
     <div class="logo">LC</div>
 
     <div class="brand-name">
       LINKCASH
     </div>
-
   </div>
 
   <div class="pending-badge">
@@ -555,16 +590,18 @@ body{
     <small>ACCOUNT ACTIVATION</small>
 
     <h1>
-      Karibu <span>LINKCASH</span>
+      Karibu <span id="userName">LINKCASH</span>
     </h1>
 
     <p>
-      Chagua mtandao unaotaka kutumia kulipia
-      activation fee yako.
+      Akaunti yako imetengenezwa. Kamilisha
+      activation kwa kufuata hatua za malipo hapa chini.
     </p>
 
   </div>
 
+
+  <!-- PAYMENT -->
 
   <div class="payment-card">
 
@@ -773,7 +810,9 @@ body{
       <input
         id="paidPhone"
         type="tel"
+        inputmode="numeric"
         placeholder="Mfano 07XXXXXXXX"
+        maxlength="15"
       >
 
     </div>
@@ -789,6 +828,7 @@ body{
         id="paidName"
         type="text"
         placeholder="Majina yaliyotumika kulipia"
+        maxlength="100"
       >
 
     </div>
@@ -803,6 +843,7 @@ body{
       <textarea
         id="transactionMessage"
         placeholder="Bandika message/SMS ya muamala hapa..."
+        maxlength="1000"
       ></textarea>
 
     </div>
@@ -820,9 +861,32 @@ body{
     <div
       class="status-box"
       id="statusBox"
-    >
-      Malipo yako yamewasilishwa kwa CEO
-      na yako kwenye hali ya kusubiri uthibitisho.
+    ></div>
+
+  </div>
+
+
+  <!-- ACCOUNT -->
+
+  <div class="account-info">
+
+    <h3>
+      Account Information
+    </h3>
+
+    <div class="account-row">
+      <span>Username</span>
+      <span id="accountUsername">-</span>
+    </div>
+
+    <div class="account-row">
+      <span>Phone</span>
+      <span id="accountPhone">-</span>
+    </div>
+
+    <div class="account-row">
+      <span>Status</span>
+      <span id="accountStatus">PENDING</span>
     </div>
 
   </div>
@@ -863,8 +927,7 @@ const ACTIVATION_FEE = 14500;
 
 
 /*
-  WEKA NAMBA ZAKO HALISI HAPA.
-  USIACHE NAMBA ZA MFANO KAMA HUJAZIWEKA.
+   WEKA NAMBA ZAKO HALISI HAPA.
 */
 
 const PAYMENT_ACCOUNTS = {
@@ -918,30 +981,147 @@ const PAYMENT_ACCOUNTS = {
 
 
 let selectedOperator = "";
-
 let selectedMethod = "";
 
 
 /* =========================================
-   GET ACCOUNT
+   GET CURRENT ACCOUNT
 ========================================= */
 
 function getAccount(){
 
   try{
 
-    const data =
-      localStorage.getItem(
-        "linkcashAccount"
-      );
+    const keys = [
+      "linkcashAccount",
+      "linkcashPendingUser",
+      "linkcashUser"
+    ];
 
-    return data
-      ? JSON.parse(data)
-      : null;
+    for(const key of keys){
+
+      const data =
+        localStorage.getItem(key);
+
+      if(!data){
+        continue;
+      }
+
+      const account =
+        JSON.parse(data);
+
+      if(
+        account &&
+        typeof account === "object"
+      ){
+
+        return account;
+
+      }
+
+    }
+
+    return null;
 
   }catch(error){
 
     return null;
+
+  }
+
+}
+
+
+/* =========================================
+   DISPLAY ACCOUNT
+========================================= */
+
+function loadAccount(){
+
+  const account =
+    getAccount();
+
+
+  if(!account){
+
+    document.getElementById(
+      "userName"
+    ).textContent =
+      "LINKCASH";
+
+    document.getElementById(
+      "accountUsername"
+    ).textContent =
+      "-";
+
+    document.getElementById(
+      "accountPhone"
+    ).textContent =
+      "-";
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "userName"
+  ).textContent =
+    account.fullname ||
+    account.username ||
+    "LINKCASH";
+
+
+  document.getElementById(
+    "accountUsername"
+  ).textContent =
+    account.username ||
+    "-";
+
+
+  document.getElementById(
+    "accountPhone"
+  ).textContent =
+    account.phone ||
+    "-";
+
+
+  document.getElementById(
+    "accountStatus"
+  ).textContent =
+    String(
+      account.status ||
+      "pending"
+    ).toUpperCase();
+
+
+  /*
+     Kama payment tayari ilitumwa,
+     onyesha status yake.
+  */
+
+  if(
+    account.paymentStatus === "pending" &&
+    account.paymentReference
+  ){
+
+    document.getElementById(
+      "statusBox"
+    ).classList.add("show");
+
+    document.getElementById(
+      "statusBox"
+    ).textContent =
+      "Malipo yako tayari yamewasilishwa. Subiri CEO athibitishe malipo yako.";
+
+    document.getElementById(
+      "submitBtn"
+    ).disabled = true;
+
+    document.getElementById(
+      "submitBtn"
+    ).textContent =
+      "PAYMENT ALREADY SUBMITTED";
 
   }
 
@@ -960,11 +1140,6 @@ function selectOperator(){
     ).value;
 
   selectedMethod = "";
-
-
-  document
-    .getElementById("methods")
-    .classList.remove("show");
 
 
   document
@@ -987,6 +1162,10 @@ function selectOperator(){
       .getElementById("operatorBanner")
       .classList.remove("show");
 
+    document
+      .getElementById("methods")
+      .classList.remove("show");
+
     return;
 
   }
@@ -996,6 +1175,11 @@ function selectOperator(){
     PAYMENT_ACCOUNTS[
       selectedOperator
     ];
+
+
+  if(!data){
+    return;
+  }
 
 
   const banner =
@@ -1041,12 +1225,16 @@ function selectOperator(){
 
 
 /* =========================================
-   CHOOSE METHOD
+   CHOOSE PAYMENT METHOD
 ========================================= */
 
 function chooseMethod(method){
 
   if(!selectedOperator){
+
+    alert(
+      "Tafadhali chagua MOBILE OPERATOR kwanza."
+    );
 
     return;
 
@@ -1086,7 +1274,7 @@ function chooseMethod(method){
 
 
 /* =========================================
-   INSTRUCTIONS
+   PAYMENT INSTRUCTIONS
 ========================================= */
 
 function showInstructions(){
@@ -1095,6 +1283,11 @@ function showInstructions(){
     PAYMENT_ACCOUNTS[
       selectedOperator
     ];
+
+
+  if(!data){
+    return;
+  }
 
 
   const steps =
@@ -1115,7 +1308,7 @@ function showInstructions(){
 
     html += step(
       "2",
-      "Chagua huduma ya kutuma au kulipia kulingana na aina ya akaunti uliyopewa."
+      "Chagua huduma ya malipo inayohusika."
     );
 
     html += step(
@@ -1145,7 +1338,7 @@ function showInstructions(){
 
     html += step(
       "2",
-      "Chagua huduma ya M-Pesa inayohusiana na malipo."
+      "Chagua huduma ya malipo inayohusika."
     );
 
     html += step(
@@ -1155,7 +1348,7 @@ function showInstructions(){
 
     html += step(
       "4",
-      "Weka TSh 14,500."
+      "Weka kiasi cha TSh 14,500."
     );
 
     html += step(
@@ -1205,7 +1398,7 @@ function showInstructions(){
 
     html += step(
       "2",
-      "Chagua huduma ya kulipia bili/malipo."
+      "Chagua huduma ya malipo inayohusika."
     );
 
     html += step(
@@ -1220,7 +1413,7 @@ function showInstructions(){
 
     html += step(
       "5",
-      "Thibitisha muamala kwa PIN yako."
+      "Kagua taarifa na thibitisha kwa PIN yako."
     );
 
   }
@@ -1235,7 +1428,7 @@ function showInstructions(){
 
     html += step(
       "2",
-      "Chagua huduma ya T-PESA ya kulipia."
+      "Chagua huduma ya T-PESA inayohusika."
     );
 
     html += step(
@@ -1245,7 +1438,7 @@ function showInstructions(){
 
     html += step(
       "4",
-      "Ingiza kiasi cha TSh 14,500."
+      "Weka kiasi cha TSh 14,500."
     );
 
     html += step(
@@ -1256,7 +1449,8 @@ function showInstructions(){
   }
 
 
-  steps.innerHTML = html;
+  steps.innerHTML =
+    html;
 
 
   document.getElementById(
@@ -1279,10 +1473,13 @@ function showInstructions(){
 }
 
 
+/* =========================================
+   STEP
+========================================= */
+
 function step(number,text){
 
   return `
-
     <div class="step">
 
       <div class="step-number">
@@ -1294,14 +1491,13 @@ function step(number,text){
       </div>
 
     </div>
-
   `;
 
 }
 
 
 /* =========================================
-   ESCAPE
+   ESCAPE HTML
 ========================================= */
 
 function escapeHTML(value){
@@ -1317,13 +1513,163 @@ function escapeHTML(value){
 
 
 /* =========================================
-   SUBMIT PAYMENT TO CEO
+   GET PAYMENTS
+========================================= */
+
+function getPayments(){
+
+  try{
+
+    const data =
+      localStorage.getItem(
+        "linkcashPayments"
+      );
+
+    if(!data){
+      return [];
+    }
+
+    const payments =
+      JSON.parse(data);
+
+    return Array.isArray(payments)
+      ? payments
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+/* =========================================
+   SAVE PAYMENTS
+========================================= */
+
+function savePayments(payments){
+
+  localStorage.setItem(
+    "linkcashPayments",
+    JSON.stringify(payments)
+  );
+
+}
+
+
+/* =========================================
+   UPDATE ACCOUNT IN ALL STORAGE
+========================================= */
+
+function saveCurrentAccount(account){
+
+  localStorage.setItem(
+    "linkcashAccount",
+    JSON.stringify(account)
+  );
+
+  localStorage.setItem(
+    "linkcashUser",
+    JSON.stringify(account)
+  );
+
+  localStorage.setItem(
+    "linkcashPendingUser",
+    JSON.stringify(account)
+  );
+
+
+  /*
+     Update pia kwenye accounts list.
+     Hii ni muhimu kwa CEO/referral system.
+  */
+
+  try{
+
+    const data =
+      localStorage.getItem(
+        "linkcashAccounts"
+      );
+
+    let accounts =
+      data
+        ? JSON.parse(data)
+        : [];
+
+    if(!Array.isArray(accounts)){
+      accounts = [];
+    }
+
+
+    const index =
+      accounts.findIndex(function(item){
+
+        return String(
+          item.username || ""
+        )
+        .trim()
+        .toLowerCase() ===
+        String(
+          account.username || ""
+        )
+        .trim()
+        .toLowerCase();
+
+      });
+
+
+    if(index !== -1){
+
+      accounts[index] =
+        account;
+
+    }else{
+
+      accounts.push(account);
+
+    }
+
+
+    localStorage.setItem(
+      "linkcashAccounts",
+      JSON.stringify(accounts)
+    );
+
+  }catch(error){
+
+    console.log(
+      "Account list update error"
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   SUBMIT PAYMENT
 ========================================= */
 
 function submitPayment(){
 
   const account =
     getAccount();
+
+
+  if(!account){
+
+    alert(
+      "Account haipatikani. Tafadhali login tena."
+    );
+
+    window.location.href =
+      "login.html";
+
+    return;
+
+  }
 
 
   if(!selectedOperator){
@@ -1360,7 +1706,7 @@ function submitPayment(){
     ).value.trim();
 
 
-  const message =
+  const transactionMessage =
     document.getElementById(
       "transactionMessage"
     ).value.trim();
@@ -1388,7 +1734,7 @@ function submitPayment(){
   }
 
 
-  if(!message){
+  if(!transactionMessage){
 
     alert(
       "Tafadhali weka message ya muamala."
@@ -1399,18 +1745,58 @@ function submitPayment(){
   }
 
 
-  const username =
-    account &&
-    account.username
-      ? account.username
-      : "unknown";
+  /*
+     USIRUDIE SUBMIT
+  */
+
+  const existingPayments =
+    getPayments();
 
 
-  const fullname =
-    account &&
-    account.fullname
-      ? account.fullname
-      : names;
+  const alreadySubmitted =
+    existingPayments.some(function(item){
+
+      return (
+        String(
+          item.username || ""
+        )
+        .trim()
+        .toLowerCase() ===
+        String(
+          account.username || ""
+        )
+        .trim()
+        .toLowerCase()
+        &&
+        String(
+          item.status || ""
+        )
+        .toLowerCase() ===
+        "pending"
+      );
+
+    });
+
+
+  if(alreadySubmitted){
+
+    alert(
+      "Tayari umetuma payment request. Subiri CEO athibitishe."
+    );
+
+    return;
+
+  }
+
+
+  const selectedData =
+    PAYMENT_ACCOUNTS[
+      selectedOperator
+    ];
+
+
+  const submittedAt =
+    new Date().toISOString();
 
 
   const payment = {
@@ -1424,10 +1810,13 @@ function submitPayment(){
         .substring(2,8),
 
     username:
-      username,
+      account.username || "",
 
     fullname:
-      fullname,
+      account.fullname || names,
+
+    accountPhone:
+      account.phone || "",
 
     phone:
       phone,
@@ -1435,10 +1824,11 @@ function submitPayment(){
     paidName:
       names,
 
+    operator:
+      selectedOperator,
+
     method:
-      PAYMENT_ACCOUNTS[
-        selectedOperator
-      ].name,
+      selectedData.name,
 
     paymentMethod:
       selectedMethod,
@@ -1447,105 +1837,78 @@ function submitPayment(){
       ACTIVATION_FEE,
 
     paymentAccount:
-      PAYMENT_ACCOUNTS[
-        selectedOperator
-      ].number,
+      selectedData.number,
 
     transaction:
-      message,
+      transactionMessage,
 
     transactionMessage:
-      message,
+      transactionMessage,
 
     status:
       "pending",
 
     submittedAt:
-      new Date().toISOString()
+      submittedAt
 
   };
 
 
-  let payments = [];
+  existingPayments.push(
+    payment
+  );
 
 
-  try{
-
-    const saved =
-      localStorage.getItem(
-        "linkcashPayments"
-      );
-
-    payments =
-      saved
-        ? JSON.parse(saved)
-        : [];
-
-    if(!Array.isArray(payments)){
-      payments = [];
-    }
-
-  }catch(error){
-
-    payments = [];
-
-  }
-
-
-  /*
-    AUTO SAVE PAYMENT
-  */
-
-  payments.push(payment);
-
-
-  localStorage.setItem(
-    "linkcashPayments",
-    JSON.stringify(payments)
+  savePayments(
+    existingPayments
   );
 
 
   /*
-    KEEP USER PENDING
+     UPDATE ACCOUNT
   */
 
-  if(account){
+  const updatedAccount = {
 
-    const updatedAccount = {
+    ...account,
 
-      ...account,
+    status:
+      "pending",
 
-      status:"pending",
+    paymentStatus:
+      "pending",
 
-      paymentStatus:"pending",
+    activationStatus:
+      "pending",
 
-      paymentMethod:
-        payment.method,
+    activationFee:
+      ACTIVATION_FEE,
 
-      paymentReference:
-        message,
+    paymentSubmitted:
+      true,
 
-      activationFee:
-        ACTIVATION_FEE,
+    paymentMethod:
+      selectedData.name,
 
-      submittedAt:
-        payment.submittedAt
+    paymentOperator:
+      selectedOperator,
 
-    };
+    paymentReference:
+      transactionMessage,
+
+    submittedAt:
+      submittedAt
+
+  };
 
 
-    localStorage.setItem(
-      "linkcashAccount",
-      JSON.stringify(
-        updatedAccount
-      )
-    );
-
-  }
+  saveCurrentAccount(
+    updatedAccount
+  );
 
 
   /*
-    SHOW SUCCESS
+     SUCCESS UI
   */
 
   document
@@ -1570,9 +1933,20 @@ function submitPayment(){
     "PAYMENT SUBMITTED";
 
 
+  document.getElementById(
+    "accountStatus"
+  ).textContent =
+    "PENDING";
+
+
   window.scrollTo({
-    top:document.body.scrollHeight,
-    behavior:"smooth"
+
+    top:
+      document.body.scrollHeight,
+
+    behavior:
+      "smooth"
+
   });
 
 }
@@ -1589,7 +1963,15 @@ function logoutUser(){
   );
 
   localStorage.removeItem(
+    "linkcashLoggedInUser"
+  );
+
+  localStorage.removeItem(
     "linkcashUser"
+  );
+
+  localStorage.removeItem(
+    "linkcashPendingUser"
   );
 
   window.location.href =
@@ -1597,7 +1979,14 @@ function logoutUser(){
 
 }
 
+
+/* =========================================
+   START
+========================================= */
+
+loadAccount();
+
 </script>
 
 </body>
-  </html>
+</html>
