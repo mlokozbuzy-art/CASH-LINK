@@ -20,9 +20,11 @@ body{
   min-height:100vh;
   background:#050505;
   color:#fff;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   padding:20px;
 }
 
@@ -30,6 +32,8 @@ body{
   width:100%;
   max-width:430px;
 }
+
+/* BRAND */
 
 .brand{
   text-align:center;
@@ -39,68 +43,88 @@ body{
 .logo{
   width:70px;
   height:70px;
+
   margin:auto;
+
   border-radius:20px;
 
-  background:linear-gradient(
-    145deg,
-    #ffe082,
-    #d4a72c,
-    #8f6b12
-  );
+  background:
+    linear-gradient(
+      145deg,
+      #ffe082,
+      #d4a72c,
+      #8f6b12
+    );
 
   display:flex;
   align-items:center;
   justify-content:center;
 
   color:#090909;
+
   font-size:24px;
   font-weight:900;
 
   box-shadow:
-    0 0 25px rgba(212,167,44,.25);
+    0 0 30px rgba(212,167,44,.25);
 }
 
 .brand h1{
   margin-top:13px;
+
   font-size:28px;
+
   letter-spacing:3px;
 }
 
 .brand p{
   margin-top:7px;
-  color:#8d8d8d;
+
+  color:#777;
+
   font-size:13px;
 }
 
+/* CARD */
+
 .card{
   background:#101010;
+
   border:1px solid #292929;
+
   border-radius:24px;
+
   padding:28px 22px;
 
   box-shadow:
     0 25px 70px rgba(0,0,0,.6);
 }
 
-.ceo-label{
+/* CEO BADGE */
+
+.ceo-badge{
   width:max-content;
-  margin:0 auto 15px;
+
+  margin:0 auto 20px;
 
   padding:7px 13px;
 
   border-radius:20px;
 
-  color:#d4a72c;
-
   background:rgba(212,167,44,.08);
 
-  border:1px solid rgba(212,167,44,.25);
+  border:1px solid rgba(212,167,44,.3);
 
-  font-size:10px;
+  color:#d4a72c;
+
+  font-size:9px;
+
   font-weight:900;
+
   letter-spacing:1px;
 }
+
+/* TITLE */
 
 .title{
   margin-bottom:23px;
@@ -108,14 +132,19 @@ body{
 
 .title h2{
   font-size:23px;
+
   margin-bottom:7px;
 }
 
 .title p{
   color:#858585;
+
   font-size:13px;
+
   line-height:1.5;
 }
+
+/* FIELD */
 
 .field{
   margin-bottom:17px;
@@ -133,6 +162,7 @@ body{
 
 input{
   width:100%;
+
   height:50px;
 
   background:#070707;
@@ -161,6 +191,8 @@ input:focus{
     0 0 0 2px rgba(212,167,44,.08);
 }
 
+/* PASSWORD */
+
 .password-wrap{
   position:relative;
 }
@@ -173,11 +205,13 @@ input:focus{
   position:absolute;
 
   right:12px;
+
   top:50%;
 
   transform:translateY(-50%);
 
   background:none;
+
   border:none;
 
   color:#d4a72c;
@@ -189,8 +223,11 @@ input:focus{
   cursor:pointer;
 }
 
+/* LOGIN */
+
 .login-btn{
   width:100%;
+
   height:53px;
 
   margin-top:5px;
@@ -214,6 +251,12 @@ input:focus{
   font-weight:900;
 
   cursor:pointer;
+
+  transition:.2s;
+}
+
+.login-btn:hover{
+  filter:brightness(1.08);
 }
 
 .login-btn:active{
@@ -222,8 +265,11 @@ input:focus{
 
 .login-btn:disabled{
   opacity:.6;
+
   cursor:not-allowed;
 }
+
+/* MESSAGE */
 
 .message{
   display:none;
@@ -261,6 +307,8 @@ input:focus{
   color:#ff7777;
 }
 
+/* INFO */
+
 .security{
   margin-top:18px;
 
@@ -276,10 +324,12 @@ input:focus{
 
   color:#555;
 
-  font-size:10px;
+  font-size:9px;
 
   line-height:1.5;
 }
+
+/* BACK */
 
 .back{
   display:block;
@@ -294,6 +344,12 @@ input:focus{
 
   font-size:12px;
 }
+
+.back:hover{
+  color:#d4a72c;
+}
+
+/* FOOTER */
 
 .footer{
   text-align:center;
@@ -312,7 +368,6 @@ input:focus{
 <body>
 
 <div class="wrapper">
-
 
   <!-- BRAND -->
 
@@ -337,15 +392,15 @@ input:focus{
 
   <div class="card">
 
-    <div class="ceo-label">
-      CEO ADMINISTRATION
+    <div class="ceo-badge">
+      CEO ACCESS
     </div>
 
 
     <div class="title">
 
       <h2>
-        CEO Login
+        Welcome, CEO
       </h2>
 
       <p>
@@ -357,9 +412,8 @@ input:focus{
 
     <form
       id="loginForm"
-      novalidate
+      autocomplete="off"
     >
-
 
       <!-- USERNAME -->
 
@@ -373,7 +427,9 @@ input:focus{
           type="text"
           id="username"
           placeholder="Enter CEO username"
-          autocomplete="username"
+          autocomplete="off"
+          autocapitalize="none"
+          spellcheck="false"
           required
         >
 
@@ -394,7 +450,7 @@ input:focus{
             type="password"
             id="password"
             placeholder="Enter CEO password"
-            autocomplete="current-password"
+            autocomplete="new-password"
             required
           >
 
@@ -432,15 +488,13 @@ input:focus{
     ></div>
 
 
-    <!-- SECURITY -->
+    <!-- SECURITY INFO -->
 
     <div class="security">
 
-      🔐 CEO access only
+      🔐 CEO ADMIN ACCESS<br>
 
-      <br>
-
-      Authorized LINKCASH administration panel
+      Authorized LINKCASH administration only.
 
     </div>
 
@@ -463,7 +517,6 @@ input:focus{
     © 2026 LINKCASH
   </div>
 
-
 </div>
 
 
@@ -471,17 +524,8 @@ input:focus{
 
 /* =====================================================
    CEO ACCOUNT
-   =====================================================
-
-   HAPA NDIYO ACCOUNT YA CEO.
-
-   Username:
-   ceo
-
-   Password:
-   CEO@2026
-
-   Unaweza kubadilisha hizi mbili hapa.
+   NO DATABASE
+   NO SUPABASE
 ===================================================== */
 
 const CEO_USERNAME = "ceo";
@@ -513,7 +557,7 @@ const showPasswordButton =
 
 
 /* =====================================================
-   SHOW / HIDE PASSWORD
+   SHOW PASSWORD
 ===================================================== */
 
 showPasswordButton.addEventListener(
@@ -578,7 +622,24 @@ function clearMessage(){
 
 
 /* =====================================================
-   CEO LOGIN
+   CLEAR OLD SESSIONS
+===================================================== */
+
+function clearOldSessions(){
+
+  localStorage.removeItem(
+    "linkcashCEOLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "linkcashCEO"
+  );
+
+}
+
+
+/* =====================================================
+   LOGIN
 ===================================================== */
 
 form.addEventListener(
@@ -592,17 +653,17 @@ form.addEventListener(
 
     const username =
       usernameInput.value
-      .trim()
-      .toLowerCase();
+        .trim()
+        .toLowerCase();
 
 
     const password =
       passwordInput.value;
 
 
-    /* ================================================
-       VALIDATION
-    ================================================ */
+    /* ===============================================
+       EMPTY USERNAME
+    =============================================== */
 
     if(!username){
 
@@ -618,6 +679,10 @@ form.addEventListener(
     }
 
 
+    /* ===============================================
+       EMPTY PASSWORD
+    =============================================== */
+
     if(!password){
 
       showMessage(
@@ -632,117 +697,102 @@ form.addEventListener(
     }
 
 
-    /* ================================================
-       LOGIN
-    ================================================ */
+    /* ===============================================
+       BUTTON
+    =============================================== */
 
-    loginButton.disabled =
-      true;
+    loginButton.disabled = true;
 
     loginButton.textContent =
       "CHECKING...";
 
 
-    setTimeout(
-      function(){
+    /* ===============================================
+       CLEAR OLD SESSION
+    =============================================== */
 
-        if(
-          username === CEO_USERNAME &&
-          password === CEO_PASSWORD
-        ){
+    clearOldSessions();
 
-          /* ==========================================
-             CEO LOGIN SUCCESS
-          ========================================== */
 
-          localStorage.setItem(
-            "linkcashCEOLoggedIn",
-            "true"
+    /* ===============================================
+       CHECK CEO LOGIN
+    =============================================== */
+
+    if(
+      username === CEO_USERNAME &&
+      password === CEO_PASSWORD
+    ){
+
+      /* SAVE CEO SESSION */
+
+      localStorage.setItem(
+        "linkcashCEOLoggedIn",
+        "true"
+      );
+
+
+      localStorage.setItem(
+        "linkcashCEO",
+        JSON.stringify({
+
+          username:"ceo",
+
+          role:"ceo",
+
+          status:"active",
+
+          loginTime:
+            new Date().toISOString()
+
+        })
+      );
+
+
+      /* SUCCESS */
+
+      showMessage(
+        "CEO login successful ✓",
+        "success"
+      );
+
+
+      loginButton.textContent =
+        "LOGIN SUCCESSFUL ✓";
+
+
+      /* GO TO DASHBOARD */
+
+      setTimeout(
+        function(){
+
+          window.location.replace(
+            "ceodashboard.html"
           );
 
-
-          localStorage.setItem(
-            "linkcashCEO",
-            JSON.stringify({
-
-              username:CEO_USERNAME,
-
-              role:"ceo",
-
-              status:"active",
-
-              loginTime:
-                new Date().toISOString()
-
-            })
-          );
+        },
+        700
+      );
 
 
-          /* Normal user session is removed */
+      return;
 
-          localStorage.removeItem(
-            "linkcashLoggedIn"
-          );
-
-          localStorage.removeItem(
-            "linkcashUser"
-          );
+    }
 
 
-          showMessage(
-            "CEO login successful ✓",
-            "success"
-          );
+    /* ===============================================
+       WRONG LOGIN
+    =============================================== */
 
-
-          loginButton.textContent =
-            "LOGIN SUCCESSFUL ✓";
-
-
-          /* ==========================================
-             GO TO CEO DASHBOARD
-          ========================================== */
-
-          setTimeout(
-            function(){
-
-              window.location.replace(
-                "ceodashboard.html"
-              );
-
-            },
-            700
-          );
-
-
-        }else{
-
-          /* ==========================================
-             WRONG LOGIN
-          ========================================== */
-
-          showMessage(
-            "Incorrect CEO username or password.",
-            "error"
-          );
-
-
-          loginButton.disabled =
-            false;
-
-          loginButton.textContent =
-            "LOGIN AS CEO";
-
-
-          passwordInput.value = "";
-
-          passwordInput.focus();
-
-        }
-
-      },
-      400
+    showMessage(
+      "Username or password is incorrect.",
+      "error"
     );
+
+
+    loginButton.disabled = false;
+
+    loginButton.textContent =
+      "LOGIN AS CEO";
 
   }
 );
@@ -759,37 +809,18 @@ form.addEventListener(
       "linkcashCEOLoggedIn"
     );
 
-
-  if(loggedIn === "true"){
+  if(
+    loggedIn === "true"
+  ){
 
     /*
-     * Ukiwa tayari ume-login,
-     * unaweza kwenda moja kwa moja dashboard.
+     * Kama CEO tayari amelogin,
+     * mpeleke dashboard moja kwa moja.
      */
 
-    const goDashboard =
-      confirm(
-        "CEO session is already active. Open CEO Dashboard?"
-      );
-
-
-    if(goDashboard){
-
-      window.location.replace(
-        "ceodashboard.html"
-      );
-
-    }else{
-
-      localStorage.removeItem(
-        "linkcashCEOLoggedIn"
-      );
-
-      localStorage.removeItem(
-        "linkcashCEO"
-      );
-
-    }
+    window.location.replace(
+      "ceodashboard.html"
+    );
 
   }
 
