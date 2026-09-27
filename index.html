@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CASH-LINK - Earn. Connect. Grow.</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#050505;
+  color:#fff;
+  min-height:100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  width:100%;
+  height:68px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 18px;
+
+  background:#090909;
+  border-bottom:1px solid #242424;
+
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:42px;
+  height:42px;
+
+  border-radius:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:linear-gradient(
+    145deg,
+    #ffe082,
+    #d4a72c,
+    #8f6b12
+  );
+
+  color:#070707;
+
+  font-size:14px;
+  font-weight:900;
+
+  box-shadow:
+    0 0 20px rgba(212,167,44,.18);
+}
+
+.logo-name{
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.menu-btn{
+  width:42px;
+  height:42px;
+
+  border:1px solid #292929;
+  border-radius:11px;
+
+  background:#101010;
+  color:#d4a72c;
+
+  font-size:20px;
+
+  cursor:pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  max-width:1000px;
+  margin:auto;
+
+  padding:75px 20px 55px;
+
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-block;
+
+  padding:8px 13px;
+
+  border-radius:20px;
+
+  color:#d4a72c;
+
+  background:rgba(212,167,44,.08);
+
+  border:1px solid rgba(212,167,44,.25);
+
+  font-size:9px;
+  font-weight:900;
+
+  letter-spacing:1px;
+
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:42px;
+  line-height:1.1;
+
+  letter-spacing:-1px;
+}
+
+.hero h1 span{
+  color:#d4a72c;
+}
+
+.hero p{
+  max-width:580px;
+
+  margin:18px auto 0;
+
+  color:#858585;
+
+  font-size:14px;
+
+  line-height:1.7;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons{
+  display:flex;
+
+  justify-content:center;
+
+  gap:10px;
+
+  margin-top:30px;
+
+  flex-wrap:wrap;
+}
+
+.btn{
+  min-width:145px;
+
+  height:48px;
+
+  padding:0 20px;
+
+  border-radius:12px;
+
+  font-size:12px;
+
+  font-weight:900;
+
+  text-decoration:none;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+}
+
+.btn-primary{
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #d4a72c,
+      #a77b17
+    );
+
+  color:#080808;
+}
+
+.btn-secondary{
+  background:#101010;
+
+  color:#d4a72c;
+
+  border:1px solid #333;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+  max-width:900px;
+
+  margin:0 auto;
+
+  padding:0 20px 30px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:10px;
+}
+
+.stat{
+  background:#101010;
+
+  border:1px solid #272727;
+
+  border-radius:17px;
+
+  padding:20px 10px;
+
+  text-align:center;
+}
+
+.stat-number{
+  color:#d4a72c;
+
+  font-size:23px;
+
+  font-weight:900;
+}
+
+.stat-title{
+  color:#666;
+
+  font-size:9px;
+
+  margin-top:6px;
+
+  letter-spacing:.5px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  max-width:1000px;
+
+  margin:auto;
+
+  padding:55px 20px;
+}
+
+.section-heading{
+  text-align:center;
+
+  margin-bottom:30px;
+}
+
+.section-heading small{
+  color:#d4a72c;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:1.5px;
+}
+
+.section-heading h2{
+  margin-top:8px;
+
+  font-size:25px;
+}
+
+.section-heading p{
+  margin-top:8px;
+
+  color:#707070;
+
+  font-size:12px;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:12px;
+}
+
+.feature{
+  background:
+    linear-gradient(
+      145deg,
+      #141414,
+      #090909
+    );
+
+  border:1px solid #292929;
+
+  border-radius:18px;
+
+  padding:22px;
+}
+
+.feature-icon{
+  width:43px;
+  height:43px;
+
+  border-radius:13px;
+
+  background:#1b1b1b;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:20px;
+
+  margin-bottom:15px;
+}
+
+.feature h3{
+  font-size:14px;
+}
+
+.feature p{
+  color:#686868;
+
+  font-size:11px;
+
+  line-height:1.6;
+
+  margin-top:8px;
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.steps{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:12px;
+}
+
+.step{
+  position:relative;
+
+  background:#101010;
+
+  border:1px solid #292929;
+
+  border-radius:18px;
+
+  padding:22px;
+}
+
+.step-number{
+  width:35px;
+  height:35px;
+
+  border-radius:50%;
+
+  background:#d4a72c;
+
+  color:#080808;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:900;
+
+  font-size:12px;
+
+  margin-bottom:15px;
+}
+
+.step h3{
+  font-size:14px;
+}
+
+.step p{
+  color:#686868;
+
+  font-size:11px;
+
+  line-height:1.6;
+
+  margin-top:8px;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+  max-width:900px;
+
+  margin:20px auto 70px;
+
+  padding:40px 20px;
+
+  border-radius:23px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #171717,
+      #090909
+    );
+
+  border:1px solid #302b1c;
+}
+
+.cta h2{
+  font-size:24px;
+}
+
+.cta p{
+  color:#777;
+
+  font-size:12px;
+
+  margin-top:9px;
+
+  line-height:1.6;
+}
+
+.cta .btn{
+  margin:23px auto 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  border-top:1px solid #202020;
+
+  padding:28px 20px;
+
+  text-align:center;
+
+  color:#444;
+
+  font-size:10px;
+}
+
+.footer strong{
+  color:#777;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+  .hero{
+    padding-top:60px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .features,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:450px){
+
+  .stats{
+    gap:6px;
+  }
+
+  .stat{
+    padding:16px 5px;
+  }
+
+  .stat-number{
+    font-size:18px;
+  }
+
+  .stat-title{
+    font-size:8px;
+  }
+
+  .hero h1{
+    font-size:31px;
+  }
+
+  .hero p{
+    font-size:13px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+  <div class="logo-area">
+
+    <div class="logo">
+      CL
+    </div>
+
+    <div class="logo-name">
+      CASH-LINK
+    </div>
+
+  </div>
+
+
+  <button
+    class="menu-btn"
+    onclick="scrollToSection()"
+  >
+    ☰
+  </button>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-badge">
+    WELCOME TO CASH-LINK
+  </div>
+
+
+  <h1>
+    Earn More.
+    <span>Connect.</span>
+    Grow.
+  </h1>
+
+
+  <p>
+    CASH-LINK is a simple platform designed to
+    connect people with opportunities to earn,
+    complete activities and grow together.
+  </p>
+
+
+  <div class="hero-buttons">
+
+    <a
+      href="register.html"
+      class="btn btn-primary"
+    >
+      CREATE ACCOUNT
+    </a>
+
+
+    <a
+      href="login.html"
+      class="btn btn-secondary"
+    >
+      LOGIN
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+  <div class="stat">
+
+    <div class="stat-number">
+      24/7
+    </div>
+
+    <div class="stat-title">
+      ACCESS
+    </div>
+
+  </div>
+
+
+  <div class="stat">
+
+    <div class="stat-number">
+      100%
+    </div>
+
+    <div class="stat-title">
+      SIMPLE
+    </div>
+
+  </div>
+
+
+  <div class="stat">
+
+    <div class="stat-number">
+      1
+    </div>
+
+    <div class="stat-title">
+      COMMUNITY
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section
+  class="section"
+  id="features"
+>
+
+  <div class="section-heading">
+
+    <small>
+      WHAT YOU CAN DO
+    </small>
+
+    <h2>
+      Everything In One Place
+    </h2>
+
+    <p>
+      A simple experience built for everyday users.
+    </p>
+
+  </div>
+
+
+  <div class="features">
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        💰
+      </div>
+
+      <h3>
+        Earn
+      </h3>
+
+      <p>
+        Complete available activities and
+        track your earnings from your account.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        👥
+      </div>
+
+      <h3>
+        My Team
+      </h3>
+
+      <p>
+        Build your network and keep track
+        of your team members.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        📊
+      </div>
+
+      <h3>
+        Dashboard
+      </h3>
+
+      <p>
+        Manage your account, activities,
+        balance and profile from one place.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        📢
+      </div>
+
+      <h3>
+        Activities
+      </h3>
+
+      <p>
+        Discover available activities,
+        advertisements and opportunities.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        🧠
+      </div>
+
+      <h3>
+        Quizzes
+      </h3>
+
+      <p>
+        Take quizzes and participate in
+        interactive activities.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        🎮
+      </div>
+
+      <h3>
+        Games
+      </h3>
+
+      <p>
+        Enjoy interactive games available
+        inside the CASH-LINK platform.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <small>
+      GET STARTED
+    </small>
+
+    <h2>
+      How CASH-LINK Works
+    </h2>
+
+    <p>
+      Getting started is simple.
+    </p>
+
+  </div>
+
+
+  <div class="steps">
+
+
+    <div class="step">
+
+      <div class="step-number">
+        01
+      </div>
+
+      <h3>
+        Create Account
+      </h3>
+
+      <p>
+        Register your CASH-LINK account
+        using your details.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        02
+      </div>
+
+      <h3>
+        Access Dashboard
+      </h3>
+
+      <p>
+        Login and manage your activities
+        from your personal dashboard.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        03
+      </div>
+
+      <h3>
+        Start Using
+      </h3>
+
+      <p>
+        Explore available features,
+        activities and your team.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+  <h2>
+    Ready to Get Started?
+  </h2>
+
+  <p>
+    Create your CASH-LINK account and
+    start exploring the platform.
+  </p>
+
+
+  <a
+    href="register.html"
+    class="btn btn-primary"
+  >
+    CREATE ACCOUNT
+  </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+  © 2026
+  <strong>CASH-LINK</strong>.
+  All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+function scrollToSection(){
+
+  document
+    .getElementById("features")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
