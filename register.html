@@ -7,1053 +7,1830 @@
 <title>LINKCASH - Create Account</title>
 
 <style>
+
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,Helvetica,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-min-height:100vh;
-background:#050505;
-color:#fff;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
+  min-height:100vh;
+  background:#050505;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
 
 .wrapper{
-width:100%;
-max-width:430px;
+  width:100%;
+  max-width:430px;
 }
 
 .brand{
-text-align:center;
-margin-bottom:24px;
+  text-align:center;
+  margin-bottom:24px;
 }
 
 .logo{
-width:68px;
-height:68px;
-margin:auto;
-border-radius:19px;
-background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
-display:flex;
-align-items:center;
-justify-content:center;
-color:#080808;
-font-size:23px;
-font-weight:900;
+  width:68px;
+  height:68px;
+  margin:auto;
+  border-radius:19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe082,
+      #d4a72c,
+      #8f6b12
+    );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#080808;
+  font-size:23px;
+  font-weight:900;
+
+  box-shadow:
+    0 10px 35px rgba(212,167,44,.15);
 }
 
 .brand h1{
-margin-top:12px;
-font-size:27px;
-letter-spacing:3px;
+  margin-top:12px;
+  font-size:27px;
+  letter-spacing:3px;
 }
 
 .brand p{
-margin-top:7px;
-color:#777;
-font-size:12px;
+  margin-top:7px;
+  color:#777;
+  font-size:12px;
 }
 
 .card{
-background:#101010;
-border:1px solid #292929;
-border-radius:23px;
-padding:27px 22px;
-box-shadow:0 25px 70px rgba(0,0,0,.65);
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:23px;
+  padding:27px 22px;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.65);
 }
 
 .title{
-margin-bottom:21px;
+  margin-bottom:21px;
 }
 
 .title h2{
-font-size:22px;
-margin-bottom:7px;
+  font-size:22px;
+  margin-bottom:7px;
 }
 
 .title p{
-color:#777;
-font-size:13px;
-line-height:1.5;
+  color:#777;
+  font-size:13px;
+  line-height:1.5;
 }
 
+
+/* =========================
+   ACTIVATION FEE
+========================= */
+
 .fee-box{
-margin-bottom:18px;
-padding:14px;
-border-radius:13px;
-background:rgba(212,167,44,.06);
-border:1px solid rgba(212,167,44,.18);
-text-align:center;
+  margin-bottom:18px;
+  padding:15px;
+
+  border-radius:13px;
+
+  background:
+    rgba(212,167,44,.06);
+
+  border:
+    1px solid rgba(212,167,44,.18);
+
+  text-align:center;
 }
 
 .fee-box small{
-display:block;
-color:#777;
-font-size:9px;
-margin-bottom:5px;
+  display:block;
+  color:#777;
+  font-size:9px;
+  margin-bottom:5px;
 }
 
 .fee-box strong{
-color:#d4a72c;
-font-size:20px;
+  color:#d4a72c;
+  font-size:20px;
 }
 
+
+/* =========================
+   REFERRER
+========================= */
+
+.ref-box{
+  display:none;
+
+  margin-bottom:18px;
+  padding:13px;
+
+  border-radius:13px;
+
+  background:
+    rgba(88,216,138,.05);
+
+  border:
+    1px solid rgba(88,216,138,.18);
+}
+
+.ref-box.show{
+  display:block;
+}
+
+.ref-title{
+  color:#777;
+  font-size:9px;
+  margin-bottom:5px;
+}
+
+.ref-user{
+  color:#58d88a;
+  font-size:13px;
+  font-weight:900;
+}
+
+
+/* =========================
+   FIELDS
+========================= */
+
 .field{
-margin-bottom:15px;
+  margin-bottom:15px;
 }
 
 .field label{
-display:block;
-color:#ccc;
-font-size:13px;
-margin-bottom:7px;
+  display:block;
+  color:#ccc;
+  font-size:13px;
+  margin-bottom:7px;
 }
 
 input{
-width:100%;
-height:49px;
-background:#070707;
-border:1px solid #292929;
-border-radius:11px;
-color:#fff;
-outline:none;
-padding:0 14px;
-font-size:14px;
+  width:100%;
+  height:49px;
+
+  background:#070707;
+
+  border:
+    1px solid #292929;
+
+  border-radius:11px;
+
+  color:#fff;
+
+  outline:none;
+
+  padding:
+    0 14px;
+
+  font-size:14px;
 }
 
 input::placeholder{
-color:#555;
+  color:#555;
 }
 
 input:focus{
-border-color:#d4a72c;
+  border-color:#d4a72c;
+
+  box-shadow:
+    0 0 0 2px rgba(212,167,44,.06);
 }
 
+
+/* =========================
+   PASSWORD
+========================= */
+
 .password-wrap{
-position:relative;
+  position:relative;
 }
 
 .password-wrap input{
-padding-right:60px;
+  padding-right:65px;
 }
 
 .show-password{
-position:absolute;
-right:11px;
-top:50%;
-transform:translateY(-50%);
-border:none;
-background:none;
-color:#d4a72c;
-font-size:11px;
-font-weight:bold;
-cursor:pointer;
+  position:absolute;
+
+  right:11px;
+  top:50%;
+
+  transform:
+    translateY(-50%);
+
+  border:none;
+
+  background:none;
+
+  color:#d4a72c;
+
+  font-size:11px;
+
+  font-weight:bold;
+
+  cursor:pointer;
 }
 
+
+/* =========================
+   BUTTON
+========================= */
+
 .register-btn{
-width:100%;
-height:52px;
-margin-top:4px;
-border:none;
-border-radius:13px;
-background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
-color:#080808;
-font-size:15px;
-font-weight:900;
-cursor:pointer;
+  width:100%;
+  height:52px;
+
+  margin-top:4px;
+
+  border:none;
+
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #d4a72c,
+      #a77b17
+    );
+
+  color:#080808;
+
+  font-size:15px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 25px rgba(212,167,44,.12);
+}
+
+.register-btn:active{
+  transform:scale(.98);
 }
 
 .register-btn:disabled{
-opacity:.6;
+  opacity:.6;
+  cursor:not-allowed;
 }
 
+
+/* =========================
+   MESSAGE
+========================= */
+
 .message{
-display:none;
-margin-top:14px;
-padding:12px;
-border-radius:10px;
-text-align:center;
-font-size:12px;
-line-height:1.5;
+  display:none;
+
+  margin-top:14px;
+
+  padding:12px;
+
+  border-radius:10px;
+
+  text-align:center;
+
+  font-size:12px;
+
+  line-height:1.5;
 }
 
 .message.success{
-display:block;
-color:#62df91;
-background:rgba(40,180,100,.08);
-border:1px solid rgba(40,180,100,.25);
+  display:block;
+
+  color:#62df91;
+
+  background:
+    rgba(40,180,100,.08);
+
+  border:
+    1px solid rgba(40,180,100,.25);
 }
 
 .message.error{
-display:block;
-color:#ff7777;
-background:rgba(220,60,60,.08);
-border:1px solid rgba(220,60,60,.25);
+  display:block;
+
+  color:#ff7777;
+
+  background:
+    rgba(220,60,60,.08);
+
+  border:
+    1px solid rgba(220,60,60,.25);
 }
 
+
+/* =========================
+   LOGIN
+========================= */
+
 .login{
-text-align:center;
-margin-top:21px;
-padding-top:19px;
-border-top:1px solid #222;
-color:#777;
-font-size:13px;
+  text-align:center;
+
+  margin-top:21px;
+
+  padding-top:19px;
+
+  border-top:
+    1px solid #222;
+
+  color:#777;
+
+  font-size:13px;
 }
 
 .login a{
-color:#e0b83e;
-text-decoration:none;
-font-weight:bold;
+  color:#e0b83e;
+
+  text-decoration:none;
+
+  font-weight:bold;
 }
+
+
+/* =========================
+   BACK
+========================= */
 
 .back{
-display:block;
-text-align:center;
-margin-top:18px;
-color:#666;
-text-decoration:none;
-font-size:12px;
+  display:block;
+
+  text-align:center;
+
+  margin-top:18px;
+
+  color:#666;
+
+  text-decoration:none;
+
+  font-size:12px;
 }
 
-.footer{
-text-align:center;
-margin-top:17px;
-color:#444;
-font-size:10px;
+.back:hover{
+  color:#d4a72c;
 }
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  text-align:center;
+
+  margin-top:17px;
+
+  color:#444;
+
+  font-size:10px;
+}
+
 </style>
 </head>
 
+
 <body>
+
 
 <div class="wrapper">
 
-<div class="brand">
-<div class="logo">LC</div>
-<h1>LINKCASH</h1>
-<p>Create your account</p>
+
+  <!-- =========================
+       BRAND
+  ========================== -->
+
+  <div class="brand">
+
+    <div class="logo">
+      LC
+    </div>
+
+    <h1>
+      LINKCASH
+    </h1>
+
+    <p>
+      Create your account
+    </p>
+
+  </div>
+
+
+  <!-- =========================
+       CARD
+  ========================== -->
+
+  <div class="card">
+
+
+    <div class="title">
+
+      <h2>
+        Create Account
+      </h2>
+
+      <p>
+        Create your LINKCASH account and continue to activation.
+      </p>
+
+    </div>
+
+
+    <!-- =========================
+         ACTIVATION FEE
+    ========================== -->
+
+    <div class="fee-box">
+
+      <small>
+        ACTIVATION FEE
+      </small>
+
+      <strong>
+        TSh 14,500
+      </strong>
+
+    </div>
+
+
+    <!-- =========================
+         REFERRER
+    ========================== -->
+
+    <div
+      class="ref-box"
+      id="refBox">
+
+      <div class="ref-title">
+        INVITED BY
+      </div>
+
+      <div
+        class="ref-user"
+        id="refUser">
+        -
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         FORM
+    ========================== -->
+
+    <form id="registerForm">
+
+
+      <!-- FULL NAME -->
+
+      <div class="field">
+
+        <label>
+          Full Name
+        </label>
+
+        <input
+          type="text"
+          id="fullname"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          maxlength="60"
+          required>
+
+      </div>
+
+
+      <!-- USERNAME -->
+
+      <div class="field">
+
+        <label>
+          Username
+        </label>
+
+        <input
+          type="text"
+          id="username"
+          placeholder="Choose a username"
+          autocomplete="username"
+          maxlength="30"
+          required>
+
+      </div>
+
+
+      <!-- PHONE -->
+
+      <div class="field">
+
+        <label>
+          Phone Number
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="07XXXXXXXX"
+          autocomplete="tel"
+          maxlength="15"
+          required>
+
+      </div>
+
+
+      <!-- PASSWORD -->
+
+      <div class="field">
+
+        <label>
+          Password
+        </label>
+
+        <div class="password-wrap">
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Create a password"
+            autocomplete="new-password"
+            minlength="6"
+            required>
+
+          <button
+            type="button"
+            class="show-password"
+            id="showPassword">
+
+            SHOW
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONFIRM PASSWORD -->
+
+      <div class="field">
+
+        <label>
+          Confirm Password
+        </label>
+
+        <div class="password-wrap">
+
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm your password"
+            autocomplete="new-password"
+            minlength="6"
+            required>
+
+          <button
+            type="button"
+            class="show-password"
+            id="showConfirmPassword">
+
+            SHOW
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- REGISTER -->
+
+      <button
+        type="submit"
+        class="register-btn"
+        id="registerBtn">
+
+        CREATE ACCOUNT
+
+      </button>
+
+
+    </form>
+
+
+    <!-- MESSAGE -->
+
+    <div
+      id="message"
+      class="message">
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <div class="login">
+
+      Already have an account?
+
+      <a href="login.html">
+        Log In
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- BACK -->
+
+  <a
+    href="index.html"
+    class="back">
+
+    ← Back to Home
+
+  </a>
+
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+    © 2026 LINKCASH
+  </div>
+
+
 </div>
 
-<div class="card">
 
-<div class="title">
-<h2>Create Account</h2>
-<p>Create your LINKCASH account and continue to activation.</p>
-</div>
-
-<div class="fee-box">
-<small>ACTIVATION FEE</small>
-<strong>TSh 14,500</strong>
-</div>
-
-<form id="registerForm">
-
-<div class="field">
-<label>Full Name</label>
-<input
-type="text"
-id="fullname"
-placeholder="Enter your full name"
-autocomplete="name"
-required>
-</div>
-
-<div class="field">
-<label>Username</label>
-<input
-type="text"
-id="username"
-placeholder="Choose a username"
-autocomplete="username"
-maxlength="30"
-required>
-</div>
-
-<div class="field">
-<label>Phone Number</label>
-<input
-type="tel"
-id="phone"
-placeholder="Enter your phone number"
-autocomplete="tel"
-required>
-</div>
-
-<div class="field">
-<label>Password</label>
-
-<div class="password-wrap">
-
-<input
-type="password"
-id="password"
-placeholder="Create a password"
-autocomplete="new-password"
-required>
-
-<button
-type="button"
-class="show-password"
-id="showPassword">
-SHOW
-</button>
-
-</div>
-</div>
-
-<div class="field">
-<label>Confirm Password</label>
-
-<div class="password-wrap">
-
-<input
-type="password"
-id="confirmPassword"
-placeholder="Confirm your password"
-autocomplete="new-password"
-required>
-
-<button
-type="button"
-class="show-password"
-id="showConfirmPassword">
-SHOW
-</button>
-
-</div>
-</div>
-
-<button
-type="submit"
-class="register-btn"
-id="registerBtn">
-CREATE ACCOUNT
-</button>
-
-</form>
-
-<div id="message" class="message"></div>
-
-<div class="login">
-Already have an account?
-<a href="login.html">Log In</a>
-</div>
-
-</div>
-
-<a href="index.html" class="back">
-← Back to Home
-</a>
-
-<div class="footer">
-© 2026 LINKCASH
-</div>
-
-</div>
 
 <script>
 
-/* =========================================
+/* =====================================================
+   LINKCASH REGISTER SYSTEM
+   LOCAL STORAGE VERSION
+===================================================== */
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+const ACTIVATION_FEE = 14500;
+
+
+/* =====================================================
    ELEMENTS
-========================================= */
+===================================================== */
 
 const form =
-document.getElementById("registerForm");
+  document.getElementById(
+    "registerForm"
+  );
 
 const fullname =
-document.getElementById("fullname");
+  document.getElementById(
+    "fullname"
+  );
 
 const username =
-document.getElementById("username");
+  document.getElementById(
+    "username"
+  );
 
 const phone =
-document.getElementById("phone");
+  document.getElementById(
+    "phone"
+  );
 
 const password =
-document.getElementById("password");
+  document.getElementById(
+    "password"
+  );
 
 const confirmPassword =
-document.getElementById("confirmPassword");
+  document.getElementById(
+    "confirmPassword"
+  );
 
 const registerBtn =
-document.getElementById("registerBtn");
+  document.getElementById(
+    "registerBtn"
+  );
 
 const message =
-document.getElementById("message");
+  document.getElementById(
+    "message"
+  );
 
 const showPassword =
-document.getElementById("showPassword");
+  document.getElementById(
+    "showPassword"
+  );
 
 const showConfirmPassword =
-document.getElementById("showConfirmPassword");
+  document.getElementById(
+    "showConfirmPassword"
+  );
 
+const refBox =
+  document.getElementById(
+    "refBox"
+  );
 
-/* =========================================
-   REFERRAL LINK
-========================================= */
+const refUser =
+  document.getElementById(
+    "refUser"
+  );
 
-const params =
-new URLSearchParams(
-window.location.search
-);
 
-const referralUsername =
-String(
-params.get("ref") || ""
-)
-.trim()
-.toLowerCase();
-
-
-/* =========================================
-   PASSWORD SHOW / HIDE
-========================================= */
-
-showPassword.onclick=function(){
-
-if(password.type==="password"){
-
-password.type="text";
-
-showPassword.textContent="HIDE";
-
-}else{
-
-password.type="password";
-
-showPassword.textContent="SHOW";
-
-}
-
-};
-
-
-showConfirmPassword.onclick=function(){
-
-if(confirmPassword.type==="password"){
-
-confirmPassword.type="text";
-
-showConfirmPassword.textContent="HIDE";
-
-}else{
-
-confirmPassword.type="password";
-
-showConfirmPassword.textContent="SHOW";
-
-}
-
-};
-
-
-/* =========================================
-   MESSAGE
-========================================= */
-
-function showMessage(text,type){
-
-message.className=
-"message "+type;
-
-message.textContent=
-text;
-
-message.style.display=
-"block";
-
-}
-
-
-/* =========================================
-   GET ACCOUNTS
-========================================= */
-
-function getAccounts(){
-
-try{
-
-const data=
-localStorage.getItem(
-"linkcashAccounts"
-);
-
-if(!data){
-return [];
-}
-
-const accounts=
-JSON.parse(data);
-
-if(!Array.isArray(accounts)){
-return [];
-}
-
-return accounts;
-
-}catch(error){
-
-return [];
-
-}
-
-}
-
-
-/* =========================================
-   SAVE ACCOUNTS
-========================================= */
-
-function saveAccounts(accounts){
-
-localStorage.setItem(
-"linkcashAccounts",
-JSON.stringify(accounts)
-);
-
-}
-
-
-/* =========================================
-   GET USERS
-========================================= */
-
-function getUsers(){
-
-try{
-
-const data=
-localStorage.getItem(
-"linkcashUsers"
-);
-
-if(!data){
-return [];
-}
-
-const users=
-JSON.parse(data);
-
-return Array.isArray(users)
-? users
-: [];
-
-}catch(error){
-
-return [];
-
-}
-
-}
-
-
-/* =========================================
-   SAVE USERS
-========================================= */
-
-function saveUsers(users){
-
-localStorage.setItem(
-"linkcashUsers",
-JSON.stringify(users)
-);
-
-}
-
-
-/* =========================================
+/* =====================================================
    NORMALIZE USERNAME
-========================================= */
+===================================================== */
 
 function normalizeUsername(value){
 
-return String(value || "")
-.trim()
-.toLowerCase();
+  return String(value || "")
+    .trim()
+    .toLowerCase();
 
 }
 
 
-/* =========================================
-   CREATE REFERRAL LINK
-========================================= */
+/* =====================================================
+   GET ARRAY FROM LOCAL STORAGE
+===================================================== */
 
-function createReferralLink(user){
+function getArray(key){
 
-return (
-window.location.origin +
-window.location.pathname.replace(
-"register.html",
-"register.html"
-) +
-"?ref=" +
-encodeURIComponent(
-normalizeUsername(user.username)
-)
-);
+  try{
 
-}
+    const raw =
+      localStorage.getItem(key);
 
+    if(!raw){
+      return [];
+    }
 
-/* =========================================
-   REGISTER
-========================================= */
+    const data =
+      JSON.parse(raw);
 
-form.addEventListener(
-"submit",
-function(event){
+    if(!Array.isArray(data)){
+      return [];
+    }
 
-event.preventDefault();
+    return data;
 
+  }catch(error){
 
-/* =====================================
-   VALUES
-===================================== */
+    console.log(
+      "Storage read error:",
+      error
+    );
 
-const name=
-fullname.value.trim();
+    return [];
 
-const user=
-normalizeUsername(
-username.value
-);
-
-const number=
-phone.value.trim();
-
-const pass=
-password.value;
-
-const confirm=
-confirmPassword.value;
-
-
-/* =====================================
-   VALIDATION
-===================================== */
-
-if(!name){
-
-showMessage(
-"Please enter your full name.",
-"error"
-);
-
-fullname.focus();
-
-return;
+  }
 
 }
 
 
-if(!user){
+/* =====================================================
+   SAVE ARRAY
+===================================================== */
 
-showMessage(
-"Please choose a username.",
-"error"
-);
-
-username.focus();
-
-return;
-
-}
-
-
-/*
-   Username format
-*/
-
-if(!/^[a-z0-9._-]{3,30}$/.test(user)){
-
-showMessage(
-"Username must contain 3-30 characters using letters, numbers, dot, dash or underscore.",
-"error"
-);
-
-username.focus();
-
-return;
-
-}
-
-
-if(!number){
-
-showMessage(
-"Please enter your phone number.",
-"error"
-);
-
-phone.focus();
-
-return;
-
-}
-
-
-if(pass.length<6){
-
-showMessage(
-"Password must be at least 6 characters.",
-"error"
-);
-
-password.focus();
-
-return;
-
-}
-
-
-if(pass!==confirm){
-
-showMessage(
-"Passwords do not match.",
-"error"
-);
-
-confirmPassword.focus();
-
-return;
-
-}
-
-
-/* =====================================
-   GET CURRENT ACCOUNTS
-===================================== */
-
-const accounts=
-getAccounts();
-
-const users=
-getUsers();
-
-
-/* =====================================
-   CHECK DUPLICATE USERNAME
-===================================== */
-
-const existingAccount=
-accounts.find(
-function(item){
-
-return normalizeUsername(
-item.username
-)===user;
-
-}
-);
-
-
-const existingUser=
-users.find(
-function(item){
-
-return normalizeUsername(
-item.username
-)===user;
-
-}
-);
-
-
-if(
-existingAccount ||
-existingUser
+function saveArray(
+  key,
+  data
 ){
 
-showMessage(
-"This username already exists.",
-"error"
-);
-
-username.focus();
-
-return;
+  localStorage.setItem(
+    key,
+    JSON.stringify(data)
+  );
 
 }
 
 
-/* =====================================
-   FIND REFERRER
-===================================== */
+/* =====================================================
+   GET ALL ACCOUNTS
+===================================================== */
 
-let referrer=null;
+function getAccounts(){
+
+  return getArray(
+    "linkcashAccounts"
+  );
+
+}
+
+
+/* =====================================================
+   GET ALL USERS
+===================================================== */
+
+function getUsers(){
+
+  return getArray(
+    "linkcashUsers"
+  );
+
+}
+
+
+/* =====================================================
+   FIND USER
+===================================================== */
+
+function findUser(
+  usernameValue
+){
+
+  const target =
+    normalizeUsername(
+      usernameValue
+    );
+
+  const accounts =
+    getAccounts();
+
+  const users =
+    getUsers();
+
+
+  const account =
+    accounts.find(
+      function(item){
+
+        return normalizeUsername(
+          item.username
+        ) === target;
+
+      }
+    );
+
+
+  if(account){
+    return account;
+  }
+
+
+  const user =
+    users.find(
+      function(item){
+
+        return normalizeUsername(
+          item.username
+        ) === target;
+
+      }
+    );
+
+
+  return user || null;
+
+}
+
+
+/* =====================================================
+   CHECK USERNAME
+===================================================== */
+
+function usernameExists(
+  usernameValue
+){
+
+  return !!findUser(
+    usernameValue
+  );
+
+}
+
+
+/* =====================================================
+   SAVE ACCOUNT
+===================================================== */
+
+function saveAccount(
+  account
+){
+
+  const username =
+    normalizeUsername(
+      account.username
+    );
+
+
+  /* =========================
+     ACCOUNTS
+  ========================== */
+
+  const accounts =
+    getAccounts();
+
+
+  const accountIndex =
+    accounts.findIndex(
+      function(item){
+
+        return normalizeUsername(
+          item.username
+        ) === username;
+
+      }
+    );
+
+
+  if(accountIndex === -1){
+
+    accounts.push(
+      account
+    );
+
+  }else{
+
+    accounts[accountIndex] =
+      {
+        ...accounts[accountIndex],
+        ...account
+      };
+
+  }
+
+
+  saveArray(
+    "linkcashAccounts",
+    accounts
+  );
+
+
+  /* =========================
+     USERS
+  ========================== */
+
+  const users =
+    getUsers();
+
+
+  const userIndex =
+    users.findIndex(
+      function(item){
+
+        return normalizeUsername(
+          item.username
+        ) === username;
+
+      }
+    );
+
+
+  if(userIndex === -1){
+
+    users.push(
+      account
+    );
+
+  }else{
+
+    users[userIndex] =
+      {
+        ...users[userIndex],
+        ...account
+      };
+
+  }
+
+
+  saveArray(
+    "linkcashUsers",
+    users
+  );
+
+}
+
+
+/* =====================================================
+   GET REFERRAL FROM URL
+===================================================== */
+
+const urlParams =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+const referralUsername =
+  normalizeUsername(
+    urlParams.get("ref")
+  );
+
+
+/* =====================================================
+   SHOW REFERRER
+===================================================== */
 
 if(referralUsername){
 
-referrer=
-accounts.find(
-function(item){
-
-return normalizeUsername(
-item.username
-)===referralUsername;
-
-}
-);
+  const referrer =
+    findUser(
+      referralUsername
+    );
 
 
-/*
-   If account is not in linkcashAccounts,
-   also check linkcashUsers.
-*/
+  if(referrer){
 
-if(!referrer){
+    refBox.classList.add(
+      "show"
+    );
 
-referrer=
-users.find(
-function(item){
+    refUser.textContent =
+      "@" +
+      normalizeUsername(
+        referrer.username
+      );
 
-return normalizeUsername(
-item.username
-)===referralUsername;
-
-}
-);
-
-}
+  }
 
 }
 
 
-/* =====================================
-   PREVENT SELF REFERRAL
-===================================== */
+/* =====================================================
+   PASSWORD SHOW / HIDE
+===================================================== */
 
-if(
-referrer &&
-normalizeUsername(
-referrer.username
-)===user
-){
+showPassword.onclick =
+function(){
 
-referrer=null;
+  if(
+    password.type ===
+    "password"
+  ){
 
-}
+    password.type =
+      "text";
 
+    showPassword.textContent =
+      "HIDE";
 
-/* =====================================
-   CREATE ACCOUNT
-===================================== */
+  }else{
 
-const account={
+    password.type =
+      "password";
 
-id:
-"USER-"+Date.now(),
+    showPassword.textContent =
+      "SHOW";
 
-fullname:
-name,
-
-username:
-user,
-
-phone:
-number,
-
-password:
-pass,
-
-status:
-"pending",
-
-paymentStatus:
-"pending",
-
-activationStatus:
-"pending",
-
-activationFee:
-14500,
-
-paymentSubmitted:
-false,
-
-paymentReference:
-"",
-
-paymentMethod:
-"",
-
-submittedAt:
-null,
-
-
-/* ================================
-   REFERRAL
-================================ */
-
-referredBy:
-referrer
-? normalizeUsername(
-referrer.username
-)
-: "",
-
-referralCode:
-user,
-
-referralLink:
-"",
-
-
-/*
-   Network levels
-*/
-
-referralLevel:
-referrer
-? 1
-: 0,
-
-level1Earnings:
-0,
-
-level2Earnings:
-0,
-
-level3Earnings:
-0,
-
-level4Earnings:
-0,
-
-referralEarnings:
-0,
-
-totalEarnings:
-0,
-
-balance:
-0,
-
-createdAt:
-new Date().toISOString()
+  }
 
 };
 
 
-/* =====================================
-   CREATE REFERRAL LINK
-===================================== */
-
-account.referralLink=
-createReferralLink(
-account
-);
-
-
-/* =====================================
-   SAVE TO ACCOUNTS
-===================================== */
-
-accounts.push(account);
-
-saveAccounts(accounts);
-
-
-/* =====================================
-   SAVE TO USERS
-===================================== */
-
-const updatedUsers=
-getUsers();
-
-
-updatedUsers.push(account);
-
-saveUsers(
-updatedUsers
-);
-
-
-/* =====================================
-   CURRENT ACCOUNT
-===================================== */
-
-localStorage.setItem(
-"linkcashAccount",
-JSON.stringify(account)
-);
-
-
-/* =====================================
-   CURRENT USER
-===================================== */
-
-localStorage.setItem(
-"linkcashUser",
-JSON.stringify(account)
-);
-
-
-/* =====================================
-   PENDING USER
-===================================== */
-
-localStorage.setItem(
-"linkcashPendingUser",
-JSON.stringify(account)
-);
-
-
-/* =====================================
-   REMOVE OLD LOGIN
-===================================== */
-
-localStorage.removeItem(
-"linkcashLoggedIn"
-);
-
-localStorage.removeItem(
-"linkcashLoggedInUser"
-);
-
-
-/* =====================================
-   SUCCESS
-===================================== */
-
-registerBtn.disabled=
-true;
-
-registerBtn.textContent=
-"ACCOUNT CREATED ✓";
-
-
-showMessage(
-"Account created successfully. Opening activation page...",
-"success"
-);
-
-
-/* =====================================
-   OPEN PENDING DASHBOARD
-===================================== */
-
-setTimeout(
+showConfirmPassword.onclick =
 function(){
 
-window.location.replace(
-"pending-dashboard.html"
-);
+  if(
+    confirmPassword.type ===
+    "password"
+  ){
 
-},
-900
-);
+    confirmPassword.type =
+      "text";
+
+    showConfirmPassword.textContent =
+      "HIDE";
+
+  }else{
+
+    confirmPassword.type =
+      "password";
+
+    showConfirmPassword.textContent =
+      "SHOW";
+
+  }
+
+};
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function showMessage(
+  text,
+  type
+){
+
+  message.className =
+    "message " + type;
+
+  message.textContent =
+    text;
+
+  message.style.display =
+    "block";
 
 }
+
+
+/* =====================================================
+   PHONE NORMALIZATION
+===================================================== */
+
+function normalizePhone(
+  value
+){
+
+  let number =
+    String(value || "")
+      .trim()
+      .replace(/\s+/g,"")
+      .replace(/-/g,"");
+
+
+  if(
+    number.startsWith("0")
+  ){
+
+    number =
+      "+255" +
+      number.substring(1);
+
+  }
+
+
+  return number;
+
+}
+
+
+/* =====================================================
+   PHONE VALIDATION
+===================================================== */
+
+function isValidPhone(
+  value
+){
+
+  const number =
+    normalizePhone(
+      value
+    );
+
+
+  return /^\+255[67]\d{8}$/.test(
+    number
+  );
+
+}
+
+
+/* =====================================================
+   CREATE REFERRAL LINK
+===================================================== */
+
+function createReferralLink(
+  usernameValue
+){
+
+  const clean =
+    normalizeUsername(
+      usernameValue
+    );
+
+
+  return (
+    window.location.origin +
+    window.location.pathname +
+    "?ref=" +
+    encodeURIComponent(
+      clean
+    )
+  );
+
+}
+
+
+/* =====================================================
+   FIND REFERRER
+===================================================== */
+
+function getReferrer(){
+
+  if(!referralUsername){
+    return null;
+  }
+
+  return findUser(
+    referralUsername
+  );
+
+}
+
+
+/* =====================================================
+   CALCULATE NETWORK LEVEL
+===================================================== */
+
+function calculateNetworkLevel(
+  referrer
+){
+
+  if(!referrer){
+    return 0;
+  }
+
+
+  let current =
+    referrer;
+
+  let level =
+    1;
+
+  const visited =
+    new Set();
+
+
+  while(current){
+
+    const currentUsername =
+      normalizeUsername(
+        current.username
+      );
+
+
+    if(
+      visited.has(
+        currentUsername
+      )
+    ){
+
+      return 0;
+
+    }
+
+
+    visited.add(
+      currentUsername
+    );
+
+
+    const parentUsername =
+      normalizeUsername(
+        current.referredBy
+      );
+
+
+    if(!parentUsername){
+
+      return level;
+
+    }
+
+
+    const parent =
+      findUser(
+        parentUsername
+      );
+
+
+    if(!parent){
+
+      return level;
+
+    }
+
+
+    level++;
+
+    current =
+      parent;
+
+
+    if(level > 4){
+
+      return 4;
+
+    }
+
+  }
+
+
+  return level;
+
+}
+
+
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
+
+form.addEventListener(
+  "submit",
+  function(event){
+
+    event.preventDefault();
+
+
+    /* =========================================
+       GET VALUES
+    ========================================= */
+
+    const fullNameValue =
+      fullname.value.trim();
+
+    const usernameValue =
+      normalizeUsername(
+        username.value
+      );
+
+    const phoneValue =
+      phone.value.trim();
+
+    const passwordValue =
+      password.value;
+
+    const confirmValue =
+      confirmPassword.value;
+
+
+    /* =========================================
+       FULL NAME
+    ========================================= */
+
+    if(!fullNameValue){
+
+      showMessage(
+        "Please enter your full name.",
+        "error"
+      );
+
+      fullname.focus();
+
+      return;
+
+    }
+
+
+    if(fullNameValue.length < 3){
+
+      showMessage(
+        "Full name is too short.",
+        "error"
+      );
+
+      fullname.focus();
+
+      return;
+
+    }
+
+
+    /* =========================================
+       USERNAME
+    ========================================= */
+
+    if(
+      !/^[a-z0-9._-]{3,30}$/.test(
+        usernameValue
+      )
+    ){
+
+      showMessage(
+        "Username must contain 3-30 characters using letters, numbers, dot, dash or underscore.",
+        "error"
+      );
+
+      username.focus();
+
+      return;
+
+    }
+
+
+    /* =========================================
+       DUPLICATE
+    ========================================= */
+
+    if(
+      usernameExists(
+        usernameValue
+      )
+    ){
+
+      showMessage(
+        "This username already exists.",
+        "error"
+      );
+
+      username.focus();
+
+      return;
+
+    }
+
+
+    /* =========================================
+       PHONE
+    ========================================= */
+
+    if(
+      !isValidPhone(
+        phoneValue
+      )
+    ){
+
+      showMessage(
+        "Please enter a valid Tanzania phone number, for example 0712345678.",
+        "error"
+      );
+
+      phone.focus();
+
+      return;
+
+    }
+
+
+    /* =========================================
+       PASSWORD
+    ========================================= */
+
+    if(
+      passwordValue.length < 6
+    ){
+
+      showMessage(
+        "Password must contain at least 6 characters.",
+        "error"
+      );
+
+      password.focus();
+
+      return;
+
+    }
+
+
+    /* =========================================
+       CONFIRM PASSWORD
+    ========================================= */
+
+    if(
+      passwordValue !==
+      confirmValue
+    ){
+
+      showMessage(
+        "Passwords do not match.",
+        "error"
+      );
+
+      confirmPassword.focus();
+
+      return;
+
+    }
+
+
+    /* =========================================
+       REFERRER
+    ========================================= */
+
+    let referrer =
+      getReferrer();
+
+
+    /* Prevent self referral */
+
+    if(
+      referrer &&
+      normalizeUsername(
+        referrer.username
+      ) ===
+      usernameValue
+    ){
+
+      referrer =
+        null;
+
+    }
+
+
+    /* =========================================
+       NETWORK LEVEL
+    ========================================= */
+
+    const networkLevel =
+      calculateNetworkLevel(
+        referrer
+      );
+
+
+    /* =========================================
+       CREATE ACCOUNT
+    ========================================= */
+
+    const account = {
+
+      id:
+        "USER-" +
+        Date.now() +
+        "-" +
+        Math.random()
+          .toString(36)
+          .substring(2,8),
+
+
+      fullname:
+        fullNameValue,
+
+
+      username:
+        usernameValue,
+
+
+      phone:
+        normalizePhone(
+          phoneValue
+        ),
+
+
+      password:
+        passwordValue,
+
+
+      /* =========================
+         ACCOUNT STATUS
+      ========================== */
+
+      status:
+        "pending",
+
+
+      activationStatus:
+        "pending",
+
+
+      paymentStatus:
+        "pending",
+
+
+      activationFee:
+        ACTIVATION_FEE,
+
+
+      /* =========================
+         PAYMENT
+      ========================== */
+
+      paymentSubmitted:
+        false,
+
+
+      paymentReference:
+        "",
+
+
+      paymentMethod:
+        "",
+
+
+      submittedAt:
+        null,
+
+
+      activatedAt:
+        null,
+
+
+      /* =========================
+         REFERRAL
+      ========================== */
+
+      referredBy:
+        referrer
+        ? normalizeUsername(
+            referrer.username
+          )
+        : "",
+
+
+      referralCode:
+        usernameValue,
+
+
+      referralLink:
+        createReferralLink(
+          usernameValue
+        ),
+
+
+      referralLevel:
+        networkLevel,
+
+
+      /* =========================
+         TEAM COUNTS
+      ========================== */
+
+      level1Count:
+        0,
+
+
+      level2Count:
+        0,
+
+
+      level3Count:
+        0,
+
+
+      level4Count:
+        0,
+
+
+      /* =========================
+         EARNINGS
+      ========================== */
+
+      level1Earnings:
+        0,
+
+
+      level2Earnings:
+        0,
+
+
+      level3Earnings:
+        0,
+
+
+      level4Earnings:
+        0,
+
+
+      referralEarnings:
+        0,
+
+
+      totalEarnings:
+        0,
+
+
+      totalCommission:
+        0,
+
+
+      /* =========================
+         BALANCE
+      ========================== */
+
+      balance:
+        0,
+
+
+      /* =========================
+         DATES
+      ========================== */
+
+      createdAt:
+        new Date().toISOString()
+
+    };
+
+
+    /* =========================================
+       SAVE ACCOUNT
+    ========================================= */
+
+    saveAccount(
+      account
+    );
+
+
+    /* =========================================
+       CURRENT ACCOUNT
+    ========================================= */
+
+    localStorage.setItem(
+      "linkcashAccount",
+      JSON.stringify(
+        account
+      )
+    );
+
+
+    /* =========================================
+       CURRENT USER
+    ========================================= */
+
+    localStorage.setItem(
+      "linkcashUser",
+      JSON.stringify(
+        account
+      )
+    );
+
+
+    /* =========================================
+       PENDING USER
+    ========================================= */
+
+    localStorage.setItem(
+      "linkcashPendingUser",
+      JSON.stringify(
+        account
+      )
+    );
+
+
+    /* =========================================
+       LOGIN STATUS
+    ========================================= */
+
+    localStorage.removeItem(
+      "linkcashLoggedIn"
+    );
+
+    localStorage.removeItem(
+      "linkcashLoggedInUser"
+    );
+
+
+    /* =========================================
+       BUTTON
+    ========================================= */
+
+    registerBtn.disabled =
+      true;
+
+    registerBtn.textContent =
+      "ACCOUNT CREATED ✓";
+
+
+    /* =========================================
+       SUCCESS MESSAGE
+    ========================================= */
+
+    if(referrer){
+
+      showMessage(
+        "Account created successfully. Invited by @" +
+        normalizeUsername(
+          referrer.username
+        ) +
+        ". Opening activation page...",
+        "success"
+      );
+
+    }else{
+
+      showMessage(
+        "Account created successfully. Opening activation page...",
+        "success"
+      );
+
+    }
+
+
+    /* =========================================
+       REDIRECT
+    ========================================= */
+
+    setTimeout(
+      function(){
+
+        window.location.replace(
+          "pending-dashboard.html"
+        );
+
+      },
+      1000
+    );
+
+  }
 );
 
 </script>
 
 </body>
-</html>
+   </html>
