@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>LINKCASH - Dashboard</title>
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
@@ -16,24 +14,11 @@ padding:0;
 font-family:Arial,Helvetica,sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 background:#050505;
 color:#fff;
 min-height:100vh;
-padding-bottom:35px;
-}
-
-button,
-input{
-font-family:inherit;
-}
-
-button{
-cursor:pointer;
+padding-bottom:30px;
 }
 
 .header{
@@ -41,7 +26,6 @@ position:sticky;
 top:0;
 z-index:100;
 background:rgba(5,5,5,.97);
-backdrop-filter:blur(12px);
 border-bottom:1px solid #252525;
 padding:13px 16px;
 display:flex;
@@ -59,19 +43,13 @@ gap:11px;
 width:43px;
 height:43px;
 border-radius:13px;
-background:linear-gradient(
-145deg,
-#ffe082,
-#d4a72c,
-#8f6b12
-);
+background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
 color:#080808;
 display:flex;
 align-items:center;
 justify-content:center;
 font-weight:900;
 font-size:16px;
-box-shadow:0 5px 18px rgba(212,167,44,.12);
 }
 
 .brand-name{
@@ -84,7 +62,6 @@ letter-spacing:2px;
 color:#777;
 font-size:9px;
 margin-top:3px;
-letter-spacing:.5px;
 }
 
 .menu-btn{
@@ -95,6 +72,7 @@ border-radius:12px;
 background:#101010;
 color:#d4a72c;
 font-size:21px;
+cursor:pointer;
 }
 
 .container{
@@ -116,7 +94,6 @@ font-size:12px;
 .welcome h1{
 margin-top:5px;
 font-size:25px;
-line-height:1.2;
 }
 
 .welcome span{
@@ -124,17 +101,11 @@ color:#d4a72c;
 }
 
 .total-card{
-background:
-linear-gradient(
-145deg,
-#181818,
-#0b0b0b
-);
+background:linear-gradient(145deg,#171717,#0c0c0c);
 border:1px solid #292929;
 border-radius:21px;
-padding:21px;
+padding:20px;
 margin-bottom:12px;
-box-shadow:0 10px 30px rgba(0,0,0,.18);
 }
 
 .total-label{
@@ -202,7 +173,6 @@ font-size:16px;
 .section-title span{
 color:#666;
 font-size:9px;
-letter-spacing:.7px;
 }
 
 .team-box{
@@ -321,7 +291,6 @@ margin-top:3px;
 .level-arrow{
 color:#777;
 transition:.2s;
-font-size:18px;
 }
 
 .level.open .level-arrow{
@@ -342,11 +311,7 @@ display:block;
 .member-head,
 .member-row{
 display:grid;
-grid-template-columns:
-1.2fr
-1fr
-.8fr
-.9fr;
+grid-template-columns:1.2fr 1fr .8fr .8fr;
 gap:6px;
 padding:9px 5px;
 min-width:330px;
@@ -388,12 +353,7 @@ padding:12px;
 }
 
 .earnings-box{
-background:
-linear-gradient(
-145deg,
-#171717,
-#0c0c0c
-);
+background:linear-gradient(145deg,#171717,#0c0c0c);
 border:1px solid #292929;
 border-radius:18px;
 overflow:hidden;
@@ -407,7 +367,7 @@ padding:15px;
 border-bottom:1px solid #222;
 }
 
-.earning-row:last-of-type{
+.earning-row:last-child{
 border-bottom:none;
 }
 
@@ -467,12 +427,7 @@ font-weight:900;
 }
 
 .my-link{
-background:
-linear-gradient(
-145deg,
-#171717,
-#0c0c0c
-);
+background:linear-gradient(145deg,#171717,#0c0c0c);
 border:1px solid #292929;
 border-radius:18px;
 padding:17px;
@@ -499,7 +454,6 @@ color:#d4a72c;
 padding:0 10px;
 font-size:10px;
 outline:none;
-min-width:0;
 }
 
 .copy-btn{
@@ -507,49 +461,11 @@ width:70px;
 height:44px;
 border:none;
 border-radius:11px;
-background:
-linear-gradient(
-135deg,
-#ffe082,
-#d4a72c,
-#a77b17
-);
+background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
 color:#080808;
 font-weight:900;
 font-size:10px;
-}
-
-.social-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:7px;
-}
-
-.social{
-height:56px;
-background:#101010;
-border:1px solid #292929;
-border-radius:14px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-color:#ddd;
-font-size:8px;
-gap:5px;
-transition:.2s;
-}
-
-.social:hover{
-border-color:#d4a72c;
-transform:translateY(-1px);
-}
-
-.social-icon{
-font-size:17px;
-color:#d4a72c;
-font-weight:900;
+cursor:pointer;
 }
 
 .account-box{
@@ -598,7 +514,6 @@ margin-top:4px;
 .account-arrow{
 color:#777;
 transition:.2s;
-font-size:18px;
 }
 
 .account-box.open .account-arrow{
@@ -620,7 +535,6 @@ display:flex;
 justify-content:space-between;
 padding:13px 0;
 border-bottom:1px solid #202020;
-gap:15px;
 }
 
 .account-row:last-child{
@@ -637,7 +551,6 @@ color:#ddd;
 font-size:10px;
 max-width:60%;
 text-align:right;
-word-break:break-word;
 }
 
 .logout{
@@ -649,6 +562,7 @@ border-radius:13px;
 background:#120909;
 color:#ff7777;
 font-weight:bold;
+cursor:pointer;
 }
 
 .footer{
@@ -680,7 +594,6 @@ background:#111;
 border:1px solid #303030;
 border-radius:20px;
 padding:22px;
-box-shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
 .modal-card h3{
@@ -706,6 +619,7 @@ margin-top:19px;
 .modal-btn{
 height:44px;
 border-radius:11px;
+cursor:pointer;
 font-weight:bold;
 font-size:11px;
 }
@@ -717,117 +631,51 @@ border:1px solid #292929;
 }
 
 .confirm{
-background:
-linear-gradient(
-135deg,
-#ffe082,
-#d4a72c,
-#a77b17
-);
+background:linear-gradient(135deg,#ffe082,#d4a72c,#a77b17);
 color:#080808;
 border:none;
 }
 
-.toast{
-position:fixed;
-left:50%;
-bottom:25px;
-transform:translateX(-50%) translateY(20px);
-background:#171717;
-border:1px solid #3a3a3a;
-color:#fff;
-padding:11px 16px;
-border-radius:12px;
-font-size:10px;
-opacity:0;
-pointer-events:none;
-transition:.25s;
-z-index:2000;
-white-space:nowrap;
-}
-
-.toast.show{
-opacity:1;
-transform:translateX(-50%) translateY(0);
-}
-
 @media(max-width:380px){
-
 .member-head,
 .member-row{
-grid-template-columns:
-1fr
-1fr
-.75fr
-.8fr;
+grid-template-columns:1fr 1fr .75fr .75fr;
 font-size:7px;
 }
-
-.social-grid{
-grid-template-columns:repeat(3,1fr);
 }
-
-}
-
 </style>
-
 </head>
 
-
 <body>
-
 
 <header class="header">
 
 <div class="header-left">
 
-<div class="logo">
-LC
-</div>
+<div class="logo">LC</div>
 
 <div>
-
-<div class="brand-name">
-LINKCASH
-</div>
-
-<div class="header-sub">
-MEMBER DASHBOARD
+<div class="brand-name">LINKCASH</div>
+<div class="header-sub">MEMBER DASHBOARD</div>
 </div>
 
 </div>
 
-</div>
-
-
-<button
-class="menu-btn"
-onclick="scrollToAccount()">
-⋮
-</button>
+<button class="menu-btn" onclick="scrollToAccount()">⋮</button>
 
 </header>
 
-
-
 <main class="container">
-
 
 <div class="welcome">
 
-<small>
-Welcome back
-</small>
+<small>Welcome back</small>
 
 <h1>
-Hello,
-<span id="userName">username</span>
-👋
+Hello, <span id="userName">username</span> 👋
 </h1>
 
 </div>
-
-
 
 <div class="total-card">
 
@@ -836,21 +684,13 @@ Total Earnings
 </div>
 
 <div class="total-value">
-
 <span>TSh </span>
-
-<span id="totalEarnings">
-0
-</span>
-
+<span id="totalEarnings">0</span>
 </div>
 
 </div>
-
-
 
 <div class="money-grid">
-
 
 <div class="money-box">
 
@@ -859,13 +699,8 @@ BALANCE
 </div>
 
 <div class="money-value">
-
 <span>TSh </span>
-
-<span id="balance">
-0
-</span>
-
+<span id="balance">0</span>
 </div>
 
 <div class="money-desc">
@@ -874,8 +709,6 @@ Available
 
 </div>
 
-
-
 <div class="money-box">
 
 <div class="money-title">
@@ -883,13 +716,8 @@ WITHDRAW
 </div>
 
 <div class="money-value">
-
 <span>TSh </span>
-
-<span id="withdraw">
-0
-</span>
-
+<span id="withdraw">0</span>
 </div>
 
 <div class="money-desc">
@@ -900,186 +728,92 @@ Available to withdraw
 
 </div>
 
-
-
-<!-- =========================
-     MY TEAM
-========================= -->
-
 <div class="section-title">
-
-<h2>
-My Team
-</h2>
-
-<span>
-LEVELS
-</span>
-
+<h2>My Team</h2>
+<span>LEVELS</span>
 </div>
 
+<div class="team-box" id="teamBox">
 
-
-<div
-class="team-box"
-id="teamBox">
-
-
-<div
-class="team-main"
-onclick="toggleTeam()">
-
+<div class="team-main" onclick="toggleTeam()">
 
 <div class="team-left">
 
-
-<div class="team-icon">
-◎
-</div>
-
+<div class="team-icon">◎</div>
 
 <div>
-
-<h3>
-My Team
-</h3>
-
-<p>
-View your team members
-</p>
-
+<h3>My Team</h3>
+<p>View your team members</p>
 </div>
 
 </div>
 
-
-<div class="arrow">
-›
-</div>
-
+<div class="arrow">›</div>
 
 </div>
-
-
 
 <div class="levels">
 
+<div class="level" id="level1">
 
-<!-- LEVEL 1 -->
-
-<div
-class="level"
-id="level1">
-
-
-<div
-class="level-head"
-onclick="toggleLevel(1)">
-
+<div class="level-head" onclick="toggleLevel(1)">
 
 <div class="level-left">
 
-<div class="level-number">
-1
-</div>
+<div class="level-number">1</div>
 
 <div>
-
-<h4>
-LEVEL 1
-</h4>
-
-<p>
-People you directly invited
-</p>
-
+<h4>LEVEL 1</h4>
+<p>People you directly invited</p>
 </div>
 
 </div>
 
-
-<div class="level-arrow">
-›
-</div>
-
+<div class="level-arrow">›</div>
 
 </div>
-
-
 
 <div class="members">
 
-
 <div class="member-head">
-
 <div>Username</div>
 <div>Phone</div>
 <div>Status</div>
-<div>Commission</div>
-
+<div>Referral</div>
 </div>
-
 
 <div id="level1Members"></div>
 
-
 </div>
 
 </div>
 
+<div class="level" id="level2">
 
-
-<!-- LEVEL 2 -->
-
-<div
-class="level"
-id="level2">
-
-
-<div
-class="level-head"
-onclick="toggleLevel(2)">
-
+<div class="level-head" onclick="toggleLevel(2)">
 
 <div class="level-left">
 
-<div class="level-number">
-2
-</div>
+<div class="level-number">2</div>
 
 <div>
-
-<h4>
-LEVEL 2
-</h4>
-
-<p>
-Members invited by Level 1
-</p>
-
+<h4>LEVEL 2</h4>
+<p>Members invited by Level 1</p>
 </div>
 
 </div>
 
-
-<div class="level-arrow">
-›
-</div>
-
+<div class="level-arrow">›</div>
 
 </div>
-
-
 
 <div class="members">
 
 <div class="member-head">
-
 <div>Username</div>
 <div>Phone</div>
 <div>Status</div>
-<div>Commission</div>
-
+<div>Referral</div>
 </div>
 
 <div id="level2Members"></div>
@@ -1088,59 +822,32 @@ Members invited by Level 1
 
 </div>
 
+<div class="level" id="level3">
 
-
-<!-- LEVEL 3 -->
-
-<div
-class="level"
-id="level3">
-
-
-<div
-class="level-head"
-onclick="toggleLevel(3)">
-
+<div class="level-head" onclick="toggleLevel(3)">
 
 <div class="level-left">
 
-<div class="level-number">
-3
-</div>
+<div class="level-number">3</div>
 
 <div>
-
-<h4>
-LEVEL 3
-</h4>
-
-<p>
-Members invited by Level 2
-</p>
-
+<h4>LEVEL 3</h4>
+<p>Members in Level 3</p>
 </div>
 
 </div>
 
-
-<div class="level-arrow">
-›
-</div>
-
+<div class="level-arrow">›</div>
 
 </div>
-
-
 
 <div class="members">
 
 <div class="member-head">
-
 <div>Username</div>
 <div>Phone</div>
 <div>Status</div>
-<div>Commission</div>
-
+<div>Referral</div>
 </div>
 
 <div id="level3Members"></div>
@@ -1149,59 +856,32 @@ Members invited by Level 2
 
 </div>
 
+<div class="level" id="level4">
 
-
-<!-- LEVEL 4 -->
-
-<div
-class="level"
-id="level4">
-
-
-<div
-class="level-head"
-onclick="toggleLevel(4)">
-
+<div class="level-head" onclick="toggleLevel(4)">
 
 <div class="level-left">
 
-<div class="level-number">
-4
-</div>
+<div class="level-number">4</div>
 
 <div>
-
-<h4>
-LEVEL 4
-</h4>
-
-<p>
-Members invited by Level 3
-</p>
-
+<h4>LEVEL 4</h4>
+<p>Members in Level 4</p>
 </div>
 
 </div>
 
-
-<div class="level-arrow">
-›
-</div>
-
+<div class="level-arrow">›</div>
 
 </div>
-
-
 
 <div class="members">
 
 <div class="member-head">
-
 <div>Username</div>
 <div>Phone</div>
 <div>Status</div>
-<div>Commission</div>
-
+<div>Referral</div>
 </div>
 
 <div id="level4Members"></div>
@@ -1210,198 +890,93 @@ Members invited by Level 3
 
 </div>
 
-
 </div>
 
 </div>
-
-
-
-<!-- =========================
-     TEAM EARNINGS
-========================= -->
 
 <div class="section-title">
-
-<h2>
-Team Earnings
-</h2>
-
-<span>
-REFERRALS
-</span>
-
+<h2>Team Earnings</h2>
+<span>REFERRALS</span>
 </div>
-
-
 
 <div class="earnings-box">
 
-
 <div class="earning-row">
-
 <div class="earning-left">
-
-<div class="earning-level">
-L1
-</div>
-
+<div class="earning-level">L1</div>
 <div>
-
-<div class="earning-title">
-Level 1 Earnings
+<div class="earning-title">Level 1 Earnings</div>
+<div class="earning-desc">Direct referrals</div>
 </div>
-
-<div class="earning-desc">
-Direct referrals
-</div>
-
-</div>
-
 </div>
 
 <div class="earning-value">
 TSh <span id="level1Earning">0</span>
 </div>
-
 </div>
-
-
 
 <div class="earning-row">
-
 <div class="earning-left">
-
-<div class="earning-level">
-L2
-</div>
-
+<div class="earning-level">L2</div>
 <div>
-
-<div class="earning-title">
-Level 2 Earnings
+<div class="earning-title">Level 2 Earnings</div>
+<div class="earning-desc">Second level</div>
 </div>
-
-<div class="earning-desc">
-Second level
-</div>
-
-</div>
-
 </div>
 
 <div class="earning-value">
 TSh <span id="level2Earning">0</span>
 </div>
-
 </div>
-
-
 
 <div class="earning-row">
-
 <div class="earning-left">
-
-<div class="earning-level">
-L3
-</div>
-
+<div class="earning-level">L3</div>
 <div>
-
-<div class="earning-title">
-Level 3 Earnings
+<div class="earning-title">Level 3 Earnings</div>
+<div class="earning-desc">Third level</div>
 </div>
-
-<div class="earning-desc">
-Third level
-</div>
-
-</div>
-
 </div>
 
 <div class="earning-value">
 TSh <span id="level3Earning">0</span>
 </div>
-
 </div>
-
-
 
 <div class="earning-row">
-
 <div class="earning-left">
-
-<div class="earning-level">
-L4
-</div>
-
+<div class="earning-level">L4</div>
 <div>
-
-<div class="earning-title">
-Level 4 Earnings
+<div class="earning-title">Level 4 Earnings</div>
+<div class="earning-desc">Fourth level</div>
 </div>
-
-<div class="earning-desc">
-Fourth level
-</div>
-
-</div>
-
 </div>
 
 <div class="earning-value">
 TSh <span id="level4Earning">0</span>
 </div>
-
 </div>
-
-
 
 <div class="earning-total">
+<span>Total Team Earnings</span>
 
 <span>
-Total Team Earnings
+TSh <span id="teamTotal">0</span>
 </span>
-
-<span>
-TSh
-<span id="teamTotal">
-0
-</span>
-</span>
-
 </div>
 
-
 </div>
-
-
-
-<!-- =========================
-     REFERRAL LINK
-========================= -->
 
 <div class="section-title">
-
-<h2>
-My Link
-</h2>
-
-<span>
-INVITE
-</span>
-
+<h2>My Link</h2>
+<span>INVITE</span>
 </div>
-
-
 
 <div class="my-link">
 
 <div class="link-label">
 Your referral link
 </div>
-
 
 <div class="link-row">
 
@@ -1411,10 +986,7 @@ id="myLink"
 readonly
 >
 
-
-<button
-class="copy-btn"
-onclick="copyLink()">
+<button class="copy-btn" onclick="copyLink()">
 COPY
 </button>
 
@@ -1422,431 +994,187 @@ COPY
 
 </div>
 
-
-
-<!-- =========================
-     SOCIAL
-========================= -->
-
 <div class="section-title">
-
-<h2>
-LINKCASH Social
-</h2>
-
-<span>
-FOLLOW
-</span>
-
+<h2>Account</h2>
 </div>
 
+<div class="account-box" id="accountBox">
 
-
-<div class="social-grid">
-
-
-<a
-class="social"
-href="#"
-onclick="openSocial('TikTok')">
-
-<div class="social-icon">
-♪ 
-</div>
-
-<div>
-TikTok
-</div>
-
-</a>
-
-
-
-<a
-class="social"
-href="#"
-onclick="openSocial('Facebook')">
-
-<div class="social-icon">
-f
-</div>
-
-<div>
-Facebook
-</div>
-
-</a>
-
-
-
-<a
-class="social"
-href="#"
-onclick="openSocial('Instagram')">
-
-<div class="social-icon">
-◎
-</div>
-
-<div>
-Instagram
-</div>
-
-</a>
-
-
-
-<a
-class="social"
-href="#"
-onclick="openSocial('YouTube')">
-
-<div class="social-icon">
-▶
-</div>
-
-<div>
-YouTube
-</div>
-
-</a>
-
-
-
-<a
-class="social"
-href="#"
-onclick="openSocial('Kwai')">
-
-<div class="social-icon">
-K
-</div>
-
-<div>
-Kwai
-</div>
-
-</a>
-
-
-</div>
-
-
-
-<!-- =========================
-     ACCOUNT
-========================= -->
-
-<div
-class="section-title"
-id="accountSection">
-
-<h2>
-Account
-</h2>
-
-</div>
-
-
-
-<div
-class="account-box"
-id="accountBox">
-
-
-<div
-class="account-head"
-onclick="toggleAccount()">
-
+<div class="account-head" onclick="toggleAccount()">
 
 <div class="account-left">
 
-
-<div class="account-icon">
-◉
-</div>
-
+<div class="account-icon">◉</div>
 
 <div>
-
-<h3>
-My Account
-</h3>
-
-<p>
-Tap to view account information
-</p>
-
+<h3>My Account</h3>
+<p>Tap to view account information</p>
 </div>
 
 </div>
 
-
-<div class="account-arrow">
-›
-</div>
-
+<div class="account-arrow">›</div>
 
 </div>
-
-
 
 <div class="account-details">
 
+<div class="account-row">
+<span>Username</span>
+<span id="accountUsername">-</span>
+</div>
 
 <div class="account-row">
-
-<span>
-Username
-</span>
-
-<span id="accountUsername">
--
-</span>
-
+<span>Full Name</span>
+<span id="accountFullname">-</span>
 </div>
-
-
 
 <div class="account-row">
-
-<span>
-Full Name
-</span>
-
-<span id="accountFullname">
--
-</span>
-
+<span>Phone</span>
+<span id="accountPhone">-</span>
 </div>
-
-
 
 <div class="account-row">
-
-<span>
-Phone
-</span>
-
-<span id="accountPhone">
--
-</span>
-
+<span>Status</span>
+<span id="accountStatus">ACTIVE</span>
 </div>
-
-
-
-<div class="account-row">
-
-<span>
-Status
-</span>
-
-<span id="accountStatus">
-ACTIVE
-</span>
-
-</div>
-
-
-
-<div class="account-row">
-
-<span>
-Referral By
-</span>
-
-<span id="accountReferral">
--
-</span>
-
-</div>
-
 
 </div>
 
 </div>
 
-
-
-<button
-class="logout"
-onclick="openLogout()">
-
+<button class="logout" onclick="openLogout()">
 LOG OUT
-
 </button>
 
-
-
 <div class="footer">
-
 © 2026 LINKCASH
-
 </div>
-
 
 </main>
 
-
-
-<!-- =========================
-     MODAL
-========================= -->
-
-<div
-class="modal"
-id="modal">
-
+<div class="modal" id="modal">
 
 <div class="modal-card">
 
+<h3 id="modalTitle">LINKCASH</h3>
 
-<h3 id="modalTitle">
-LINKCASH
-</h3>
-
-
-<p id="modalText">
-Message
-</p>
-
+<p id="modalText">Message</p>
 
 <div class="modal-actions">
 
-
-<button
-class="modal-btn cancel"
-onclick="closeModal()">
-
+<button class="modal-btn cancel" onclick="closeModal()">
 CANCEL
-
 </button>
 
-
-<button
-class="modal-btn confirm"
-id="modalConfirm">
-
+<button class="modal-btn confirm" id="modalConfirm">
 OK
-
 </button>
 
-
-</div>
-
-
 </div>
 
 </div>
 
-
-
-<div
-class="toast"
-id="toast">
-
-Copied successfully
-
 </div>
-
-
 
 <script>
 
+/* ================================
+   DEFAULT COMMISSION
+================================ */
 
-/* =====================================================
-   COMMISSION SETTINGS
-=====================================================
-
-   BADILISHA HAPA TU UKITAKA KUBADILI COMMISSION.
-
-   LEVEL 1 = 7,000
-   LEVEL 2 = 3,000
-   LEVEL 3 = 1,500
-   LEVEL 4 = 1,000
-
-===================================================== */
-
-const LEVEL_RATES = {
-
-1: 7000,
-2: 3000,
-3: 1500,
-4: 1000
-
+const DEFAULT_RATES={
+1:7000,
+2:3000,
+3:1500,
+4:1000
 };
 
 
+/* ================================
+   GET CEO SETTINGS
+================================ */
 
-/* =====================================================
-   CURRENT ACCOUNT
-===================================================== */
-
-let account = null;
-
+function getSettings(){
 
 try{
 
-const saved =
-localStorage.getItem(
-"linkcashAccount"
-);
-
+const saved=
+localStorage.getItem("linkcashSettings");
 
 if(saved){
 
-account =
-JSON.parse(saved);
+const settings=JSON.parse(saved);
 
+return {
+1:Number(settings[1] ?? DEFAULT_RATES[1]),
+2:Number(settings[2] ?? DEFAULT_RATES[2]),
+3:Number(settings[3] ?? DEFAULT_RATES[3]),
+4:Number(settings[4] ?? DEFAULT_RATES[4])
+};
+
+}
+
+}catch(error){}
+
+return DEFAULT_RATES;
+
+}
+
+
+function getRates(){
+
+return getSettings();
+
+}
+
+
+/* ================================
+   CURRENT ACCOUNT
+================================ */
+
+let account=null;
+
+try{
+
+const saved=
+localStorage.getItem("linkcashAccount");
+
+if(saved){
+account=JSON.parse(saved);
 }
 
 }catch(error){
-
-account = null;
-
+account=null;
 }
-
-
 
 if(!account){
 
-window.location.href =
-"login.html";
+window.location.href="login.html";
 
 }
 
 
-
-/* =====================================================
-   GET ALL ACCOUNTS
-===================================================== */
+/* ================================
+   ALL ACCOUNTS
+================================ */
 
 function getAccounts(){
 
 try{
 
-const data =
-localStorage.getItem(
-"linkcashAccounts"
-);
-
+const data=
+localStorage.getItem("linkcashAccounts");
 
 if(!data){
-
 return [];
-
 }
 
-
-const accounts =
-JSON.parse(data);
-
+const accounts=JSON.parse(data);
 
 return Array.isArray(accounts)
-? accounts
-: [];
-
+?accounts
+:[];
 
 }catch(error){
 
@@ -1857,53 +1185,39 @@ return [];
 }
 
 
-
-/* =====================================================
-   SAVE CURRENT ACCOUNT
-===================================================== */
+/* ================================
+   SAVE ACCOUNT
+================================ */
 
 function saveCurrentAccount(){
 
 if(!account){
-
 return;
-
 }
-
 
 localStorage.setItem(
 "linkcashAccount",
 JSON.stringify(account)
 );
 
-
 localStorage.setItem(
 "linkcashUser",
 JSON.stringify(account)
 );
 
+const accounts=getAccounts();
 
+const index=
+accounts.findIndex(function(item){
 
-const accounts =
-getAccounts();
-
-
-const index =
-accounts.findIndex(
-function(item){
-
-return String(item.id) ===
+return String(item.id)===
 String(account.id);
 
-}
-);
+});
 
+if(index!==-1){
 
-if(index !== -1){
-
-accounts[index] =
-account;
-
+accounts[index]=account;
 
 localStorage.setItem(
 "linkcashAccounts",
@@ -1915,1008 +1229,456 @@ JSON.stringify(accounts)
 }
 
 
+/* ================================
+   LEVEL MEMBERS
+================================ */
 
-/* =====================================================
-   FIND ACCOUNT BY USERNAME
-===================================================== */
+function getMembersByLevel(username,level){
 
-function findAccount(username){
+const accounts=getAccounts();
 
-const accounts =
-getAccounts();
+if(level===1){
 
+return accounts.filter(function(member){
 
-const target =
-String(username || "")
+return String(member.referredBy||"")
+.toLowerCase()===
+String(username||"")
 .toLowerCase();
 
-
-return accounts.find(
-function(item){
-
-return String(
-item.username || ""
-)
-.toLowerCase() === target;
-
-}
-) || null;
+});
 
 }
 
+let previous=
+getMembersByLevel(username,1);
 
+for(let current=2;current<=level;current++){
 
-/* =====================================================
-   GET LEVEL 1
-===================================================== */
+let previousUsernames=
+previous.map(function(item){
 
-function getLevelOne(username){
-
-const accounts =
-getAccounts();
-
-
-const target =
-String(username || "")
+return String(item.username||"")
 .toLowerCase();
 
+});
 
-return accounts.filter(
-function(member){
+previous=
+accounts.filter(function(member){
 
-return String(
-member.referredBy || ""
-)
-.toLowerCase() === target;
-
-}
+return previousUsernames.includes(
+String(member.referredBy||"").toLowerCase()
 );
 
-}
-
-
-
-/* =====================================================
-   GET NEXT LEVEL
-===================================================== */
-
-function getNextLevel(parents){
-
-const accounts =
-getAccounts();
-
-
-const parentNames =
-parents.map(
-function(member){
-
-return String(
-member.username || ""
-)
-.toLowerCase();
+});
 
 }
-);
 
-
-if(!parentNames.length){
-
-return [];
+return previous;
 
 }
 
 
-return accounts.filter(
-function(member){
-
-const referredBy =
-String(
-member.referredBy || ""
-)
-.toLowerCase();
-
-
-return parentNames.includes(
-referredBy
-);
-
-}
-);
-
-}
-
-
-
-/* =====================================================
-   GET MEMBERS BY EXACT LEVEL
-
-   L1 = direct
-   L2 = children of L1
-   L3 = children of L2
-   L4 = children of L3
-
-===================================================== */
-
-function getMembersByLevel(level){
+function getLevelMembers(level){
 
 if(!account){
-
 return [];
-
 }
 
-
-if(level === 1){
-
-return getLevelOne(
-account.username
+return getMembersByLevel(
+account.username,
+level
 );
 
 }
 
 
-let current =
-getLevelOne(
-account.username
-);
-
-
-for(
-let currentLevel = 2;
-currentLevel <= level;
-currentLevel++
-){
-
-current =
-getNextLevel(current);
-
-}
-
-
-return current;
-
-}
-
-
-
-/* =====================================================
-   IS ACTIVE?
-===================================================== */
-
-function isActive(member){
-
-const status =
-String(
-member.status || "pending"
-)
-.toLowerCase();
-
-
-return (
-status === "active" ||
-status === "activated"
-);
-
-}
-
-
-
-/* =====================================================
-   CALCULATE COMMISSION
-===================================================== */
+/* ================================
+   CALCULATE EARNINGS
+================================ */
 
 function calculateEarnings(){
 
 if(!account){
-
 return;
-
 }
 
+const rates=getRates();
 
-const totals = {
-
+let totals={
 1:0,
 2:0,
 3:0,
 4:0
-
 };
 
+for(let level=1;level<=4;level++){
 
+const members=getLevelMembers(level);
 
-for(
-let level = 1;
-level <= 4;
-level++
-){
+members.forEach(function(member){
 
-const members =
-getMembersByLevel(level);
-
-
-members.forEach(
-function(member){
+const status=
+String(member.status||"pending")
+.toLowerCase();
 
 if(
-isActive(member)
+status==="active" ||
+status==="activated"
 ){
 
-totals[level] +=
-Number(
-LEVEL_RATES[level] || 0
-);
+totals[level]+=
+Number(rates[level]||0);
 
 }
 
-}
-);
+});
 
 }
 
+account.level1Earnings=totals[1];
+account.level2Earnings=totals[2];
+account.level3Earnings=totals[3];
+account.level4Earnings=totals[4];
 
-
-account.level1Earnings =
-totals[1];
-
-
-account.level2Earnings =
-totals[2];
-
-
-account.level3Earnings =
-totals[3];
-
-
-account.level4Earnings =
+account.totalEarnings=
+totals[1]+
+totals[2]+
+totals[3]+
 totals[4];
 
-
-account.totalEarnings =
-totals[1] +
-totals[2] +
-totals[3] +
-totals[4];
-
-
-account.referralEarnings =
+account.referralEarnings=
 account.totalEarnings;
 
+account.balance=
+account.totalEarnings;
 
-
-/*
-   Balance is calculated from earnings
-   minus any amount already withdrawn.
-*/
-
-const withdrawn =
-Number(
-account.withdrawnAmount || 0
-);
-
-
-account.balance =
-Math.max(
-0,
-account.totalEarnings -
-withdrawn
-);
-
-
-
-/*
-   Display withdrawal availability
-*/
-
-account.withdraw =
-account.balance;
-
+if(typeof account.withdraw!=="number"){
+account.withdraw=0;
+}
 
 saveCurrentAccount();
 
 }
 
 
-
-/* =====================================================
-   MONEY FORMAT
-===================================================== */
+/* ================================
+   MONEY
+================================ */
 
 function money(value){
 
-return Number(
-value || 0
-)
-.toLocaleString(
-"en-US"
-);
+return Number(value||0)
+.toLocaleString("en-US");
 
 }
 
 
-
-/* =====================================================
+/* ================================
    LOAD DASHBOARD
-===================================================== */
+================================ */
 
 function loadDashboard(){
 
 if(!account){
-
 return;
-
 }
 
+document.getElementById("userName")
+.textContent=account.username||"username";
 
+document.getElementById("accountUsername")
+.textContent=account.username||"-";
 
-/*
-   Refresh current account from accounts list
-*/
+document.getElementById("accountFullname")
+.textContent=account.fullname||"-";
 
-const latest =
-findAccount(
-account.username
-);
+document.getElementById("accountPhone")
+.textContent=account.phone||"-";
 
-
-if(latest){
-
-account =
-latest;
-
-}
-
-
-
-/*
-   Basic information
-*/
-
-document.getElementById(
-"userName"
-).textContent =
-account.username ||
-"username";
-
-
-document.getElementById(
-"accountUsername"
-).textContent =
-account.username ||
-"-";
-
-
-document.getElementById(
-"accountFullname"
-).textContent =
-account.fullname ||
-account.fullName ||
-"-";
-
-
-document.getElementById(
-"accountPhone"
-).textContent =
-account.phone ||
-"-";
-
-
-document.getElementById(
-"accountStatus"
-).textContent =
-String(
-account.status || "ACTIVE"
-)
+document.getElementById("accountStatus")
+.textContent=
+String(account.status||"ACTIVE")
 .toUpperCase();
-
-
-document.getElementById(
-"accountReferral"
-).textContent =
-account.referredBy ||
-"Direct";
-
-
-
-/*
-   Calculate
-*/
 
 calculateEarnings();
 
+document.getElementById("totalEarnings")
+.textContent=
+money(account.totalEarnings);
 
+document.getElementById("balance")
+.textContent=
+money(account.balance);
 
-/*
-   Money
-*/
+document.getElementById("withdraw")
+.textContent=
+money(account.withdraw);
 
-document.getElementById(
-"totalEarnings"
-).textContent =
-money(
-account.totalEarnings
-);
+document.getElementById("level1Earning")
+.textContent=
+money(account.level1Earnings);
 
+document.getElementById("level2Earning")
+.textContent=
+money(account.level2Earnings);
 
-document.getElementById(
-"balance"
-).textContent =
-money(
-account.balance
-);
+document.getElementById("level3Earning")
+.textContent=
+money(account.level3Earnings);
 
+document.getElementById("level4Earning")
+.textContent=
+money(account.level4Earnings);
 
-document.getElementById(
-"withdraw"
-).textContent =
-money(
-account.withdraw
-);
+document.getElementById("teamTotal")
+.textContent=
+money(account.totalEarnings);
 
-
-
-/*
-   Levels
-*/
-
-document.getElementById(
-"level1Earning"
-).textContent =
-money(
-account.level1Earnings
-);
-
-
-document.getElementById(
-"level2Earning"
-).textContent =
-money(
-account.level2Earnings
-);
-
-
-document.getElementById(
-"level3Earning"
-).textContent =
-money(
-account.level3Earnings
-);
-
-
-document.getElementById(
-"level4Earning"
-).textContent =
-money(
-account.level4Earnings
-);
-
-
-document.getElementById(
-"teamTotal"
-).textContent =
-money(
-account.totalEarnings
-);
-
-
-
-/*
-   Team members
-*/
-
-for(
-let level = 1;
-level <= 4;
-level++
-){
-
-loadLevel(level);
-
+for(let i=1;i<=4;i++){
+loadLevel(i);
 }
 
-
-
-/*
-   Referral link
-*/
-
-document.getElementById(
-"myLink"
-).value =
+document.getElementById("myLink").value=
 createReferralLink();
 
 }
 
 
-
-/* =====================================================
-   LOAD ONE LEVEL
-===================================================== */
+/* ================================
+   LOAD LEVEL
+================================ */
 
 function loadLevel(level){
 
-const container =
+const container=
 document.getElementById(
-"level" + level + "Members"
+"level"+level+"Members"
 );
 
+const members=
+getLevelMembers(level);
 
-if(!container){
-
-return;
-
-}
-
-
-const members =
-getMembersByLevel(level);
-
-
+const rates=getRates();
 
 if(!members.length){
 
-container.innerHTML =
-`
-<div class="no-members">
-No members yet
-</div>
-`;
+container.innerHTML=
+'<div class="no-members">No members yet</div>';
 
 return;
 
 }
 
+container.innerHTML="";
 
+members.forEach(function(member){
 
-container.innerHTML = "";
+const row=
+document.createElement("div");
 
+row.className="member-row";
 
-
-members.forEach(
-function(member){
-
-const row =
-document.createElement(
-"div"
-);
-
-
-row.className =
-"member-row";
-
-
-
-const status =
-String(
-member.status || "pending"
-)
+const status=
+String(member.status||"pending")
 .toLowerCase();
 
+const statusClass=
+status==="active" ||
+status==="activated"
+?"status-active"
+:"status-pending";
 
-
-let statusClass =
-"status-pending";
-
-
-if(
-status === "active" ||
-status === "activated"
-){
-
-statusClass =
-"status-active";
-
-}
-
-
-if(
-status === "rejected"
-){
-
-statusClass =
-"status-rejected";
-
-}
-
-
-
-const commission =
-isActive(member)
-?
-Number(
-LEVEL_RATES[level] || 0
+const referralAmount=
+(
+status==="active" ||
+status==="activated"
 )
+?
+Number(rates[level]||0)
 :
 0;
 
+row.innerHTML=`
 
+<div>${escapeHTML(member.username||"-")}</div>
 
-row.innerHTML = `
-
-<div>
-${escapeHTML(
-member.username || "-"
-)}
-</div>
-
-<div>
-${escapeHTML(
-member.phone || "-"
-)}
-</div>
+<div>${escapeHTML(member.phone||"-")}</div>
 
 <div class="${statusClass}">
-${escapeHTML(
-status.toUpperCase()
-)}
+${status.toUpperCase()}
 </div>
 
 <div>
-TSh ${money(commission)}
+TSh ${money(referralAmount)}
 </div>
 
 `;
 
+container.appendChild(row);
 
-
-container.appendChild(
-row
-);
-
-}
-);
+});
 
 }
 
 
-
-/* =====================================================
-   HTML SECURITY
-===================================================== */
+/* ================================
+   ESCAPE
+================================ */
 
 function escapeHTML(value){
 
 return String(value)
-.replace(
-/&/g,
-"&amp;"
-)
-.replace(
-/</g,
-"&lt;"
-)
-.replace(
-/>/g,
-"&gt;"
-)
-.replace(
-/"/g,
-"&quot;"
-)
-.replace(
-/'/g,
-"&#039;"
-);
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
 
-
-/* =====================================================
-   TEAM TOGGLE
-===================================================== */
+/* ================================
+   TEAM
+================================ */
 
 function toggleTeam(){
 
 document
-.getElementById(
-"teamBox"
-)
-.classList.toggle(
-"open"
-);
+.getElementById("teamBox")
+.classList.toggle("open");
 
 }
 
-
-
-/* =====================================================
-   LEVEL TOGGLE
-===================================================== */
 
 function toggleLevel(level){
 
 document
-.getElementById(
-"level" + level
-)
-.classList.toggle(
-"open"
-);
+.getElementById("level"+level)
+.classList.toggle("open");
 
 }
 
 
-
-/* =====================================================
+/* ================================
    REFERRAL LINK
-===================================================== */
+================================ */
 
 function createReferralLink(){
 
 if(!account){
-
 return "";
-
 }
 
-
-let base =
-window.location.origin +
+const base=
+window.location.origin+
 window.location.pathname
 .replace(
 "dashboard.html",
 "register.html"
 );
 
-
-
-/*
-   If dashboard path cannot be replaced
-*/
-
-if(
-!base.includes(
-"register.html"
-)
-){
-
-base =
-window.location.origin +
-"/register.html";
+return base+
+"?ref="+
+encodeURIComponent(account.username);
 
 }
 
 
-
-return (
-base +
-"?ref=" +
-encodeURIComponent(
-account.username || ""
-)
-);
-
-}
-
-
-
-/* =====================================================
-   COPY LINK
-===================================================== */
+/* ================================
+   COPY
+================================ */
 
 function copyLink(){
 
-const input =
-document.getElementById(
-"myLink"
-);
-
-
-const value =
-input.value;
-
-
-
-if(
-navigator.clipboard &&
-window.isSecureContext
-){
-
-navigator.clipboard
-.writeText(value)
-.then(
-function(){
-
-showToast(
-"Referral link copied"
-);
-
-}
-)
-.catch(
-function(){
-
-fallbackCopy(input);
-
-}
-);
-
-}else{
-
-fallbackCopy(input);
-
-}
-
-}
-
-
-
-/* =====================================================
-   FALLBACK COPY
-===================================================== */
-
-function fallbackCopy(input){
+const input=
+document.getElementById("myLink");
 
 input.select();
-input.setSelectionRange(
-0,
-99999
-);
+input.setSelectionRange(0,99999);
 
-
-try{
-
-document.execCommand(
-"copy"
-);
-
-
-showToast(
-"Referral link copied"
-);
-
-}catch(error){
+navigator.clipboard
+.writeText(input.value)
+.then(function(){
 
 showModal(
 "MY LINK",
-"Please copy the referral link manually."
+"Referral link copied successfully."
 );
 
-}
+})
+.catch(function(){
+
+document.execCommand("copy");
+
+showModal(
+"MY LINK",
+"Referral link copied successfully."
+);
+
+});
 
 }
 
 
-
-/* =====================================================
+/* ================================
    ACCOUNT
-===================================================== */
+================================ */
 
 function toggleAccount(){
 
 document
-.getElementById(
-"accountBox"
-)
-.classList.toggle(
-"open"
-);
+.getElementById("accountBox")
+.classList.toggle("open");
 
 }
 
 
-
-/* =====================================================
-   SCROLL ACCOUNT
-===================================================== */
-
 function scrollToAccount(){
 
 document
-.getElementById(
-"accountSection"
-)
+.getElementById("accountBox")
 .scrollIntoView({
 behavior:"smooth",
 block:"center"
 });
 
-
-setTimeout(
-function(){
-
-document
-.getElementById(
-"accountBox"
-)
-.classList.add(
-"open"
-);
-
-},
-350
-);
-
 }
 
 
-
-/* =====================================================
-   SOCIAL
-===================================================== */
-
-function openSocial(name){
-
-/*
-   WEKA LINKS ZAKO HALISI HAPA BAADAYE.
-
-   Mfano:
-
-   TikTok:
-   https://www.tiktok.com/@linkcash
-
-*/
-
-showModal(
-"LINKCASH",
-name + " link will be available soon."
-);
-
-return false;
-
-}
-
-
-
-/* =====================================================
+/* ================================
    MODAL
-===================================================== */
+================================ */
 
-function showModal(
-title,
-text
-){
+function showModal(title,text){
 
-document.getElementById(
-"modalTitle"
-).textContent =
-title;
+document.getElementById("modalTitle")
+.textContent=title;
 
+document.getElementById("modalText")
+.textContent=text;
 
-document.getElementById(
-"modalText"
-).textContent =
-text;
+document.getElementById("modal")
+.classList.add("show");
 
-
-document.getElementById(
-"modal"
-).classList.add(
-"show"
-);
-
-
-document.getElementById(
-"modalConfirm"
-).onclick =
-closeModal;
+document.getElementById("modalConfirm")
+onclick=closeModal;
 
 }
 
-
-
-/* =====================================================
-   CLOSE MODAL
-===================================================== */
 
 function closeModal(){
 
 document
-.getElementById(
-"modal"
-)
-.classList.remove(
-"show"
-);
+.getElementById("modal")
+.classList.remove("show");
 
 }
 
 
-
-/* =====================================================
+/* ================================
    LOGOUT
-===================================================== */
+================================ */
 
 function openLogout(){
 
@@ -2925,15 +1687,11 @@ showModal(
 "Do you want to log out?"
 );
 
-
-
-document.getElementById(
-"modalConfirm"
-).onclick =
-function(){
+document.getElementById("modalConfirm")
+.onclick=function(){
 
 localStorage.removeItem(
-"linkcashAccount"
+"linkcashLoggedIn"
 );
 
 localStorage.removeItem(
@@ -2941,123 +1699,50 @@ localStorage.removeItem(
 );
 
 localStorage.removeItem(
-"linkcashLoggedIn"
-);
-
-localStorage.removeItem(
 "linkcashLoggedInUser"
 );
 
+localStorage.removeItem(
+"linkcashAccount"
+);
 
-
-window.location.href =
-"login.html";
+window.location.href="login.html";
 
 };
 
 }
 
 
-
-/* =====================================================
-   MODAL BACKDROP
-===================================================== */
+/* ================================
+   CLOSE MODAL
+================================ */
 
 document
-.getElementById(
-"modal"
-)
+.getElementById("modal")
 .addEventListener(
 "click",
 function(event){
 
-if(
-event.target === this
-){
-
+if(event.target===this){
 closeModal();
-
 }
 
-}
-);
+});
 
 
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-let toastTimer = null;
-
-
-function showToast(message){
-
-const toast =
-document.getElementById(
-"toast"
-);
-
-
-toast.textContent =
-message;
-
-
-toast.classList.add(
-"show"
-);
-
-
-
-clearTimeout(
-toastTimer
-);
-
-
-toastTimer =
-setTimeout(
-function(){
-
-toast.classList.remove(
-"show"
-);
-
-},
-2200
-);
-
-}
-
-
-
-/* =====================================================
+/* ================================
    START
-===================================================== */
+================================ */
 
 loadDashboard();
 
-
-
-/*
-   Refresh every 3 seconds.
-
-   Hii inasaidia dashboard kuona
-   mabadiliko ya accounts yaliyofanyika
-   kwenye localStorage.
-*/
-
-setInterval(
-function(){
+setInterval(function(){
 
 loadDashboard();
 
-},
-3000
-);
-
+},3000);
 
 </script>
 
-
 </body>
-   </html>
+</html>
