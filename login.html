@@ -26,11 +26,9 @@ body{
             #050505 65%
         );
     color:#fff;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     padding:20px;
 }
 
@@ -41,29 +39,21 @@ body{
 
 .login-card{
     background:rgba(15,15,15,.96);
-
     border:1px solid #292929;
-
     border-radius:28px;
-
     padding:30px 22px 24px;
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.65);
+    box-shadow:0 25px 80px rgba(0,0,0,.65);
 }
 
 .brand{
     text-align:center;
-
     margin-bottom:27px;
 }
 
 .logo{
     width:64px;
     height:64px;
-
     margin:0 auto 15px;
-
     border-radius:18px;
 
     background:
@@ -86,41 +76,31 @@ body{
 
 .brand h1{
     font-size:25px;
-
     letter-spacing:1px;
 }
 
 .brand p{
     color:#666;
-
     font-size:10px;
-
     margin-top:7px;
 }
 
 .secure-badge{
     display:inline-flex;
-
     align-items:center;
-
     gap:6px;
 
     margin-top:12px;
-
     padding:7px 11px;
 
     border-radius:20px;
 
-    background:
-        rgba(88,216,138,.06);
-
-    border:
-        1px solid rgba(88,216,138,.18);
+    background:rgba(88,216,138,.06);
+    border:1px solid rgba(88,216,138,.18);
 
     color:#58d88a;
 
     font-size:8px;
-
     font-weight:900;
 }
 
@@ -143,11 +123,9 @@ body{
 
     color:#ff7777;
 
-    background:
-        rgba(255,70,70,.07);
+    background:rgba(255,70,70,.07);
 
-    border:
-        1px solid rgba(255,70,70,.22);
+    border:1px solid rgba(255,70,70,.22);
 }
 
 .message.success{
@@ -155,11 +133,9 @@ body{
 
     color:#58d88a;
 
-    background:
-        rgba(88,216,138,.07);
+    background:rgba(88,216,138,.07);
 
-    border:
-        1px solid rgba(88,216,138,.22);
+    border:1px solid rgba(88,216,138,.22);
 }
 
 .field{
@@ -186,7 +162,6 @@ label{
 
 input{
     width:100%;
-
     height:51px;
 
     border-radius:12px;
@@ -220,11 +195,9 @@ input:focus{
     position:absolute;
 
     right:14px;
-
     top:50%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
 
     color:#666;
 
@@ -237,11 +210,9 @@ input:focus{
     position:absolute;
 
     right:10px;
-
     top:50%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
 
     width:32px;
     height:32px;
@@ -261,7 +232,6 @@ input:focus{
     display:flex;
 
     justify-content:space-between;
-
     align-items:center;
 
     margin:3px 0 18px;
@@ -286,7 +256,6 @@ input:focus{
     height:15px;
 
     margin:0;
-
     padding:0;
 
     accent-color:#d4a72c;
@@ -302,11 +271,9 @@ input:focus{
 
 .login-btn{
     width:100%;
-
     height:51px;
 
-    border:
-        1px solid #d4a72c;
+    border:1px solid #d4a72c;
 
     border-radius:12px;
 
@@ -328,7 +295,6 @@ input:focus{
 
 .login-btn.loading{
     opacity:.65;
-
     pointer-events:none;
 }
 
@@ -421,8 +387,7 @@ input:focus{
 @media(max-width:360px){
 
     .login-card{
-        padding:
-            25px 17px 21px;
+        padding:25px 17px 21px;
     }
 
 }
@@ -457,16 +422,14 @@ Secure access to your LINKCASH account
 </div>
 
 
-<div
-id="message"
-class="message">
-</div>
+<div id="message" class="message"></div>
 
 
 <form
-id="loginForm"
-autocomplete="on"
+    id="loginForm"
+    autocomplete="on"
 >
+
 
 <div class="field">
 
@@ -482,13 +445,13 @@ USERNAME
 <div class="input-wrap">
 
 <input
-id="username"
-name="username"
-type="text"
-autocomplete="username"
-placeholder="Enter your username"
-maxlength="50"
-required
+    id="username"
+    name="username"
+    type="text"
+    autocomplete="username"
+    placeholder="Enter your username"
+    maxlength="50"
+    required
 >
 
 <div class="input-icon">
@@ -514,20 +477,20 @@ PASSWORD
 <div class="input-wrap">
 
 <input
-id="password"
-name="password"
-type="password"
-autocomplete="current-password"
-placeholder="Enter your password"
-maxlength="100"
-required
+    id="password"
+    name="password"
+    type="password"
+    autocomplete="current-password"
+    placeholder="Enter your password"
+    maxlength="100"
+    required
 >
 
 <button
-type="button"
-class="password-toggle"
-id="togglePassword"
-aria-label="Show password"
+    type="button"
+    class="password-toggle"
+    id="togglePassword"
+    aria-label="Show password"
 >
 👁
 </button>
@@ -542,8 +505,8 @@ aria-label="Show password"
 <label class="remember">
 
 <input
-type="checkbox"
-id="remember"
+    type="checkbox"
+    id="remember"
 >
 
 <span>
@@ -554,9 +517,9 @@ Remember me
 
 
 <a
-href="#"
-class="forgot"
-onclick="forgotPassword(event)"
+    href="#"
+    class="forgot"
+    onclick="forgotPassword(event)"
 >
 Forgot password?
 </a>
@@ -565,9 +528,9 @@ Forgot password?
 
 
 <button
-type="submit"
-class="login-btn"
-id="loginBtn"
+    type="submit"
+    class="login-btn"
+    id="loginBtn"
 >
 LOGIN TO LINKCASH
 </button>
@@ -605,7 +568,8 @@ CREATE ACCOUNT
 
 <div class="footer">
 
-© 2026 LINKCASH<br>
+© 2026 LINKCASH
+<br>
 
 Member access portal
 
@@ -616,20 +580,36 @@ Member access portal
 
 <script>
 
-/* =================================================
+/* =====================================================
    CEO LOGIN
-   ================================================
-   HAIJABADILISHWA.
-================================================= */
+   USIBADILISHE HIZI TAARIFA
+===================================================== */
 
 const CEO_USERNAME = "ceo";
 
 const CEO_PASSWORD = "CEO12345";
 
 
-/* =================================================
+/* =====================================================
+   COMMISSION SETTINGS
+===================================================== */
+
+const COMMISSION_RATES = {
+
+    1: 7000,
+
+    2: 3500,
+
+    3: 2000,
+
+    4: 1000
+
+};
+
+
+/* =====================================================
    ELEMENTS
-================================================= */
+===================================================== */
 
 const loginForm =
     document.getElementById(
@@ -662,9 +642,9 @@ const remember =
     );
 
 
-/* =================================================
+/* =====================================================
    MESSAGE
-================================================= */
+===================================================== */
 
 function showMessage(
     text,
@@ -691,9 +671,9 @@ function hideMessage(){
 }
 
 
-/* =================================================
+/* =====================================================
    NORMALIZE USERNAME
-================================================= */
+===================================================== */
 
 function normalizeUsername(
     value
@@ -708,18 +688,16 @@ function normalizeUsername(
 }
 
 
-/* =================================================
+/* =====================================================
    GET ALL ACCOUNTS
-================================================= */
+===================================================== */
 
 function getAllAccounts(){
 
     const accounts = [];
 
 
-    /* ---------------------------------------------
-       linkcashAccounts
-    --------------------------------------------- */
+    /* linkcashAccounts */
 
     try{
 
@@ -733,7 +711,9 @@ function getAllAccounts(){
             const parsed =
                 JSON.parse(data);
 
-            if(Array.isArray(parsed)){
+            if(
+                Array.isArray(parsed)
+            ){
 
                 parsed.forEach(
                     function(user){
@@ -759,9 +739,7 @@ function getAllAccounts(){
     }catch(error){}
 
 
-    /* ---------------------------------------------
-       linkcashUsers
-    --------------------------------------------- */
+    /* linkcashUsers */
 
     try{
 
@@ -775,7 +753,9 @@ function getAllAccounts(){
             const parsed =
                 JSON.parse(data);
 
-            if(Array.isArray(parsed)){
+            if(
+                Array.isArray(parsed)
+            ){
 
                 parsed.forEach(
                     function(user){
@@ -801,9 +781,7 @@ function getAllAccounts(){
     }catch(error){}
 
 
-    /* ---------------------------------------------
-       linkcashAccount
-    --------------------------------------------- */
+    /* Current account */
 
     try{
 
@@ -834,9 +812,7 @@ function getAllAccounts(){
     }catch(error){}
 
 
-    /* ---------------------------------------------
-       REMOVE DUPLICATES
-    --------------------------------------------- */
+    /* Remove duplicates */
 
     const unique = {};
 
@@ -852,7 +828,6 @@ function getAllAccounts(){
             if(!username){
                 return;
             }
-
 
             unique[username] = {
 
@@ -873,198 +848,31 @@ function getAllAccounts(){
 }
 
 
-/* =================================================
-   SAVE LOGGED-IN USER
-   ================================================
-   Referral / sponsor data is preserved.
-================================================= */
+/* =====================================================
+   SAVE ALL ACCOUNTS
+===================================================== */
 
-function saveLoggedInUser(
-    user
+function saveAllAccounts(
+    accounts
 ){
 
-    if(
-        !user ||
-        !user.username
-    ){
-
-        return;
-
-    }
-
-
-    /* ---------------------------------------------
-       CURRENT ACCOUNT
-    --------------------------------------------- */
-
     localStorage.setItem(
-        "linkcashAccount",
-        JSON.stringify(user)
+        "linkcashAccounts",
+        JSON.stringify(accounts)
     );
 
 
-    /* ---------------------------------------------
-       CURRENT USER
-    --------------------------------------------- */
-
     localStorage.setItem(
-        "linkcashUser",
-        JSON.stringify(user)
+        "linkcashUsers",
+        JSON.stringify(accounts)
     );
-
-
-    /* ---------------------------------------------
-       LOGGED-IN USER
-    --------------------------------------------- */
-
-    localStorage.setItem(
-        "linkcashLoggedInUser",
-        JSON.stringify(user)
-    );
-
-
-    /* ---------------------------------------------
-       MAIN ACCOUNTS
-    --------------------------------------------- */
-
-    try{
-
-        let accounts =
-            JSON.parse(
-                localStorage.getItem(
-                    "linkcashAccounts"
-                ) || "[]"
-            );
-
-
-        if(
-            !Array.isArray(accounts)
-        ){
-
-            accounts = [];
-
-        }
-
-
-        const index =
-            accounts.findIndex(
-                function(item){
-
-                    return (
-                        normalizeUsername(
-                            item.username
-                        )
-                        ===
-                        normalizeUsername(
-                            user.username
-                        )
-                    );
-
-                }
-            );
-
-
-        if(index >= 0){
-
-            /*
-               Merge instead of replacing
-               referral/sponsor information.
-            */
-
-            accounts[index] = {
-
-                ...accounts[index],
-
-                ...user
-
-            };
-
-        }else{
-
-            accounts.push(user);
-
-        }
-
-
-        localStorage.setItem(
-            "linkcashAccounts",
-            JSON.stringify(accounts)
-        );
-
-    }catch(error){}
-
-
-    /* ---------------------------------------------
-       USERS LIST
-    --------------------------------------------- */
-
-    try{
-
-        let users =
-            JSON.parse(
-                localStorage.getItem(
-                    "linkcashUsers"
-                ) || "[]"
-            );
-
-
-        if(
-            !Array.isArray(users)
-        ){
-
-            users = [];
-
-        }
-
-
-        const index =
-            users.findIndex(
-                function(item){
-
-                    return (
-                        normalizeUsername(
-                            item.username
-                        )
-                        ===
-                        normalizeUsername(
-                            user.username
-                        )
-                    );
-
-                }
-            );
-
-
-        if(index >= 0){
-
-            users[index] = {
-
-                ...users[index],
-
-                ...user
-
-            };
-
-        }else{
-
-            users.push(user);
-
-        }
-
-
-        localStorage.setItem(
-            "linkcashUsers",
-            JSON.stringify(users)
-        );
-
-    }catch(error){}
 
 }
 
 
-/* =================================================
+/* =====================================================
    FIND USER
-================================================= */
+===================================================== */
 
 function findUser(
     username,
@@ -1076,7 +884,6 @@ function findUser(
             username
         );
 
-
     const enteredPassword =
         String(
             password || ""
@@ -1087,49 +894,789 @@ function findUser(
         getAllAccounts();
 
 
-    const user =
-        accounts.find(
-            function(account){
+    return accounts.find(
+        function(account){
 
-                const savedUsername =
-                    normalizeUsername(
-                        account.username
-                    );
+            return (
+
+                normalizeUsername(
+                    account.username
+                ) === enteredUsername
+
+                &&
+
+                String(
+                    account.password || ""
+                ) === enteredPassword
+
+            );
+
+        }
+    ) || null;
+
+}
 
 
-                const savedPassword =
-                    String(
-                        account.password || ""
-                    );
+/* =====================================================
+   GET REFERRER
+===================================================== */
 
+function getReferrerUsername(
+    user
+){
+
+    if(!user){
+        return "";
+    }
+
+
+    /*
+       Support different names
+       that your register page
+       may already be using.
+    */
+
+    const possibleFields = [
+
+        "referrerUsername",
+
+        "referralUsername",
+
+        "referredBy",
+
+        "sponsorUsername",
+
+        "sponsor",
+
+        "parentUsername",
+
+        "upline",
+
+        "ref"
+
+    ];
+
+
+    for(
+        let i = 0;
+        i < possibleFields.length;
+        i++
+    ){
+
+        const field =
+            possibleFields[i];
+
+
+        const value =
+            user[field];
+
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ){
+
+            return normalizeUsername(
+                value
+            );
+
+        }
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =====================================================
+   FIND ACCOUNT BY USERNAME
+===================================================== */
+
+function findAccountByUsername(
+    username,
+    accounts
+){
+
+    const wanted =
+        normalizeUsername(
+            username
+        );
+
+
+    if(!wanted){
+        return null;
+    }
+
+
+    return accounts.find(
+        function(account){
+
+            return (
+                normalizeUsername(
+                    account.username
+                ) === wanted
+            );
+
+        }
+    ) || null;
+
+}
+
+
+/* =====================================================
+   GET BALANCE
+===================================================== */
+
+function getBalance(
+    user
+){
+
+    const possibleValues = [
+
+        user.balance,
+
+        user.walletBalance,
+
+        user.earnings,
+
+        user.commissionBalance
+
+    ];
+
+
+    for(
+        let i = 0;
+        i < possibleValues.length;
+        i++
+    ){
+
+        const value =
+            Number(
+                possibleValues[i]
+            );
+
+
+        if(
+            Number.isFinite(value)
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =====================================================
+   SET BALANCE
+===================================================== */
+
+function setBalance(
+    user,
+    amount
+){
+
+    const safeAmount =
+        Math.max(
+            0,
+            Number(amount) || 0
+        );
+
+
+    /*
+       Main balance field
+    */
+
+    user.balance =
+        safeAmount;
+
+
+    /*
+       Keep commission balance
+       available as well.
+    */
+
+    user.commissionBalance =
+        safeAmount;
+
+
+    user.updatedAt =
+        new Date().toISOString();
+
+}
+
+
+/* =====================================================
+   COMMISSION LEDGER
+===================================================== */
+
+function getCommissionLedger(){
+
+    try{
+
+        const data =
+            localStorage.getItem(
+                "linkcashCommissionLedger"
+            );
+
+
+        if(!data){
+            return [];
+        }
+
+
+        const parsed =
+            JSON.parse(data);
+
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+/* =====================================================
+   SAVE COMMISSION LEDGER
+===================================================== */
+
+function saveCommissionLedger(
+    ledger
+){
+
+    localStorage.setItem(
+        "linkcashCommissionLedger",
+        JSON.stringify(ledger)
+    );
+
+}
+
+
+/* =====================================================
+   COMMISSION ID
+===================================================== */
+
+function createCommissionId(){
+
+    return (
+
+        "COM-" +
+
+        Date.now() +
+
+        "-" +
+
+        Math.random()
+            .toString(36)
+            .substring(2,8)
+
+    );
+
+}
+
+
+/* =====================================================
+   CHECK IF COMMISSION ALREADY EXISTS
+===================================================== */
+
+function commissionAlreadyProcessed(
+    activationKey
+){
+
+    const ledger =
+        getCommissionLedger();
+
+
+    return ledger.some(
+        function(item){
+
+            return (
+                item.activationKey ===
+                activationKey
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   AUTOMATIC COMMISSION
+===================================================== */
+
+function distributeAutomaticCommission(
+    activatedUser
+){
+
+    /*
+       Only active/activated accounts
+       can trigger commissions.
+    */
+
+    const status =
+        String(
+            activatedUser.status ||
+            ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    if(
+        status !== "active" &&
+        status !== "activated"
+    ){
+
+        return {
+
+            processed:false,
+
+            reason:"Account is not active."
+
+        };
+
+    }
+
+
+    const username =
+        normalizeUsername(
+            activatedUser.username
+        );
+
+
+    if(!username){
+
+        return {
+
+            processed:false,
+
+            reason:"Username missing."
+
+        };
+
+    }
+
+
+    /*
+       Unique activation key.
+
+       If register.html provides
+       activationId / paymentReference,
+       it is used.
+
+       Otherwise username +
+       activation timestamp is used.
+    */
+
+    const activationReference =
+        String(
+
+            activatedUser.activationId ||
+
+            activatedUser.paymentReference ||
+
+            activatedUser.transactionId ||
+
+            activatedUser.activationReference ||
+
+            activatedUser.activatedAt ||
+
+            activatedUser.updatedAt ||
+
+            username
+
+        );
+
+
+    const activationKey =
+        username +
+        "|" +
+        activationReference;
+
+
+    /*
+       Prevent duplicate commission.
+    */
+
+    if(
+        commissionAlreadyProcessed(
+            activationKey
+        )
+    ){
+
+        return {
+
+            processed:false,
+
+            alreadyProcessed:true,
+
+            reason:
+                "Commission already processed."
+
+        };
+
+    }
+
+
+    let accounts =
+        getAllAccounts();
+
+
+    let currentUser =
+        findAccountByUsername(
+            username,
+            accounts
+        );
+
+
+    if(!currentUser){
+
+        return {
+
+            processed:false,
+
+            reason:
+                "Activated user was not found."
+
+        };
+
+    }
+
+
+    const ledger =
+        getCommissionLedger();
+
+
+    /*
+       Start from the direct sponsor.
+    */
+
+    let sponsorUsername =
+        getReferrerUsername(
+            currentUser
+        );
+
+
+    const results = [];
+
+
+    /*
+       LEVEL 1 - 7000
+       LEVEL 2 - 3500
+       LEVEL 3 - 2000
+       LEVEL 4 - 1000
+    */
+
+    for(
+        let level = 1;
+        level <= 4;
+        level++
+    ){
+
+        const commission =
+            COMMISSION_RATES[level];
+
+
+        if(!sponsorUsername){
+
+            results.push({
+
+                level:level,
+
+                amount:commission,
+
+                recipient:null,
+
+                status:"unassigned"
+
+            });
+
+            continue;
+
+        }
+
+
+        const sponsor =
+            findAccountByUsername(
+                sponsorUsername,
+                accounts
+            );
+
+
+        if(!sponsor){
+
+            results.push({
+
+                level:level,
+
+                amount:commission,
+
+                recipient:
+                    sponsorUsername,
+
+                status:"unassigned"
+
+            });
+
+            /*
+               Cannot continue the
+               upline if sponsor
+               doesn't exist.
+            */
+
+            sponsorUsername = "";
+
+            continue;
+
+        }
+
+
+        /*
+           Prevent paying a person
+           twice in the same level.
+        */
+
+        const recipient =
+            normalizeUsername(
+                sponsor.username
+            );
+
+
+        const oldBalance =
+            getBalance(
+                sponsor
+            );
+
+
+        const newBalance =
+            oldBalance +
+            commission;
+
+
+        setBalance(
+            sponsor,
+            newBalance
+        );
+
+
+        /*
+           Record commission.
+        */
+
+        const commissionRecord = {
+
+            id:
+                createCommissionId(),
+
+            activationKey:
+                activationKey,
+
+            sourceUser:
+                username,
+
+            recipient:
+                recipient,
+
+            level:
+                level,
+
+            amount:
+                commission,
+
+            status:
+                "credited",
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        ledger.push(
+            commissionRecord
+        );
+
+
+        results.push({
+
+            level:
+                level,
+
+            amount:
+                commission,
+
+            recipient:
+                recipient,
+
+            status:
+                "credited"
+
+        });
+
+
+        /*
+           Move upward.
+
+           Sponsor's sponsor becomes
+           the next level recipient.
+        */
+
+        sponsorUsername =
+            getReferrerUsername(
+                sponsor
+            );
+
+    }
+
+
+    /*
+       Mark this activation as processed
+       even when one or more levels
+       were unassigned.
+    */
+
+    ledger.push({
+
+        id:
+            createCommissionId(),
+
+        activationKey:
+            activationKey,
+
+        sourceUser:
+            username,
+
+        type:
+            "activation_commission_processed",
+
+        createdAt:
+            new Date().toISOString(),
+
+        levels:
+            results
+
+    });
+
+
+    saveCommissionLedger(
+        ledger
+    );
+
+
+    saveAllAccounts(
+        accounts
+    );
+
+
+    return {
+
+        processed:true,
+
+        activationKey:
+            activationKey,
+
+        results:
+            results
+
+    };
+
+}
+
+
+/* =====================================================
+   SAVE LOGGED-IN USER
+===================================================== */
+
+function saveLoggedInUser(
+    user
+){
+
+    localStorage.setItem(
+        "linkcashAccount",
+        JSON.stringify(user)
+    );
+
+
+    localStorage.setItem(
+        "linkcashUser",
+        JSON.stringify(user)
+    );
+
+
+    localStorage.setItem(
+        "linkcashLoggedInUser",
+        JSON.stringify(user)
+    );
+
+
+    /*
+       Update account lists.
+    */
+
+    let accounts =
+        getAllAccounts();
+
+
+    const username =
+        normalizeUsername(
+            user.username
+        );
+
+
+    const index =
+        accounts.findIndex(
+            function(item){
 
                 return (
-
-                    savedUsername ===
-                    enteredUsername
-
-                    &&
-
-                    savedPassword ===
-                    enteredPassword
-
+                    normalizeUsername(
+                        item.username
+                    ) === username
                 );
 
             }
         );
 
 
-    return user || null;
+    if(index >= 0){
+
+        accounts[index] =
+            user;
+
+    }else{
+
+        accounts.push(
+            user
+        );
+
+    }
+
+
+    saveAllAccounts(
+        accounts
+    );
 
 }
 
 
-/* =================================================
+/* =====================================================
    CEO LOGIN
-   ================================================
-   HII NI SYSTEM YA CEO ILIYOPO.
-   HAIBADILISHWI.
-================================================= */
+   HAPA HAKUNA COMMISSION LOGIC
+===================================================== */
 
 function loginCEO(
     username
@@ -1178,6 +1725,11 @@ function loginCEO(
     );
 
 
+    /*
+       CEO goes directly
+       to CEO dashboard.
+    */
+
     window.location.replace(
         "ceodashboard.html"
     );
@@ -1185,17 +1737,16 @@ function loginCEO(
 }
 
 
-/* =================================================
-   NORMAL MEMBER LOGIN
-================================================= */
+/* =====================================================
+   NORMAL USER LOGIN
+===================================================== */
 
 function loginUser(
     user
 ){
 
     /*
-       Hifadhi account kamili.
-       Referral/sponsor data haifutwi.
+       Save current account.
     */
 
     saveLoggedInUser(
@@ -1212,27 +1763,75 @@ function loginUser(
         .toLowerCase();
 
 
-    /* =================================================
-       ACTIVE
+    /* ================================================
+       ACTIVE USER
     ================================================= */
 
     if(
-        status === "active"
-        ||
+        status === "active" ||
         status === "activated"
     ){
+
+        /*
+           AUTOMATIC COMMISSION
+
+           This runs only once for the
+           activation because the ledger
+           keeps an activation key.
+        */
+
+        const commissionResult =
+            distributeAutomaticCommission(
+                user
+            );
+
+
+        /*
+           Reload account after commission
+           because the sponsor balances
+           may have changed.
+        */
+
+        const refreshedAccounts =
+            getAllAccounts();
+
+
+        const refreshedUser =
+            findAccountByUsername(
+                user.username,
+                refreshedAccounts
+            );
+
+
+        if(refreshedUser){
+
+            localStorage.setItem(
+                "linkcashAccount",
+                JSON.stringify(
+                    refreshedUser
+                )
+            );
+
+            localStorage.setItem(
+                "linkcashUser",
+                JSON.stringify(
+                    refreshedUser
+                )
+            );
+
+            localStorage.setItem(
+                "linkcashLoggedInUser",
+                JSON.stringify(
+                    refreshedUser
+                )
+            );
+
+        }
+
 
         localStorage.setItem(
             "linkcashLoggedIn",
             "true"
-        );
-
-
-        localStorage.setItem(
-            "linkcashLoggedInUser",
-            JSON.stringify(
-                user
-            )
         );
 
 
@@ -1241,10 +1840,56 @@ function loginUser(
         );
 
 
-        showMessage(
-            "Login successful. Opening dashboard...",
-            "success"
-        );
+        /*
+           Commission message.
+
+           It is only a local record,
+           not actual mobile-money transfer.
+        */
+
+        if(
+            commissionResult &&
+            commissionResult.processed
+        ){
+
+            const credited =
+                commissionResult.results
+                .filter(
+                    function(item){
+
+                        return (
+                            item.status ===
+                            "credited"
+                        );
+
+                    }
+                );
+
+
+            if(credited.length > 0){
+
+                showMessage(
+                    "Login successful. Your account and commission network have been updated.",
+                    "success"
+                );
+
+            }else{
+
+                showMessage(
+                    "Login successful. No eligible sponsor was found for the commission levels.",
+                    "success"
+                );
+
+            }
+
+        }else{
+
+            showMessage(
+                "Login successful. Opening dashboard...",
+                "success"
+            );
+
+        }
 
 
         setTimeout(
@@ -1255,7 +1900,7 @@ function loginUser(
                 );
 
             },
-            500
+            700
         );
 
 
@@ -1264,8 +1909,8 @@ function loginUser(
     }
 
 
-    /* =================================================
-       PENDING
+    /* ================================================
+       PENDING USER
     ================================================= */
 
     if(
@@ -1279,9 +1924,7 @@ function loginUser(
 
         localStorage.setItem(
             "linkcashPendingUser",
-            JSON.stringify(
-                user
-            )
+            JSON.stringify(user)
         );
 
 
@@ -1308,8 +1951,8 @@ function loginUser(
     }
 
 
-    /* =================================================
-       REJECTED
+    /* ================================================
+       REJECTED USER
     ================================================= */
 
     if(
@@ -1323,9 +1966,7 @@ function loginUser(
 
         localStorage.setItem(
             "linkcashPendingUser",
-            JSON.stringify(
-                user
-            )
+            JSON.stringify(user)
         );
 
 
@@ -1352,7 +1993,7 @@ function loginUser(
     }
 
 
-    /* =================================================
+    /* ================================================
        UNKNOWN STATUS
     ================================================= */
 
@@ -1363,9 +2004,7 @@ function loginUser(
 
     localStorage.setItem(
         "linkcashPendingUser",
-        JSON.stringify(
-            user
-        )
+        JSON.stringify(user)
     );
 
 
@@ -1389,15 +2028,16 @@ function loginUser(
 }
 
 
-/* =================================================
+/* =====================================================
    LOGIN FORM
-================================================= */
+===================================================== */
 
 loginForm.addEventListener(
     "submit",
     function(event){
 
         event.preventDefault();
+
 
         hideMessage();
 
@@ -1417,7 +2057,9 @@ loginForm.addEventListener(
                 "error"
             );
 
+
             usernameInput.focus();
+
 
             return;
 
@@ -1431,7 +2073,9 @@ loginForm.addEventListener(
                 "error"
             );
 
+
             passwordInput.focus();
+
 
             return;
 
@@ -1453,16 +2097,15 @@ loginForm.addEventListener(
 
                 /* =====================================
                    CEO LOGIN
-                   =====================================
-                   HAIJAVURUGWA.
-                */
+                   ORIGINAL LOGIC PRESERVED
+                ===================================== */
 
                 if(
 
                     normalizeUsername(
                         username
-                    )
-                    ===
+                    ) ===
+
                     normalizeUsername(
                         CEO_USERNAME
                     )
@@ -1478,13 +2121,14 @@ loginForm.addEventListener(
                         username
                     );
 
+
                     return;
 
                 }
 
 
                 /* =====================================
-                   MEMBER LOGIN
+                   NORMAL USER LOGIN
                 ===================================== */
 
                 const user =
@@ -1540,6 +2184,10 @@ loginForm.addEventListener(
                 }
 
 
+                /*
+                   Continue normal user login.
+                */
+
                 loginUser(
                     user
                 );
@@ -1553,9 +2201,9 @@ loginForm.addEventListener(
 );
 
 
-/* =================================================
+/* =====================================================
    SHOW / HIDE PASSWORD
-================================================= */
+===================================================== */
 
 document
 .getElementById(
@@ -1604,9 +2252,9 @@ document
 );
 
 
-/* =================================================
+/* =====================================================
    FORGOT PASSWORD
-================================================= */
+===================================================== */
 
 function forgotPassword(
     event
@@ -1623,9 +2271,9 @@ function forgotPassword(
 }
 
 
-/* =================================================
+/* =====================================================
    REMEMBERED USERNAME
-================================================= */
+===================================================== */
 
 const remembered =
     localStorage.getItem(
@@ -1654,4 +2302,4 @@ if(remembered){
 </script>
 
 </body>
-    </html>
+</html>
