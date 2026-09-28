@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#050505">
+
 <title>LINKCASH - Secure Login</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,11 +18,19 @@
 
 body{
     min-height:100vh;
-    background:radial-gradient(circle at top,#1c1607 0,#090909 32%,#050505 65%);
+    background:
+        radial-gradient(
+            circle at top,
+            #1c1607 0,
+            #090909 32%,
+            #050505 65%
+        );
     color:#fff;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     padding:20px;
 }
 
@@ -31,77 +41,125 @@ body{
 
 .login-card{
     background:rgba(15,15,15,.96);
+
     border:1px solid #292929;
+
     border-radius:28px;
+
     padding:30px 22px 24px;
-    box-shadow:0 25px 80px rgba(0,0,0,.65);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.65);
 }
 
 .brand{
     text-align:center;
+
     margin-bottom:27px;
 }
 
 .logo{
     width:64px;
     height:64px;
+
     margin:0 auto 15px;
+
     border-radius:18px;
-    background:linear-gradient(145deg,#ffe082,#d4a72c,#8f6b12);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe082,
+            #d4a72c,
+            #8f6b12
+        );
+
     color:#050505;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:18px;
     font-weight:900;
 }
 
 .brand h1{
     font-size:25px;
+
     letter-spacing:1px;
 }
 
 .brand p{
     color:#666;
+
     font-size:10px;
+
     margin-top:7px;
 }
 
 .secure-badge{
     display:inline-flex;
+
     align-items:center;
+
     gap:6px;
+
     margin-top:12px;
+
     padding:7px 11px;
+
     border-radius:20px;
-    background:rgba(88,216,138,.06);
-    border:1px solid rgba(88,216,138,.18);
+
+    background:
+        rgba(88,216,138,.06);
+
+    border:
+        1px solid rgba(88,216,138,.18);
+
     color:#58d88a;
+
     font-size:8px;
+
     font-weight:900;
 }
 
 .message{
     display:none;
+
     padding:12px;
+
     border-radius:11px;
+
     font-size:10px;
+
     text-align:center;
+
     margin-bottom:15px;
 }
 
 .message.error{
     display:block;
+
     color:#ff7777;
-    background:rgba(255,70,70,.07);
-    border:1px solid rgba(255,70,70,.22);
+
+    background:
+        rgba(255,70,70,.07);
+
+    border:
+        1px solid rgba(255,70,70,.22);
 }
 
 .message.success{
     display:block;
+
     color:#58d88a;
-    background:rgba(88,216,138,.07);
-    border:1px solid rgba(88,216,138,.22);
+
+    background:
+        rgba(88,216,138,.07);
+
+    border:
+        1px solid rgba(88,216,138,.22);
 }
 
 .field{
@@ -114,8 +172,11 @@ body{
 
 label{
     color:#aaa;
+
     font-size:9px;
+
     font-weight:900;
+
     letter-spacing:.7px;
 }
 
@@ -125,13 +186,21 @@ label{
 
 input{
     width:100%;
+
     height:51px;
+
     border-radius:12px;
+
     border:1px solid #292929;
+
     background:#080808;
+
     color:#fff;
+
     padding:0 45px 0 14px;
+
     outline:none;
+
     font-size:12px;
 }
 
@@ -141,143 +210,223 @@ input::placeholder{
 
 input:focus{
     border-color:#d4a72c;
-    box-shadow:0 0 0 3px rgba(212,167,44,.07);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212,167,44,.07);
 }
 
 .input-icon{
     position:absolute;
+
     right:14px;
+
     top:50%;
-    transform:translateY(-50%);
+
+    transform:
+        translateY(-50%);
+
     color:#666;
+
     font-size:15px;
+
     pointer-events:none;
 }
 
 .password-toggle{
     position:absolute;
+
     right:10px;
+
     top:50%;
-    transform:translateY(-50%);
+
+    transform:
+        translateY(-50%);
+
     width:32px;
     height:32px;
+
     border:0;
+
     background:transparent;
+
     color:#777;
+
     cursor:pointer;
+
     font-size:14px;
 }
 
 .options{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     margin:3px 0 18px;
 }
 
 .remember{
     display:flex;
+
     align-items:center;
+
     gap:7px;
+
     color:#666;
+
     font-size:9px;
+
     cursor:pointer;
 }
 
 .remember input{
     width:15px;
     height:15px;
+
     margin:0;
+
     padding:0;
+
     accent-color:#d4a72c;
 }
 
 .forgot{
     color:#d4a72c;
+
     text-decoration:none;
+
     font-size:9px;
 }
 
 .login-btn{
     width:100%;
+
     height:51px;
-    border:1px solid #d4a72c;
+
+    border:
+        1px solid #d4a72c;
+
     border-radius:12px;
-    background:linear-gradient(135deg,rgba(255,224,130,.16),rgba(212,167,44,.07));
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,224,130,.16),
+            rgba(212,167,44,.07)
+        );
+
     color:#d4a72c;
+
     font-size:11px;
+
     font-weight:900;
+
     cursor:pointer;
 }
 
 .login-btn.loading{
     opacity:.65;
+
     pointer-events:none;
 }
 
 .divider{
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     margin:22px 0;
 }
 
 .divider span{
     height:1px;
+
     flex:1;
+
     background:#222;
 }
 
 .divider small{
     color:#555;
+
     font-size:8px;
 }
 
 .register-box{
     text-align:center;
+
     padding:15px;
+
     border-radius:13px;
+
     background:#0b0b0b;
+
     border:1px solid #202020;
 }
 
 .register-box p{
     color:#666;
+
     font-size:9px;
 }
 
 .register-box a{
     display:inline-block;
+
     margin-top:7px;
+
     color:#d4a72c;
+
     text-decoration:none;
+
     font-size:10px;
+
     font-weight:900;
 }
 
 .footer{
     text-align:center;
+
     color:#444;
+
     font-size:8px;
+
     margin-top:18px;
+
     line-height:1.7;
 }
 
 .loading-dot{
     display:inline-block;
+
     animation:pulse 1s infinite;
 }
 
 @keyframes pulse{
-    0%,100%{opacity:.3}
-    50%{opacity:1}
+
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+
 }
 
 @media(max-width:360px){
+
     .login-card{
-        padding:25px 17px 21px;
+        padding:
+            25px 17px 21px;
     }
+
 }
+
 </style>
 </head>
 
@@ -289,11 +438,17 @@ input:focus{
 
 <div class="brand">
 
-<div class="logo">LC</div>
+<div class="logo">
+LC
+</div>
 
-<h1>Welcome Back</h1>
+<h1>
+Welcome Back
+</h1>
 
-<p>Secure access to your LINKCASH account</p>
+<p>
+Secure access to your LINKCASH account
+</p>
 
 <div class="secure-badge">
 🔒 SECURE LOGIN
@@ -301,15 +456,28 @@ input:focus{
 
 </div>
 
-<div id="message" class="message"></div>
 
-<form id="loginForm" autocomplete="on">
+<div
+id="message"
+class="message">
+</div>
+
+
+<form
+id="loginForm"
+autocomplete="on"
+>
 
 <div class="field">
 
 <div class="field-head">
-<label for="username">USERNAME</label>
+
+<label for="username">
+USERNAME
+</label>
+
 </div>
+
 
 <div class="input-wrap">
 
@@ -323,17 +491,25 @@ maxlength="50"
 required
 >
 
-<div class="input-icon">👤</div>
-
+<div class="input-icon">
+👤
 </div>
 
 </div>
+
+</div>
+
 
 <div class="field">
 
 <div class="field-head">
-<label for="password">PASSWORD</label>
+
+<label for="password">
+PASSWORD
+</label>
+
 </div>
+
 
 <div class="input-wrap">
 
@@ -352,21 +528,30 @@ type="button"
 class="password-toggle"
 id="togglePassword"
 aria-label="Show password"
->👁</button>
+>
+👁
+</button>
 
 </div>
 
 </div>
+
 
 <div class="options">
 
 <label class="remember">
 
-<input type="checkbox" id="remember">
+<input
+type="checkbox"
+id="remember"
+>
 
-<span>Remember me</span>
+<span>
+Remember me
+</span>
 
 </label>
+
 
 <a
 href="#"
@@ -378,6 +563,7 @@ Forgot password?
 
 </div>
 
+
 <button
 type="submit"
 class="login-btn"
@@ -388,17 +574,25 @@ LOGIN TO LINKCASH
 
 </form>
 
+
 <div class="divider">
 
 <span></span>
-<small>LINKCASH</small>
+
+<small>
+LINKCASH
+</small>
+
 <span></span>
 
 </div>
 
+
 <div class="register-box">
 
-<p>Don't have a LINKCASH account?</p>
+<p>
+Don't have a LINKCASH account?
+</p>
 
 <a href="register.html">
 CREATE ACCOUNT
@@ -408,51 +602,74 @@ CREATE ACCOUNT
 
 </div>
 
+
 <div class="footer">
+
 © 2026 LINKCASH<br>
+
 Member access portal
+
 </div>
 
 </div>
+
 
 <script>
 
-/* =========================================
-   CEO
-========================================= */
+/* =================================================
+   CEO LOGIN
+   ================================================
+   HAIJABADILISHWA.
+================================================= */
 
 const CEO_USERNAME = "ceo";
+
 const CEO_PASSWORD = "CEO12345";
 
 
-/* =========================================
+/* =================================================
    ELEMENTS
-========================================= */
+================================================= */
 
 const loginForm =
-    document.getElementById("loginForm");
+    document.getElementById(
+        "loginForm"
+    );
 
 const usernameInput =
-    document.getElementById("username");
+    document.getElementById(
+        "username"
+    );
 
 const passwordInput =
-    document.getElementById("password");
+    document.getElementById(
+        "password"
+    );
 
 const loginBtn =
-    document.getElementById("loginBtn");
+    document.getElementById(
+        "loginBtn"
+    );
 
 const message =
-    document.getElementById("message");
+    document.getElementById(
+        "message"
+    );
 
 const remember =
-    document.getElementById("remember");
+    document.getElementById(
+        "remember"
+    );
 
 
-/* =========================================
+/* =================================================
    MESSAGE
-========================================= */
+================================================= */
 
-function showMessage(text,type){
+function showMessage(
+    text,
+    type
+){
 
     message.className =
         "message " + type;
@@ -461,6 +678,7 @@ function showMessage(text,type){
         text;
 
 }
+
 
 function hideMessage(){
 
@@ -473,30 +691,35 @@ function hideMessage(){
 }
 
 
-/* =========================================
+/* =================================================
    NORMALIZE USERNAME
-========================================= */
+================================================= */
 
-function normalizeUsername(value){
+function normalizeUsername(
+    value
+){
 
-    return String(value || "")
-        .trim()
-        .toLowerCase();
+    return String(
+        value || ""
+    )
+    .trim()
+    .toLowerCase();
 
 }
 
 
-/* =========================================
+/* =================================================
    GET ALL ACCOUNTS
-========================================= */
+================================================= */
 
 function getAllAccounts(){
 
     const accounts = [];
 
-    /*
-       Main accounts storage
-    */
+
+    /* ---------------------------------------------
+       linkcashAccounts
+    --------------------------------------------- */
 
     try{
 
@@ -512,15 +735,22 @@ function getAllAccounts(){
 
             if(Array.isArray(parsed)){
 
-                parsed.forEach(function(user){
+                parsed.forEach(
+                    function(user){
 
-                    if(user && user.username){
+                        if(
+                            user &&
+                            user.username
+                        ){
 
-                        accounts.push(user);
+                            accounts.push(
+                                user
+                            );
+
+                        }
 
                     }
-
-                });
+                );
 
             }
 
@@ -529,9 +759,9 @@ function getAllAccounts(){
     }catch(error){}
 
 
-    /*
-       Backup users storage
-    */
+    /* ---------------------------------------------
+       linkcashUsers
+    --------------------------------------------- */
 
     try{
 
@@ -547,15 +777,22 @@ function getAllAccounts(){
 
             if(Array.isArray(parsed)){
 
-                parsed.forEach(function(user){
+                parsed.forEach(
+                    function(user){
 
-                    if(user && user.username){
+                        if(
+                            user &&
+                            user.username
+                        ){
 
-                        accounts.push(user);
+                            accounts.push(
+                                user
+                            );
+
+                        }
 
                     }
-
-                });
+                );
 
             }
 
@@ -564,9 +801,9 @@ function getAllAccounts(){
     }catch(error){}
 
 
-    /*
-       Old/current account storage
-    */
+    /* ---------------------------------------------
+       linkcashAccount
+    --------------------------------------------- */
 
     try{
 
@@ -586,7 +823,9 @@ function getAllAccounts(){
                 parsed.username
             ){
 
-                accounts.push(parsed);
+                accounts.push(
+                    parsed
+                );
 
             }
 
@@ -595,50 +834,68 @@ function getAllAccounts(){
     }catch(error){}
 
 
-    /*
-       Remove duplicates.
-       linkcashAccounts is preferred.
-    */
+    /* ---------------------------------------------
+       REMOVE DUPLICATES
+    --------------------------------------------- */
 
     const unique = {};
 
-    accounts.forEach(function(user){
 
-        const username =
-            normalizeUsername(
-                user.username
-            );
+    accounts.forEach(
+        function(user){
 
-        if(!username){
-            return;
+            const username =
+                normalizeUsername(
+                    user.username
+                );
+
+            if(!username){
+                return;
+            }
+
+
+            unique[username] = {
+
+                ...unique[username],
+
+                ...user
+
+            };
+
         }
+    );
 
-        /*
-           If duplicate exists,
-           prefer account with latest data.
-        */
 
-        unique[username] = {
-            ...unique[username],
-            ...user
-        };
-
-    });
-
-    return Object.values(unique);
+    return Object.values(
+        unique
+    );
 
 }
 
 
-/* =========================================
-   SAVE USER TO ALL USER STORAGE
-========================================= */
+/* =================================================
+   SAVE LOGGED-IN USER
+   ================================================
+   Referral / sponsor data is preserved.
+================================================= */
 
-function saveLoggedInUser(user){
+function saveLoggedInUser(
+    user
+){
 
-    /*
-       Current account
-    */
+    if(
+        !user ||
+        !user.username
+    ){
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       CURRENT ACCOUNT
+    --------------------------------------------- */
 
     localStorage.setItem(
         "linkcashAccount",
@@ -646,9 +903,9 @@ function saveLoggedInUser(user){
     );
 
 
-    /*
-       Current user
-    */
+    /* ---------------------------------------------
+       CURRENT USER
+    --------------------------------------------- */
 
     localStorage.setItem(
         "linkcashUser",
@@ -656,9 +913,9 @@ function saveLoggedInUser(user){
     );
 
 
-    /*
-       Logged in user
-    */
+    /* ---------------------------------------------
+       LOGGED-IN USER
+    --------------------------------------------- */
 
     localStorage.setItem(
         "linkcashLoggedInUser",
@@ -666,9 +923,9 @@ function saveLoggedInUser(user){
     );
 
 
-    /*
-       Update main accounts list
-    */
+    /* ---------------------------------------------
+       MAIN ACCOUNTS
+    --------------------------------------------- */
 
     try{
 
@@ -679,30 +936,55 @@ function saveLoggedInUser(user){
                 ) || "[]"
             );
 
-        if(!Array.isArray(accounts)){
-            accounts=[];
+
+        if(
+            !Array.isArray(accounts)
+        ){
+
+            accounts = [];
+
         }
 
+
         const index =
-            accounts.findIndex(function(item){
+            accounts.findIndex(
+                function(item){
 
-                return normalizeUsername(
-                    item.username
-                ) === normalizeUsername(
-                    user.username
-                );
+                    return (
+                        normalizeUsername(
+                            item.username
+                        )
+                        ===
+                        normalizeUsername(
+                            user.username
+                        )
+                    );
 
-            });
+                }
+            );
+
 
         if(index >= 0){
 
-            accounts[index]=user;
+            /*
+               Merge instead of replacing
+               referral/sponsor information.
+            */
+
+            accounts[index] = {
+
+                ...accounts[index],
+
+                ...user
+
+            };
 
         }else{
 
             accounts.push(user);
 
         }
+
 
         localStorage.setItem(
             "linkcashAccounts",
@@ -712,9 +994,9 @@ function saveLoggedInUser(user){
     }catch(error){}
 
 
-    /*
-       Update users list
-    */
+    /* ---------------------------------------------
+       USERS LIST
+    --------------------------------------------- */
 
     try{
 
@@ -725,30 +1007,50 @@ function saveLoggedInUser(user){
                 ) || "[]"
             );
 
-        if(!Array.isArray(users)){
-            users=[];
+
+        if(
+            !Array.isArray(users)
+        ){
+
+            users = [];
+
         }
 
+
         const index =
-            users.findIndex(function(item){
+            users.findIndex(
+                function(item){
 
-                return normalizeUsername(
-                    item.username
-                ) === normalizeUsername(
-                    user.username
-                );
+                    return (
+                        normalizeUsername(
+                            item.username
+                        )
+                        ===
+                        normalizeUsername(
+                            user.username
+                        )
+                    );
 
-            });
+                }
+            );
+
 
         if(index >= 0){
 
-            users[index]=user;
+            users[index] = {
+
+                ...users[index],
+
+                ...user
+
+            };
 
         }else{
 
             users.push(user);
 
         }
+
 
         localStorage.setItem(
             "linkcashUsers",
@@ -760,17 +1062,25 @@ function saveLoggedInUser(user){
 }
 
 
-/* =========================================
-   FIND REGISTERED USER
-========================================= */
+/* =================================================
+   FIND USER
+================================================= */
 
-function findUser(username,password){
+function findUser(
+    username,
+    password
+){
 
     const enteredUsername =
-        normalizeUsername(username);
+        normalizeUsername(
+            username
+        );
+
 
     const enteredPassword =
-        String(password || "");
+        String(
+            password || ""
+        );
 
 
     const accounts =
@@ -778,24 +1088,35 @@ function findUser(username,password){
 
 
     const user =
-        accounts.find(function(account){
+        accounts.find(
+            function(account){
 
-            const savedUsername =
-                normalizeUsername(
-                    account.username
+                const savedUsername =
+                    normalizeUsername(
+                        account.username
+                    );
+
+
+                const savedPassword =
+                    String(
+                        account.password || ""
+                    );
+
+
+                return (
+
+                    savedUsername ===
+                    enteredUsername
+
+                    &&
+
+                    savedPassword ===
+                    enteredPassword
+
                 );
 
-            const savedPassword =
-                String(
-                    account.password || ""
-                );
-
-            return (
-                savedUsername === enteredUsername &&
-                savedPassword === enteredPassword
-            );
-
-        });
+            }
+        );
 
 
     return user || null;
@@ -803,16 +1124,22 @@ function findUser(username,password){
 }
 
 
-/* =========================================
+/* =================================================
    CEO LOGIN
-========================================= */
+   ================================================
+   HII NI SYSTEM YA CEO ILIYOPO.
+   HAIBADILISHWI.
+================================================= */
 
-function loginCEO(username){
+function loginCEO(
+    username
+){
 
     localStorage.setItem(
         "linkcashCEOLoggedIn",
         "true"
     );
+
 
     localStorage.setItem(
         "linkcashCEO",
@@ -830,10 +1157,12 @@ function loginCEO(username){
         })
     );
 
+
     localStorage.setItem(
         "linkcashLoggedIn",
         "true"
     );
+
 
     localStorage.setItem(
         "linkcashLoggedInUser",
@@ -856,18 +1185,22 @@ function loginCEO(username){
 }
 
 
-/* =========================================
-   NORMAL USER LOGIN
-========================================= */
+/* =================================================
+   NORMAL MEMBER LOGIN
+================================================= */
 
-function loginUser(user){
+function loginUser(
+    user
+){
 
     /*
-       Save complete account.
-       This preserves referral information.
+       Hifadhi account kamili.
+       Referral/sponsor data haifutwi.
     */
 
-    saveLoggedInUser(user);
+    saveLoggedInUser(
+        user
+    );
 
 
     const status =
@@ -879,12 +1212,13 @@ function loginUser(user){
         .toLowerCase();
 
 
-    /* =====================================
-       ACTIVE USER
-    ===================================== */
+    /* =================================================
+       ACTIVE
+    ================================================= */
 
     if(
-        status === "active" ||
+        status === "active"
+        ||
         status === "activated"
     ){
 
@@ -892,6 +1226,15 @@ function loginUser(user){
             "linkcashLoggedIn",
             "true"
         );
+
+
+        localStorage.setItem(
+            "linkcashLoggedInUser",
+            JSON.stringify(
+                user
+            )
+        );
+
 
         localStorage.removeItem(
             "linkcashPendingUser"
@@ -904,32 +1247,41 @@ function loginUser(user){
         );
 
 
-        setTimeout(function(){
+        setTimeout(
+            function(){
 
-            window.location.replace(
-                "dashboard.html"
-            );
+                window.location.replace(
+                    "dashboard.html"
+                );
 
-        },500);
+            },
+            500
+        );
+
 
         return;
 
     }
 
 
-    /* =====================================
-       PENDING USER
-    ===================================== */
+    /* =================================================
+       PENDING
+    ================================================= */
 
-    if(status === "pending"){
+    if(
+        status === "pending"
+    ){
 
         localStorage.removeItem(
             "linkcashLoggedIn"
         );
 
+
         localStorage.setItem(
             "linkcashPendingUser",
-            JSON.stringify(user)
+            JSON.stringify(
+                user
+            )
         );
 
 
@@ -939,32 +1291,41 @@ function loginUser(user){
         );
 
 
-        setTimeout(function(){
+        setTimeout(
+            function(){
 
-            window.location.replace(
-                "pending-dashboard.html"
-            );
+                window.location.replace(
+                    "pending-dashboard.html"
+                );
 
-        },700);
+            },
+            700
+        );
+
 
         return;
 
     }
 
 
-    /* =====================================
-       REJECTED USER
-    ===================================== */
+    /* =================================================
+       REJECTED
+    ================================================= */
 
-    if(status === "rejected"){
+    if(
+        status === "rejected"
+    ){
 
         localStorage.removeItem(
             "linkcashLoggedIn"
         );
 
+
         localStorage.setItem(
             "linkcashPendingUser",
-            JSON.stringify(user)
+            JSON.stringify(
+                user
+            )
         );
 
 
@@ -974,30 +1335,37 @@ function loginUser(user){
         );
 
 
-        setTimeout(function(){
+        setTimeout(
+            function(){
 
-            window.location.replace(
-                "pending-dashboard.html"
-            );
+                window.location.replace(
+                    "pending-dashboard.html"
+                );
 
-        },700);
+            },
+            700
+        );
+
 
         return;
 
     }
 
 
-    /* =====================================
-       ANY UNKNOWN STATUS
-===================================== */
+    /* =================================================
+       UNKNOWN STATUS
+    ================================================= */
 
     localStorage.removeItem(
         "linkcashLoggedIn"
     );
 
+
     localStorage.setItem(
         "linkcashPendingUser",
-        JSON.stringify(user)
+        JSON.stringify(
+            user
+        )
     );
 
 
@@ -1007,20 +1375,23 @@ function loginUser(user){
     );
 
 
-    setTimeout(function(){
+    setTimeout(
+        function(){
 
-        window.location.replace(
-            "pending-dashboard.html"
-        );
+            window.location.replace(
+                "pending-dashboard.html"
+            );
 
-    },700);
+        },
+        700
+    );
 
 }
 
 
-/* =========================================
+/* =================================================
    LOGIN FORM
-========================================= */
+================================================= */
 
 loginForm.addEventListener(
     "submit",
@@ -1033,6 +1404,7 @@ loginForm.addEventListener(
 
         const username =
             usernameInput.value.trim();
+
 
         const password =
             passwordInput.value;
@@ -1070,113 +1442,141 @@ loginForm.addEventListener(
             "loading"
         );
 
+
         loginBtn.innerHTML =
             '<span class="loading-dot">●</span> SIGNING IN...';
 
 
-        setTimeout(function(){
+        setTimeout(
+            function(){
 
 
-            /* =================================
-               CEO LOGIN
-            ================================= */
+                /* =====================================
+                   CEO LOGIN
+                   =====================================
+                   HAIJAVURUGWA.
+                */
 
-            if(
-                normalizeUsername(username) ===
-                normalizeUsername(
-                    CEO_USERNAME
-                ) &&
-                password ===
-                CEO_PASSWORD
-            ){
+                if(
 
-                loginCEO(username);
+                    normalizeUsername(
+                        username
+                    )
+                    ===
+                    normalizeUsername(
+                        CEO_USERNAME
+                    )
 
-                return;
+                    &&
 
-            }
+                    password ===
+                    CEO_PASSWORD
+
+                ){
+
+                    loginCEO(
+                        username
+                    );
+
+                    return;
+
+                }
 
 
-            /* =================================
-               NORMAL USER
-            ================================= */
+                /* =====================================
+                   MEMBER LOGIN
+                ===================================== */
 
-            const user =
-                findUser(
-                    username,
-                    password
+                const user =
+                    findUser(
+                        username,
+                        password
+                    );
+
+
+                if(!user){
+
+                    loginBtn.classList.remove(
+                        "loading"
+                    );
+
+
+                    loginBtn.textContent =
+                        "LOGIN TO LINKCASH";
+
+
+                    showMessage(
+                        "Username or password is incorrect.",
+                        "error"
+                    );
+
+
+                    return;
+
+                }
+
+
+                /* =====================================
+                   REMEMBER USERNAME
+                ===================================== */
+
+                if(
+                    remember.checked
+                ){
+
+                    localStorage.setItem(
+                        "linkcashRememberedUsername",
+                        normalizeUsername(
+                            username
+                        )
+                    );
+
+                }else{
+
+                    localStorage.removeItem(
+                        "linkcashRememberedUsername"
+                    );
+
+                }
+
+
+                loginUser(
+                    user
                 );
 
 
-            if(!user){
-
-                loginBtn.classList.remove(
-                    "loading"
-                );
-
-                loginBtn.textContent =
-                    "LOGIN TO LINKCASH";
-
-
-                showMessage(
-                    "Username or password is incorrect.",
-                    "error"
-                );
-
-
-                return;
-
-            }
-
-
-            /* =================================
-               REMEMBER USERNAME
-            ================================= */
-
-            if(remember.checked){
-
-                localStorage.setItem(
-                    "linkcashRememberedUsername",
-                    normalizeUsername(username)
-                );
-
-            }else{
-
-                localStorage.removeItem(
-                    "linkcashRememberedUsername"
-                );
-
-            }
-
-
-            loginUser(user);
-
-
-        },350);
+            },
+            350
+        );
 
     }
 );
 
 
-/* =========================================
+/* =================================================
    SHOW / HIDE PASSWORD
-========================================= */
+================================================= */
 
 document
-.getElementById("togglePassword")
+.getElementById(
+    "togglePassword"
+)
 .addEventListener(
     "click",
     function(){
 
         if(
-            passwordInput.type === "password"
+            passwordInput.type ===
+            "password"
         ){
 
             passwordInput.type =
                 "text";
 
+
             this.textContent =
                 "🙈";
+
 
             this.setAttribute(
                 "aria-label",
@@ -1188,8 +1588,10 @@ document
             passwordInput.type =
                 "password";
 
+
             this.textContent =
                 "👁";
+
 
             this.setAttribute(
                 "aria-label",
@@ -1202,13 +1604,16 @@ document
 );
 
 
-/* =========================================
+/* =================================================
    FORGOT PASSWORD
-========================================= */
+================================================= */
 
-function forgotPassword(event){
+function forgotPassword(
+    event
+){
 
     event.preventDefault();
+
 
     showMessage(
         "Password recovery is not connected yet. Please contact LINKCASH support.",
@@ -1218,9 +1623,9 @@ function forgotPassword(event){
 }
 
 
-/* =========================================
+/* =================================================
    REMEMBERED USERNAME
-========================================= */
+================================================= */
 
 const remembered =
     localStorage.getItem(
@@ -1233,8 +1638,10 @@ if(remembered){
     usernameInput.value =
         remembered;
 
+
     remember.checked =
         true;
+
 
     passwordInput.focus();
 
@@ -1247,4 +1654,4 @@ if(remembered){
 </script>
 
 </body>
-</html>
+    </html>
