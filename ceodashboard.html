@@ -222,12 +222,6 @@ border:1px solid #3b2222;
 color:#ff7777;
 }
 
-.delete{
-background:#151515;
-border:1px solid #292929;
-color:#aaa;
-}
-
 .rate-row{
 display:flex;
 align-items:center;
@@ -412,8 +406,13 @@ display:block;
 <div class="logo">LC</div>
 
 <div>
+
 <div class="brand">LINKCASH</div>
-<div class="sub">CEO CONTROL PANEL</div>
+
+<div class="sub">
+CEO CONTROL PANEL
+</div>
+
 </div>
 
 </div>
@@ -427,9 +426,12 @@ CEO
 
 <main class="container">
 
+
 <div class="welcome">
 
-<small>LINKCASH MANAGEMENT</small>
+<small>
+LINKCASH MANAGEMENT
+</small>
 
 <h1>
 Hello, <span>CEO</span> 👑
@@ -438,7 +440,10 @@ Hello, <span>CEO</span> 👑
 </div>
 
 
+<!-- ================= STATS ================= -->
+
 <div class="stats">
+
 
 <div class="stat">
 
@@ -446,7 +451,9 @@ Hello, <span>CEO</span> 👑
 TOTAL USERS
 </div>
 
-<div class="stat-value" id="totalUsers">
+<div
+class="stat-value"
+id="totalUsers">
 0
 </div>
 
@@ -459,7 +466,9 @@ TOTAL USERS
 ACTIVE USERS
 </div>
 
-<div class="stat-value" id="activeUsers">
+<div
+class="stat-value"
+id="activeUsers">
 0
 </div>
 
@@ -472,7 +481,9 @@ ACTIVE USERS
 PENDING
 </div>
 
-<div class="stat-value" id="pendingUsers">
+<div
+class="stat-value"
+id="pendingUsers">
 0
 </div>
 
@@ -486,27 +497,38 @@ TOTAL EARNINGS
 </div>
 
 <div class="stat-value">
-TSh <span id="totalEarnings">0</span>
+TSh
+<span id="totalEarnings">
+0
+</span>
 </div>
 
 </div>
 
+
 </div>
 
 
-<!-- USERS -->
+<!-- ================= USER MANAGEMENT ================= -->
 
 <div class="section">
 
 <div class="section-title">
 
-<h2>User Management</h2>
+<h2>
+User Management
+</h2>
 
-<span>ALL MEMBERS</span>
+<span>
+ALL MEMBERS
+</span>
 
 </div>
 
-<div class="card" id="usersList">
+
+<div
+class="card"
+id="usersList">
 
 <div class="empty">
 No users found
@@ -517,19 +539,27 @@ No users found
 </div>
 
 
-<!-- COMMISSION -->
+<!-- ================= COMMISSION ================= -->
 
 <div class="section">
 
 <div class="section-title">
 
-<h2>Commission Settings</h2>
+<h2>
+Commission Settings
+</h2>
 
-<span>LEVEL 1–4</span>
+<span>
+LEVEL 1–4
+</span>
 
 </div>
 
+
 <div class="card">
+
+
+<!-- LEVEL 1 -->
 
 <div class="rate-row">
 
@@ -540,6 +570,7 @@ L1
 </div>
 
 <div>
+
 <div class="rate-title">
 Level 1
 </div>
@@ -547,9 +578,11 @@ Level 1
 <div class="rate-desc">
 Direct referral
 </div>
+
 </div>
 
 </div>
+
 
 <input
 class="rate-input"
@@ -561,6 +594,8 @@ min="0"
 </div>
 
 
+<!-- LEVEL 2 -->
+
 <div class="rate-row">
 
 <div class="rate-left">
@@ -570,6 +605,7 @@ L2
 </div>
 
 <div>
+
 <div class="rate-title">
 Level 2
 </div>
@@ -577,9 +613,11 @@ Level 2
 <div class="rate-desc">
 Second level
 </div>
+
 </div>
 
 </div>
+
 
 <input
 class="rate-input"
@@ -591,6 +629,8 @@ min="0"
 </div>
 
 
+<!-- LEVEL 3 -->
+
 <div class="rate-row">
 
 <div class="rate-left">
@@ -600,6 +640,7 @@ L3
 </div>
 
 <div>
+
 <div class="rate-title">
 Level 3
 </div>
@@ -607,9 +648,11 @@ Level 3
 <div class="rate-desc">
 Third level
 </div>
+
 </div>
 
 </div>
+
 
 <input
 class="rate-input"
@@ -621,6 +664,8 @@ min="0"
 </div>
 
 
+<!-- LEVEL 4 -->
+
 <div class="rate-row">
 
 <div class="rate-left">
@@ -630,6 +675,7 @@ L4
 </div>
 
 <div>
+
 <div class="rate-title">
 Level 4
 </div>
@@ -637,9 +683,11 @@ Level 4
 <div class="rate-desc">
 Fourth level
 </div>
+
 </div>
 
 </div>
+
 
 <input
 class="rate-input"
@@ -650,40 +698,59 @@ min="0"
 
 </div>
 
+
 </div>
 
-<button class="save-btn" onclick="saveRates()">
+
+<button
+class="save-btn"
+onclick="saveRates()">
+
 SAVE COMMISSION SETTINGS
+
 </button>
 
 </div>
 
 
-<!-- SOCIAL MEDIA -->
+<!-- ================= SOCIAL MEDIA ================= -->
 
 <div class="section">
 
 <div class="section-title">
 
-<h2>Social Media</h2>
+<h2>
+Social Media
+</h2>
 
-<span>USER TASKS</span>
+<span>
+USER TASKS
+</span>
 
 </div>
 
+
 <div class="card">
 
+
+<!-- TIKTOK -->
 
 <div class="social">
 
 <div class="social-top">
 
 <div class="social-name">
-<span>♪</span>
+
+<span>
+♪
+</span>
+
 TikTok
+
 </div>
 
 </div>
+
 
 <input
 class="social-input"
@@ -691,35 +758,49 @@ id="tiktok"
 placeholder="Paste TikTok link"
 >
 
+
 <div class="social-actions">
 
 <button
 class="small-btn social-save"
 onclick="saveSocial('tiktok')">
+
 SAVE
+
 </button>
+
 
 <button
 class="small-btn social-delete"
 onclick="deleteSocial('tiktok')">
+
 DELETE
+
 </button>
 
 </div>
 
 </div>
 
+
+<!-- YOUTUBE -->
 
 <div class="social">
 
 <div class="social-top">
 
 <div class="social-name">
-<span>▶</span>
+
+<span>
+▶
+</span>
+
 YouTube
+
 </div>
 
 </div>
+
 
 <input
 class="social-input"
@@ -727,35 +808,49 @@ id="youtube"
 placeholder="Paste YouTube link"
 >
 
+
 <div class="social-actions">
 
 <button
 class="small-btn social-save"
 onclick="saveSocial('youtube')">
+
 SAVE
+
 </button>
+
 
 <button
 class="small-btn social-delete"
 onclick="deleteSocial('youtube')">
+
 DELETE
+
 </button>
 
 </div>
 
 </div>
 
+
+<!-- FACEBOOK -->
 
 <div class="social">
 
 <div class="social-top">
 
 <div class="social-name">
-<span>f</span>
+
+<span>
+f
+</span>
+
 Facebook
+
 </div>
 
 </div>
+
 
 <input
 class="social-input"
@@ -763,35 +858,49 @@ id="facebook"
 placeholder="Paste Facebook link"
 >
 
+
 <div class="social-actions">
 
 <button
 class="small-btn social-save"
 onclick="saveSocial('facebook')">
+
 SAVE
+
 </button>
+
 
 <button
 class="small-btn social-delete"
 onclick="deleteSocial('facebook')">
+
 DELETE
+
 </button>
 
 </div>
 
 </div>
 
+
+<!-- INSTAGRAM -->
 
 <div class="social">
 
 <div class="social-top">
 
 <div class="social-name">
-<span>◎</span>
+
+<span>
+◎
+</span>
+
 Instagram
+
 </div>
 
 </div>
+
 
 <input
 class="social-input"
@@ -799,18 +908,24 @@ id="instagram"
 placeholder="Paste Instagram link"
 >
 
+
 <div class="social-actions">
 
 <button
 class="small-btn social-save"
 onclick="saveSocial('instagram')">
+
 SAVE
+
 </button>
+
 
 <button
 class="small-btn social-delete"
 onclick="deleteSocial('instagram')">
+
 DELETE
+
 </button>
 
 </div>
@@ -823,54 +938,78 @@ DELETE
 </div>
 
 
-<button class="logout" onclick="logoutCEO">
+<button
+class="logout"
+onclick="logoutCEO()">
+
 CEO LOG OUT
+
 </button>
+
 
 </main>
 
 
-<div class="message" id="message">
+<div
+class="message"
+id="message">
+
 Saved successfully
+
 </div>
 
 
 <script>
 
-/* ================================
-   DEFAULT SETTINGS
-================================ */
+/* ==================================================
+   DEFAULT COMMISSION
+================================================== */
 
-const DEFAULT_SETTINGS={
+const DEFAULT_SETTINGS = {
+
 1:7000,
+
 2:3000,
+
 3:1500,
+
 4:1000
+
 };
 
 
-/* ================================
-   ACCOUNTS
-================================ */
+/* ==================================================
+   ACCOUNT STORAGE
+================================================== */
 
 function getAccounts(){
 
 try{
 
-const data=
-localStorage.getItem("linkcashAccounts");
+const data =
+localStorage.getItem(
+"linkcashAccounts"
+);
 
 if(!data){
+
 return [];
+
 }
 
-const accounts=JSON.parse(data);
+const accounts =
+JSON.parse(data);
 
 return Array.isArray(accounts)
-?accounts
-:[];
+? accounts
+: [];
 
 }catch(error){
+
+console.error(
+"Accounts error:",
+error
+);
 
 return [];
 
@@ -882,82 +1021,144 @@ return [];
 function saveAccounts(accounts){
 
 localStorage.setItem(
+
 "linkcashAccounts",
+
 JSON.stringify(accounts)
+
 );
 
 }
 
 
-/* ================================
-   SETTINGS
-================================ */
+/* ==================================================
+   COMMISSION SETTINGS
+================================================== */
 
 function getSettings(){
 
 try{
 
-const saved=
-localStorage.getItem("linkcashSettings");
+const saved =
+localStorage.getItem(
+"linkcashSettings"
+);
 
 if(saved){
 
-const settings=JSON.parse(saved);
+const settings =
+JSON.parse(saved);
 
 return {
-1:Number(settings[1] ?? DEFAULT_SETTINGS[1]),
-2:Number(settings[2] ?? DEFAULT_SETTINGS[2]),
-3:Number(settings[3] ?? DEFAULT_SETTINGS[3]),
-4:Number(settings[4] ?? DEFAULT_SETTINGS[4])
+
+1:Number(
+settings[1] ??
+DEFAULT_SETTINGS[1]
+),
+
+2:Number(
+settings[2] ??
+DEFAULT_SETTINGS[2]
+),
+
+3:Number(
+settings[3] ??
+DEFAULT_SETTINGS[3]
+),
+
+4:Number(
+settings[4] ??
+DEFAULT_SETTINGS[4]
+)
+
 };
 
 }
 
-}catch(error){}
+}catch(error){
 
-return DEFAULT_SETTINGS;
+console.error(error);
+
+}
+
+return {
+...DEFAULT_SETTINGS
+};
 
 }
 
 
 function loadRates(){
 
-const rates=getSettings();
+const rates =
+getSettings();
 
-document.getElementById("rate1").value=rates[1];
-document.getElementById("rate2").value=rates[2];
-document.getElementById("rate3").value=rates[3];
-document.getElementById("rate4").value=rates[4];
+
+document.getElementById(
+"rate1"
+).value =
+rates[1];
+
+
+document.getElementById(
+"rate2"
+).value =
+rates[2];
+
+
+document.getElementById(
+"rate3"
+).value =
+rates[3];
+
+
+document.getElementById(
+"rate4"
+).value =
+rates[4];
 
 }
 
 
 function saveRates(){
 
-const settings={
+const settings = {
 
 1:Number(
-document.getElementById("rate1").value||0
+document.getElementById(
+"rate1"
+).value || 0
 ),
 
 2:Number(
-document.getElementById("rate2").value||0
+document.getElementById(
+"rate2"
+).value || 0
 ),
 
 3:Number(
-document.getElementById("rate3").value||0
+document.getElementById(
+"rate3"
+).value || 0
 ),
 
 4:Number(
-document.getElementById("rate4").value||0
+document.getElementById(
+"rate4"
+).value || 0
 )
 
 };
 
+
 localStorage.setItem(
+
 "linkcashSettings",
+
 JSON.stringify(settings)
+
 );
+
 
 showMessage(
 "Commission settings saved successfully."
@@ -966,50 +1167,949 @@ showMessage(
 }
 
 
-/* ================================
-   USERS
-================================ */
+/* ==================================================
+   STATUS
+================================================== */
 
-function renderUsers(){
+function isActive(user){
 
-const accounts=getAccounts();
+const status =
+String(
+user.status || ""
+)
+.toLowerCase()
+.trim();
 
-const container=
-document.getElementById("usersList");
 
-document.getElementById("totalUsers")
-.textContent=accounts.length;
+return (
 
-let active=0;
-let pending=0;
+status === "active" ||
 
-accounts.forEach(function(user){
+status === "activated"
 
-const status=
-String(user.status||"pending")
-.toLowerCase();
+);
+
+}
+
+
+/* ==================================================
+   FORCE ACTIVATED
+================================================== */
+
+function setActivated(user){
+
+user.status =
+"activated";
+
+user.accountStatus =
+"activated";
+
+user.activated =
+true;
+
+user.isActivated =
+true;
+
+user.active =
+true;
+
+user.pending =
+false;
+
+user.activatedAt =
+user.activatedAt ||
+new Date().toISOString();
+
+return user;
+
+}
+
+
+/* ==================================================
+   MONEY FIELDS
+================================================== */
+
+function prepareMoneyFields(user){
+
+user.balance =
+Number(
+user.balance || 0
+);
+
+
+user.earnings =
+Number(
+user.earnings || 0
+);
+
+
+user.commission =
+Number(
+user.commission || 0
+);
+
+
+user.totalEarnings =
+Number(
+user.totalEarnings || 0
+);
+
+
+return user;
+
+}
+
+
+/* ==================================================
+   COMMISSION RECORDS
+================================================== */
+
+function getCommissionRecords(){
+
+try{
+
+const saved =
+localStorage.getItem(
+"linkcashCommissionRecords"
+);
+
+if(saved){
+
+const records =
+JSON.parse(saved);
+
+return Array.isArray(records)
+? records
+: [];
+
+}
+
+}catch(error){
+
+console.error(error);
+
+}
+
+return [];
+
+}
+
+
+function saveCommissionRecords(records){
+
+localStorage.setItem(
+
+"linkcashCommissionRecords",
+
+JSON.stringify(records)
+
+);
+
+}
+
+
+/* ==================================================
+   FIND USER
+================================================== */
+
+function findUserByUsername(
+accounts,
+username
+){
+
+return accounts.find(
+function(user){
+
+return String(
+user.username || ""
+)
+.toLowerCase()
+.trim() ===
+String(
+username || ""
+)
+.toLowerCase()
+.trim();
+
+}
+);
+
+}
+
+
+/* ==================================================
+   GET LEVEL MEMBERS
+================================================== */
+
+function getMembersByLevel(
+username,
+level
+){
+
+const accounts =
+getAccounts();
+
+
+/* LEVEL 1 */
+
+if(level === 1){
+
+return accounts.filter(
+function(member){
+
+return String(
+member.referredBy || ""
+)
+.toLowerCase()
+.trim() ===
+String(
+username || ""
+)
+.toLowerCase()
+.trim();
+
+}
+);
+
+}
+
+
+/* LEVEL 2,3,4 */
+
+let previous =
+getMembersByLevel(
+username,
+1
+);
+
+
+for(
+let current=2;
+current<=level;
+current++
+){
+
+const previousNames =
+previous.map(
+function(member){
+
+return String(
+member.username || ""
+)
+.toLowerCase()
+.trim();
+
+}
+);
+
+
+previous =
+accounts.filter(
+function(member){
+
+return previousNames.includes(
+
+String(
+member.referredBy || ""
+)
+.toLowerCase()
+.trim()
+
+);
+
+}
+);
+
+}
+
+
+return previous;
+
+}
+
+
+/* ==================================================
+   PAY COMMISSION
+================================================== */
+
+function payCommission(
+
+accounts,
+
+sourceUser,
+
+member,
+
+level,
+
+amount,
+
+records
+
+){
+
+if(!member){
+
+return false;
+
+}
+
+
+if(amount <= 0){
+
+return false;
+
+}
+
+
+/*
+ Unique commission key
+*/
+
+const activationKey =
+String(
+
+sourceUser.id ||
+
+sourceUser.username ||
+
+"unknown"
+
+);
+
+
+const recordKey =
+
+activationKey +
+
+"|" +
+
+String(
+member.username || ""
+) +
+
+"|" +
+
+String(level);
+
+
+/*
+ Prevent duplicate
+*/
+
+const alreadyPaid =
+records.some(
+function(record){
+
+return String(
+record.key
+) === recordKey;
+
+}
+);
+
+
+if(alreadyPaid){
+
+return false;
+
+}
+
+
+/*
+ Money fields
+*/
+
+prepareMoneyFields(
+member
+);
+
+
+/*
+ PAY
+*/
+
+member.balance +=
+Number(amount);
+
+
+member.earnings +=
+Number(amount);
+
+
+member.commission +=
+Number(amount);
+
+
+member.totalEarnings +=
+Number(amount);
+
+
+/*
+ Last commission
+*/
+
+member.lastCommission =
+Number(amount);
+
+member.lastCommissionLevel =
+Number(level);
+
+member.lastCommissionAt =
+new Date().toISOString();
+
+
+/*
+ History
+*/
 
 if(
-status==="active" ||
-status==="activated"
+!Array.isArray(
+member.commissionHistory
+)
 ){
-active++;
-}else{
-pending++;
+
+member.commissionHistory = [];
+
 }
+
+
+member.commissionHistory.push({
+
+id:
+
+"COM-" +
+
+Date.now() +
+
+"-" +
+
+Math.random()
+.toString(36)
+.substring(2,8),
+
+from:
+sourceUser.username || "",
+
+level:
+Number(level),
+
+amount:
+Number(amount),
+
+date:
+new Date().toISOString()
 
 });
 
-document.getElementById("activeUsers")
-.textContent=active;
 
-document.getElementById("pendingUsers")
-.textContent=pending;
+/*
+ Global record
+*/
+
+records.push({
+
+key:
+recordKey,
+
+from:
+sourceUser.username || "",
+
+to:
+member.username || "",
+
+level:
+Number(level),
+
+amount:
+Number(amount),
+
+date:
+new Date().toISOString()
+
+});
+
+
+return true;
+
+}
+
+
+/* ==================================================
+   ACTIVATE USER
+================================================== */
+
+function activateUser(id){
+
+const accounts =
+getAccounts();
+
+
+const index =
+accounts.findIndex(
+function(user){
+
+return String(
+user.id
+) ===
+String(id);
+
+}
+);
+
+
+if(index === -1){
+
+showMessage(
+"User not found."
+);
+
+return;
+
+}
+
+
+const user =
+accounts[index];
+
+
+/*
+ Check previous status
+*/
+
+const wasAlreadyActive =
+isActive(user);
+
+
+/*
+ IMPORTANT:
+ Make status ACTIVATED
+*/
+
+setActivated(
+user
+);
+
+prepareMoneyFields(
+user
+);
+
+
+/*
+ ONLY PAY ON FIRST ACTIVATION
+*/
+
+if(!wasAlreadyActive){
+
+const rates =
+getSettings();
+
+const records =
+getCommissionRecords();
+
+
+/*
+ =====================================
+ LEVEL 1
+ DIRECT REFERRAL
+ =====================================
+*/
+
+const level1 =
+getMembersByLevel(
+user.username,
+1
+);
+
+
+level1.forEach(
+function(member){
+
+if(
+!isActive(member)
+){
+
+return;
+
+}
+
+
+const amount =
+Number(
+rates[1] || 0
+);
+
+
+if(amount <= 0){
+
+return;
+
+}
+
+
+payCommission(
+
+accounts,
+
+user,
+
+member,
+
+1,
+
+amount,
+
+records
+
+);
+
+}
+);
+
+
+/*
+ =====================================
+ LEVEL 2
+ =====================================
+*/
+
+const level2 =
+getMembersByLevel(
+user.username,
+2
+);
+
+
+level2.forEach(
+function(member){
+
+if(
+!isActive(member)
+){
+
+return;
+
+}
+
+
+const amount =
+Number(
+rates[2] || 0
+);
+
+
+if(amount <= 0){
+
+return;
+
+}
+
+
+payCommission(
+
+accounts,
+
+user,
+
+member,
+
+2,
+
+amount,
+
+records
+
+);
+
+}
+);
+
+
+/*
+ =====================================
+ LEVEL 3
+ =====================================
+*/
+
+const level3 =
+getMembersByLevel(
+user.username,
+3
+);
+
+
+level3.forEach(
+function(member){
+
+if(
+!isActive(member)
+){
+
+return;
+
+}
+
+
+const amount =
+Number(
+rates[3] || 0
+);
+
+
+if(amount <= 0){
+
+return;
+
+}
+
+
+payCommission(
+
+accounts,
+
+user,
+
+member,
+
+3,
+
+amount,
+
+records
+
+);
+
+}
+);
+
+
+/*
+ =====================================
+ LEVEL 4
+ =====================================
+*/
+
+const level4 =
+getMembersByLevel(
+user.username,
+4
+);
+
+
+level4.forEach(
+function(member){
+
+if(
+!isActive(member)
+){
+
+return;
+
+}
+
+
+const amount =
+Number(
+rates[4] || 0
+);
+
+
+if(amount <= 0){
+
+return;
+
+}
+
+
+payCommission(
+
+accounts,
+
+user,
+
+member,
+
+4,
+
+amount,
+
+records
+
+);
+
+}
+);
+
+
+/*
+ SAVE COMMISSION RECORDS
+*/
+
+saveCommissionRecords(
+records
+);
+
+}
+
+
+/*
+ SAVE UPDATED USERS
+*/
+
+saveAccounts(
+accounts
+);
+
+
+showMessage(
+
+(user.username || "User") +
+
+" ACTIVATED successfully."
+
+);
+
+
+renderUsers();
+
+calculateTotalEarnings();
+
+}
+
+
+/* ==================================================
+   REJECT USER
+================================================== */
+
+function rejectUser(id){
+
+const accounts =
+getAccounts();
+
+
+const index =
+accounts.findIndex(
+function(user){
+
+return String(
+user.id
+) ===
+String(id);
+
+}
+);
+
+
+if(index === -1){
+
+return;
+
+}
+
+
+const user =
+accounts[index];
+
+
+user.status =
+"rejected";
+
+user.accountStatus =
+"rejected";
+
+user.activated =
+false;
+
+user.isActivated =
+false;
+
+user.active =
+false;
+
+user.pending =
+false;
+
+
+saveAccounts(
+accounts
+);
+
+
+showMessage(
+
+(user.username || "User") +
+
+" rejected."
+
+);
+
+
+renderUsers();
+
+}
+
+
+/* ==================================================
+   RENDER USERS
+================================================== */
+
+function renderUsers(){
+
+const accounts =
+getAccounts();
+
+
+const container =
+document.getElementById(
+"usersList"
+);
+
+
+document.getElementById(
+"totalUsers"
+).textContent =
+accounts.length;
+
+
+let active = 0;
+
+let pending = 0;
+
+
+accounts.forEach(
+function(user){
+
+if(
+isActive(user)
+){
+
+active++;
+
+}else{
+
+pending++;
+
+}
+
+}
+);
+
+
+document.getElementById(
+"activeUsers"
+).textContent =
+active;
+
+
+document.getElementById(
+"pendingUsers"
+).textContent =
+pending;
 
 
 if(!accounts.length){
 
-container.innerHTML=
+container.innerHTML =
 '<div class="empty">No users found</div>';
 
 return;
@@ -1017,52 +2117,101 @@ return;
 }
 
 
-container.innerHTML="";
+container.innerHTML =
+"";
 
 
-accounts.forEach(function(user){
+accounts.forEach(
+function(user){
 
-const row=
-document.createElement("div");
+const row =
+document.createElement(
+"div"
+);
 
-row.className="user-row";
+row.className =
+"user-row";
 
-const status=
-String(user.status||"pending")
+
+const status =
+String(
+user.status ||
+"pending"
+)
 .toLowerCase();
 
-let statusClass="pending";
+
+let statusClass =
+"pending";
+
 
 if(
-status==="active" ||
-status==="activated"
+isActive(user)
 ){
-statusClass="active";
+
+statusClass =
+"active";
+
 }
 
-if(status==="rejected"){
-statusClass="rejected";
+
+if(
+status === "rejected"
+){
+
+statusClass =
+"rejected";
+
 }
 
 
-row.innerHTML=`
+let displayStatus;
+
+
+if(
+isActive(user)
+){
+
+displayStatus =
+"ACTIVATED";
+
+}else{
+
+displayStatus =
+status.toUpperCase();
+
+}
+
+
+row.innerHTML = `
 
 <div class="user-top">
 
 <div>
 
 <div class="user-name">
-${escapeHTML(user.username||"-")}
+
+${escapeHTML(
+user.username || "-"
+)}
+
 </div>
 
 <div class="user-phone">
-${escapeHTML(user.phone||"-")}
+
+${escapeHTML(
+user.phone || "-"
+)}
+
 </div>
 
 </div>
+
 
 <div class="status ${statusClass}">
-${status.toUpperCase()}
+
+${displayStatus}
+
 </div>
 
 </div>
@@ -1073,116 +2222,69 @@ ${status.toUpperCase()}
 <button
 class="btn activate"
 onclick="activateUser('${escapeJS(user.id)}')">
+
 ACTIVATE
+
 </button>
+
 
 <button
 class="btn reject"
 onclick="rejectUser('${escapeJS(user.id)}')">
+
 REJECT
+
 </button>
 
 </div>
 
 `;
 
-container.appendChild(row);
 
-});
-
-}
-
-
-/* ================================
-   ACTIVATE
-================================ */
-
-function activateUser(id){
-
-const accounts=getAccounts();
-
-const index=
-accounts.findIndex(function(user){
-
-return String(user.id)===String(id);
-
-});
-
-if(index===-1){
-return;
-}
-
-accounts[index].status="active";
-accounts[index].activatedAt=
-new Date().toISOString();
-
-saveAccounts(accounts);
-
-showMessage(
-accounts[index].username+
-" activated successfully."
+container.appendChild(
+row
 );
 
-renderUsers();
-
 }
-
-
-/* ================================
-   REJECT
-================================ */
-
-function rejectUser(id){
-
-const accounts=getAccounts();
-
-const index=
-accounts.findIndex(function(user){
-
-return String(user.id)===String(id);
-
-});
-
-if(index===-1){
-return;
-}
-
-accounts[index].status="rejected";
-
-saveAccounts(accounts);
-
-showMessage(
-accounts[index].username+
-" rejected."
 );
 
-renderUsers();
-
 }
 
 
-/* ================================
+/* ==================================================
    SOCIAL
-================================ */
+================================================== */
 
 function getSocial(){
 
 try{
 
-const saved=
-localStorage.getItem("linkcashSocial");
+const saved =
+localStorage.getItem(
+"linkcashSocial"
+);
 
 if(saved){
-return JSON.parse(saved);
+
+return JSON.parse(
+saved
+);
+
 }
 
 }catch(error){}
 
+
 return {
+
 tiktok:"",
+
 youtube:"",
+
 facebook:"",
+
 instagram:""
+
 };
 
 }
@@ -1190,219 +2292,291 @@ instagram:""
 
 function loadSocial(){
 
-const social=getSocial();
+const social =
+getSocial();
 
-document.getElementById("tiktok").value=
-social.tiktok||"";
 
-document.getElementById("youtube").value=
-social.youtube||"";
+document.getElementById(
+"tiktok"
+).value =
+social.tiktok || "";
 
-document.getElementById("facebook").value=
-social.facebook||"";
 
-document.getElementById("instagram").value=
-social.instagram||"";
+document.getElementById(
+"youtube"
+).value =
+social.youtube || "";
+
+
+document.getElementById(
+"facebook"
+).value =
+social.facebook || "";
+
+
+document.getElementById(
+"instagram"
+).value =
+social.instagram || "";
 
 }
 
 
-function saveSocial(platform){
+function saveSocial(
+platform
+){
 
-const social=getSocial();
+const social =
+getSocial();
 
-social[platform]=
-document.getElementById(platform).value.trim();
+
+social[platform] =
+document
+.getElementById(platform)
+.value
+.trim();
+
 
 localStorage.setItem(
+
 "linkcashSocial",
-JSON.stringify(social)
+
+JSON.stringify(
+social
+)
+
 );
 
+
 showMessage(
-platform.toUpperCase()+
+
+platform.toUpperCase() +
+
 " link saved."
+
 );
 
 }
 
 
-function deleteSocial(platform){
+function deleteSocial(
+platform
+){
 
-const social=getSocial();
+const social =
+getSocial();
 
-social[platform]="";
+
+social[platform] =
+"";
+
 
 localStorage.setItem(
+
 "linkcashSocial",
-JSON.stringify(social)
+
+JSON.stringify(
+social
+)
+
 );
 
-document.getElementById(platform).value="";
+
+document.getElementById(
+platform
+).value =
+"";
+
 
 showMessage(
-platform.toUpperCase()+
+
+platform.toUpperCase() +
+
 " link deleted."
+
 );
 
 }
 
 
-/* ================================
+/* ==================================================
    TOTAL EARNINGS
-================================ */
+================================================== */
 
 function calculateTotalEarnings(){
 
-const accounts=getAccounts();
+const accounts =
+getAccounts();
 
-const rates=getSettings();
+const rates =
+getSettings();
 
-let total=0;
+let total = 0;
 
-accounts.forEach(function(account){
 
-const status=
-String(account.status||"pending")
-.toLowerCase();
+accounts.forEach(
+function(account){
 
 if(
-status!=="active" &&
-status!=="activated"
+!isActive(account)
 ){
+
 return;
+
 }
 
-for(let level=1;level<=4;level++){
 
-const members=
+for(
+let level=1;
+level<=4;
+level++
+){
+
+const members =
 getMembersByLevel(
+
 account.username,
+
 level
+
 );
 
-total+=
-members.filter(function(member){
 
-const memberStatus=
-String(member.status||"pending")
-.toLowerCase();
+members.forEach(
+function(member){
 
-return(
-memberStatus==="active" ||
-memberStatus==="activated"
+if(
+!isActive(member)
+){
+
+return;
+
+}
+
+
+total +=
+Number(
+rates[level] || 0
 );
 
-}).length *
-Number(rates[level]||0);
-
 }
-
-});
-
-document.getElementById("totalEarnings")
-.textContent=
-Number(total).toLocaleString("en-US");
-
-}
-
-
-function getMembersByLevel(username,level){
-
-const accounts=getAccounts();
-
-if(level===1){
-
-return accounts.filter(function(member){
-
-return String(member.referredBy||"")
-.toLowerCase()===
-String(username||"")
-.toLowerCase();
-
-});
-
-}
-
-let previous=
-getMembersByLevel(username,1);
-
-for(let current=2;current<=level;current++){
-
-const previousNames=
-previous.map(function(member){
-
-return String(member.username||"")
-.toLowerCase();
-
-});
-
-previous=
-accounts.filter(function(member){
-
-return previousNames.includes(
-String(member.referredBy||"")
-.toLowerCase()
 );
 
-});
+}
+
+}
+);
+
+
+document.getElementById(
+"totalEarnings"
+).textContent =
+
+Number(total)
+.toLocaleString(
+"en-US"
+);
 
 }
 
-return previous;
 
-}
+/* ==================================================
+   ESCAPE
+================================================== */
 
-
-/* ================================
-   SAFE HTML
-================================ */
-
-function escapeHTML(value){
+function escapeHTML(
+value
+){
 
 return String(value)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
 
 }
 
 
-function escapeJS(value){
+function escapeJS(
+value
+){
 
 return String(value)
-.replace(/\\/g,"\\\\")
-.replace(/'/g,"\\'");
+
+.replace(
+/\\/g,
+"\\\\"
+)
+
+.replace(
+/'/g,
+"\\'"
+);
+
 }
 
 
-/* ================================
+/* ==================================================
    MESSAGE
-================================ */
+================================================== */
 
-function showMessage(text){
+function showMessage(
+text
+){
 
-const box=
-document.getElementById("message");
+const box =
+document.getElementById(
+"message"
+);
 
-box.textContent=text;
 
-box.classList.add("show");
+box.textContent =
+text;
 
-setTimeout(function(){
 
-box.classList.remove("show");
+box.classList.add(
+"show"
+);
 
-},2500);
+
+setTimeout(
+function(){
+
+box.classList.remove(
+"show"
+);
+
+},
+3000
+);
 
 }
 
 
-/* ================================
-   CEO LOGOUT
-================================ */
+/* ==================================================
+   LOGOUT
+================================================== */
 
 function logoutCEO(){
 
@@ -1410,14 +2584,15 @@ localStorage.removeItem(
 "linkcashCEOLoggedIn"
 );
 
-window.location.href="login.html";
+window.location.href =
+"login.html";
 
 }
 
 
-/* ================================
+/* ==================================================
    START
-================================ */
+================================================== */
 
 loadRates();
 
@@ -1428,14 +2603,18 @@ renderUsers();
 calculateTotalEarnings();
 
 
-setInterval(function(){
+setInterval(
+function(){
 
 renderUsers();
+
 calculateTotalEarnings();
 
-},3000);
+},
+3000
+);
 
 </script>
 
 </body>
-</html>
+   </html>
